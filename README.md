@@ -10,7 +10,7 @@ Properties (Corporate: Asset Register)
 
 Management Companies (Corporate: management-firms)
 
-Owners & Units (Corporate: owner-Unit-Registry)
+Owners & Units (Corporate: owner-Registry)
 
 Escrow Deposits (Corporate: Trust Fund Contributions)
 

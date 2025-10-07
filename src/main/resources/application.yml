@@ -7,7 +7,7 @@ spring:
   flyway:
     enabled: false
   datasource:
-    url: jdbc:postgresql://103.181.200.143:5432/rera-cdl-dev?sslmode=disable
+    url: jdbc:postgresql://103.181.200.143:5432/hoa-cdl-dev?sslmode=disable
     username: postgres
     password: cdl@120813
 

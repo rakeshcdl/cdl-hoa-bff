@@ -166,7 +166,7 @@ public class WorkflowRequestServiceImpl implements WorkflowRequestService {
             if (stage.getStageOrder() == 1) {
                 stage.setTaskStatus(firstStageStatus);
             } else {
-                stage.setTaskStatus(otherStageStatus);
+                stage.setTaskStatus(firstStageStatus);
             }
 
             workflowRequestStageRepository.save(stage);
@@ -184,11 +184,7 @@ public class WorkflowRequestServiceImpl implements WorkflowRequestService {
         return mapper.toDto(request);
     }
 
-    @Override
-    public Page<MyEngagementDTO> getMyEngagements(String userId, Pageable pageable) {
-       // return requestRepository.findEngagementsForUser(userId, pageable);
-        return null;
-    }
+
 
 
     /**
