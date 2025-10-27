@@ -332,4 +332,18 @@ public class FundEgress implements Serializable {
 
     @ManyToOne(fetch = FetchType.LAZY)
     private TaskStatus taskStatus;
+
+    // Budget
+
+    @ManyToOne
+    @JsonIgnore
+    private Budget budget;
+
+    @ManyToOne
+    @JsonIgnore
+    private BudgetCategory budgetCategory;
+
+    @ManyToOne
+    @JsonIgnore
+    private BudgetItem budgetItem;
 }

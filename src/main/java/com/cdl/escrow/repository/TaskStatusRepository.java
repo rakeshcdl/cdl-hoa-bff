@@ -14,5 +14,7 @@ public interface TaskStatusRepository extends JpaRepository<TaskStatus,Long>, Jp
     Optional<TaskStatus> findByIdAndDeletedFalse(Long id);
 
     Optional<TaskStatus> findByName(String inProgress);
+
+    Optional<TaskStatus> findByCode(String pending);
 }
 

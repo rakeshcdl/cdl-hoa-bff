@@ -121,4 +121,9 @@ public class BuildPartner implements Serializable {
 
     @ManyToOne(fetch = FetchType.LAZY)
     private TaskStatus taskStatus;
+
+    //Budget
+    @OneToMany(mappedBy = "buildPartner")
+    @JsonIgnore
+    private Set<Budget> budgets = new HashSet<>();
 }

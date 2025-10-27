@@ -6,9 +6,9 @@
 This is a Spring Boot application that provides REST APIs for managing application data.  
 It follows a layered architecture with **Controller → Service → Repository** and uses JPA/Hibernate for persistence.
 
-Properties (Corporate: Asset Register)
+Properties (Corporate: Asset Register) - Build Partner Assets
 
-Management Companies (Corporate: management-firms)
+Management Companies (Corporate: management-firms) - Build Partner
 
 Owners & Units (Corporate: owner-Registry)
 

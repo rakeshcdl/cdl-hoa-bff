@@ -184,4 +184,10 @@ public class RealEstateAssest implements Serializable {
 
     @ManyToOne(fetch = FetchType.LAZY)
     private TaskStatus taskStatus;
+
+    // Budget
+
+    @OneToMany(mappedBy = "realEstateAssest")
+    @JsonIgnore
+    private Set<Budget> budgets = new HashSet<>();
 }
