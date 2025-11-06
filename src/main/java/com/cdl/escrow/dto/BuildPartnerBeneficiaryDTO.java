@@ -1,6 +1,5 @@
 package com.cdl.escrow.dto;
 
-import com.cdl.escrow.entity.BuildPartner;
 import com.cdl.escrow.enumeration.WorkflowStatus;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -45,6 +44,6 @@ public class BuildPartnerBeneficiaryDTO implements Serializable {
 
     //private Set<Long> buildPartnerIds = new HashSet<>();
 
-    private Set<BuildPartnerDTO> buildPartnerDTO= new HashSet<>();
+    private Set<AssetRegisterDTO> assetRegisterDTO = new HashSet<>();
 
 }

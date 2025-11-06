@@ -1,11 +1,7 @@
 package com.cdl.escrow.serviceimpl;
 
-import com.cdl.escrow.dto.BuildPartnerBeneficiaryDTO;
-import com.cdl.escrow.dto.BuildPartnerDTO;
 import com.cdl.escrow.dto.RealEstateAssestBeneficiaryDTO;
 import com.cdl.escrow.dto.RealEstateAssestDTO;
-import com.cdl.escrow.entity.BuildPartner;
-import com.cdl.escrow.entity.BuildPartnerBeneficiary;
 import com.cdl.escrow.entity.RealEstateAssest;
 import com.cdl.escrow.entity.RealEstateAssestBeneficiary;
 import com.cdl.escrow.exception.ApplicationConfigurationNotFoundException;

@@ -1,10 +1,8 @@
 package com.cdl.escrow.serviceimpl;
 
 import com.cdl.escrow.dto.RealEstateAssestDTO;
-import com.cdl.escrow.entity.BuildPartner;
 import com.cdl.escrow.entity.RealEstateAssest;
 import com.cdl.escrow.entity.TaskStatus;
-import com.cdl.escrow.enumeration.WorkflowRequestStatus;
 import com.cdl.escrow.exception.ApplicationConfigurationNotFoundException;
 import com.cdl.escrow.mapper.RealEstateAssestMapper;
 import com.cdl.escrow.repository.RealEstateAssestRepository;
@@ -13,7 +11,6 @@ import com.cdl.escrow.service.RealEstateAssestService;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import okhttp3.internal.concurrent.Task;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;

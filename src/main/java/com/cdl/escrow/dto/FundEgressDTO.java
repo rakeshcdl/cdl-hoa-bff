@@ -222,7 +222,7 @@ public class FundEgressDTO implements Serializable {
 
     private CapitalPartnerUnitDTO transferCapitalPartnerUnitDTO;
 
-   private BuildPartnerDTO buildPartnerDTO;
+   private AssetRegisterDTO assetRegisterDTO;
 
    private RealEstateAssestBeneficiaryDTO realEstateAssestBeneficiaryDTO;
 

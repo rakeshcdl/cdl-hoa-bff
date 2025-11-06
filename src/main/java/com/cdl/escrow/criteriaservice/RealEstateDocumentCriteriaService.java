@@ -4,7 +4,6 @@ package com.cdl.escrow.criteriaservice;
 import com.cdl.escrow.criteria.RealEstateDocumentCriteria;
 import com.cdl.escrow.dto.RealEstateDocumentDTO;
 import com.cdl.escrow.entity.ApplicationSetting;
-import com.cdl.escrow.entity.BuildPartner;
 import com.cdl.escrow.entity.RealEstateDocument;
 import com.cdl.escrow.filter.BaseSpecificationBuilder;
 import com.cdl.escrow.mapper.RealEstateDocumentMapper;

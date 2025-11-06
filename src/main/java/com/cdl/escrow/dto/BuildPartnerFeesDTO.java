@@ -42,7 +42,7 @@ public class BuildPartnerFeesDTO implements Serializable {
 
     private boolean enabled ;
 
-    private BuildPartnerDTO buildPartnerDTO;
+    private AssetRegisterDTO assetRegisterDTO;
 
     private Boolean deleted ;
 }

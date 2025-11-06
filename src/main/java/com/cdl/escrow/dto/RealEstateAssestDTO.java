@@ -1,7 +1,6 @@
 package com.cdl.escrow.dto;
 
 
-import com.cdl.escrow.entity.ApplicationSetting;
 import com.cdl.escrow.enumeration.WorkflowStatus;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -9,7 +8,6 @@ import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 import java.time.ZonedDateTime;
-import java.util.Set;
 
 @Data
 @NoArgsConstructor
@@ -77,7 +75,7 @@ public class RealEstateAssestDTO implements Serializable {
 
     private String reaLandOwnerName;
 
-    private BuildPartnerDTO buildPartnerDTO;
+    private AssetRegisterDTO assetRegisterDTO;
 
     private ApplicationSettingDTO reaStatusDTO;
 

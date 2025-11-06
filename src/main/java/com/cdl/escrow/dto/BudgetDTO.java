@@ -1,12 +1,5 @@
 package com.cdl.escrow.dto;
 
-import com.cdl.escrow.entity.BudgetCategory;
-import com.cdl.escrow.entity.BuildPartner;
-import com.cdl.escrow.entity.FundEgress;
-import com.cdl.escrow.entity.RealEstateAssest;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -38,7 +31,7 @@ public class BudgetDTO implements Serializable {
 
     private String createdBy;
 
-    private BuildPartnerDTO buildPartnerDTO;
+    private AssetRegisterDTO assetRegisterDTO;
 
     private RealEstateAssestDTO realEstateAssestDTO;
 

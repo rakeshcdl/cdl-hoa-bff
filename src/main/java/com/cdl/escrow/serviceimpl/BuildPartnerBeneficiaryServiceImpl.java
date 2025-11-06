@@ -1,15 +1,14 @@
 package com.cdl.escrow.serviceimpl;
 
+import com.cdl.escrow.dto.AssetRegisterDTO;
 import com.cdl.escrow.dto.BuildPartnerBeneficiaryDTO;
-import com.cdl.escrow.dto.BuildPartnerDTO;
-import com.cdl.escrow.entity.BuildPartner;
+import com.cdl.escrow.entity.AssetRegister;
 import com.cdl.escrow.entity.BuildPartnerBeneficiary;
 import com.cdl.escrow.exception.ApplicationConfigurationNotFoundException;
 import com.cdl.escrow.mapper.BuildPartnerBeneficiaryMapper;
 import com.cdl.escrow.repository.BuildPartnerBeneficiaryRepository;
-import com.cdl.escrow.repository.BuildPartnerRepository;
+import com.cdl.escrow.repository.AssetRegisterRepository;
 import com.cdl.escrow.service.BuildPartnerBeneficiaryService;
-import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
@@ -19,7 +18,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -30,7 +28,7 @@ public class BuildPartnerBeneficiaryServiceImpl implements BuildPartnerBeneficia
 
    private final BuildPartnerBeneficiaryMapper mapper;
 
-   private final BuildPartnerRepository buildPartnerRepository;
+   private final AssetRegisterRepository buildPartnerRepository;
 
 
     @Override
@@ -71,29 +69,29 @@ public class BuildPartnerBeneficiaryServiceImpl implements BuildPartnerBeneficia
 
         // Step 1: Save the main entity without associations
         BuildPartnerBeneficiary entity = mapper.toEntity(buildPartnerBeneficiaryDTO);
-        entity.setBuildPartners(new HashSet<>()); // Clear associations temporarily
+        entity.setAssetRegisters(new HashSet<>()); // Clear associations temporarily
         BuildPartnerBeneficiary saved = repository.save(entity);
 
         // Step 2: Add associations and save again
-        if (buildPartnerBeneficiaryDTO.getBuildPartnerDTO() != null &&
-                !buildPartnerBeneficiaryDTO.getBuildPartnerDTO().isEmpty()) {
+        if (buildPartnerBeneficiaryDTO.getAssetRegisterDTO() != null &&
+                !buildPartnerBeneficiaryDTO.getAssetRegisterDTO().isEmpty()) {
 
-            Set<BuildPartner> buildPartners = new HashSet<>();
+            Set<AssetRegister> assetRegisters = new HashSet<>();
 
-            for (BuildPartnerDTO bpDto : buildPartnerBeneficiaryDTO.getBuildPartnerDTO()) {
-                BuildPartner bp = buildPartnerRepository.findById(bpDto.getId())
+            for (AssetRegisterDTO bpDto : buildPartnerBeneficiaryDTO.getAssetRegisterDTO()) {
+                AssetRegister bp = buildPartnerRepository.findById(bpDto.getId())
                         .orElseThrow(() -> new RuntimeException("BuildPartner not found"));
-                buildPartners.add(bp);
+                assetRegisters.add(bp);
 
                 // Set bidirectional relationship
                 bp.getBuildPartnerBeneficiaries().add(saved);
             }
 
-            saved.setBuildPartners(buildPartners);
+            saved.setAssetRegisters(assetRegisters);
             saved = repository.save(saved);
 
             // Save the other side as well
-            buildPartnerRepository.saveAll(buildPartners);
+            buildPartnerRepository.saveAll(assetRegisters);
         }
 
         return mapper.toDto(saved);
@@ -128,41 +126,41 @@ public class BuildPartnerBeneficiaryServiceImpl implements BuildPartnerBeneficia
                 .orElseThrow(() -> new RuntimeException("BuildPartnerBeneficiary not found with id: " + id));
 
         // Step 2: Clear existing associations from both sides
-        if (existingEntity.getBuildPartners() != null) {
-            for (BuildPartner existingPartner : existingEntity.getBuildPartners()) {
+        if (existingEntity.getAssetRegisters() != null) {
+            for (AssetRegister existingPartner : existingEntity.getAssetRegisters()) {
                 existingPartner.getBuildPartnerBeneficiaries().remove(existingEntity);
             }
-            buildPartnerRepository.saveAll(existingEntity.getBuildPartners());
-            existingEntity.getBuildPartners().clear();
+            buildPartnerRepository.saveAll(existingEntity.getAssetRegisters());
+            existingEntity.getAssetRegisters().clear();
         }
 
         // Step 3: Update entity properties (excluding associations)
         BuildPartnerBeneficiary updatedEntity = mapper.toEntity(buildPartnerBeneficiaryDTO);
         updatedEntity.setId(existingEntity.getId()); // Preserve the ID
-        updatedEntity.setBuildPartners(new HashSet<>()); // Clear associations temporarily
+        updatedEntity.setAssetRegisters(new HashSet<>()); // Clear associations temporarily
 
         BuildPartnerBeneficiary saved = repository.save(updatedEntity);
 
         // Step 4: Add new associations
-        if (buildPartnerBeneficiaryDTO.getBuildPartnerDTO() != null &&
-                !buildPartnerBeneficiaryDTO.getBuildPartnerDTO().isEmpty()) {
+        if (buildPartnerBeneficiaryDTO.getAssetRegisterDTO() != null &&
+                !buildPartnerBeneficiaryDTO.getAssetRegisterDTO().isEmpty()) {
 
-            Set<BuildPartner> buildPartners = new HashSet<>();
+            Set<AssetRegister> assetRegisters = new HashSet<>();
 
-            for (BuildPartnerDTO bpDto : buildPartnerBeneficiaryDTO.getBuildPartnerDTO()) {
-                BuildPartner bp = buildPartnerRepository.findById(bpDto.getId())
+            for (AssetRegisterDTO bpDto : buildPartnerBeneficiaryDTO.getAssetRegisterDTO()) {
+                AssetRegister bp = buildPartnerRepository.findById(bpDto.getId())
                         .orElseThrow(() -> new RuntimeException("BuildPartner not found with id: " + bpDto.getId()));
-                buildPartners.add(bp);
+                assetRegisters.add(bp);
 
                 // Set bidirectional relationship
                 bp.getBuildPartnerBeneficiaries().add(saved);
             }
 
-            saved.setBuildPartners(buildPartners);
+            saved.setAssetRegisters(assetRegisters);
             saved = repository.save(saved);
 
             // Save the other side as well
-            buildPartnerRepository.saveAll(buildPartners);
+            buildPartnerRepository.saveAll(assetRegisters);
         }
 
         return mapper.toDto(saved);

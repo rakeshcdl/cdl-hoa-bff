@@ -14,7 +14,7 @@ public interface RealEstateAssestMapper  extends EntityMapper<RealEstateAssestDT
     @Mapping(source = "reaType", target = "reaTypeDTO")
     @Mapping(source = "reaAccountStatus", target = "reaAccountStatusDTO")
     @Mapping(source = "reaConstructionCostCurrency", target = "reaConstructionCostCurrencyDTO")
-    @Mapping(source = "buildPartner", target = "buildPartnerDTO")
+    @Mapping(source = "assetRegister", target = "assetRegisterDTO")
     @Mapping(source = "reaBlockPaymentTypes", target = "reaBlockPaymentTypeDTO")
     @Mapping(source = "taskStatus", target = "taskStatusDTO")
     RealEstateAssestDTO toDto(RealEstateAssest realEstateAssest);
@@ -24,7 +24,7 @@ public interface RealEstateAssestMapper  extends EntityMapper<RealEstateAssestDT
     @Mapping(source = "reaTypeDTO", target = "reaType")
     @Mapping(source = "reaAccountStatusDTO", target = "reaAccountStatus")
     @Mapping(source = "reaConstructionCostCurrencyDTO", target = "reaConstructionCostCurrency")
-    @Mapping(source = "buildPartnerDTO", target = "buildPartner")
+    @Mapping(source = "assetRegisterDTO", target = "assetRegister")
     @Mapping(source = "reaBlockPaymentTypeDTO", target = "reaBlockPaymentTypes")
     @Mapping(source = "taskStatusDTO", target = "taskStatus")
     RealEstateAssest toEntity(RealEstateAssestDTO realEstateAssestDTO);

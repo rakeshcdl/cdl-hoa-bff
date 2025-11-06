@@ -1,12 +1,12 @@
 package com.cdl.escrow.serviceimpl;
 
 
-import com.cdl.escrow.dto.BuildPartnerContactDTO;
-import com.cdl.escrow.entity.BuildPartnerContact;
+import com.cdl.escrow.dto.AssetRegisterContactDTO;
+import com.cdl.escrow.entity.AssetRegisterContact;
 import com.cdl.escrow.exception.ApplicationConfigurationNotFoundException;
-import com.cdl.escrow.mapper.BuildPartnerContactMapper;
-import com.cdl.escrow.repository.BuildPartnerContactRepository;
-import com.cdl.escrow.service.BuildPartnerContactService;
+import com.cdl.escrow.mapper.AssetRegisterContactMapper;
+import com.cdl.escrow.repository.AssetRegisterContactRepository;
+import com.cdl.escrow.service.AssetRegisterContactService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
@@ -20,18 +20,18 @@ import java.util.Optional;
 @Service
 @RequiredArgsConstructor
 @Slf4j
-public class BuildPartnerContactServiceImpl implements BuildPartnerContactService {
+public class AssetRegisterContactServiceImpl implements AssetRegisterContactService {
 
-    private final BuildPartnerContactRepository repository;
+    private final AssetRegisterContactRepository repository;
 
-    private final BuildPartnerContactMapper mapper;
+    private final AssetRegisterContactMapper mapper;
 
 
     @Override
     @Transactional(readOnly = true)
-    public Page<BuildPartnerContactDTO> getAllBuildPartnerContact(Pageable pageable) {
-        log.debug("Fetching all build partner contact, page: {}", pageable.getPageNumber());
-        Page<BuildPartnerContact> page = repository.findAll(pageable);
+    public Page<AssetRegisterContactDTO> getAllAssetRegisterContact(Pageable pageable) {
+        log.debug("Fetching all Asset Register contact, page: {}", pageable.getPageNumber());
+        Page<AssetRegisterContact> page = repository.findAll(pageable);
         return new PageImpl<>(
                 page.map(mapper::toDto).getContent(),
                 pageable,
@@ -42,8 +42,8 @@ public class BuildPartnerContactServiceImpl implements BuildPartnerContactServic
 
     @Override
     @Transactional(readOnly = true)
-    public Optional<BuildPartnerContactDTO> getBuildPartnerContactById(Long id) {
-        log.debug("Fetching build partner contact with ID: {}", id);
+    public Optional<AssetRegisterContactDTO> getAssetRegisterContactById(Long id) {
+        log.debug("Fetching Asset Register contact with ID: {}", id);
         return repository.findById(id)
                 .map(mapper::toDto);
     }
@@ -51,35 +51,35 @@ public class BuildPartnerContactServiceImpl implements BuildPartnerContactServic
 
     @Override
     @Transactional
-    public BuildPartnerContactDTO saveBuildPartnerContact(BuildPartnerContactDTO buildPartnerContactDTO) {
-        log.info("Saving new build partner contact");
-        BuildPartnerContact entity = mapper.toEntity(buildPartnerContactDTO);
-        BuildPartnerContact saved = repository.save(entity);
+    public AssetRegisterContactDTO saveAssetRegisterContact(AssetRegisterContactDTO assetRegisterContactDTO) {
+        log.info("Saving new Asset Register contact");
+        AssetRegisterContact entity = mapper.toEntity(assetRegisterContactDTO);
+        AssetRegisterContact saved = repository.save(entity);
         return mapper.toDto(saved);
     }
 
 
     @Override
     @Transactional
-    public BuildPartnerContactDTO updateBuildPartnerContact(Long id, BuildPartnerContactDTO buildPartnerContactDTO) {
-        log.info("Updating build partner contact with ID: {}", id);
+    public AssetRegisterContactDTO updateAssetRegisterContact(Long id, AssetRegisterContactDTO assetRegisterContactDTO) {
+        log.info("Updating Asset Register contact with ID: {}", id);
 
-        BuildPartnerContact existing = repository.findById(id)
+        AssetRegisterContact existing = repository.findById(id)
                 .orElseThrow(() -> new ApplicationConfigurationNotFoundException("Build partner contact not found with ID: " + id));
 
         // Optionally, update only mutable fields instead of full replacement
-        BuildPartnerContact toUpdate = mapper.toEntity(buildPartnerContactDTO);
+        AssetRegisterContact toUpdate = mapper.toEntity(assetRegisterContactDTO);
         toUpdate.setId(existing.getId()); // Ensure the correct ID is preserved
 
-        BuildPartnerContact updated = repository.save(toUpdate);
+        AssetRegisterContact updated = repository.save(toUpdate);
         return mapper.toDto(updated);
     }
 
 
     @Override
     @Transactional
-    public Boolean deleteBuildPartnerContactById(Long id) {
-        log.info("Deleting build partner contact with ID: {}", id);
+    public Boolean deleteAssetRegisterContactById(Long id) {
+        log.info("Deleting Asset Register contact with ID: {}", id);
 
         if (!repository.existsById(id)) {
             throw new ApplicationConfigurationNotFoundException("Build partner contact not found with ID: " + id);
@@ -91,7 +91,7 @@ public class BuildPartnerContactServiceImpl implements BuildPartnerContactServic
 
     @Override
     @Transactional
-    public boolean softBuildPartnerContactServiceById(Long id) {
+    public boolean softAssetRegisterContactServiceById(Long id) {
         return repository.findByIdAndDeletedFalse(id).map(entity -> {
             entity.setDeleted(true);
             repository.save(entity);

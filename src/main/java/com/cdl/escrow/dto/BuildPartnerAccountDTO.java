@@ -1,12 +1,6 @@
 package com.cdl.escrow.dto;
 
-import com.cdl.escrow.entity.BuildPartner;
 import com.cdl.escrow.enumeration.WorkflowStatus;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import jakarta.persistence.Column;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -40,7 +34,7 @@ public class BuildPartnerAccountDTO implements Serializable {
 
    private WorkflowStatus status;
 
-   private BuildPartnerDTO buildPartnerDTO;
+   private AssetRegisterDTO assetRegisterDTO;
 
     private Boolean deleted ;
 

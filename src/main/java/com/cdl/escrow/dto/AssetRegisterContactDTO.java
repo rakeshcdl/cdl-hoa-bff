@@ -10,7 +10,7 @@ import java.io.Serializable;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class BuildPartnerContactDTO implements Serializable {
+public class AssetRegisterContactDTO implements Serializable {
     private Long id;
 
     private String bpcContactName;
@@ -43,7 +43,7 @@ public class BuildPartnerContactDTO implements Serializable {
 
     private WorkflowStatus workflowStatus;
 
-    private BuildPartnerDTO buildPartnerDTO;
+    private AssetRegisterDTO assetRegisterDTO;
 
     private Boolean deleted ;
 }

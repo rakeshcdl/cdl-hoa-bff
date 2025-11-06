@@ -4,7 +4,6 @@ package com.cdl.escrow.criteriaservice;
 import com.cdl.escrow.criteria.CapitalPartnerUnitCriteria;
 import com.cdl.escrow.dto.CapitalPartnerUnitDTO;
 import com.cdl.escrow.entity.ApplicationSetting;
-import com.cdl.escrow.entity.BuildPartner;
 import com.cdl.escrow.entity.CapitalPartner;
 import com.cdl.escrow.entity.CapitalPartnerUnit;
 import com.cdl.escrow.filter.BaseSpecificationBuilder;

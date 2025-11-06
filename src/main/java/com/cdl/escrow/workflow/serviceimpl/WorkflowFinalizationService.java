@@ -2,7 +2,6 @@ package com.cdl.escrow.workflow.serviceimpl;
 
 import com.cdl.escrow.entity.TaskStatus;
 import com.cdl.escrow.entity.WorkflowRequest;
-import com.cdl.escrow.enumeration.WorkflowRequestStatus;
 import com.cdl.escrow.service.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -11,7 +10,7 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class WorkflowFinalizationService {
 
-    private final BuildPartnerService buildPartnerService;
+    private final AssetRegisterService assetRegisterService;
 
     private final RealEstateAssestService realEstateAssestService;
 
@@ -29,7 +28,7 @@ public class WorkflowFinalizationService {
        TaskStatus status = request.getTaskStatus();
 
         switch (moduleType) {
-            case "BUILD_PARTNER" -> buildPartnerService.finalizeBuildPartner(moduleId, status);
+           // case "BUILD_PARTNER" -> assetRegisterService.finalizeBuildPartner(moduleId, status);
             case "BUILD_PARTNER_ASSEST" -> realEstateAssestService.finalizeRealEstateAssest(moduleId, status);
             case "PAYMENTS" -> fundEgressService.finalizeFundEgress(moduleId, status);
             case "CAPITAL_PARTNER" -> capitalPartnerService.finalizeCapitalPartner(moduleId, status);

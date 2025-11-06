@@ -10,10 +10,10 @@ import org.mapstruct.Mapping;
 @Mapper(componentModel = "spring")
 public interface BuildPartnerAccountMapper extends EntityMapper<BuildPartnerAccountDTO, BuildPartnerAccount> {
 
-    @Mapping(source = "buildPartner", target = "buildPartnerDTO")
+    @Mapping(source = "assetRegister", target = "assetRegisterDTO")
     BuildPartnerAccountDTO toDto(BuildPartnerAccount buildPartnerAccount);
 
 
-    @Mapping(source = "buildPartnerDTO", target = "buildPartner")
+    @Mapping(source = "assetRegisterDTO", target = "assetRegister")
     BuildPartnerAccount toEntity(BuildPartnerAccountDTO buildPartnerAccountDTO);
 }

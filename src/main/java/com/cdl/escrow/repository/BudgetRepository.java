@@ -1,7 +1,6 @@
 package com.cdl.escrow.repository;
 
 import com.cdl.escrow.entity.Budget;
-import com.cdl.escrow.entity.BuildPartner;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.stereotype.Repository;

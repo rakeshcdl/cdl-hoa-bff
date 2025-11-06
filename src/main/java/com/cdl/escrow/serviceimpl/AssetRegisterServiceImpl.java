@@ -1,16 +1,13 @@
 package com.cdl.escrow.serviceimpl;
 
-import com.cdl.escrow.dto.BuildPartnerDTO;
-import com.cdl.escrow.dto.record.BuildPartnerRecord;
-import com.cdl.escrow.entity.BuildPartner;
+import com.cdl.escrow.dto.AssetRegisterDTO;
+import com.cdl.escrow.entity.AssetRegister;
 import com.cdl.escrow.entity.TaskStatus;
-import com.cdl.escrow.enumeration.WorkflowRequestStatus;
 import com.cdl.escrow.exception.ApplicationConfigurationNotFoundException;
-import com.cdl.escrow.mapper.BuildPartnerMapper;
-import com.cdl.escrow.mapper.mapstruct.BuildPartnerMapStruct;
-import com.cdl.escrow.repository.BuildPartnerRepository;
+import com.cdl.escrow.mapper.AssetRegisterMapper;
+import com.cdl.escrow.repository.AssetRegisterRepository;
 import com.cdl.escrow.repository.TaskStatusRepository;
-import com.cdl.escrow.service.BuildPartnerService;
+import com.cdl.escrow.service.AssetRegisterService;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -20,26 +17,24 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
-import java.util.Objects;
 import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
 @Slf4j
-public class BuildPartnerServiceImpl implements BuildPartnerService {
+public class AssetRegisterServiceImpl implements AssetRegisterService {
 
-   private final BuildPartnerRepository repository;
+   private final AssetRegisterRepository repository;
 
-    private final BuildPartnerMapper mapper;
+    private final AssetRegisterMapper mapper;
 
     private final TaskStatusRepository taskStatusRepository;
 
     @Override
     @Transactional(readOnly = true)
-    public Page<BuildPartnerDTO> getAllBuildPartner(Pageable pageable) {
+    public Page<AssetRegisterDTO> getAllAssetRegister(Pageable pageable) {
         log.debug("Fetching all build partner, page: {}", pageable.getPageNumber());
-        Page<BuildPartner> page = repository.findAll(pageable);
+        Page<AssetRegister> page = repository.findAll(pageable);
         return new PageImpl<>(
                 page.map(mapper::toDto).getContent(),
                 pageable,
@@ -50,7 +45,7 @@ public class BuildPartnerServiceImpl implements BuildPartnerService {
 
     @Override
     @Transactional(readOnly = true)
-    public Optional<BuildPartnerDTO> getBuildPartnerById(Long id) {
+    public Optional<AssetRegisterDTO> getAssetRegisterById(Long id) {
         log.debug("Fetching build partner with ID: {}", id);
         return repository.findById(id)
                 .map(mapper::toDto);
@@ -59,10 +54,10 @@ public class BuildPartnerServiceImpl implements BuildPartnerService {
 
     @Override
     @Transactional
-    public BuildPartnerDTO saveBuildPartner(BuildPartnerDTO buildPartnerDTO) {
+    public AssetRegisterDTO saveAssetRegister(AssetRegisterDTO assetRegisterDTO) {
         log.info("Saving new build partner");
 
-        BuildPartner entity = mapper.toEntity(buildPartnerDTO);
+        AssetRegister entity = mapper.toEntity(assetRegisterDTO);
 
         // set default task status to IN-PROGRESS on create
         TaskStatus ts = taskStatusRepository.findByName("IN_PROGRESS")
@@ -75,21 +70,21 @@ public class BuildPartnerServiceImpl implements BuildPartnerService {
         // entity.setEnabled(true/false) as per business rule
          entity.setEnabled(true);
 
-        BuildPartner saved = repository.save(entity);
+        AssetRegister saved = repository.save(entity);
         return mapper.toDto(saved);
     }
 
 
     @Override
     @Transactional
-    public BuildPartnerDTO updateBuildPartner(Long id, BuildPartnerDTO buildPartnerDTO) {
+    public AssetRegisterDTO updateAssetRegister(Long id, AssetRegisterDTO assetRegisterDTO) {
         log.info("Updating build partner with ID: {}", id);
 
-        BuildPartner existing = repository.findById(id)
+        AssetRegister existing = repository.findById(id)
                 .orElseThrow(() -> new ApplicationConfigurationNotFoundException("Build partner not found with ID: " + id));
 
         // Optionally, update only mutable fields instead of full replacement
-        BuildPartner toUpdate = mapper.toEntity(buildPartnerDTO);
+        AssetRegister toUpdate = mapper.toEntity(assetRegisterDTO);
         toUpdate.setId(existing.getId()); // Ensure the correct ID is preserved
 
         // set default task status to IN-PROGRESS on create
@@ -97,14 +92,14 @@ public class BuildPartnerServiceImpl implements BuildPartnerService {
                 .orElseThrow(() -> new EntityNotFoundException(
                         "TaskStatus not found: " + "DRAFT"));
         toUpdate.setTaskStatus(ts);
-        BuildPartner updated = repository.save(toUpdate);
+        AssetRegister updated = repository.save(toUpdate);
         return mapper.toDto(updated);
     }
 
 
     @Override
     @Transactional
-    public Boolean deleteBuildPartnerById(Long id) {
+    public Boolean deleteAssetRegisterById(Long id) {
         log.info("Deleting build partner  with ID: {}", id);
 
         if (!repository.existsById(id)) {
@@ -117,9 +112,9 @@ public class BuildPartnerServiceImpl implements BuildPartnerService {
 
     @Override
     @Transactional
-    public void finalizeBuildPartner(Long moduleId, TaskStatus status) {
+    public void finalizeAssetRegister(Long moduleId, TaskStatus status) {
 
-            BuildPartner partner =  repository.findById(moduleId)
+            AssetRegister partner =  repository.findById(moduleId)
                 .orElseThrow(() -> new IllegalStateException("Build Partner not found: " + moduleId));
 
         partner.setTaskStatus(status);
@@ -129,7 +124,7 @@ public class BuildPartnerServiceImpl implements BuildPartnerService {
 
     @Override
     @Transactional
-    public boolean softBuildPartnerContactServiceById(Long id) {
+    public boolean softAssetRegisterContactServiceById(Long id) {
 
             return repository.findByIdAndDeletedFalse(id).map(entity -> {
                 entity.setDeleted(true);

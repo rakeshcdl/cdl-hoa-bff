@@ -4,7 +4,6 @@ package com.cdl.escrow.controller;
 import com.cdl.escrow.criteria.BuildPartnerBeneficiaryCriteria;
 import com.cdl.escrow.criteriaservice.BuildPartnerBeneficiaryCriteriaService;
 import com.cdl.escrow.dto.BuildPartnerBeneficiaryDTO;
-import com.cdl.escrow.dto.BuildPartnerDTO;
 import com.cdl.escrow.exception.BadRequestAlertException;
 import com.cdl.escrow.helper.PaginationUtil;
 import com.cdl.escrow.repository.BuildPartnerBeneficiaryRepository;
@@ -23,7 +22,6 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import java.util.List;
 import java.util.Objects;
 
 @RestController

@@ -1,6 +1,5 @@
 package com.cdl.escrow.entity;
 
-import com.cdl.escrow.enumeration.WorkflowStatus;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
@@ -75,5 +74,5 @@ public class BuildPartnerBeneficiary implements Serializable {
             inverseJoinColumns = @JoinColumn(name = "buildpartner_id")
     )
     @JsonIgnore
-    private Set<BuildPartner> buildPartners = new HashSet<>();
+    private Set<AssetRegister> assetRegisters = new HashSet<>();
 }

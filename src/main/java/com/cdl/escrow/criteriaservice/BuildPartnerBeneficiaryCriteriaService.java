@@ -4,10 +4,8 @@ package com.cdl.escrow.criteriaservice;
 
 import com.cdl.escrow.criteria.BuildPartnerBeneficiaryCriteria;
 import com.cdl.escrow.dto.BuildPartnerBeneficiaryDTO;
-import com.cdl.escrow.entity.BuildPartner;
+import com.cdl.escrow.entity.AssetRegister;
 import com.cdl.escrow.entity.BuildPartnerBeneficiary;
-import com.cdl.escrow.entity.CapitalPartner;
-import com.cdl.escrow.entity.CapitalPartnerUnit;
 import com.cdl.escrow.filter.BaseSpecificationBuilder;
 import com.cdl.escrow.mapper.BuildPartnerBeneficiaryMapper;
 import com.cdl.escrow.repository.BuildPartnerBeneficiaryRepository;
@@ -63,7 +61,7 @@ public class BuildPartnerBeneficiaryCriteriaService extends BaseSpecificationBui
 
                 // Filter by CapitalPartner id -> join the capitalPartners collection
                 if (criteria.getBuildPartnerId() != null) {
-                    Join<BuildPartnerBeneficiary, BuildPartner> join = root.join("buildPartners", JoinType.LEFT);
+                    Join<BuildPartnerBeneficiary, AssetRegister> join = root.join("buildPartners", JoinType.LEFT);
                     addLongFilterOnJoin(cb, join, predicates, "id", criteria.getBuildPartnerId());
                 }
 

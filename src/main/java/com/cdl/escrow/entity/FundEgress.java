@@ -1,20 +1,16 @@
 package com.cdl.escrow.entity;
 
-import com.cdl.escrow.enumeration.WorkflowStatus;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.vladmihalcea.hibernate.type.json.JsonType;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.extern.jackson.Jacksonized;
-import org.hibernate.annotations.JdbcTypeCode;
 import org.hibernate.annotations.Type;
-import org.hibernate.type.SqlTypes;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.io.Serializable;
 import java.time.ZonedDateTime;
 import java.util.Map;
-import java.util.Set;
 
 /**
  * Represents a payment or disbursement made from the escrow account.
@@ -312,7 +308,7 @@ public class FundEgress implements Serializable {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JsonIgnore
-    private BuildPartner buildPartner;
+    private AssetRegister assetRegister;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JsonIgnore

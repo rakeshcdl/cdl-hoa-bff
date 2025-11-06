@@ -1,6 +1,5 @@
 package com.cdl.escrow.entity;
 
-import com.cdl.escrow.enumeration.WorkflowStatus;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
@@ -104,7 +103,7 @@ public class RealEstateAssest implements Serializable {
 
     @ManyToOne
     @JsonIgnore
-    private BuildPartner buildPartner;
+    private AssetRegister assetRegister;
 
     @ManyToOne
     @JsonIgnore

@@ -3,8 +3,6 @@ package com.cdl.escrow.criteriaservice;
 
 import com.cdl.escrow.criteria.RealEstateAssestClosureCriteria;
 import com.cdl.escrow.dto.RealEstateAssestClosureDTO;
-import com.cdl.escrow.entity.ApplicationSetting;
-import com.cdl.escrow.entity.BuildPartner;
 import com.cdl.escrow.entity.RealEstateAssest;
 import com.cdl.escrow.entity.RealEstateAssestClosure;
 import com.cdl.escrow.filter.BaseSpecificationBuilder;

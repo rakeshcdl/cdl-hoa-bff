@@ -3,7 +3,7 @@ package com.cdl.escrow.criteriaservice;
 import com.cdl.escrow.criteria.BudgetCriteria;
 import com.cdl.escrow.dto.BudgetDTO;
 import com.cdl.escrow.entity.Budget;
-import com.cdl.escrow.entity.BuildPartner;
+import com.cdl.escrow.entity.AssetRegister;
 import com.cdl.escrow.entity.RealEstateAssest;
 import com.cdl.escrow.filter.BaseSpecificationBuilder;
 import com.cdl.escrow.mapper.BudgetMapper;
@@ -50,7 +50,7 @@ public class BudgetCriteriaService extends BaseSpecificationBuilder<Budget> impl
                 // relationships
 
                 if (criteria.getBuildPartnerId() != null) {
-                    Join<Budget, BuildPartner> join = root.join("buildPartner", JoinType.LEFT);
+                    Join<Budget, AssetRegister> join = root.join("buildPartner", JoinType.LEFT);
                     addLongFilterOnJoin(cb, join, predicates, "id", criteria.getBuildPartnerId());
                 }
 

@@ -1,8 +1,6 @@
 package com.cdl.escrow.entity;
 
-import com.cdl.escrow.enumeration.WorkflowStatus;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.extern.jackson.Jacksonized;
@@ -14,10 +12,6 @@ import java.time.ZonedDateTime;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Represents a real estate developer registered with CDL's RERA Escrow Management System.
- * A developer is responsible for initiating and managing real estate projects.
- */
 @AllArgsConstructor
 @NoArgsConstructor
 @Setter
@@ -28,82 +22,91 @@ import java.util.Set;
 @ToString(onlyExplicitlyIncluded = true)
 @EntityListeners(AuditingEntityListener.class)
 @Entity
-@Table(name = "build_partner")
-public class BuildPartner implements Serializable {
+@Table(name = "asset_register")
+public class AssetRegister implements Serializable {
     @Id
     @SequenceGenerator(
-            name = "build_partner_id_seq_gen",
-            sequenceName = "build_partner_id_seq",
+            name = "asset_register_id_seq_gen",
+            sequenceName = "asset_register_id_seq",
             allocationSize = 50
     )
     @GeneratedValue(
             strategy = GenerationType.SEQUENCE,
-            generator = "build_partner_id_seq_gen"
+            generator = "asset_register_id_seq_gen"
     )
     private Long id;
 
-    private String bpDeveloperId;
+    private String arDeveloperId;
 
-    private String bpCifrera;
+    private String arCifrera;
 
-    private String bpDeveloperRegNo;
+    private String arDeveloperRegNo;
 
-    private String bpName;
+    private String arName;
 
-    private String bpMasterName;
+    private String arMasterName;
 
     @Nationalized
-    private String bpNameLocal;
+    private String arNameLocal;
 
-    private ZonedDateTime bpOnboardingDate;
+    private ZonedDateTime arOnboardingDate;
 
-    private String bpContactAddress;
+    private String arContactAddress;
 
-    private String bpContactTel;
+    private String arContactTel;
 
-    private String bpPoBox;
+    private String arPoBox;
 
-    private String bpMobile;
+    private String arMobile;
 
-    private String bpFax;
+    private String arFax;
 
-    private String bpEmail;
+    private String arEmail;
 
-    private String bpLicenseNo;
+    private String arLicenseNo;
 
-    private ZonedDateTime bpLicenseExpDate;
+    private ZonedDateTime arLicenseExpDate;
 
-    private String bpWorldCheckFlag;
+    private String arWorldCheckFlag;
 
-    private String bpWorldCheckRemarks;
+    private String arWorldCheckRemarks;
 
-    private Boolean bpMigratedData;
+    private Boolean arMigratedData;
     private Boolean enabled ;
 
     private Boolean deleted;
 
+    private String arProjectName;
+
+    private String arCompanyNumber;
+
+    private String arMasterCommunity;
+
+    private String arMasterDeveloper;
+
+
     @Lob
     @Column(name = "bp_remark", columnDefinition = "TEXT")
-    private String bpremark;
+    private String arRemark;
 
     @ManyToOne
-    private ApplicationSetting bpRegulator;
+    private ApplicationSetting arRegulator;
 
     @ManyToOne
-    private ApplicationSetting bpActiveStatus;
+    private ApplicationSetting arActiveStatus;
 
-    @ManyToMany(mappedBy = "buildPartners", fetch = FetchType.LAZY)
+    @ManyToMany(mappedBy = "assetRegisters", fetch = FetchType.LAZY)
     @JsonIgnore
     private Set<BuildPartnerBeneficiary> buildPartnerBeneficiaries = new HashSet<>();
 
-    @OneToMany(mappedBy = "buildPartner")
-    private Set<BuildPartnerContact> buildPartnerContacts;
+    @OneToMany(mappedBy = "assetRegister")
+    private Set<AssetRegisterContact> assetRegisterContacts;
 
-    @OneToMany(mappedBy = "buildPartner")
+    @OneToMany(mappedBy = "assetRegister")
     @JsonIgnore
     private Set<RealEstateAssestFinancialSummary> realEstateAssestFinancialSummaries ;
 
-    @OneToMany(mappedBy = "buildPartner")
+    @OneToMany(mappedBy = "assetRegister")
     @JsonIgnore
     private Set<FundEgress> fundEgresses;
 /*
@@ -113,17 +116,17 @@ public class BuildPartner implements Serializable {
     private transient Set<BankAccount> bankAccounts ;
 */
 
-    @OneToMany(mappedBy = "buildPartner")
+    @OneToMany(mappedBy = "assetRegister")
     private Set<BuildPartnerFees> buildPartnerFees;
 
-    @OneToMany(mappedBy = "buildPartner")
+    @OneToMany(mappedBy = "assetRegister")
     private Set<BuildPartnerAccount> buildPartnerAccounts;
 
     @ManyToOne(fetch = FetchType.LAZY)
     private TaskStatus taskStatus;
 
     //Budget
-    @OneToMany(mappedBy = "buildPartner")
+    @OneToMany(mappedBy = "assetRegister")
     @JsonIgnore
     private Set<Budget> budgets = new HashSet<>();
 }

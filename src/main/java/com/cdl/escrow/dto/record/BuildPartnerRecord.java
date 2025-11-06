@@ -43,7 +43,7 @@ public class BuildPartnerRecord {
     private TaskStatusDTO taskStatus;
 
     // Collections
-    private List<BuildPartnerContactDTO> buildPartnerContacts;
+    private List<AssetRegisterContactDTO> buildPartnerContacts;
     private List<BuildPartnerFeesDTO> buildPartnerFees;
     private List<BuildPartnerAccountDTO> buildPartnerAccounts;
     private List<BuildPartnerBeneficiaryDTO> buildPartnerBeneficiary;

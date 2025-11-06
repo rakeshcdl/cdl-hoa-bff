@@ -1,8 +1,5 @@
 package com.cdl.escrow.criteria;
 
-import com.cdl.escrow.dto.ApplicationSettingDTO;
-import com.cdl.escrow.dto.BankAccountDTO;
-import com.cdl.escrow.dto.BuildPartnerDTO;
 import com.cdl.escrow.enumeration.WorkflowStatus;
 import com.cdl.escrow.filter.BooleanFilter;
 import com.cdl.escrow.filter.DoubleFilter;
@@ -11,7 +8,6 @@ import com.cdl.escrow.filter.ZonedDateTimeFilter;
 import lombok.*;
 
 import java.io.Serializable;
-import java.time.ZonedDateTime;
 
 @Data
 @AllArgsConstructor

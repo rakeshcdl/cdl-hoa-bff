@@ -56,7 +56,7 @@ public class Budget implements Serializable {
 
     @ManyToOne
     @JsonIgnore
-    private BuildPartner buildPartner;
+    private AssetRegister assetRegister;
 
     @ManyToOne
     @JsonIgnore
