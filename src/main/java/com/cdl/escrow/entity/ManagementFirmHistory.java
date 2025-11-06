@@ -22,17 +22,17 @@ import java.time.ZonedDateTime;
 @Data
 @EntityListeners(AuditingEntityListener.class)
 @Entity
-@Table(name = "real_estate_assest_fee_history")
+@Table(name = "management_firm_fee_history")
 public class ManagementFirmHistory implements Serializable {
     @Id
     @SequenceGenerator(
-            name = "real_estate_assest_fee_history_id_seq_gen",
-            sequenceName = "real_estate_assest_fee_history_id_seq",
+            name = "management_firm_fee_history_id_seq_gen",
+            sequenceName = "management_firm_fee_history_id_seq",
             allocationSize = 50
     )
     @GeneratedValue(
             strategy = GenerationType.SEQUENCE,
-            generator = "real_estate_assest_fee_history_id_seq_gen"
+            generator = "management_firm_fee_history_id_seq_gen"
     )
     private Long id;
 
@@ -80,7 +80,7 @@ public class ManagementFirmHistory implements Serializable {
 
     @ManyToOne
     @JsonIgnore
-    private CapitalPartnerUnit capitalPartnerUnit;
+    private OwnerRegistryUnit ownerRegistryUnit;
 
     private Boolean enabled ;
 

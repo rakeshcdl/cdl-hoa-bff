@@ -34,8 +34,8 @@ public class ManagementFirmBeneficiaryServiceImpl implements ManagementFirmBenef
 
     @Override
     @Transactional(readOnly = true)
-    public Page<ManagementFirmBeneficiaryDTO> getAllRealEstateAssestBeneficiary(Pageable pageable) {
-        log.debug("Fetching all Real EstateAssest Beneficiary , page: {}", pageable.getPageNumber());
+    public Page<ManagementFirmBeneficiaryDTO> getAllManagementFirmBeneficiary(Pageable pageable) {
+        log.debug("Fetching all Management Firm Beneficiary , page: {}", pageable.getPageNumber());
         Page<ManagementFirmBeneficiary> page = repository.findAll(pageable);
         return new PageImpl<>(
                 page.map(mapper::toDto).getContent(),
@@ -47,8 +47,8 @@ public class ManagementFirmBeneficiaryServiceImpl implements ManagementFirmBenef
 
     @Override
     @Transactional(readOnly = true)
-    public Optional<ManagementFirmBeneficiaryDTO> getRealEstateAssestBeneficiaryById(Long id) {
-        log.debug("Fetching Real EstateAssest Beneficiary with ID: {}", id);
+    public Optional<ManagementFirmBeneficiaryDTO> getManagementFirmBeneficiaryById(Long id) {
+        log.debug("Fetching Management Firm Beneficiary with ID: {}", id);
         return repository.findById(id)
                 .map(mapper::toDto);
     }
@@ -56,8 +56,8 @@ public class ManagementFirmBeneficiaryServiceImpl implements ManagementFirmBenef
 
 //    @Override
 //    @Transactional
-//    public ManagementFirmBeneficiaryDTO saveRealEstateAssestBeneficiary(ManagementFirmBeneficiaryDTO realEstateAssestBeneficiaryDTO) {
-//        log.info("Saving new Real EstateAssest Beneficiary");
+//    public ManagementFirmBeneficiaryDTO saveManagementFirmBeneficiary(ManagementFirmBeneficiaryDTO realEstateAssestBeneficiaryDTO) {
+//        log.info("Saving new Management Firm Beneficiary");
 //        ManagementFirmBeneficiary entity = mapper.toEntity(realEstateAssestBeneficiaryDTO);
 //        ManagementFirmBeneficiary saved = repository.save(entity);
 //        return mapper.toDto(saved);
@@ -66,8 +66,8 @@ public class ManagementFirmBeneficiaryServiceImpl implements ManagementFirmBenef
 
     @Override
     @Transactional
-    public ManagementFirmBeneficiaryDTO saveRealEstateAssestBeneficiary(ManagementFirmBeneficiaryDTO managementFirmBeneficiaryDTO) {
-        log.info("Saving new real estate beneficiary");
+    public ManagementFirmBeneficiaryDTO saveManagementFirmBeneficiary(ManagementFirmBeneficiaryDTO managementFirmBeneficiaryDTO) {
+        log.info("Saving new Management Firm beneficiary");
 
         // Step 1: Save the main entity without associations
         ManagementFirmBeneficiary entity = mapper.toEntity(managementFirmBeneficiaryDTO);
@@ -86,7 +86,7 @@ public class ManagementFirmBeneficiaryServiceImpl implements ManagementFirmBenef
                 managementFirms.add(bp);
 
                 // Set bidirectional relationship
-                bp.getRealEstateAssestBeneficiaries().add(saved);
+                bp.getManagementFirmBeneficiaries().add(saved);
             }
 
             saved.setManagementFirms(managementFirms);
@@ -102,11 +102,11 @@ public class ManagementFirmBeneficiaryServiceImpl implements ManagementFirmBenef
 
     /*@Override
     @Transactional
-    public ManagementFirmBeneficiaryDTO updateRealEstateAssestBeneficiary(Long id, ManagementFirmBeneficiaryDTO realEstateAssestBeneficiaryDTO) {
-        log.info("Updating Real EstateAssest Beneficiary with ID: {}", id);
+    public ManagementFirmBeneficiaryDTO updateManagementFirmBeneficiary(Long id, ManagementFirmBeneficiaryDTO realEstateAssestBeneficiaryDTO) {
+        log.info("Updating Management Firm Beneficiary with ID: {}", id);
 
         ManagementFirmBeneficiary existing = repository.findById(id)
-                .orElseThrow(() -> new ApplicationConfigurationNotFoundException("Real EstateAssest Beneficiary not found with ID: " + id));
+                .orElseThrow(() -> new ApplicationConfigurationNotFoundException("Management Firm Beneficiary not found with ID: " + id));
 
         // Optionally, update only mutable fields instead of full replacement
         ManagementFirmBeneficiary toUpdate = mapper.toEntity(realEstateAssestBeneficiaryDTO);
@@ -118,8 +118,8 @@ public class ManagementFirmBeneficiaryServiceImpl implements ManagementFirmBenef
 
     @Override
     @Transactional
-    public ManagementFirmBeneficiaryDTO updateRealEstateAssestBeneficiary(Long id, ManagementFirmBeneficiaryDTO managementFirmBeneficiaryDTO) {
-        log.info("Updating real estate beneficiary with id: {}", id);
+    public ManagementFirmBeneficiaryDTO updateManagementFirmBeneficiary(Long id, ManagementFirmBeneficiaryDTO managementFirmBeneficiaryDTO) {
+        log.info("Updating Management Firm beneficiary with id: {}", id);
 
         // Step 1: Get existing entity
         ManagementFirmBeneficiary existingEntity = repository.findById(id)
@@ -128,7 +128,7 @@ public class ManagementFirmBeneficiaryServiceImpl implements ManagementFirmBenef
         // Step 2: Clear existing associations from both sides
         if (existingEntity.getManagementFirms() != null) {
             for (ManagementFirm existingAssest : existingEntity.getManagementFirms()) {
-                existingAssest.getRealEstateAssestBeneficiaries().remove(existingEntity);
+                existingAssest.getManagementFirmBeneficiaries().remove(existingEntity);
             }
             managementFirmRepository.saveAll(existingEntity.getManagementFirms());
             existingEntity.getManagementFirms().clear();
@@ -153,7 +153,7 @@ public class ManagementFirmBeneficiaryServiceImpl implements ManagementFirmBenef
                 managementFirms.add(assest);
 
                 // Set bidirectional relationship
-                assest.getRealEstateAssestBeneficiaries().add(saved);
+                assest.getManagementFirmBeneficiaries().add(saved);
             }
 
             saved.setManagementFirms(managementFirms);
@@ -168,11 +168,11 @@ public class ManagementFirmBeneficiaryServiceImpl implements ManagementFirmBenef
 
     @Override
     @Transactional
-    public Boolean deleteRealEstateAssestBeneficiaryById(Long id) {
-        log.info("Deleting Real EstateAssest Beneficiary  with ID: {}", id);
+    public Boolean deleteManagementFirmBeneficiaryById(Long id) {
+        log.info("Deleting Management Firm Beneficiary  with ID: {}", id);
 
         if (!repository.existsById(id)) {
-            throw new ApplicationConfigurationNotFoundException("Real EstateAssest Beneficiary not found with ID: " + id);
+            throw new ApplicationConfigurationNotFoundException("Management Firm Beneficiary not found with ID: " + id);
         }
 
         repository.deleteById(id);
@@ -181,7 +181,7 @@ public class ManagementFirmBeneficiaryServiceImpl implements ManagementFirmBenef
 
     @Override
     @Transactional
-    public boolean softRealEstateAssestBeneficiaryServiceById(Long id) {
+    public boolean softManagementFirmBeneficiaryServiceById(Long id) {
         return repository.findByIdAndDeletedFalse(id).map(entity -> {
             entity.setDeleted(true);
             repository.save(entity);

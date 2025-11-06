@@ -8,17 +8,17 @@ import org.springframework.data.domain.Pageable;
 import java.util.Optional;
 
 public interface ManagementFirmService {
-    Page<ManagementFirmDTO> getAllRealEstateAssest(final Pageable pageable);
+    Page<ManagementFirmDTO> getAllManagementFirm(final Pageable pageable);
 
-    Optional<ManagementFirmDTO> getRealEstateAssestById(Long id);
+    Optional<ManagementFirmDTO> getManagementFirmById(Long id);
 
-    ManagementFirmDTO saveRealEstateAssest(ManagementFirmDTO managementFirmDTO);
+    ManagementFirmDTO saveManagementFirm(ManagementFirmDTO managementFirmDTO);
 
-    ManagementFirmDTO updateRealEstateAssest(Long id, ManagementFirmDTO managementFirmDTO);
+    ManagementFirmDTO updateManagementFirm(Long id, ManagementFirmDTO managementFirmDTO);
 
-    Boolean deleteRealEstateAssestById(Long id);
+    Boolean deleteManagementFirmById(Long id);
 
-    void finalizeRealEstateAssest(Long moduleId, TaskStatus status);
+    void finalizeManagementFirm(Long moduleId, TaskStatus status);
 
-    boolean softRealEstateAssestServiceById(Long id);
+    boolean softManagementFirmServiceById(Long id);
 }

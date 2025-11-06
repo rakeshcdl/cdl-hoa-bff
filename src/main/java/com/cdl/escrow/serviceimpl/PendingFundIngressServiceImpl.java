@@ -182,8 +182,8 @@ public class PendingFundIngressServiceImpl implements PendingFundIngressService 
         reconTransactionDTO.setManagementFirmDTO(nonReconTransactionDTOExt.getManagementFirmDTO());
         reconTransactionDTO.setPfiSpecialField1(splitDataDTOExt.getTasRefNumber());
         reconTransactionDTO.setPfiTransactionDate(nonReconTransactionDTOExt.getPtfiTransactionDate());
-        reconTransactionDTO.setCapitalPartnerUnitDTO(
-                splitDataDTOExt.getUnit() != null ? splitDataDTOExt.getUnit() : nonReconTransactionDTOExt.getCapitalPartnerUnitDTO());
+        reconTransactionDTO.setOwnerRegistryUnitDTO(
+                splitDataDTOExt.getUnit() != null ? splitDataDTOExt.getUnit() : nonReconTransactionDTOExt.getOwnerRegistryUnitDTO());
         reconTransactionDTO.setPfiUpdateTas(
                 nonReconTransactionDTOExt.getPtfiTasUpdate() != null ? nonReconTransactionDTOExt.getPtfiTasUpdate() : false);
         reconTransactionDTO.setPfiTasUpdate(

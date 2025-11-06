@@ -98,7 +98,7 @@ public class PendingFundIngressDTO implements Serializable {
 
     private ManagementFirmDTO managementFirmDTO;
 
-    private CapitalPartnerUnitDTO capitalPartnerUnitDTO;
+    private OwnerRegistryUnitDTO ownerRegistryUnitDTO;
 
     private ApplicationSettingDTO bucketTypeDTO;
 

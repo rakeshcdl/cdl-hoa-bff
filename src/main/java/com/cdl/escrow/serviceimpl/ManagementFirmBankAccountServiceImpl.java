@@ -28,8 +28,8 @@ public class ManagementFirmBankAccountServiceImpl implements ManagementFirmBankA
 
     @Override
     @Transactional(readOnly = true)
-    public Page<ManagementFirmBankAccountDTO> getAllRealEstateBankAccount(Pageable pageable) {
-        log.debug("Fetching all Real Estate Assest bank account , page: {}", pageable.getPageNumber());
+    public Page<ManagementFirmBankAccountDTO> getAllManagementFirmBankAccount(Pageable pageable) {
+        log.debug("Fetching all Management Firm Assest bank account , page: {}", pageable.getPageNumber());
         Page<ManagementFirmBankAccount> page = repository.findAll(pageable);
         return new PageImpl<>(
                 page.map(mapper::toDto).getContent(),
@@ -41,8 +41,8 @@ public class ManagementFirmBankAccountServiceImpl implements ManagementFirmBankA
 
     @Override
     @Transactional(readOnly = true)
-    public Optional<ManagementFirmBankAccountDTO> getRealEstateBankAccountById(Long id) {
-        log.debug("Fetching Real EstateAssest bank account with ID: {}", id);
+    public Optional<ManagementFirmBankAccountDTO> getManagementFirmBankAccountById(Long id) {
+        log.debug("Fetching Management FirmAssest bank account with ID: {}", id);
         return repository.findById(id)
                 .map(mapper::toDto);
     }
@@ -50,8 +50,8 @@ public class ManagementFirmBankAccountServiceImpl implements ManagementFirmBankA
 
     @Override
     @Transactional
-    public ManagementFirmBankAccountDTO saveRealEstateBankAccount(ManagementFirmBankAccountDTO managementFirmBankAccountDTO) {
-        log.info("Saving new Real EstateAssest bank account");
+    public ManagementFirmBankAccountDTO saveManagementFirmBankAccount(ManagementFirmBankAccountDTO managementFirmBankAccountDTO) {
+        log.info("Saving new Management FirmAssest bank account");
         ManagementFirmBankAccount entity = mapper.toEntity(managementFirmBankAccountDTO);
         ManagementFirmBankAccount saved = repository.save(entity);
         return mapper.toDto(saved);
@@ -60,11 +60,11 @@ public class ManagementFirmBankAccountServiceImpl implements ManagementFirmBankA
 
     @Override
     @Transactional
-    public ManagementFirmBankAccountDTO updateRealEstateBankAccount(Long id, ManagementFirmBankAccountDTO managementFirmBankAccountDTO) {
-        log.info("Updating Real EstateAssest bank account with ID: {}", id);
+    public ManagementFirmBankAccountDTO updateManagementFirmBankAccount(Long id, ManagementFirmBankAccountDTO managementFirmBankAccountDTO) {
+        log.info("Updating Management FirmAssest bank account with ID: {}", id);
 
         ManagementFirmBankAccount existing = repository.findById(id)
-                .orElseThrow(() -> new ApplicationConfigurationNotFoundException("Real EstateAssest bank account not found with ID: " + id));
+                .orElseThrow(() -> new ApplicationConfigurationNotFoundException("Management FirmAssest bank account not found with ID: " + id));
 
         // Optionally, update only mutable fields instead of full replacement
         ManagementFirmBankAccount toUpdate = mapper.toEntity(managementFirmBankAccountDTO);
@@ -77,11 +77,11 @@ public class ManagementFirmBankAccountServiceImpl implements ManagementFirmBankA
 
     @Override
     @Transactional
-    public Boolean deleteRealEstateBankAccountById(Long id) {
-        log.info("Deleting Real EstateAssest bank account  with ID: {}", id);
+    public Boolean deleteManagementFirmBankAccountById(Long id) {
+        log.info("Deleting Management FirmAssest bank account  with ID: {}", id);
 
         if (!repository.existsById(id)) {
-            throw new ApplicationConfigurationNotFoundException("Real EstateAssest bank account not found with ID: " + id);
+            throw new ApplicationConfigurationNotFoundException("Management FirmAssest bank account not found with ID: " + id);
         }
 
         repository.deleteById(id);
@@ -90,7 +90,7 @@ public class ManagementFirmBankAccountServiceImpl implements ManagementFirmBankA
 
     @Override
     @Transactional
-    public boolean softRealEstateBankAccountServiceById(Long id) {
+    public boolean softManagementFirmBankAccountServiceById(Long id) {
         return repository.findByIdAndDeletedFalse(id).map(entity -> {
             entity.setDeleted(true);
             repository.save(entity);

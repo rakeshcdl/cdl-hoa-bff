@@ -59,7 +59,7 @@ public class BuildPartnerBeneficiaryCriteriaService extends BaseSpecificationBui
                     );
                 }*/
 
-                // Filter by CapitalPartner id -> join the capitalPartners collection
+                // Filter by OwnerRegistry id -> join the ownerRegistries collection
                 if (criteria.getBuildPartnerId() != null) {
                     Join<BuildPartnerBeneficiary, AssetRegister> join = root.join("buildPartners", JoinType.LEFT);
                     addLongFilterOnJoin(cb, join, predicates, "id", criteria.getBuildPartnerId());

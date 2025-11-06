@@ -35,13 +35,13 @@ public class ManagementFirmPaymentPlanController {
 
     private final ManagementFirmPaymentPlanRepository repository;
 
-    private static final String ENTITY_NAME = "REAL_ESTATE_ASSEST_PAYMENT_PLAN";
+    private static final String ENTITY_NAME = "MANAGEMENT_FIRM_PAYMENT_PLAN";
 
     private final ManagementFirmPaymentPlanCriteriaService managementFirmPaymentPlanCriteriaService;
 
 
     @GetMapping
-    public ResponseEntity<Page<ManagementFirmPaymentPlanDTO>> getAllRealEstateAssestPaymentPlanByCriteria(@ParameterObject ManagementFirmPaymentPlanCriteria criteria,
+    public ResponseEntity<Page<ManagementFirmPaymentPlanDTO>> getAllManagementFirmPaymentPlanByCriteria(@ParameterObject ManagementFirmPaymentPlanCriteria criteria,
                                                                                                           @ParameterObject  Pageable pageable) {
         Page<ManagementFirmPaymentPlanDTO> page = managementFirmPaymentPlanCriteriaService.findByCriteria(criteria, pageable);
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(ServletUriComponentsBuilder.fromCurrentRequest(), page);
@@ -50,28 +50,28 @@ public class ManagementFirmPaymentPlanController {
 
 
     @GetMapping("/find-all")
-    public ResponseEntity<Page<ManagementFirmPaymentPlanDTO>> getAllRealEstateAssestPaymentPlan(
+    public ResponseEntity<Page<ManagementFirmPaymentPlanDTO>> getAllManagementFirmPaymentPlan(
             @ParameterObject @PageableDefault(size = 20) Pageable pageable) {
-        log.info("Fetching all real estate assest Payment Plan, page: {}", pageable.getPageNumber());
-        Page<ManagementFirmPaymentPlanDTO> page = managementFirmPaymentPlanService.getAllRealEstateAssestPaymentPlan(pageable);
+        log.info("Fetching all Management Firm Payment Plan, page: {}", pageable.getPageNumber());
+        Page<ManagementFirmPaymentPlanDTO> page = managementFirmPaymentPlanService.getAllManagementFirmPaymentPlan(pageable);
         return ResponseEntity.ok(page);
     }
 
     @PostMapping
-    public ResponseEntity<ManagementFirmPaymentPlanDTO> saveRealEstateAssestPaymentPlan(
+    public ResponseEntity<ManagementFirmPaymentPlanDTO> saveManagementFirmPaymentPlan(
             @Valid @RequestBody ManagementFirmPaymentPlanDTO dto) {
-        log.info("Creating new real estate assest Payment Plan");
+        log.info("Creating new Management Firm Payment Plan");
         if (dto.getId() != null) {
-            throw new BadRequestAlertException("A new real estate assests Payment Plan cannot already have an ID", ENTITY_NAME, "idexists");
+            throw new BadRequestAlertException("A new Management Firms Payment Plan cannot already have an ID", ENTITY_NAME, "idexists");
         }
-        ManagementFirmPaymentPlanDTO saved = managementFirmPaymentPlanService.saveRealEstateAssestPaymentPlan(dto);
+        ManagementFirmPaymentPlanDTO saved = managementFirmPaymentPlanService.saveManagementFirmPaymentPlan(dto);
         return ResponseEntity.ok(saved);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<ManagementFirmPaymentPlanDTO> getRealEstateAssestPaymentPlanById(@PathVariable Long id) {
-        log.info("Fetching real estate assest Payment Plan with ID: {}", id);
-        return managementFirmPaymentPlanService.getRealEstateAssestPaymentPlanById(id)
+    public ResponseEntity<ManagementFirmPaymentPlanDTO> getManagementFirmPaymentPlanById(@PathVariable Long id) {
+        log.info("Fetching Management Firm Payment Plan with ID: {}", id);
+        return managementFirmPaymentPlanService.getManagementFirmPaymentPlanById(id)
                 .map(ResponseEntity::ok)
                 .orElseGet(() -> {
                     log.warn("Real estate assest not found for ID: {}", id);
@@ -80,10 +80,10 @@ public class ManagementFirmPaymentPlanController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<ManagementFirmPaymentPlanDTO> updateRealEstateAssestPaymentPlan(
+    public ResponseEntity<ManagementFirmPaymentPlanDTO> updateManagementFirmPaymentPlan(
             @PathVariable Long id,
             @Valid @RequestBody ManagementFirmPaymentPlanDTO dto) {
-        log.info("Updating real estate assest Payment Plan with ID: {}", id);
+        log.info("Updating Management Firm Payment Plan with ID: {}", id);
         if (dto.getId() == null) {
             throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");
         }
@@ -94,35 +94,35 @@ public class ManagementFirmPaymentPlanController {
         if (!repository.existsById(id)) {
             throw new BadRequestAlertException("Entity not found", ENTITY_NAME, "idnotfound");
         }
-        ManagementFirmPaymentPlanDTO updated = managementFirmPaymentPlanService.updateRealEstateAssestPaymentPlan(id, dto);
+        ManagementFirmPaymentPlanDTO updated = managementFirmPaymentPlanService.updateManagementFirmPaymentPlan(id, dto);
         return ResponseEntity.ok(updated);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<String> deleteRealEstateAssestPaymentPlanById(@PathVariable Long id) {
-        log.info("Deleting real estate assest Payment Plan with ID: {}", id);
-        boolean deleted = managementFirmPaymentPlanService.deleteRealEstateAssestPaymentPlanById(id);
+    public ResponseEntity<String> deleteManagementFirmPaymentPlanById(@PathVariable Long id) {
+        log.info("Deleting Management Firm Payment Plan with ID: {}", id);
+        boolean deleted = managementFirmPaymentPlanService.deleteManagementFirmPaymentPlanById(id);
         if (deleted) {
-            return ResponseEntity.ok("RealEstateAssest Payment Plan deleted - ID: " + id);
+            return ResponseEntity.ok("ManagementFirm Payment Plan deleted - ID: " + id);
         } else {
-            return ResponseEntity.badRequest().body("RealEstateAssest Payment Plan  deletion failed - ID: " + id);
+            return ResponseEntity.badRequest().body("ManagementFirm Payment Plan  deletion failed - ID: " + id);
         }
     }
 
     @PostMapping("/save-all")
-    public ResponseEntity<ManagementFirmPaymentPlanDTO> saveAllRealEstateAssestPaymentPlan(
+    public ResponseEntity<ManagementFirmPaymentPlanDTO> saveAllManagementFirmPaymentPlan(
             @Valid @RequestBody List<ManagementFirmPaymentPlanDTO> dto) {
-        log.info("Creating all new real estate assest Payment Plan");
+        log.info("Creating all new Management Firm Payment Plan");
 
-        ManagementFirmPaymentPlanDTO saved = managementFirmPaymentPlanService.saveAllRealEstateAssestPaymentPlan(dto);
+        ManagementFirmPaymentPlanDTO saved = managementFirmPaymentPlanService.saveAllManagementFirmPaymentPlan(dto);
         return ResponseEntity.ok(saved);
     }
 
     @DeleteMapping("/soft/{id}")
-    public ResponseEntity<String> softDeleteRealEstateAssestPaymentPlanServiceById(@PathVariable Long id) {
+    public ResponseEntity<String> softDeleteManagementFirmPaymentPlanServiceById(@PathVariable Long id) {
         log.info("Soft deleting ManagementFirmPaymentPlan with ID: {}", id);
 
-        boolean deleted = managementFirmPaymentPlanService.softRealEstateAssestPaymentPlanServiceById(id);
+        boolean deleted = managementFirmPaymentPlanService.softManagementFirmPaymentPlanServiceById(id);
         if (deleted) {
             return ResponseEntity.ok("ManagementFirmPaymentPlan soft deleted - ID: " + id);
         } else {

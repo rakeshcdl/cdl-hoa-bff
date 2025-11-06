@@ -7,15 +7,15 @@ import org.springframework.data.domain.Pageable;
 import java.util.Optional;
 
 public interface ManagementFirmClosureService {
-    Page<ManagementFirmClosureDTO> getAllRealEstateAssestClosure(final Pageable pageable);
+    Page<ManagementFirmClosureDTO> getAllManagementFirmClosure(final Pageable pageable);
 
-    Optional<ManagementFirmClosureDTO> getRealEstateAssestClosureById(Long id);
+    Optional<ManagementFirmClosureDTO> getManagementFirmClosureById(Long id);
 
-    ManagementFirmClosureDTO saveRealEstateAssestClosure(ManagementFirmClosureDTO managementFirmClosureDTO);
+    ManagementFirmClosureDTO saveManagementFirmClosure(ManagementFirmClosureDTO managementFirmClosureDTO);
 
-    ManagementFirmClosureDTO updateRealEstateAssestClosure(Long id, ManagementFirmClosureDTO managementFirmClosureDTO);
+    ManagementFirmClosureDTO updateManagementFirmClosure(Long id, ManagementFirmClosureDTO managementFirmClosureDTO);
 
-    Boolean deleteRealEstateAssestClosureById(Long id);
+    Boolean deleteManagementFirmClosureById(Long id);
 
-    boolean softRealEstateAssestClosureServiceById(Long id);
+    boolean softManagementFirmClosureServiceById(Long id);
 }

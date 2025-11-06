@@ -38,10 +38,10 @@ public class ManagementFirmController {
 
     private final ManagementFirmRepository repository;
 
-    private static final String ENTITY_NAME = "REAL_ESTATE_ASSEST";
+    private static final String ENTITY_NAME = "MANAGEMENT_FIRM";
 
     @GetMapping
-    public ResponseEntity<List<ManagementFirmDTO>> getAllRealEstateAssestByCriteria(@ParameterObject ManagementFirmCriteria criteria,
+    public ResponseEntity<List<ManagementFirmDTO>> getAllManagementFirmByCriteria(@ParameterObject ManagementFirmCriteria criteria,
                                                                                     @ParameterObject  Pageable pageable) {
         Page<ManagementFirmDTO> page = managementFirmCriteriaService.findByCriteria(criteria, pageable);
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(ServletUriComponentsBuilder.fromCurrentRequest(), page);
@@ -49,28 +49,28 @@ public class ManagementFirmController {
     }
 
     @GetMapping("/find-all")
-    public ResponseEntity<Page<ManagementFirmDTO>> getAllRealEstateAssest(
+    public ResponseEntity<Page<ManagementFirmDTO>> getAllManagementFirm(
             @ParameterObject @PageableDefault(size = 20) Pageable pageable) {
-        log.info("Fetching all real estate assest, page: {}", pageable.getPageNumber());
-        Page<ManagementFirmDTO> page = managementFirmService.getAllRealEstateAssest(pageable);
+        log.info("Fetching all Management Firm, page: {}", pageable.getPageNumber());
+        Page<ManagementFirmDTO> page = managementFirmService.getAllManagementFirm(pageable);
         return ResponseEntity.ok(page);
     }
 
     @PostMapping
-    public ResponseEntity<ManagementFirmDTO> saveRealEstateAssest(
+    public ResponseEntity<ManagementFirmDTO> saveManagementFirm(
             @Valid @RequestBody ManagementFirmDTO dto) {
-        log.info("Creating new real estate assest ");
+        log.info("Creating new Management Firm ");
         if (dto.getId() != null) {
-            throw new BadRequestAlertException("A new real estate assests cannot already have an ID", ENTITY_NAME, "idexists");
+            throw new BadRequestAlertException("A new Management Firms cannot already have an ID", ENTITY_NAME, "idexists");
         }
-        ManagementFirmDTO saved = managementFirmService.saveRealEstateAssest(dto);
+        ManagementFirmDTO saved = managementFirmService.saveManagementFirm(dto);
         return ResponseEntity.ok(saved);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<ManagementFirmDTO> getRealEstateAssestById(@PathVariable Long id) {
-        log.info("Fetching real estate assest with ID: {}", id);
-        return managementFirmService.getRealEstateAssestById(id)
+    public ResponseEntity<ManagementFirmDTO> getManagementFirmById(@PathVariable Long id) {
+        log.info("Fetching Management Firm with ID: {}", id);
+        return managementFirmService.getManagementFirmById(id)
                 .map(ResponseEntity::ok)
                 .orElseGet(() -> {
                     log.warn("Real estate assest not found for ID: {}", id);
@@ -79,10 +79,10 @@ public class ManagementFirmController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<ManagementFirmDTO> updateRealEstateAssest(
+    public ResponseEntity<ManagementFirmDTO> updateManagementFirm(
             @PathVariable Long id,
             @Valid @RequestBody ManagementFirmDTO dto) {
-        log.info("Updating real estate assest with ID: {}", id);
+        log.info("Updating Management Firm with ID: {}", id);
         if (dto.getId() == null) {
             throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");
         }
@@ -93,35 +93,35 @@ public class ManagementFirmController {
         if (!repository.existsById(id)) {
             throw new BadRequestAlertException("Entity not found", ENTITY_NAME, "idnotfound");
         }
-        ManagementFirmDTO updated = managementFirmService.updateRealEstateAssest(id, dto);
+        ManagementFirmDTO updated = managementFirmService.updateManagementFirm(id, dto);
         return ResponseEntity.ok(updated);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<String> deleteRealEstateAssestById(@PathVariable Long id) {
-        log.info("Deleting real estate assest with ID: {}", id);
-        boolean deleted = managementFirmService.deleteRealEstateAssestById(id);
+    public ResponseEntity<String> deleteManagementFirmById(@PathVariable Long id) {
+        log.info("Deleting Management Firm with ID: {}", id);
+        boolean deleted = managementFirmService.deleteManagementFirmById(id);
         if (deleted) {
-            return ResponseEntity.ok("RealEstateAssest deleted - ID: " + id);
+            return ResponseEntity.ok("ManagementFirm deleted - ID: " + id);
         } else {
-            return ResponseEntity.badRequest().body("RealEstateAssest deletion failed - ID: " + id);
+            return ResponseEntity.badRequest().body("ManagementFirm deletion failed - ID: " + id);
         }
     }
 
     @DeleteMapping("/soft/{id}")
-    public ResponseEntity<String> softDeleteRealEstateAssestServiceById(@PathVariable Long id) {
-        log.info("Soft deleting RealEstateAssest with ID: {}", id);
+    public ResponseEntity<String> softDeleteManagementFirmServiceById(@PathVariable Long id) {
+        log.info("Soft deleting ManagementFirm with ID: {}", id);
 
-        boolean deleted = managementFirmService.softRealEstateAssestServiceById(id);
+        boolean deleted = managementFirmService.softManagementFirmServiceById(id);
         if (deleted) {
-            return ResponseEntity.ok("RealEstateAssest soft deleted - ID: " + id);
+            return ResponseEntity.ok("ManagementFirm soft deleted - ID: " + id);
         } else {
-            return ResponseEntity.badRequest().body("RealEstateAssest soft deletion failed - ID: " + id);
+            return ResponseEntity.badRequest().body("ManagementFirm soft deletion failed - ID: " + id);
         }
     }
 
     @PostMapping("/upload")
-    public ResponseEntity<ManagementFirmDTO> uploadRealEstateAssestTemplate(
+    public ResponseEntity<ManagementFirmDTO> uploadManagementFirmTemplate(
             @RequestParam("file") MultipartFile file) {
         log.info("Bulk upload build RealEstate Assest");
 

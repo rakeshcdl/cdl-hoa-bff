@@ -36,10 +36,10 @@ public class ManagementFirmClosureController {
 
     private final ManagementFirmClosureRepository repository;
 
-    private static final String ENTITY_NAME = "REAL_ESTATE_ASSEST_CLOSURE";
+    private static final String ENTITY_NAME = "MANAGEMENT_FIRM_CLOSURE";
 
     @GetMapping
-    public ResponseEntity<Page<ManagementFirmClosureDTO>> getAllRealEstateAssestClosureByCriteria(@ParameterObject ManagementFirmClosureCriteria criteria,
+    public ResponseEntity<Page<ManagementFirmClosureDTO>> getAllManagementFirmClosureByCriteria(@ParameterObject ManagementFirmClosureCriteria criteria,
                                                                                                   @ParameterObject  Pageable pageable) {
         Page<ManagementFirmClosureDTO> page = managementFirmClosureCriteriaService.findByCriteria(criteria, pageable);
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(ServletUriComponentsBuilder.fromCurrentRequest(), page);
@@ -47,29 +47,29 @@ public class ManagementFirmClosureController {
     }
 
     @GetMapping("/find-all")
-    public ResponseEntity<Page<ManagementFirmClosureDTO>> getAllRealEstateAssestClosure(
+    public ResponseEntity<Page<ManagementFirmClosureDTO>> getAllManagementFirmClosure(
             @ParameterObject @PageableDefault(size = 20) Pageable pageable) {
-        log.info("Fetching all real estate assest closure, page: {}", pageable.getPageNumber());
-        Page<ManagementFirmClosureDTO> page = managementFirmClosureService.getAllRealEstateAssestClosure(pageable);
+        log.info("Fetching all Management Firm closure, page: {}", pageable.getPageNumber());
+        Page<ManagementFirmClosureDTO> page = managementFirmClosureService.getAllManagementFirmClosure(pageable);
         return ResponseEntity.ok(page);
     }
 
     @PostMapping
-    public ResponseEntity<ManagementFirmClosureDTO> saveRealEstateAssestClosure(
+    public ResponseEntity<ManagementFirmClosureDTO> saveManagementFirmClosure(
             @Valid @RequestBody ManagementFirmClosureDTO dto) {
-        log.info("Creating new real estate assest closure");
+        log.info("Creating new Management Firm closure");
 
         if (dto.getId() != null) {
             throw new BadRequestAlertException("A new real estate closure cannot already have an ID", ENTITY_NAME, "idexists");
         }
-        ManagementFirmClosureDTO saved = managementFirmClosureService.saveRealEstateAssestClosure(dto);
+        ManagementFirmClosureDTO saved = managementFirmClosureService.saveManagementFirmClosure(dto);
         return ResponseEntity.ok(saved);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<ManagementFirmClosureDTO> getRealEstateAssestClosureById(@PathVariable Long id) {
-        log.info("Fetching real estate assest closure with ID: {}", id);
-        return managementFirmClosureService.getRealEstateAssestClosureById(id)
+    public ResponseEntity<ManagementFirmClosureDTO> getManagementFirmClosureById(@PathVariable Long id) {
+        log.info("Fetching Management Firm closure with ID: {}", id);
+        return managementFirmClosureService.getManagementFirmClosureById(id)
                 .map(ResponseEntity::ok)
                 .orElseGet(() -> {
                     log.warn("Real estate assest closure not found for ID: {}", id);
@@ -78,10 +78,10 @@ public class ManagementFirmClosureController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<ManagementFirmClosureDTO> updateRealEstateAssestClosure(
+    public ResponseEntity<ManagementFirmClosureDTO> updateManagementFirmClosure(
             @PathVariable Long id,
             @Valid @RequestBody ManagementFirmClosureDTO dto) {
-        log.info("Updating real estate assest closure with ID: {}", id);
+        log.info("Updating Management Firm closure with ID: {}", id);
         if (dto.getId() == null) {
             throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");
         }
@@ -92,14 +92,14 @@ public class ManagementFirmClosureController {
         if (!repository.existsById(id)) {
             throw new BadRequestAlertException("Entity not found", ENTITY_NAME, "idnotfound");
         }
-        ManagementFirmClosureDTO updated = managementFirmClosureService.updateRealEstateAssestClosure(id, dto);
+        ManagementFirmClosureDTO updated = managementFirmClosureService.updateManagementFirmClosure(id, dto);
         return ResponseEntity.ok(updated);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<String> deleteRealEstateAssestClosureById(@PathVariable Long id) {
-        log.info("Deleting real estate assest closure with ID: {}", id);
-        boolean deleted = managementFirmClosureService.deleteRealEstateAssestClosureById(id);
+    public ResponseEntity<String> deleteManagementFirmClosureById(@PathVariable Long id) {
+        log.info("Deleting Management Firm closure with ID: {}", id);
+        boolean deleted = managementFirmClosureService.deleteManagementFirmClosureById(id);
         if (deleted) {
             return ResponseEntity.ok("ManagementFirmClosure deleted - ID: " + id);
         } else {
@@ -108,10 +108,10 @@ public class ManagementFirmClosureController {
     }
 
     @DeleteMapping("/soft/{id}")
-    public ResponseEntity<String> softDeleteRealEstateAssestClosureServiceById(@PathVariable Long id) {
+    public ResponseEntity<String> softDeleteManagementFirmClosureServiceById(@PathVariable Long id) {
         log.info("Soft deleting ManagementFirmClosure with ID: {}", id);
 
-        boolean deleted = managementFirmClosureService.softRealEstateAssestClosureServiceById(id);
+        boolean deleted = managementFirmClosureService.softManagementFirmClosureServiceById(id);
         if (deleted) {
             return ResponseEntity.ok("ManagementFirmClosure soft deleted - ID: " + id);
         } else {

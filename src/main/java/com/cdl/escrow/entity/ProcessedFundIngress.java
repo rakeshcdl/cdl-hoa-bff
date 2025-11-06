@@ -114,7 +114,7 @@ public class ProcessedFundIngress implements Serializable {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JsonIgnore
-    private CapitalPartnerUnit capitalPartnerUnit;
+    private OwnerRegistryUnit ownerRegistryUnit;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JsonIgnore

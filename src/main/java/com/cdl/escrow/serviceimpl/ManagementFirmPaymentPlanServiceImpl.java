@@ -29,8 +29,8 @@ public class ManagementFirmPaymentPlanServiceImpl implements ManagementFirmPayme
 
     @Override
     @Transactional(readOnly = true)
-    public Page<ManagementFirmPaymentPlanDTO> getAllRealEstateAssestPaymentPlan(Pageable pageable) {
-        log.debug("Fetching all Real Estate Assest Payment Plan, page: {}", pageable.getPageNumber());
+    public Page<ManagementFirmPaymentPlanDTO> getAllManagementFirmPaymentPlan(Pageable pageable) {
+        log.debug("Fetching all Management Firm Payment Plan, page: {}", pageable.getPageNumber());
         Page<ManagementFirmPaymentPlan> page = repository.findAll(pageable);
         return new PageImpl<>(
                 page.map(mapper::toDto).getContent(),
@@ -41,16 +41,16 @@ public class ManagementFirmPaymentPlanServiceImpl implements ManagementFirmPayme
 
     @Override
     @Transactional(readOnly = true)
-    public Optional<ManagementFirmPaymentPlanDTO> getRealEstateAssestPaymentPlanById(Long id) {
-        log.debug("Fetching Real Estate Assest Payment Plan with ID: {}", id);
+    public Optional<ManagementFirmPaymentPlanDTO> getManagementFirmPaymentPlanById(Long id) {
+        log.debug("Fetching Management Firm Payment Plan with ID: {}", id);
         return repository.findById(id)
                 .map(mapper::toDto);
     }
 
     @Override
     @Transactional
-    public ManagementFirmPaymentPlanDTO saveRealEstateAssestPaymentPlan(ManagementFirmPaymentPlanDTO managementFirmPaymentPlanDTO) {
-        log.info("Saving new Real Estate Assest Payment Plan");
+    public ManagementFirmPaymentPlanDTO saveManagementFirmPaymentPlan(ManagementFirmPaymentPlanDTO managementFirmPaymentPlanDTO) {
+        log.info("Saving new Management Firm Payment Plan");
         ManagementFirmPaymentPlan entity = mapper.toEntity(managementFirmPaymentPlanDTO);
         ManagementFirmPaymentPlan saved = repository.save(entity);
         return mapper.toDto(saved);
@@ -58,7 +58,7 @@ public class ManagementFirmPaymentPlanServiceImpl implements ManagementFirmPayme
 
     @Override
     @Transactional
-    public ManagementFirmPaymentPlanDTO updateRealEstateAssestPaymentPlan(Long id, ManagementFirmPaymentPlanDTO managementFirmPaymentPlanDTO) {
+    public ManagementFirmPaymentPlanDTO updateManagementFirmPaymentPlan(Long id, ManagementFirmPaymentPlanDTO managementFirmPaymentPlanDTO) {
         log.info("Updating Real EstateAssest Payment Plan with ID: {}", id);
 
         ManagementFirmPaymentPlan existing = repository.findById(id)
@@ -74,7 +74,7 @@ public class ManagementFirmPaymentPlanServiceImpl implements ManagementFirmPayme
 
     @Override
     @Transactional
-    public Boolean deleteRealEstateAssestPaymentPlanById(Long id) {
+    public Boolean deleteManagementFirmPaymentPlanById(Long id) {
         log.info("Deleting Real EstateAssest Payment Plan with ID: {}", id);
 
         if (!repository.existsById(id)) {
@@ -87,7 +87,7 @@ public class ManagementFirmPaymentPlanServiceImpl implements ManagementFirmPayme
 
     @Override
     @Transactional
-    public ManagementFirmPaymentPlanDTO saveAllRealEstateAssestPaymentPlan(List<ManagementFirmPaymentPlanDTO> dto) {
+    public ManagementFirmPaymentPlanDTO saveAllManagementFirmPaymentPlan(List<ManagementFirmPaymentPlanDTO> dto) {
         ManagementFirmPaymentPlan saved = null;
         for(ManagementFirmPaymentPlanDTO managementFirmPaymentPlanDTO : dto) {
             ManagementFirmPaymentPlan entity = mapper.toEntity(managementFirmPaymentPlanDTO);
@@ -98,7 +98,7 @@ public class ManagementFirmPaymentPlanServiceImpl implements ManagementFirmPayme
 
     @Override
     @Transactional
-    public boolean softRealEstateAssestPaymentPlanServiceById(Long id) {
+    public boolean softManagementFirmPaymentPlanServiceById(Long id) {
         return repository.findByIdAndDeletedFalse(id).map(entity -> {
             entity.setDeleted(true);
             repository.save(entity);

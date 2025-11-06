@@ -14,7 +14,7 @@ public class WorkflowFinalizationService {
 
     private final ManagementFirmService managementFirmService;
 
-    private final CapitalPartnerService capitalPartnerService;
+    private final OwnerRegistryService ownerRegistryService;
 
     private final FundEgressService fundEgressService;
 
@@ -29,9 +29,9 @@ public class WorkflowFinalizationService {
 
         switch (moduleType) {
            // case "BUILD_PARTNER" -> assetRegisterService.finalizeBuildPartner(moduleId, status);
-            case "BUILD_PARTNER_ASSEST" -> managementFirmService.finalizeRealEstateAssest(moduleId, status);
+           // case "BUILD_PARTNER_ASSEST" -> managementFirmService.finalizeRealEstateAssest(moduleId, status);
             case "PAYMENTS" -> fundEgressService.finalizeFundEgress(moduleId, status);
-            case "CAPITAL_PARTNER" -> capitalPartnerService.finalizeCapitalPartner(moduleId, status);
+           // case "CAPITAL_PARTNER" -> ownerRegistryService.finalizeCapitalPartner(moduleId, status);
             case "TRANSACTIONS" -> pendingFundIngressService.finalizeDeposit(moduleId, status);
             case "SURETY_BOND" -> suretyBondService.finalizeSuretyBond(moduleId,status);
             default -> throw new IllegalArgumentException("Unsupported module type: " + moduleType);

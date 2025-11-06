@@ -121,7 +121,7 @@ public class PendingFundIngress {
 
     @ManyToOne
     @JsonIgnore
-    private CapitalPartnerUnit capitalPartnerUnit;
+    private OwnerRegistryUnit ownerRegistryUnit;
 
     @ManyToOne
     @JsonIgnore

@@ -11,7 +11,7 @@ import org.mapstruct.Mapping;
 public interface ProcessedFundIngressMapper extends EntityMapper<ProcessedFundIngressDTO, ProcessedFundIngress> {
 
     @Mapping(source = "managementFirm", target = "managementFirmDTO")
-    @Mapping(source = "capitalPartnerUnit", target = "capitalPartnerUnitDTO")
+    @Mapping(source = "ownerRegistryUnit", target = "ownerRegistryUnitDTO")
     @Mapping(source = "bucketType", target = "bucketTypeDTO")
     @Mapping(source = "bucketSubType", target = "bucketSubTypeDTO")
     @Mapping(source = "depositMode", target = "depositModeDTO")
@@ -21,7 +21,7 @@ public interface ProcessedFundIngressMapper extends EntityMapper<ProcessedFundIn
 
 
     @Mapping(source = "managementFirmDTO", target = "managementFirm")
-    @Mapping(source = "capitalPartnerUnitDTO", target = "capitalPartnerUnit")
+    @Mapping(source = "ownerRegistryUnitDTO", target = "ownerRegistryUnit")
     @Mapping(source = "bucketTypeDTO", target = "bucketType")
     @Mapping(source = "bucketSubTypeDTO", target = "bucketSubType")
     @Mapping(source = "depositModeDTO", target = "depositMode")

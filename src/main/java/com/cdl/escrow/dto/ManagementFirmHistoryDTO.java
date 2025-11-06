@@ -50,7 +50,7 @@ public class ManagementFirmHistoryDTO implements Serializable {
     private Boolean deleted ;
 
     private boolean enabled ;
-    // private CapitalPartnerUnitDTO capitalPartnerUnitDTO;
+    // private OwnerRegistryUnitDTO capitalPartnerUnitDTO;
 
    // private FundEgressDTO fundEgressDTO;
 }

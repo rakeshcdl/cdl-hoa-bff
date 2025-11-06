@@ -26,17 +26,17 @@ import java.util.Set;
 @ToString(onlyExplicitlyIncluded = true)
 @EntityListeners(AuditingEntityListener.class)
 @Entity
-@Table(name = "real_estate_assest")
+@Table(name = "management_firm")
 public class ManagementFirm implements Serializable {
     @Id
     @SequenceGenerator(
-            name = "real_estate_assest_id_seq_gen",
-            sequenceName = "real_estate_assest_id_seq",
+            name = "management_firm_id_seq_gen",
+            sequenceName = "management_firm_id_seq",
             allocationSize = 50
     )
     @GeneratedValue(
             strategy = GenerationType.SEQUENCE,
-            generator = "real_estate_assest_id_seq_gen"
+            generator = "management_firm_id_seq_gen"
     )
     private Long id;
 
@@ -136,7 +136,7 @@ public class ManagementFirm implements Serializable {
 
     @ManyToMany(mappedBy = "managementFirms" , fetch = FetchType.LAZY)
     @JsonIgnore
-    private Set<ManagementFirmBeneficiary> realEstateAssestBeneficiaries = new HashSet<>();
+    private Set<ManagementFirmBeneficiary> managementFirmBeneficiaries = new HashSet<>();
 
     @OneToMany(mappedBy = "managementFirm")
     @JsonIgnore
@@ -156,7 +156,7 @@ public class ManagementFirm implements Serializable {
 
     @OneToMany(mappedBy = "managementFirm")
     @JsonIgnore
-    private Set<CapitalPartnerUnit> capitalPartnerUnits ;
+    private Set<OwnerRegistryUnit> ownerRegistryUnits;
 
     @OneToMany(mappedBy = "managementFirm")
     @JsonIgnore

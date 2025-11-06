@@ -7,15 +7,15 @@ import org.springframework.data.domain.Pageable;
 import java.util.Optional;
 
 public interface ManagementFirmFinancialSummaryService {
-    Page<ManagementFirmFinancialSummaryDTO> getAllRealEstateAssestFinancialSummary(final Pageable pageable);
+    Page<ManagementFirmFinancialSummaryDTO> getAllManagementFirmFinancialSummary(final Pageable pageable);
 
-    Optional<ManagementFirmFinancialSummaryDTO> getRealEstateAssestFinancialSummaryById(Long id);
+    Optional<ManagementFirmFinancialSummaryDTO> getManagementFirmFinancialSummaryById(Long id);
 
-    ManagementFirmFinancialSummaryDTO saveRealEstateAssestFinancialSummary(ManagementFirmFinancialSummaryDTO managementFirmFinancialSummaryDTO);
+    ManagementFirmFinancialSummaryDTO saveManagementFirmFinancialSummary(ManagementFirmFinancialSummaryDTO managementFirmFinancialSummaryDTO);
 
-    ManagementFirmFinancialSummaryDTO updateRealEstateAssestFinancialSummary(Long id, ManagementFirmFinancialSummaryDTO managementFirmFinancialSummaryDTO);
+    ManagementFirmFinancialSummaryDTO updateManagementFirmFinancialSummary(Long id, ManagementFirmFinancialSummaryDTO managementFirmFinancialSummaryDTO);
 
-    Boolean deleteRealEstateAssestFinancialSummaryById(Long id);
+    Boolean deleteManagementFirmFinancialSummaryById(Long id);
 
-    boolean softRealEstateAssestFinancialSummaryServiceById(Long id);
+    boolean softManagementFirmFinancialSummaryServiceById(Long id);
 }

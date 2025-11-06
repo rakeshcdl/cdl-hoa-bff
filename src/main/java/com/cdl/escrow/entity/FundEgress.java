@@ -299,11 +299,11 @@ public class FundEgress implements Serializable {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JsonIgnore
-    private CapitalPartnerUnit capitalPartnerUnit;
+    private OwnerRegistryUnit ownerRegistryUnit;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JsonIgnore
-    private CapitalPartnerUnit transferCapitalPartnerUnit;
+    private OwnerRegistryUnit transferOwnerRegistryUnit;
 
 
     @ManyToOne(fetch = FetchType.LAZY)

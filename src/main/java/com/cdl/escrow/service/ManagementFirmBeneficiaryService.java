@@ -7,15 +7,15 @@ import org.springframework.data.domain.Pageable;
 import java.util.Optional;
 
 public interface ManagementFirmBeneficiaryService {
-    Page<ManagementFirmBeneficiaryDTO> getAllRealEstateAssestBeneficiary(final Pageable pageable);
+    Page<ManagementFirmBeneficiaryDTO> getAllManagementFirmBeneficiary(final Pageable pageable);
 
-    Optional<ManagementFirmBeneficiaryDTO> getRealEstateAssestBeneficiaryById(Long id);
+    Optional<ManagementFirmBeneficiaryDTO> getManagementFirmBeneficiaryById(Long id);
 
-    ManagementFirmBeneficiaryDTO saveRealEstateAssestBeneficiary(ManagementFirmBeneficiaryDTO managementFirmBeneficiaryDTO);
+    ManagementFirmBeneficiaryDTO saveManagementFirmBeneficiary(ManagementFirmBeneficiaryDTO managementFirmBeneficiaryDTO);
 
-    ManagementFirmBeneficiaryDTO updateRealEstateAssestBeneficiary(Long id, ManagementFirmBeneficiaryDTO managementFirmBeneficiaryDTO);
+    ManagementFirmBeneficiaryDTO updateManagementFirmBeneficiary(Long id, ManagementFirmBeneficiaryDTO managementFirmBeneficiaryDTO);
 
-    Boolean deleteRealEstateAssestBeneficiaryById(Long id);
+    Boolean deleteManagementFirmBeneficiaryById(Long id);
 
-    boolean softRealEstateAssestBeneficiaryServiceById(Long id);
+    boolean softManagementFirmBeneficiaryServiceById(Long id);
 }

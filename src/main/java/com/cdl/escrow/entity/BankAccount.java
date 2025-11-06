@@ -103,11 +103,11 @@ public class BankAccount implements Serializable {
 */
    /* @OneToMany(mappedBy = "bankAccount")
     @JsonIgnore
-    private Set<CapitalPartnerBankInfo> capitalPartnerBankInfos;
+    private Set<OwnerRegistryBankInfo> ownerRegistryBankInfos;
 */
   /*  @ManyToOne
     @JsonIgnore
-    private CapitalPartnerUnit capitalPartnerUnit;
+    private OwnerRegistryUnit ownerRegistryUnit;
 */
 
 }

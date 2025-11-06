@@ -24,17 +24,17 @@ import java.util.Set;
 @ToString(onlyExplicitlyIncluded = true)
 @EntityListeners(AuditingEntityListener.class)
 @Entity
-@Table(name = "real_estate_assest_beneficiary")
+@Table(name = "management_firm_beneficiary")
 public class ManagementFirmBeneficiary implements Serializable {
     @Id
     @SequenceGenerator(
-            name = "real_estate_assest_beneficiary_id_seq_gen",
-            sequenceName = "real_estate_assest_beneficiary_id_seq",
+            name = "management_firm_beneficiary_id_seq_gen",
+            sequenceName = "management_firm_beneficiary_id_seq",
             allocationSize = 50
     )
     @GeneratedValue(
             strategy = GenerationType.SEQUENCE,
-            generator = "real_estate_assest_beneficiary_id_seq_gen"
+            generator = "management_firm_beneficiary_id_seq_gen"
     )
     private Long id;
 
@@ -94,9 +94,9 @@ public class ManagementFirmBeneficiary implements Serializable {
 
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
-            name = "rel_realestateassest_beneficiary__realestateassest",
-            joinColumns = @JoinColumn(name = "real_estate_assest_beneficiary_id"),
-            inverseJoinColumns = @JoinColumn(name = "real_estate_assest_id")
+            name = "rel_management_firm_beneficiary__management_firm",
+            joinColumns = @JoinColumn(name = "management_firm_beneficiary_id"),
+            inverseJoinColumns = @JoinColumn(name = "management_firm_id")
     )
    @JsonIgnore
 

@@ -28,8 +28,8 @@ public class ManagementFirmFeeServiceImpl implements ManagementFirmFeeService {
 
     @Override
     @Transactional(readOnly = true)
-    public Page<ManagementFirmFeeDTO> getAllRealEstateAssestFee(Pageable pageable) {
-        log.debug("Fetching all Real EstateAssest fee , page: {}", pageable.getPageNumber());
+    public Page<ManagementFirmFeeDTO> getAllManagementFirmFee(Pageable pageable) {
+        log.debug("Fetching all Management Firm fee , page: {}", pageable.getPageNumber());
         Page<ManagementFirmFee> page = repository.findAll(pageable);
         return new PageImpl<>(
                 page.map(mapper::toDto).getContent(),
@@ -41,8 +41,8 @@ public class ManagementFirmFeeServiceImpl implements ManagementFirmFeeService {
 
     @Override
     @Transactional(readOnly = true)
-    public Optional<ManagementFirmFeeDTO> getRealEstateAssestFeeById(Long id) {
-        log.debug("Fetching Real EstateAssest fee with ID: {}", id);
+    public Optional<ManagementFirmFeeDTO> getManagementFirmFeeById(Long id) {
+        log.debug("Fetching Management Firm fee with ID: {}", id);
         return repository.findById(id)
                 .map(mapper::toDto);
     }
@@ -50,8 +50,8 @@ public class ManagementFirmFeeServiceImpl implements ManagementFirmFeeService {
 
     @Override
     @Transactional
-    public ManagementFirmFeeDTO saveRealEstateAssestFee(ManagementFirmFeeDTO managementFirmFeeDTO) {
-        log.info("Saving new Real EstateAssest fee");
+    public ManagementFirmFeeDTO saveManagementFirmFee(ManagementFirmFeeDTO managementFirmFeeDTO) {
+        log.info("Saving new Management Firm fee");
         ManagementFirmFee entity = mapper.toEntity(managementFirmFeeDTO);
         ManagementFirmFee saved = repository.save(entity);
         return mapper.toDto(saved);
@@ -60,11 +60,11 @@ public class ManagementFirmFeeServiceImpl implements ManagementFirmFeeService {
 
     @Override
     @Transactional
-    public ManagementFirmFeeDTO updateRealEstateAssestFee(Long id, ManagementFirmFeeDTO managementFirmFeeDTO) {
-        log.info("Updating Real EstateAssest fee with ID: {}", id);
+    public ManagementFirmFeeDTO updateManagementFirmFee(Long id, ManagementFirmFeeDTO managementFirmFeeDTO) {
+        log.info("Updating Management Firm fee with ID: {}", id);
 
         ManagementFirmFee existing = repository.findById(id)
-                .orElseThrow(() -> new ApplicationConfigurationNotFoundException("Real EstateAssest fee not found with ID: " + id));
+                .orElseThrow(() -> new ApplicationConfigurationNotFoundException("Management Firm fee not found with ID: " + id));
 
         // Optionally, update only mutable fields instead of full replacement
         ManagementFirmFee toUpdate = mapper.toEntity(managementFirmFeeDTO);
@@ -77,11 +77,11 @@ public class ManagementFirmFeeServiceImpl implements ManagementFirmFeeService {
 
     @Override
     @Transactional
-    public Boolean deleteRealEstateAssestFeeById(Long id) {
-        log.info("Deleting Real EstateAssest Beneficiary  with ID: {}", id);
+    public Boolean deleteManagementFirmFeeById(Long id) {
+        log.info("Deleting Management Firm Beneficiary  with ID: {}", id);
 
         if (!repository.existsById(id)) {
-            throw new ApplicationConfigurationNotFoundException("Real EstateAssest Beneficiary not found with ID: " + id);
+            throw new ApplicationConfigurationNotFoundException("Management Firm Beneficiary not found with ID: " + id);
         }
 
         repository.deleteById(id);
@@ -90,7 +90,7 @@ public class ManagementFirmFeeServiceImpl implements ManagementFirmFeeService {
 
     @Override
     @Transactional
-    public boolean softRealEstateAssestFeeServiceById(Long id) {
+    public boolean softManagementFirmFeeServiceById(Long id) {
         return repository.findByIdAndDeletedFalse(id).map(entity -> {
             entity.setDeleted(true);
             repository.save(entity);

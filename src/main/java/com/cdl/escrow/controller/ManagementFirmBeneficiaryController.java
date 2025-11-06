@@ -37,10 +37,10 @@ public class ManagementFirmBeneficiaryController {
 
     private final ManagementFirmBeneficiaryRepository repository;
 
-    private static final String ENTITY_NAME = "REAL_ESTATE_ASSEST_BENEFICIARY";
+    private static final String ENTITY_NAME = "MANAGEMENT_FIRM_BENEFICIARY";
 
     @GetMapping
-    public ResponseEntity<Page<ManagementFirmBeneficiaryDTO>> getAllRealEstateAssestBeneficiaryByCriteria(@ParameterObject ManagementFirmBeneficiaryCriteria criteria,
+    public ResponseEntity<Page<ManagementFirmBeneficiaryDTO>> getAllManagementFirmBeneficiaryByCriteria(@ParameterObject ManagementFirmBeneficiaryCriteria criteria,
                                                                                                           @ParameterObject  Pageable pageable) {
         Page<ManagementFirmBeneficiaryDTO> page = managementFirmBeneficiaryCriteriaService.findByCriteria(criteria, pageable);
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(ServletUriComponentsBuilder.fromCurrentRequest(), page);
@@ -48,28 +48,28 @@ public class ManagementFirmBeneficiaryController {
     }
 
     @GetMapping("/find-all")
-    public ResponseEntity<Page<ManagementFirmBeneficiaryDTO>> getAllRealEstateAssestBeneficiary(
+    public ResponseEntity<Page<ManagementFirmBeneficiaryDTO>> getAllManagementFirmBeneficiary(
             @ParameterObject @PageableDefault(size = 20) Pageable pageable) {
-        log.info("Fetching all real estate assest beneficiary, page: {}", pageable.getPageNumber());
-        Page<ManagementFirmBeneficiaryDTO> page = managementFirmBeneficiaryService.getAllRealEstateAssestBeneficiary(pageable);
+        log.info("Fetching all Management Firm beneficiary, page: {}", pageable.getPageNumber());
+        Page<ManagementFirmBeneficiaryDTO> page = managementFirmBeneficiaryService.getAllManagementFirmBeneficiary(pageable);
         return ResponseEntity.ok(page);
     }
 
     @PostMapping
-    public ResponseEntity<ManagementFirmBeneficiaryDTO> saveRealEstateAssestBeneficiary(
+    public ResponseEntity<ManagementFirmBeneficiaryDTO> saveManagementFirmBeneficiary(
             @Valid @RequestBody ManagementFirmBeneficiaryDTO dto) {
-        log.info("Creating new real estate assest beneficiary");
+        log.info("Creating new Management Firm beneficiary");
         if (dto.getId() != null) {
             throw new BadRequestAlertException("A new real estate beneficiary cannot already have an ID", ENTITY_NAME, "idexists");
         }
-        ManagementFirmBeneficiaryDTO saved = managementFirmBeneficiaryService.saveRealEstateAssestBeneficiary(dto);
+        ManagementFirmBeneficiaryDTO saved = managementFirmBeneficiaryService.saveManagementFirmBeneficiary(dto);
         return ResponseEntity.ok(saved);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<ManagementFirmBeneficiaryDTO> getRealEstateAssestBeneficiaryById(@PathVariable Long id) {
-        log.info("Fetching real estate assest beneficiary with ID: {}", id);
-        return managementFirmBeneficiaryService.getRealEstateAssestBeneficiaryById(id)
+    public ResponseEntity<ManagementFirmBeneficiaryDTO> getManagementFirmBeneficiaryById(@PathVariable Long id) {
+        log.info("Fetching Management Firm beneficiary with ID: {}", id);
+        return managementFirmBeneficiaryService.getManagementFirmBeneficiaryById(id)
                 .map(ResponseEntity::ok)
                 .orElseGet(() -> {
                     log.warn("Real estate assest beneficiary not found for ID: {}", id);
@@ -78,10 +78,10 @@ public class ManagementFirmBeneficiaryController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<ManagementFirmBeneficiaryDTO> updateRealEstateAssestBeneficiary(
+    public ResponseEntity<ManagementFirmBeneficiaryDTO> updateManagementFirmBeneficiary(
             @PathVariable Long id,
             @Valid @RequestBody ManagementFirmBeneficiaryDTO dto) {
-        log.info("Updating real estate assest beneficiary with ID: {}", id);
+        log.info("Updating Management Firm beneficiary with ID: {}", id);
         if (dto.getId() == null) {
             throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");
         }
@@ -92,14 +92,14 @@ public class ManagementFirmBeneficiaryController {
         if (!repository.existsById(id)) {
             throw new BadRequestAlertException("Entity not found", ENTITY_NAME, "idnotfound");
         }
-        ManagementFirmBeneficiaryDTO updated = managementFirmBeneficiaryService.updateRealEstateAssestBeneficiary(id, dto);
+        ManagementFirmBeneficiaryDTO updated = managementFirmBeneficiaryService.updateManagementFirmBeneficiary(id, dto);
         return ResponseEntity.ok(updated);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<String> deleteRealEstateAssestBeneficiaryById(@PathVariable Long id) {
-        log.info("Deleting real estate assest beneficiary with ID: {}", id);
-        boolean deleted = managementFirmBeneficiaryService.deleteRealEstateAssestBeneficiaryById(id);
+    public ResponseEntity<String> deleteManagementFirmBeneficiaryById(@PathVariable Long id) {
+        log.info("Deleting Management Firm beneficiary with ID: {}", id);
+        boolean deleted = managementFirmBeneficiaryService.deleteManagementFirmBeneficiaryById(id);
         if (deleted) {
             return ResponseEntity.ok("ManagementFirmBeneficiary deleted - ID: " + id);
         } else {
@@ -108,10 +108,10 @@ public class ManagementFirmBeneficiaryController {
     }
 
     @DeleteMapping("/soft/{id}")
-    public ResponseEntity<String> softDeleteRealEstateAssestBeneficiaryServiceById(@PathVariable Long id) {
+    public ResponseEntity<String> softDeleteManagementFirmBeneficiaryServiceById(@PathVariable Long id) {
         log.info("Soft deleting ManagementFirmBeneficiary with ID: {}", id);
 
-        boolean deleted = managementFirmBeneficiaryService.softRealEstateAssestBeneficiaryServiceById(id);
+        boolean deleted = managementFirmBeneficiaryService.softManagementFirmBeneficiaryServiceById(id);
         if (deleted) {
             return ResponseEntity.ok("ManagementFirmBeneficiary soft deleted - ID: " + id);
         } else {
@@ -120,7 +120,7 @@ public class ManagementFirmBeneficiaryController {
     }
 
     @PostMapping("/upload")
-    public ResponseEntity<ManagementFirmBeneficiaryDTO> uploadRealEstateAssestBeneficiaryTemplate(
+    public ResponseEntity<ManagementFirmBeneficiaryDTO> uploadManagementFirmBeneficiaryTemplate(
             @RequestParam("file") MultipartFile file) {
         log.info("Bulk upload build RealEstate Assest");
 

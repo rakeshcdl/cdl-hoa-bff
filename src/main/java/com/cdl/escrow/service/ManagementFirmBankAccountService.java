@@ -7,15 +7,15 @@ import org.springframework.data.domain.Pageable;
 import java.util.Optional;
 
 public interface ManagementFirmBankAccountService {
-    Page<ManagementFirmBankAccountDTO> getAllRealEstateBankAccount(final Pageable pageable);
+    Page<ManagementFirmBankAccountDTO> getAllManagementFirmBankAccount(final Pageable pageable);
 
-    Optional<ManagementFirmBankAccountDTO> getRealEstateBankAccountById(Long id);
+    Optional<ManagementFirmBankAccountDTO> getManagementFirmBankAccountById(Long id);
 
-    ManagementFirmBankAccountDTO saveRealEstateBankAccount(ManagementFirmBankAccountDTO managementFirmBankAccountDTO);
+    ManagementFirmBankAccountDTO saveManagementFirmBankAccount(ManagementFirmBankAccountDTO managementFirmBankAccountDTO);
 
-    ManagementFirmBankAccountDTO updateRealEstateBankAccount(Long id, ManagementFirmBankAccountDTO managementFirmBankAccountDTO);
+    ManagementFirmBankAccountDTO updateManagementFirmBankAccount(Long id, ManagementFirmBankAccountDTO managementFirmBankAccountDTO);
 
-    Boolean deleteRealEstateBankAccountById(Long id);
+    Boolean deleteManagementFirmBankAccountById(Long id);
 
-    boolean softRealEstateBankAccountServiceById(Long id);
+    boolean softManagementFirmBankAccountServiceById(Long id);
 }

@@ -29,8 +29,8 @@ public class ManagementFirmClosureServiceImpl implements ManagementFirmClosureSe
 
     @Override
     @Transactional(readOnly = true)
-    public Page<ManagementFirmClosureDTO> getAllRealEstateAssestClosure(Pageable pageable) {
-        log.debug("Fetching all Real EstateAssest closure , page: {}", pageable.getPageNumber());
+    public Page<ManagementFirmClosureDTO> getAllManagementFirmClosure(Pageable pageable) {
+        log.debug("Fetching all Management Firm closure , page: {}", pageable.getPageNumber());
         Page<ManagementFirmClosure> page = repository.findAll(pageable);
         return new PageImpl<>(
                 page.map(mapper::toDto).getContent(),
@@ -42,8 +42,8 @@ public class ManagementFirmClosureServiceImpl implements ManagementFirmClosureSe
 
     @Override
     @Transactional(readOnly = true)
-    public Optional<ManagementFirmClosureDTO> getRealEstateAssestClosureById(Long id) {
-        log.debug("Fetching Real EstateAssest closure with ID: {}", id);
+    public Optional<ManagementFirmClosureDTO> getManagementFirmClosureById(Long id) {
+        log.debug("Fetching Management Firm closure with ID: {}", id);
         return repository.findById(id)
                 .map(mapper::toDto);
     }
@@ -51,8 +51,8 @@ public class ManagementFirmClosureServiceImpl implements ManagementFirmClosureSe
 
     @Override
     @Transactional
-    public ManagementFirmClosureDTO saveRealEstateAssestClosure(ManagementFirmClosureDTO managementFirmClosureDTO) {
-        log.info("Saving new Real EstateAssest closure");
+    public ManagementFirmClosureDTO saveManagementFirmClosure(ManagementFirmClosureDTO managementFirmClosureDTO) {
+        log.info("Saving new Management Firm closure");
         ManagementFirmClosure entity = mapper.toEntity(managementFirmClosureDTO);
         ManagementFirmClosure saved = repository.save(entity);
         return mapper.toDto(saved);
@@ -61,11 +61,11 @@ public class ManagementFirmClosureServiceImpl implements ManagementFirmClosureSe
 
     @Override
     @Transactional
-    public ManagementFirmClosureDTO updateRealEstateAssestClosure(Long id, ManagementFirmClosureDTO managementFirmClosureDTO) {
-        log.info("Updating Real EstateAssest closure with ID: {}", id);
+    public ManagementFirmClosureDTO updateManagementFirmClosure(Long id, ManagementFirmClosureDTO managementFirmClosureDTO) {
+        log.info("Updating Management Firm closure with ID: {}", id);
 
         ManagementFirmClosure existing = repository.findById(id)
-                .orElseThrow(() -> new ApplicationConfigurationNotFoundException("Real EstateAssest closure not found with ID: " + id));
+                .orElseThrow(() -> new ApplicationConfigurationNotFoundException("Management Firm closure not found with ID: " + id));
 
         // Optionally, update only mutable fields instead of full replacement
         ManagementFirmClosure toUpdate = mapper.toEntity(managementFirmClosureDTO);
@@ -78,11 +78,11 @@ public class ManagementFirmClosureServiceImpl implements ManagementFirmClosureSe
 
     @Override
     @Transactional
-    public Boolean deleteRealEstateAssestClosureById(Long id) {
-        log.info("Deleting Real EstateAssest closure  with ID: {}", id);
+    public Boolean deleteManagementFirmClosureById(Long id) {
+        log.info("Deleting Management Firm closure  with ID: {}", id);
 
         if (!repository.existsById(id)) {
-            throw new ApplicationConfigurationNotFoundException("Real EstateAssest closure not found with ID: " + id);
+            throw new ApplicationConfigurationNotFoundException("Management Firm closure not found with ID: " + id);
         }
 
         repository.deleteById(id);
@@ -91,7 +91,7 @@ public class ManagementFirmClosureServiceImpl implements ManagementFirmClosureSe
 
     @Override
     @Transactional
-    public boolean softRealEstateAssestClosureServiceById(Long id) {
+    public boolean softManagementFirmClosureServiceById(Long id) {
         return repository.findByIdAndDeletedFalse(id).map(entity -> {
             entity.setDeleted(true);
             repository.save(entity);

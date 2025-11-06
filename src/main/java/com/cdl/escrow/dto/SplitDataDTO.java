@@ -27,7 +27,7 @@ public class SplitDataDTO implements Serializable {
 
     private String tasRefNumber;
 
-    private CapitalPartnerUnitDTO unit;
+    private OwnerRegistryUnitDTO unit;
 
     private Boolean isDeleted;
 

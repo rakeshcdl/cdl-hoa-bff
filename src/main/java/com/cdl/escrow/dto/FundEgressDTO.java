@@ -218,9 +218,9 @@ public class FundEgressDTO implements Serializable {
 
     private ManagementFirmDTO managementFirmDTO;
 
-   private CapitalPartnerUnitDTO capitalPartnerUnitDTO;
+   private OwnerRegistryUnitDTO ownerRegistryUnitDTO;
 
-    private CapitalPartnerUnitDTO transferCapitalPartnerUnitDTO;
+    private OwnerRegistryUnitDTO transferOwnerRegistryUnitDTO;
 
    private AssetRegisterDTO assetRegisterDTO;
 

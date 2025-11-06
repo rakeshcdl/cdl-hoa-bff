@@ -28,8 +28,8 @@ public class ManagementFirmFeeHistoryServiceImpl implements ManagementFirmFeeHis
 
     @Override
     @Transactional(readOnly = true)
-    public Page<ManagementFirmHistoryDTO> getAllRealEstateAssestFeeHistory(Pageable pageable) {
-        log.debug("Fetching all Real EstateAssest fee history , page: {}", pageable.getPageNumber());
+    public Page<ManagementFirmHistoryDTO> getAllManagementFirmFeeHistory(Pageable pageable) {
+        log.debug("Fetching all Management Firmfee history , page: {}", pageable.getPageNumber());
         Page<ManagementFirmHistory> page = repository.findAll(pageable);
         return new PageImpl<>(
                 page.map(mapper::toDto).getContent(),
@@ -41,8 +41,8 @@ public class ManagementFirmFeeHistoryServiceImpl implements ManagementFirmFeeHis
 
     @Override
     @Transactional(readOnly = true)
-    public Optional<ManagementFirmHistoryDTO> getRealEstateAssestFeeHistoryById(Long id) {
-        log.debug("Fetching Real EstateAssest fee history with ID: {}", id);
+    public Optional<ManagementFirmHistoryDTO> getManagementFirmFeeHistoryById(Long id) {
+        log.debug("Fetching Management Firmfee history with ID: {}", id);
         return repository.findById(id)
                 .map(mapper::toDto);
     }
@@ -50,8 +50,8 @@ public class ManagementFirmFeeHistoryServiceImpl implements ManagementFirmFeeHis
 
     @Override
     @Transactional
-    public ManagementFirmHistoryDTO saveRealEstateAssestFeeHistory(ManagementFirmHistoryDTO managementFirmHistoryDTO) {
-        log.info("Saving new Real EstateAssest fee history");
+    public ManagementFirmHistoryDTO saveManagementFirmFeeHistory(ManagementFirmHistoryDTO managementFirmHistoryDTO) {
+        log.info("Saving new Management Firmfee history");
         ManagementFirmHistory entity = mapper.toEntity(managementFirmHistoryDTO);
         ManagementFirmHistory saved = repository.save(entity);
         return mapper.toDto(saved);
@@ -60,11 +60,11 @@ public class ManagementFirmFeeHistoryServiceImpl implements ManagementFirmFeeHis
 
     @Override
     @Transactional
-    public ManagementFirmHistoryDTO updateRealEstateAssestFeeHistory(Long id, ManagementFirmHistoryDTO managementFirmHistoryDTO) {
-        log.info("Updating Real EstateAssest fee history with ID: {}", id);
+    public ManagementFirmHistoryDTO updateManagementFirmFeeHistory(Long id, ManagementFirmHistoryDTO managementFirmHistoryDTO) {
+        log.info("Updating Management Firmfee history with ID: {}", id);
 
         ManagementFirmHistory existing = repository.findById(id)
-                .orElseThrow(() -> new ApplicationConfigurationNotFoundException("Real EstateAssest fee history not found with ID: " + id));
+                .orElseThrow(() -> new ApplicationConfigurationNotFoundException("Management Firmfee history not found with ID: " + id));
 
         // Optionally, update only mutable fields instead of full replacement
         ManagementFirmHistory toUpdate = mapper.toEntity(managementFirmHistoryDTO);
@@ -77,11 +77,11 @@ public class ManagementFirmFeeHistoryServiceImpl implements ManagementFirmFeeHis
 
     @Override
     @Transactional
-    public Boolean deleteRealEstateAssestFeeHistoryById(Long id) {
-        log.info("Deleting Real EstateAssest fee history  with ID: {}", id);
+    public Boolean deleteManagementFirmFeeHistoryById(Long id) {
+        log.info("Deleting Management Firmfee history  with ID: {}", id);
 
         if (!repository.existsById(id)) {
-            throw new ApplicationConfigurationNotFoundException("Real EstateAssest fee history not found with ID: " + id);
+            throw new ApplicationConfigurationNotFoundException("Management Firmfee history not found with ID: " + id);
         }
 
         repository.deleteById(id);
@@ -90,7 +90,7 @@ public class ManagementFirmFeeHistoryServiceImpl implements ManagementFirmFeeHis
 
     @Override
     @Transactional
-    public boolean softRealEstateAssestFeeHistoryServiceById(Long id) {
+    public boolean softManagementFirmFeeHistoryServiceById(Long id) {
         return repository.findByIdAndDeletedFalse(id).map(entity -> {
             entity.setDeleted(true);
             repository.save(entity);

@@ -32,8 +32,8 @@ public class ManagementFirmServiceImpl implements ManagementFirmService {
 
     @Override
     @Transactional(readOnly = true)
-    public Page<ManagementFirmDTO> getAllRealEstateAssest(Pageable pageable) {
-        log.debug("Fetching all Real Estate Assest , page: {}", pageable.getPageNumber());
+    public Page<ManagementFirmDTO> getAllManagementFirm(Pageable pageable) {
+        log.debug("Fetching all Management Firm , page: {}", pageable.getPageNumber());
         Page<ManagementFirm> page = repository.findAll(pageable);
         return new PageImpl<>(
                 page.map(mapper::toDto).getContent(),
@@ -45,8 +45,8 @@ public class ManagementFirmServiceImpl implements ManagementFirmService {
 
     @Override
     @Transactional(readOnly = true)
-    public Optional<ManagementFirmDTO> getRealEstateAssestById(Long id) {
-        log.debug("Fetching Real Estate Assest with ID: {}", id);
+    public Optional<ManagementFirmDTO> getManagementFirmById(Long id) {
+        log.debug("Fetching Management Firm with ID: {}", id);
         return repository.findById(id)
                 .map(mapper::toDto);
     }
@@ -54,8 +54,8 @@ public class ManagementFirmServiceImpl implements ManagementFirmService {
 
     @Override
     @Transactional
-    public ManagementFirmDTO saveRealEstateAssest(ManagementFirmDTO managementFirmDTO) {
-        log.info("Saving new Real Estate Assest");
+    public ManagementFirmDTO saveManagementFirm(ManagementFirmDTO managementFirmDTO) {
+        log.info("Saving new Management Firm");
         ManagementFirm entity = mapper.toEntity(managementFirmDTO);
 
         // set default task status to IN-PROGRESS on create
@@ -76,11 +76,11 @@ public class ManagementFirmServiceImpl implements ManagementFirmService {
 
     @Override
     @Transactional
-    public ManagementFirmDTO updateRealEstateAssest(Long id, ManagementFirmDTO managementFirmDTO) {
-        log.info("Updating Real EstateAssest with ID: {}", id);
+    public ManagementFirmDTO updateManagementFirm(Long id, ManagementFirmDTO managementFirmDTO) {
+        log.info("Updating Management Firm with ID: {}", id);
 
         ManagementFirm existing = repository.findById(id)
-                .orElseThrow(() -> new ApplicationConfigurationNotFoundException("Real EstateAssest  not found with ID: " + id));
+                .orElseThrow(() -> new ApplicationConfigurationNotFoundException("Management Firm  not found with ID: " + id));
 
         // Optionally, update only mutable fields instead of full replacement
         ManagementFirm toUpdate = mapper.toEntity(managementFirmDTO);
@@ -99,11 +99,11 @@ public class ManagementFirmServiceImpl implements ManagementFirmService {
 
     @Override
     @Transactional
-    public Boolean deleteRealEstateAssestById(Long id) {
-        log.info("Deleting Real EstateAssest  with ID: {}", id);
+    public Boolean deleteManagementFirmById(Long id) {
+        log.info("Deleting Management Firm  with ID: {}", id);
 
         if (!repository.existsById(id)) {
-            throw new ApplicationConfigurationNotFoundException("Real EstateAssest not found with ID: " + id);
+            throw new ApplicationConfigurationNotFoundException("Management Firm not found with ID: " + id);
         }
 
         repository.deleteById(id);
@@ -112,11 +112,11 @@ public class ManagementFirmServiceImpl implements ManagementFirmService {
 
     @Override
     @Transactional
-    public void finalizeRealEstateAssest(Long moduleId, TaskStatus status) {
+    public void finalizeManagementFirm(Long moduleId, TaskStatus status) {
 
 
         ManagementFirm assest =  repository.findById(moduleId)
-                .orElseThrow(() -> new IllegalStateException("Build Partner Assets not found: " + moduleId));
+                .orElseThrow(() -> new IllegalStateException("Management Firm not found: " + moduleId));
 
         assest.setTaskStatus(status);
         repository.save(assest);
@@ -125,7 +125,7 @@ public class ManagementFirmServiceImpl implements ManagementFirmService {
 
     @Override
     @Transactional
-    public boolean softRealEstateAssestServiceById(Long id) {
+    public boolean softManagementFirmServiceById(Long id) {
         return repository.findByIdAndDeletedFalse(id).map(entity -> {
             entity.setDeleted(true);
             repository.save(entity);

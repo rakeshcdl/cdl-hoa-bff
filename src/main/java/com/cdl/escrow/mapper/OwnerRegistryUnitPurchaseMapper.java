@@ -1,0 +1,22 @@
+package com.cdl.escrow.mapper;
+
+import com.cdl.escrow.dto.OwnerRegistryUnitPurchaseDTO;
+import com.cdl.escrow.entity.OwnerRegistryUnitPurchase;
+import com.cdl.escrow.helper.EntityMapper;
+import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
+
+@Mapper(componentModel = "spring" , uses = { ApplicationSettingMapper.class, OwnerRegistryMapper.class })
+public interface OwnerRegistryUnitPurchaseMapper extends EntityMapper<OwnerRegistryUnitPurchaseDTO, OwnerRegistryUnitPurchase> {
+
+    @Mapping(source = "cpupCreditCurrency", target = "cpupCreditCurrencyDTO")
+    @Mapping(source = "cpuPurchasePriceCurrency", target = "cpuPurchasePriceCurrencyDTO")
+    @Mapping(source = "ownerRegistryUnit", target = "ownerRegistryUnitDTO")
+    OwnerRegistryUnitPurchaseDTO toDto(OwnerRegistryUnitPurchase ownerRegistryUnitPurchase);
+
+
+    @Mapping(source = "cpupCreditCurrencyDTO", target = "cpupCreditCurrency")
+    @Mapping(source = "cpuPurchasePriceCurrencyDTO", target = "cpuPurchasePriceCurrency")
+    @Mapping(source = "ownerRegistryUnitDTO", target = "ownerRegistryUnit")
+    OwnerRegistryUnitPurchase toEntity(OwnerRegistryUnitPurchaseDTO ownerRegistryUnitPurchaseDTO);
+}

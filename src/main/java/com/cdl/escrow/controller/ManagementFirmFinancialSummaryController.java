@@ -36,10 +36,10 @@ public class ManagementFirmFinancialSummaryController {
 
     private final ManagementFirmFinancialSummaryRepository repository;
 
-    private static final String ENTITY_NAME = "REAL_ESTATE_FINANCIAL_SUMMARY";
+    private static final String ENTITY_NAME = "MANAGEMENT_FIRM_FINANCIAL_SUMMARY";
 
     @GetMapping
-    public ResponseEntity<Page<ManagementFirmFinancialSummaryDTO>> getAllRealEstateAssestFinancialSummaryByCriteria(@ParameterObject ManagementFirmFinancialSummaryCriteria criteria,
+    public ResponseEntity<Page<ManagementFirmFinancialSummaryDTO>> getAllManagementFirmFinancialSummaryByCriteria(@ParameterObject ManagementFirmFinancialSummaryCriteria criteria,
                                                                                                                     @ParameterObject  Pageable pageable) {
         Page<ManagementFirmFinancialSummaryDTO> page = managementFirmFinancialSummaryCriteriaService.findByCriteria(criteria, pageable);
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(ServletUriComponentsBuilder.fromCurrentRequest(), page);
@@ -47,29 +47,29 @@ public class ManagementFirmFinancialSummaryController {
     }
 
     @GetMapping("/find-all")
-    public ResponseEntity<Page<ManagementFirmFinancialSummaryDTO>> getAllRealEstateAssestFinancialSummary(
+    public ResponseEntity<Page<ManagementFirmFinancialSummaryDTO>> getAllManagementFirmFinancialSummary(
             @ParameterObject @PageableDefault(size = 20) Pageable pageable) {
-        log.info("Fetching all real estate assest financial summary, page: {}", pageable.getPageNumber());
-        Page<ManagementFirmFinancialSummaryDTO> page = managementFirmFinancialSummaryService.getAllRealEstateAssestFinancialSummary(pageable);
+        log.info("Fetching all Management Firm financial summary, page: {}", pageable.getPageNumber());
+        Page<ManagementFirmFinancialSummaryDTO> page = managementFirmFinancialSummaryService.getAllManagementFirmFinancialSummary(pageable);
         return ResponseEntity.ok(page);
     }
 
     @PostMapping
-    public ResponseEntity<ManagementFirmFinancialSummaryDTO> saveRealEstateAssestFinancialSummary(
+    public ResponseEntity<ManagementFirmFinancialSummaryDTO> saveManagementFirmFinancialSummary(
             @Valid @RequestBody ManagementFirmFinancialSummaryDTO dto) {
-        log.info("Creating new real estate assest financial summary");
+        log.info("Creating new Management Firm financial summary");
 
         if (dto.getId() != null) {
             throw new BadRequestAlertException("A new real estate financial summary cannot already have an ID", ENTITY_NAME , "idexists");
         }
-        ManagementFirmFinancialSummaryDTO saved = managementFirmFinancialSummaryService.saveRealEstateAssestFinancialSummary(dto);
+        ManagementFirmFinancialSummaryDTO saved = managementFirmFinancialSummaryService.saveManagementFirmFinancialSummary(dto);
         return ResponseEntity.ok(saved);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<ManagementFirmFinancialSummaryDTO> getRealEstateAssestFinancialSummaryById(@PathVariable Long id) {
-        log.info("Fetching real estate assest financial summary with ID: {}", id);
-        return managementFirmFinancialSummaryService.getRealEstateAssestFinancialSummaryById(id)
+    public ResponseEntity<ManagementFirmFinancialSummaryDTO> getManagementFirmFinancialSummaryById(@PathVariable Long id) {
+        log.info("Fetching Management Firm financial summary with ID: {}", id);
+        return managementFirmFinancialSummaryService.getManagementFirmFinancialSummaryById(id)
                 .map(ResponseEntity::ok)
                 .orElseGet(() -> {
                     log.warn("Real estate assest financial summary not found for ID: {}", id);
@@ -78,10 +78,10 @@ public class ManagementFirmFinancialSummaryController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<ManagementFirmFinancialSummaryDTO> updateRealEstateAssestFinancialSummary(
+    public ResponseEntity<ManagementFirmFinancialSummaryDTO> updateManagementFirmFinancialSummary(
             @PathVariable Long id,
             @Valid @RequestBody ManagementFirmFinancialSummaryDTO dto) {
-        log.info("Updating real estate assest financial summary with ID: {}", id);
+        log.info("Updating Management Firm financial summary with ID: {}", id);
         if (dto.getId() == null) {
             throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");
         }
@@ -92,14 +92,14 @@ public class ManagementFirmFinancialSummaryController {
         if (!repository.existsById(id)) {
             throw new BadRequestAlertException("Entity not found", ENTITY_NAME, "idnotfound");
         }
-        ManagementFirmFinancialSummaryDTO updated = managementFirmFinancialSummaryService.updateRealEstateAssestFinancialSummary(id, dto);
+        ManagementFirmFinancialSummaryDTO updated = managementFirmFinancialSummaryService.updateManagementFirmFinancialSummary(id, dto);
         return ResponseEntity.ok(updated);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<String> deleteRealEstateAssestFinancialSummaryById(@PathVariable Long id) {
-        log.info("Deleting real estate assest financial summary with ID: {}", id);
-        boolean deleted = managementFirmFinancialSummaryService.deleteRealEstateAssestFinancialSummaryById(id);
+    public ResponseEntity<String> deleteManagementFirmFinancialSummaryById(@PathVariable Long id) {
+        log.info("Deleting Management Firm financial summary with ID: {}", id);
+        boolean deleted = managementFirmFinancialSummaryService.deleteManagementFirmFinancialSummaryById(id);
         if (deleted) {
             return ResponseEntity.ok("ManagementFirmFinancialSummary deleted - ID: " + id);
         } else {
@@ -108,10 +108,10 @@ public class ManagementFirmFinancialSummaryController {
     }
 
     @DeleteMapping("/soft/{id}")
-    public ResponseEntity<String> softDeleteRealEstateAssestFinancialSummaryServiceById(@PathVariable Long id) {
+    public ResponseEntity<String> softDeleteManagementFirmFinancialSummaryServiceById(@PathVariable Long id) {
         log.info("Soft deleting ManagementFirmFinancialSummary with ID: {}", id);
 
-        boolean deleted = managementFirmFinancialSummaryService.softRealEstateAssestFinancialSummaryServiceById(id);
+        boolean deleted = managementFirmFinancialSummaryService.softManagementFirmFinancialSummaryServiceById(id);
         if (deleted) {
             return ResponseEntity.ok("ManagementFirmFinancialSummary soft deleted - ID: " + id);
         } else {

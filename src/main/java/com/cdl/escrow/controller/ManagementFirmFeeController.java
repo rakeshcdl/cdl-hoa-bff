@@ -36,10 +36,10 @@ public class ManagementFirmFeeController {
 
     private final ManagementFirmFeeRepository repository;
 
-    private static final String ENTITY_NAME = "REAL_ESTATE_FEE";
+    private static final String ENTITY_NAME = "MANAGEMENT_FIRM_FEE";
 
     @GetMapping
-    public ResponseEntity<Page<ManagementFirmFeeDTO>> getAllRealEstateAssestFeeByCriteria(@ParameterObject ManagementFirmFeeCriteria criteria,
+    public ResponseEntity<Page<ManagementFirmFeeDTO>> getAllManagementFirmFeeByCriteria(@ParameterObject ManagementFirmFeeCriteria criteria,
                                                                                           @ParameterObject  Pageable pageable) {
         Page<ManagementFirmFeeDTO> page = managementFirmFeeCriteriaService.findByCriteria(criteria, pageable);
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(ServletUriComponentsBuilder.fromCurrentRequest(), page);
@@ -47,29 +47,29 @@ public class ManagementFirmFeeController {
     }
 
     @GetMapping("/find-all")
-    public ResponseEntity<Page<ManagementFirmFeeDTO>> getAllRealEstateAssestFee(
+    public ResponseEntity<Page<ManagementFirmFeeDTO>> getAllManagementFirmFee(
             @ParameterObject @PageableDefault(size = 20) Pageable pageable) {
-        log.info("Fetching all real estate assest fee, page: {}", pageable.getPageNumber());
-        Page<ManagementFirmFeeDTO> page = managementFirmFeeService.getAllRealEstateAssestFee(pageable);
+        log.info("Fetching all Management Firm fee, page: {}", pageable.getPageNumber());
+        Page<ManagementFirmFeeDTO> page = managementFirmFeeService.getAllManagementFirmFee(pageable);
         return ResponseEntity.ok(page);
     }
 
     @PostMapping
-    public ResponseEntity<ManagementFirmFeeDTO> saveRealEstateAssestFee(
+    public ResponseEntity<ManagementFirmFeeDTO> saveManagementFirmFee(
             @Valid @RequestBody ManagementFirmFeeDTO dto) {
-        log.info("Creating new real estate assest fee");
+        log.info("Creating new Management Firm fee");
 
         if (dto.getId() != null) {
-            throw new BadRequestAlertException("A new real estate assest fee cannot already have an ID", ENTITY_NAME, "idexists");
+            throw new BadRequestAlertException("A new Management Firm fee cannot already have an ID", ENTITY_NAME, "idexists");
         }
-        ManagementFirmFeeDTO saved = managementFirmFeeService.saveRealEstateAssestFee(dto);
+        ManagementFirmFeeDTO saved = managementFirmFeeService.saveManagementFirmFee(dto);
         return ResponseEntity.ok(saved);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<ManagementFirmFeeDTO> getRealEstateAssestFeeById(@PathVariable Long id) {
-        log.info("Fetching real estate assest fee with ID: {}", id);
-        return managementFirmFeeService.getRealEstateAssestFeeById(id)
+    public ResponseEntity<ManagementFirmFeeDTO> getManagementFirmFeeById(@PathVariable Long id) {
+        log.info("Fetching Management Firm fee with ID: {}", id);
+        return managementFirmFeeService.getManagementFirmFeeById(id)
                 .map(ResponseEntity::ok)
                 .orElseGet(() -> {
                     log.warn("Real estate assest fee not found for ID: {}", id);
@@ -78,10 +78,10 @@ public class ManagementFirmFeeController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<ManagementFirmFeeDTO> updateRealEstateAssestFee(
+    public ResponseEntity<ManagementFirmFeeDTO> updateManagementFirmFee(
             @PathVariable Long id,
             @Valid @RequestBody ManagementFirmFeeDTO dto) {
-        log.info("Updating real estate assest fee with ID: {}", id);
+        log.info("Updating Management Firm fee with ID: {}", id);
         if (dto.getId() == null) {
             throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");
         }
@@ -92,14 +92,14 @@ public class ManagementFirmFeeController {
         if (!repository.existsById(id)) {
             throw new BadRequestAlertException("Entity not found", ENTITY_NAME, "idnotfound");
         }
-        ManagementFirmFeeDTO updated = managementFirmFeeService.updateRealEstateAssestFee(id, dto);
+        ManagementFirmFeeDTO updated = managementFirmFeeService.updateManagementFirmFee(id, dto);
         return ResponseEntity.ok(updated);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<String> deleteRealEstateAssestFeeById(@PathVariable Long id) {
-        log.info("Deleting real estate assest fee with ID: {}", id);
-        boolean deleted = managementFirmFeeService.deleteRealEstateAssestFeeById(id);
+    public ResponseEntity<String> deleteManagementFirmFeeById(@PathVariable Long id) {
+        log.info("Deleting Management Firm fee with ID: {}", id);
+        boolean deleted = managementFirmFeeService.deleteManagementFirmFeeById(id);
         if (deleted) {
             return ResponseEntity.ok("ManagementFirmFee deleted - ID: " + id);
         } else {
@@ -108,10 +108,10 @@ public class ManagementFirmFeeController {
     }
 
     @DeleteMapping("/soft/{id}")
-    public ResponseEntity<String> softDeleteRealEstateAssestFeeServiceById(@PathVariable Long id) {
+    public ResponseEntity<String> softDeleteManagementFirmFeeServiceById(@PathVariable Long id) {
         log.info("Soft deleting ManagementFirmFee with ID: {}", id);
 
-        boolean deleted = managementFirmFeeService.softRealEstateAssestFeeServiceById(id);
+        boolean deleted = managementFirmFeeService.softManagementFirmFeeServiceById(id);
         if (deleted) {
             return ResponseEntity.ok("ManagementFirmFee soft deleted - ID: " + id);
         } else {

@@ -22,17 +22,17 @@ import java.time.ZonedDateTime;
 @Data
 @EntityListeners(AuditingEntityListener.class)
 @Entity
-@Table(name = "real_estate_assest_bank_account")
+@Table(name = "management_firm_bank_account")
 public class ManagementFirmBankAccount implements Serializable {
     @Id
     @SequenceGenerator(
-            name = "real_estate_assest_bank_account_id_seq_gen",
-            sequenceName = "real_estate_assest_bank_account_id_seq",
+            name = "management_firm_bank_account_id_seq_gen",
+            sequenceName = "management_firm_bank_account_id_seq",
             allocationSize = 50
     )
     @GeneratedValue(
             strategy = GenerationType.SEQUENCE,
-            generator = "real_estate_assest_bank_account_id_seq_gen"
+            generator = "management_firm_bank_account_id_seq_gen"
     )
     private Long id ;
 

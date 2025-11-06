@@ -21,17 +21,17 @@ import java.io.Serializable;
 @Data
 @EntityListeners(AuditingEntityListener.class)
 @Entity
-@Table(name = "real_estate_assest_closure")
+@Table(name = "management_firm_closure")
 public class ManagementFirmClosure implements Serializable {
     @Id
     @SequenceGenerator(
-            name = "real_estate_assest_closure_id_seq_gen",
-            sequenceName = "real_estate_assest_closure_id_seq",
+            name = "management_firm_closure_id_seq_gen",
+            sequenceName = "management_firm_closure_id_seq",
             allocationSize = 50
     )
     @GeneratedValue(
             strategy = GenerationType.SEQUENCE,
-            generator = "real_estate_assest_closure_id_seq_gen"
+            generator = "management_firm_closure_id_seq_gen"
     )
     private Long id;
 

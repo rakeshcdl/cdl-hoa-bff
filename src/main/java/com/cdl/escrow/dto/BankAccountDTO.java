@@ -58,9 +58,9 @@ public class BankAccountDTO implements Serializable {
 
    // private ManagementFirmBeneficiaryDTO realEstateAssestBeneficiaryDTO;
 
-   // private Set<CapitalPartnerBankInfoDTO> capitalPartnerBankInfoDTOS;
+   // private Set<OwnerRegistryBankInfoDTO> capitalPartnerBankInfoDTOS;
 
-   // private CapitalPartnerUnitDTO capitalPartnerUnitDTO;
+   // private OwnerRegistryUnitDTO capitalPartnerUnitDTO;
 
     //private Set<ProcessedFundIngressDTO> processedFundIngressDTOS;
 

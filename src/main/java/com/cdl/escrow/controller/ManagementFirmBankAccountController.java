@@ -37,7 +37,7 @@ public class ManagementFirmBankAccountController {
     private final ManagementFirmBankAccountCriteriaService managementFirmBankAccountCriteriaService;
 
     @GetMapping
-    public ResponseEntity<Page<ManagementFirmBankAccountDTO>> getAllRealEstateBankAccountByCriteria(@ParameterObject ManagementFirmBankAccountCriteria criteria,
+    public ResponseEntity<Page<ManagementFirmBankAccountDTO>> getAllManagementFirmBankAccountByCriteria(@ParameterObject ManagementFirmBankAccountCriteria criteria,
                                                                                                     @ParameterObject  Pageable pageable) {
         Page<ManagementFirmBankAccountDTO> page = managementFirmBankAccountCriteriaService.findByCriteria(criteria, pageable);
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(ServletUriComponentsBuilder.fromCurrentRequest(), page);
@@ -45,25 +45,25 @@ public class ManagementFirmBankAccountController {
     }
 
     @GetMapping("/find-all")
-    public ResponseEntity<Page<ManagementFirmBankAccountDTO>> getAllRealEstateBankAccount(
+    public ResponseEntity<Page<ManagementFirmBankAccountDTO>> getAllManagementFirmBankAccount(
             @ParameterObject @PageableDefault(size = 20) Pageable pageable) {
-        log.info("Fetching all real estate bank account, page: {}", pageable.getPageNumber());
-        Page<ManagementFirmBankAccountDTO> page = managementFirmBankAccountService.getAllRealEstateBankAccount(pageable);
+        log.info("Fetching all Management Firm bank account, page: {}", pageable.getPageNumber());
+        Page<ManagementFirmBankAccountDTO> page = managementFirmBankAccountService.getAllManagementFirmBankAccount(pageable);
         return ResponseEntity.ok(page);
     }
     @PostMapping
-    public ResponseEntity<ManagementFirmBankAccountDTO> saveRealEstateBankAccount(
+    public ResponseEntity<ManagementFirmBankAccountDTO> saveManagementFirmBankAccount(
             @Valid @RequestBody ManagementFirmBankAccountDTO dto) {
-        log.info("Creating new real estate bank account");
+        log.info("Creating new Management Firm bank account");
 
-        ManagementFirmBankAccountDTO saved = managementFirmBankAccountService.saveRealEstateBankAccount(dto);
+        ManagementFirmBankAccountDTO saved = managementFirmBankAccountService.saveManagementFirmBankAccount(dto);
         return ResponseEntity.ok(saved);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<ManagementFirmBankAccountDTO> getRealEstateBankAccountById(@PathVariable Long id) {
-        log.info("Fetching real estate bank account with ID: {}", id);
-        return managementFirmBankAccountService.getRealEstateBankAccountById(id)
+    public ResponseEntity<ManagementFirmBankAccountDTO> getManagementFirmBankAccountById(@PathVariable Long id) {
+        log.info("Fetching Management Firm bank account with ID: {}", id);
+        return managementFirmBankAccountService.getManagementFirmBankAccountById(id)
                 .map(ResponseEntity::ok)
                 .orElseGet(() -> {
                     log.warn("Real estate bank account not found for ID: {}", id);
@@ -72,19 +72,19 @@ public class ManagementFirmBankAccountController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<ManagementFirmBankAccountDTO> updateRealEstateBankAccount(
+    public ResponseEntity<ManagementFirmBankAccountDTO> updateManagementFirmBankAccount(
             @PathVariable Long id,
             @Valid @RequestBody ManagementFirmBankAccountDTO dto) {
-        log.info("Updating real estate bank account with ID: {}", id);
+        log.info("Updating Management Firm bank account with ID: {}", id);
 
-        ManagementFirmBankAccountDTO updated = managementFirmBankAccountService.updateRealEstateBankAccount(id, dto);
+        ManagementFirmBankAccountDTO updated = managementFirmBankAccountService.updateManagementFirmBankAccount(id, dto);
         return ResponseEntity.ok(updated);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<String> deleteRealEstateBankAccountById(@PathVariable Long id) {
-        log.info("Deleting real estate bank account with ID: {}", id);
-        boolean deleted = managementFirmBankAccountService.deleteRealEstateBankAccountById(id);
+    public ResponseEntity<String> deleteManagementFirmBankAccountById(@PathVariable Long id) {
+        log.info("Deleting Management Firm bank account with ID: {}", id);
+        boolean deleted = managementFirmBankAccountService.deleteManagementFirmBankAccountById(id);
         if (deleted) {
             return ResponseEntity.ok("ManagementFirmBankAccount deleted - ID: " + id);
         } else {
@@ -93,10 +93,10 @@ public class ManagementFirmBankAccountController {
     }
 
     @DeleteMapping("/soft/{id}")
-    public ResponseEntity<String> softDeleteRealEstateBankAccountServiceById(@PathVariable Long id) {
+    public ResponseEntity<String> softDeleteManagementFirmBankAccountServiceById(@PathVariable Long id) {
         log.info("Soft deleting ManagementFirmBankAccount with ID: {}", id);
 
-        boolean deleted = managementFirmBankAccountService.softRealEstateBankAccountServiceById(id);
+        boolean deleted = managementFirmBankAccountService.softManagementFirmBankAccountServiceById(id);
         if (deleted) {
             return ResponseEntity.ok("ManagementFirmBankAccount soft deleted - ID: " + id);
         } else {

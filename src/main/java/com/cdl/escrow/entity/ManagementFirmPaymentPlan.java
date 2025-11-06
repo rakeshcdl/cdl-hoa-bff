@@ -17,18 +17,18 @@ import java.io.Serializable;
 @Data
 @EntityListeners(AuditingEntityListener.class)
 @Entity
-@Table(name = "real_estate_assest_payment_plan")
+@Table(name = "management_firm_payment_plan")
 public class ManagementFirmPaymentPlan implements Serializable {
 
     @Id
     @SequenceGenerator(
-            name = "real_estate_assest_payment_plan_id_seq_gen",
-            sequenceName = "real_estate_assest_payment_plan_id_seq",
+            name = "management_firm_payment_plan_id_seq_gen",
+            sequenceName = "management_firm_payment_plan_id_seq",
             allocationSize = 50
     )
     @GeneratedValue(
             strategy = GenerationType.SEQUENCE,
-            generator = "real_estate_assest_payment_plant_id_seq_gen"
+            generator = "management_firm_payment_plant_id_seq_gen"
     )
     private Long id;
 

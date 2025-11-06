@@ -85,7 +85,7 @@ public class ProcessedFundIngressDTO implements Serializable {
 
     private ManagementFirmDTO managementFirmDTO;
 
-    private CapitalPartnerUnitDTO capitalPartnerUnitDTO;
+    private OwnerRegistryUnitDTO ownerRegistryUnitDTO;
 
     private ApplicationSettingDTO bucketTypeDTO;
 

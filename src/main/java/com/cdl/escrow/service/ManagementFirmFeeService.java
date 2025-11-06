@@ -7,15 +7,15 @@ import org.springframework.data.domain.Pageable;
 import java.util.Optional;
 
 public interface ManagementFirmFeeService {
-    Page<ManagementFirmFeeDTO> getAllRealEstateAssestFee(final Pageable pageable);
+    Page<ManagementFirmFeeDTO> getAllManagementFirmFee(final Pageable pageable);
 
-    Optional<ManagementFirmFeeDTO> getRealEstateAssestFeeById(Long id);
+    Optional<ManagementFirmFeeDTO> getManagementFirmFeeById(Long id);
 
-    ManagementFirmFeeDTO saveRealEstateAssestFee(ManagementFirmFeeDTO managementFirmFeeDTO);
+    ManagementFirmFeeDTO saveManagementFirmFee(ManagementFirmFeeDTO managementFirmFeeDTO);
 
-    ManagementFirmFeeDTO updateRealEstateAssestFee(Long id, ManagementFirmFeeDTO managementFirmFeeDTO);
+    ManagementFirmFeeDTO updateManagementFirmFee(Long id, ManagementFirmFeeDTO managementFirmFeeDTO);
 
-    Boolean deleteRealEstateAssestFeeById(Long id);
+    Boolean deleteManagementFirmFeeById(Long id);
 
-    boolean softRealEstateAssestFeeServiceById(Long id);
+    boolean softManagementFirmFeeServiceById(Long id);
 }

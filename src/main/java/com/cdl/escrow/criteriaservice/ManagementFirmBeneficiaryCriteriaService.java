@@ -60,7 +60,7 @@ public class ManagementFirmBeneficiaryCriteriaService extends BaseSpecificationB
                 addLongFilter(cb, root, predicates, "reabSalesCategoryId", criteria.getReabSalesCategoryId());
 
 
-                // Filter by CapitalPartner id -> join the capitalPartners collection
+                // Filter by OwnerRegistry id -> join the ownerRegistries collection
                 if (criteria.getRealEstateAssestId() != null) {
                     Join<ManagementFirmBeneficiary, ManagementFirm> join = root.join("realEstateAssests", JoinType.LEFT);
                     addLongFilterOnJoin(cb, join, predicates, "id", criteria.getRealEstateAssestId());

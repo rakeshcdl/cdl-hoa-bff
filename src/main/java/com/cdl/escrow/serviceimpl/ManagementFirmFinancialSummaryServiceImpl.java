@@ -28,8 +28,8 @@ public class ManagementFirmFinancialSummaryServiceImpl implements ManagementFirm
 
     @Override
     @Transactional(readOnly = true)
-    public Page<ManagementFirmFinancialSummaryDTO> getAllRealEstateAssestFinancialSummary(Pageable pageable) {
-        log.debug("Fetching all Real EstateAssest financial summary , page: {}", pageable.getPageNumber());
+    public Page<ManagementFirmFinancialSummaryDTO> getAllManagementFirmFinancialSummary(Pageable pageable) {
+        log.debug("Fetching all Management Firm financial summary , page: {}", pageable.getPageNumber());
         Page<ManagementFirmFinancialSummary> page = repository.findAll(pageable);
         return new PageImpl<>(
                 page.map(mapper::toDto).getContent(),
@@ -41,8 +41,8 @@ public class ManagementFirmFinancialSummaryServiceImpl implements ManagementFirm
 
     @Override
     @Transactional(readOnly = true)
-    public Optional<ManagementFirmFinancialSummaryDTO> getRealEstateAssestFinancialSummaryById(Long id) {
-        log.debug("Fetching Real EstateAssest financial summary with ID: {}", id);
+    public Optional<ManagementFirmFinancialSummaryDTO> getManagementFirmFinancialSummaryById(Long id) {
+        log.debug("Fetching Management Firm financial summary with ID: {}", id);
         return repository.findById(id)
                 .map(mapper::toDto);
     }
@@ -50,8 +50,8 @@ public class ManagementFirmFinancialSummaryServiceImpl implements ManagementFirm
 
     @Override
     @Transactional
-    public ManagementFirmFinancialSummaryDTO saveRealEstateAssestFinancialSummary(ManagementFirmFinancialSummaryDTO managementFirmFinancialSummaryDTO) {
-        log.info("Saving new Real EstateAssest financial summary");
+    public ManagementFirmFinancialSummaryDTO saveManagementFirmFinancialSummary(ManagementFirmFinancialSummaryDTO managementFirmFinancialSummaryDTO) {
+        log.info("Saving new Management Firm financial summary");
         ManagementFirmFinancialSummary entity = mapper.toEntity(managementFirmFinancialSummaryDTO);
         ManagementFirmFinancialSummary saved = repository.save(entity);
         return mapper.toDto(saved);
@@ -60,11 +60,11 @@ public class ManagementFirmFinancialSummaryServiceImpl implements ManagementFirm
 
     @Override
     @Transactional
-    public ManagementFirmFinancialSummaryDTO updateRealEstateAssestFinancialSummary(Long id, ManagementFirmFinancialSummaryDTO managementFirmFinancialSummaryDTO) {
-        log.info("Updating Real EstateAssest financial summary with ID: {}", id);
+    public ManagementFirmFinancialSummaryDTO updateManagementFirmFinancialSummary(Long id, ManagementFirmFinancialSummaryDTO managementFirmFinancialSummaryDTO) {
+        log.info("Updating Management Firm financial summary with ID: {}", id);
 
         ManagementFirmFinancialSummary existing = repository.findById(id)
-                .orElseThrow(() -> new ApplicationConfigurationNotFoundException("Real EstateAssest financial summary not found with ID: " + id));
+                .orElseThrow(() -> new ApplicationConfigurationNotFoundException("Management Firm financial summary not found with ID: " + id));
 
         // Optionally, update only mutable fields instead of full replacement
         ManagementFirmFinancialSummary toUpdate = mapper.toEntity(managementFirmFinancialSummaryDTO);
@@ -77,11 +77,11 @@ public class ManagementFirmFinancialSummaryServiceImpl implements ManagementFirm
 
     @Override
     @Transactional
-    public Boolean deleteRealEstateAssestFinancialSummaryById(Long id) {
-        log.info("Deleting Real EstateAssest financial summary  with ID: {}", id);
+    public Boolean deleteManagementFirmFinancialSummaryById(Long id) {
+        log.info("Deleting Management Firm financial summary  with ID: {}", id);
 
         if (!repository.existsById(id)) {
-            throw new ApplicationConfigurationNotFoundException("Real EstateAssest financial summary not found with ID: " + id);
+            throw new ApplicationConfigurationNotFoundException("Management Firm financial summary not found with ID: " + id);
         }
 
         repository.deleteById(id);
@@ -90,7 +90,7 @@ public class ManagementFirmFinancialSummaryServiceImpl implements ManagementFirm
 
     @Override
     @Transactional
-    public boolean softRealEstateAssestFinancialSummaryServiceById(Long id) {
+    public boolean softManagementFirmFinancialSummaryServiceById(Long id) {
         return repository.findByIdAndDeletedFalse(id).map(entity -> {
             entity.setDeleted(true);
             repository.save(entity);

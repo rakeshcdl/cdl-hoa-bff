@@ -61,7 +61,7 @@ public class BankAccountCriteria  implements Serializable {
 
     private LongFilter realEstateAssestBeneficiaryId;
 
-   // private Set<CapitalPartnerBankInfoDTO> capitalPartnerBankInfoDTOS;
+   // private Set<OwnerRegistryBankInfoDTO> capitalPartnerBankInfoDTOS;
 
     private LongFilter capitalPartnerUnitId;
 

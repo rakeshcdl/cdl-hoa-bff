@@ -98,7 +98,7 @@ public class ManagementFirmCriteria implements Serializable {
 
    // private Set<ManagementFirmFinancialSummaryDTO> realEstateAssestFinancialSummaryDTOS;
 
-  //  private Set<CapitalPartnerUnitDTO> capitalPartnerUnitDTOS ;
+  //  private Set<OwnerRegistryUnitDTO> capitalPartnerUnitDTOS ;
 
   //  private Set<ProcessedFundIngressDTO> processedFundIngressDTOS ;
 

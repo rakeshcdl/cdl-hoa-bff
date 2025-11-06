@@ -11,7 +11,7 @@ import org.mapstruct.Mapping;
 public interface PendingFundIngressMapper  extends EntityMapper<PendingFundIngressDTO, PendingFundIngress> {
 
     @Mapping(source = "managementFirm", target = "managementFirmDTO")
-    @Mapping(source = "capitalPartnerUnit", target = "capitalPartnerUnitDTO")
+    @Mapping(source = "ownerRegistryUnit", target = "ownerRegistryUnitDTO")
     @Mapping(source = "bucketType", target = "bucketTypeDTO")
     @Mapping(source = "depositMode", target = "depositModeDTO")
     @Mapping(source = "subDepositType", target = "subDepositTypeDTO")
@@ -19,7 +19,7 @@ public interface PendingFundIngressMapper  extends EntityMapper<PendingFundIngre
     PendingFundIngressDTO toDto(PendingFundIngress pendingFundIngress);
 
     @Mapping(source = "managementFirmDTO", target = "managementFirm")
-    @Mapping(source = "capitalPartnerUnitDTO", target = "capitalPartnerUnit")
+    @Mapping(source = "ownerRegistryUnitDTO", target = "ownerRegistryUnit")
     @Mapping(source = "bucketTypeDTO", target = "bucketType")
     @Mapping(source = "depositModeDTO", target = "depositMode")
     @Mapping(source = "subDepositTypeDTO", target = "subDepositType")

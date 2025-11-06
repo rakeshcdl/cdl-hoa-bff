@@ -10,17 +10,17 @@ import java.util.Optional;
 
 public interface ManagementFirmPaymentPlanService {
 
-    Page<ManagementFirmPaymentPlanDTO> getAllRealEstateAssestPaymentPlan(final Pageable pageable);
+    Page<ManagementFirmPaymentPlanDTO> getAllManagementFirmPaymentPlan(final Pageable pageable);
 
-    Optional<ManagementFirmPaymentPlanDTO> getRealEstateAssestPaymentPlanById(Long id);
+    Optional<ManagementFirmPaymentPlanDTO> getManagementFirmPaymentPlanById(Long id);
 
-    ManagementFirmPaymentPlanDTO saveRealEstateAssestPaymentPlan(ManagementFirmPaymentPlanDTO managementFirmPaymentPlanDTO);
+    ManagementFirmPaymentPlanDTO saveManagementFirmPaymentPlan(ManagementFirmPaymentPlanDTO managementFirmPaymentPlanDTO);
 
-    ManagementFirmPaymentPlanDTO updateRealEstateAssestPaymentPlan(Long id, ManagementFirmPaymentPlanDTO managementFirmPaymentPlanDTO);
+    ManagementFirmPaymentPlanDTO updateManagementFirmPaymentPlan(Long id, ManagementFirmPaymentPlanDTO managementFirmPaymentPlanDTO);
 
-    Boolean deleteRealEstateAssestPaymentPlanById(Long id);
+    Boolean deleteManagementFirmPaymentPlanById(Long id);
 
-    ManagementFirmPaymentPlanDTO saveAllRealEstateAssestPaymentPlan(@Valid List<ManagementFirmPaymentPlanDTO> dto);
+    ManagementFirmPaymentPlanDTO saveAllManagementFirmPaymentPlan(@Valid List<ManagementFirmPaymentPlanDTO> dto);
 
-    boolean softRealEstateAssestPaymentPlanServiceById(Long id);
+    boolean softManagementFirmPaymentPlanServiceById(Long id);
 }
