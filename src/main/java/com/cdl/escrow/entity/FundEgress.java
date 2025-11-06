@@ -295,7 +295,7 @@ public class FundEgress implements Serializable {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JsonIgnore
-    private RealEstateAssest realEstateAssest;
+    private ManagementFirm managementFirm;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JsonIgnore
@@ -312,11 +312,11 @@ public class FundEgress implements Serializable {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JsonIgnore
-    private RealEstateAssestBeneficiary realEstateAssestBeneficiary;
+    private ManagementFirmBeneficiary managementFirmBeneficiary;
 
    /* @OneToMany(mappedBy = "fundEgress", fetch = FetchType.LAZY)
     @JsonIgnore
-    private Set<RealEstateAssestFeeHistory> realEstateAssestFeeHistories;
+    private Set<ManagementFirmHistory> realEstateAssestFeeHistories;
 */
     @ManyToOne(fetch = FetchType.LAZY)
     @JsonIgnore

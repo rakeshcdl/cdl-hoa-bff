@@ -99,7 +99,7 @@ public class BankAccount implements Serializable {
 */
     /*@ManyToOne
     @JsonIgnore
-    private RealEstateAssestBeneficiary realEstateAssestBeneficiary;
+    private ManagementFirmBeneficiary managementFirmBeneficiary;
 */
    /* @OneToMany(mappedBy = "bankAccount")
     @JsonIgnore

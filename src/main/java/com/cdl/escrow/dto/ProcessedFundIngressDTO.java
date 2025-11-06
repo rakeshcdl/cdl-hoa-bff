@@ -16,7 +16,6 @@ import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 import java.time.ZonedDateTime;
-import java.util.Map;
 
 @Data
 @NoArgsConstructor
@@ -84,7 +83,7 @@ public class ProcessedFundIngressDTO implements Serializable {
 
     private String pfiSpecialField2;
 
-    private RealEstateAssestDTO realEstateAssestDTO;
+    private ManagementFirmDTO managementFirmDTO;
 
     private CapitalPartnerUnitDTO capitalPartnerUnitDTO;
 

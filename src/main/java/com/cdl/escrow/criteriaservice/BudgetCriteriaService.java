@@ -4,7 +4,7 @@ import com.cdl.escrow.criteria.BudgetCriteria;
 import com.cdl.escrow.dto.BudgetDTO;
 import com.cdl.escrow.entity.Budget;
 import com.cdl.escrow.entity.AssetRegister;
-import com.cdl.escrow.entity.RealEstateAssest;
+import com.cdl.escrow.entity.ManagementFirm;
 import com.cdl.escrow.filter.BaseSpecificationBuilder;
 import com.cdl.escrow.mapper.BudgetMapper;
 import com.cdl.escrow.repository.BudgetRepository;
@@ -55,7 +55,7 @@ public class BudgetCriteriaService extends BaseSpecificationBuilder<Budget> impl
                 }
 
                 if (criteria.getRealEstateAssestId() != null) {
-                    Join<Budget, RealEstateAssest> join = root.join("realEstateAssest", JoinType.LEFT);
+                    Join<Budget, ManagementFirm> join = root.join("realEstateAssest", JoinType.LEFT);
                     addLongFilterOnJoin(cb, join, predicates, "id", criteria.getRealEstateAssestId());
                 }
 

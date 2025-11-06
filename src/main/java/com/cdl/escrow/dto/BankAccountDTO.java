@@ -54,9 +54,9 @@ public class BankAccountDTO implements Serializable {
 
     //private BuildPartnerBeneficiaryDTO buildPartnerBeneficiaryDTO;
 
-    //private RealEstateAssestDTO realEstateAssestDTO;
+    //private ManagementFirmDTO realEstateAssestDTO;
 
-   // private RealEstateAssestBeneficiaryDTO realEstateAssestBeneficiaryDTO;
+   // private ManagementFirmBeneficiaryDTO realEstateAssestBeneficiaryDTO;
 
    // private Set<CapitalPartnerBankInfoDTO> capitalPartnerBankInfoDTOS;
 

@@ -1,14 +1,13 @@
 package com.cdl.escrow.mapper;
 
 import com.cdl.escrow.dto.CapitalPartnerUnitDTO;
-import com.cdl.escrow.entity.CapitalPartner;
 import com.cdl.escrow.entity.CapitalPartnerUnit;
 import com.cdl.escrow.helper.EntityMapper;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
 
-@Mapper(componentModel = "spring", uses = {ApplicationSettingMapper.class, CapitalPartnerMapper.class,RealEstateAssestMapper.class,
+@Mapper(componentModel = "spring", uses = {ApplicationSettingMapper.class, CapitalPartnerMapper.class, ManagementFirmMapper.class,
 CapitalPartnerUnitBookingMapper.class})
 public interface CapitalPartnerUnitMapper  extends EntityMapper<CapitalPartnerUnitDTO, CapitalPartnerUnit> {
 
@@ -16,7 +15,7 @@ public interface CapitalPartnerUnitMapper  extends EntityMapper<CapitalPartnerUn
 
     @Mapping(source = "partnerUnit", target = "partnerUnitDTO")
     @Mapping(source = "capitalPartnerUnitType", target = "capitalPartnerUnitTypeDTO")
-    @Mapping(source = "realEstateAssest", target = "realEstateAssestDTO")
+    @Mapping(source = "managementFirm", target = "managementFirmDTO")
     @Mapping(source = "unitStatus", target = "unitStatusDTO")
     @Mapping(source = "propertyId", target = "propertyIdDTO")
     @Mapping(source = "paymentPlanType", target = "paymentPlanTypeDTO")
@@ -25,7 +24,7 @@ public interface CapitalPartnerUnitMapper  extends EntityMapper<CapitalPartnerUn
 
     @Mapping(source = "partnerUnitDTO", target = "partnerUnit")
     @Mapping(source = "capitalPartnerUnitTypeDTO", target = "capitalPartnerUnitType")
-    @Mapping(source = "realEstateAssestDTO", target = "realEstateAssest")
+    @Mapping(source = "managementFirmDTO", target = "managementFirm")
     @Mapping(source = "unitStatusDTO", target = "unitStatus")
     @Mapping(source = "propertyIdDTO", target = "propertyId")
     @Mapping(source = "paymentPlanTypeDTO", target = "paymentPlanType")

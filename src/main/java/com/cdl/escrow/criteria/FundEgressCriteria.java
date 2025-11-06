@@ -219,7 +219,7 @@ public class FundEgressCriteria implements Serializable {
 
     private LongFilter realEstateAssestBeneficiaryId;
 
-    //private Set<RealEstateAssestFeeHistoryDTO> realEstateAssestFeeHistoryDTOS;
+    //private Set<ManagementFirmHistoryDTO> realEstateAssestFeeHistoryDTOS;
 
     private LongFilter suretyBondId;
 

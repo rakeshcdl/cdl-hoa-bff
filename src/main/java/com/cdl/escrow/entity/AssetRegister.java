@@ -104,7 +104,7 @@ public class AssetRegister implements Serializable {
 
     @OneToMany(mappedBy = "assetRegister")
     @JsonIgnore
-    private Set<RealEstateAssestFinancialSummary> realEstateAssestFinancialSummaries ;
+    private Set<ManagementFirmFinancialSummary> realEstateAssestFinancialSummaries ;
 
     @OneToMany(mappedBy = "assetRegister")
     @JsonIgnore

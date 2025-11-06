@@ -10,7 +10,7 @@ import org.mapstruct.Mapping;
 @Mapper(componentModel = "spring" , uses = { ApplicationSettingMapper.class })
 public interface ProcessedFundIngressMapper extends EntityMapper<ProcessedFundIngressDTO, ProcessedFundIngress> {
 
-    @Mapping(source = "realEstateAssest", target = "realEstateAssestDTO")
+    @Mapping(source = "managementFirm", target = "managementFirmDTO")
     @Mapping(source = "capitalPartnerUnit", target = "capitalPartnerUnitDTO")
     @Mapping(source = "bucketType", target = "bucketTypeDTO")
     @Mapping(source = "bucketSubType", target = "bucketSubTypeDTO")
@@ -20,7 +20,7 @@ public interface ProcessedFundIngressMapper extends EntityMapper<ProcessedFundIn
     ProcessedFundIngressDTO toDto(ProcessedFundIngress processedFundIngress);
 
 
-    @Mapping(source = "realEstateAssestDTO", target = "realEstateAssest")
+    @Mapping(source = "managementFirmDTO", target = "managementFirm")
     @Mapping(source = "capitalPartnerUnitDTO", target = "capitalPartnerUnit")
     @Mapping(source = "bucketTypeDTO", target = "bucketType")
     @Mapping(source = "bucketSubTypeDTO", target = "bucketSubType")

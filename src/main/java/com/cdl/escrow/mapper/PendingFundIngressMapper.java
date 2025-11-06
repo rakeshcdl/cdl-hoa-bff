@@ -10,7 +10,7 @@ import org.mapstruct.Mapping;
 @Mapper(componentModel = "spring" , uses = { ApplicationSettingMapper.class })
 public interface PendingFundIngressMapper  extends EntityMapper<PendingFundIngressDTO, PendingFundIngress> {
 
-    @Mapping(source = "realEstateAssest", target = "realEstateAssestDTO")
+    @Mapping(source = "managementFirm", target = "managementFirmDTO")
     @Mapping(source = "capitalPartnerUnit", target = "capitalPartnerUnitDTO")
     @Mapping(source = "bucketType", target = "bucketTypeDTO")
     @Mapping(source = "depositMode", target = "depositModeDTO")
@@ -18,7 +18,7 @@ public interface PendingFundIngressMapper  extends EntityMapper<PendingFundIngre
     @Mapping(source = "taskStatus", target = "taskStatusDTO")
     PendingFundIngressDTO toDto(PendingFundIngress pendingFundIngress);
 
-    @Mapping(source = "realEstateAssestDTO", target = "realEstateAssest")
+    @Mapping(source = "managementFirmDTO", target = "managementFirm")
     @Mapping(source = "capitalPartnerUnitDTO", target = "capitalPartnerUnit")
     @Mapping(source = "bucketTypeDTO", target = "bucketType")
     @Mapping(source = "depositModeDTO", target = "depositMode")

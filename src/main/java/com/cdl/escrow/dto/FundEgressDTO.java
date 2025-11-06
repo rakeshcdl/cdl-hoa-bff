@@ -216,7 +216,7 @@ public class FundEgressDTO implements Serializable {
 
    private ApplicationSettingDTO payoutToBeMadeFromCbsDTO;
 
-    private RealEstateAssestDTO realEstateAssestDTO;
+    private ManagementFirmDTO managementFirmDTO;
 
    private CapitalPartnerUnitDTO capitalPartnerUnitDTO;
 
@@ -224,9 +224,9 @@ public class FundEgressDTO implements Serializable {
 
    private AssetRegisterDTO assetRegisterDTO;
 
-   private RealEstateAssestBeneficiaryDTO realEstateAssestBeneficiaryDTO;
+   private ManagementFirmBeneficiaryDTO managementFirmBeneficiaryDTO;
 
-    //private Set<RealEstateAssestFeeHistoryDTO> realEstateAssestFeeHistoryDTOS;
+    //private Set<ManagementFirmHistoryDTO> realEstateAssestFeeHistoryDTOS;
 
     private SuretyBondDTO suretyBondDTO;
 

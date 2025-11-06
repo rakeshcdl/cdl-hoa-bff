@@ -33,7 +33,7 @@ public class BudgetDTO implements Serializable {
 
     private AssetRegisterDTO assetRegisterDTO;
 
-    private RealEstateAssestDTO realEstateAssestDTO;
+    private ManagementFirmDTO managementFirmDTO;
 
     //private Set<FundEgress> fundEgresses = new HashSet<>();
 

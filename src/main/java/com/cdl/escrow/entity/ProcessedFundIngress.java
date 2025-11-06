@@ -1,7 +1,6 @@
 package com.cdl.escrow.entity;
 
 
-import com.cdl.escrow.enumeration.WorkflowStatus;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.vladmihalcea.hibernate.type.json.JsonType;
 import jakarta.persistence.*;
@@ -111,7 +110,7 @@ public class ProcessedFundIngress implements Serializable {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JsonIgnore
-    private RealEstateAssest realEstateAssest;
+    private ManagementFirm managementFirm;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JsonIgnore

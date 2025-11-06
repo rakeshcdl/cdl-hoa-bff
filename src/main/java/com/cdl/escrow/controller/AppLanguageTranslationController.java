@@ -123,23 +123,23 @@ public class AppLanguageTranslationController {
         return ResponseEntity.ok(page);
     }
 
-    @GetMapping("/build-partner")
+    @GetMapping("/asset-registry")
     public ResponseEntity<List<AppLanguageTranslationDTO>> getBuildPartnerAppLanguageTranslationData() {
-        log.info("Fetching all app config translation of build-partner");
+        log.info("Fetching all app config translation of asset-registry");
         List<AppLanguageTranslationDTO> page = appLanguageTranslationService.getBuildPartnerAppLanguageTranslationData();
         return ResponseEntity.ok(page);
     }
 
-    @GetMapping("/build-partner-assests")
+    @GetMapping("/management-firm")
     public ResponseEntity<List<AppLanguageTranslationDTO>> getBuildPartnerAssestAppLanguageTranslationData() {
-        log.info("Fetching all app config translation of build-partner-assests");
+        log.info("Fetching all app config translation of management-firm");
         List<AppLanguageTranslationDTO> page = appLanguageTranslationService.getBuildPartnerAssestAppLanguageTranslationData();
         return ResponseEntity.ok(page);
     }
 
-    @GetMapping("/capital-partner")
+    @GetMapping("/owner-registry")
     public ResponseEntity<List<AppLanguageTranslationDTO>> getCapitalPartnerAppLanguageTranslationData() {
-        log.info("Fetching all app config translation of capital-partner");
+        log.info("Fetching all app config translation of owner-registry");
         List<AppLanguageTranslationDTO> page = appLanguageTranslationService.getCapitalPartnerAppLanguageTranslationData();
         return ResponseEntity.ok(page);
     }
@@ -241,4 +241,12 @@ public class AppLanguageTranslationController {
         List<AppLanguageTranslationDTO> page = appLanguageTranslationService.getDashboardTranslationData();
         return ResponseEntity.ok(page);
     }
+
+    @GetMapping("/budgets")
+    public ResponseEntity<List<AppLanguageTranslationDTO>> getBudgetsAppLanguageTranslationData() {
+        log.info("Fetching all app config translation of budgets");
+        List<AppLanguageTranslationDTO> page = appLanguageTranslationService.getBudgetsAppLanguageTranslationData();
+        return ResponseEntity.ok(page);
+    }
+
 }

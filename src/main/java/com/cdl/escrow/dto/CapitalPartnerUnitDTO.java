@@ -45,7 +45,7 @@ public class CapitalPartnerUnitDTO implements Serializable {
 
     private CapitalPartnerUnitTypeDTO capitalPartnerUnitTypeDTO;
 
-    private RealEstateAssestDTO realEstateAssestDTO;
+    private ManagementFirmDTO managementFirmDTO;
 
     private ApplicationSettingDTO unitStatusDTO;
 
@@ -55,7 +55,7 @@ public class CapitalPartnerUnitDTO implements Serializable {
 
     private CapitalPartnerUnitBookingDTO capitalPartnerUnitBookingDTO;
 
-    //private Set<RealEstateAssestFeeHistoryDTO> projectFeeHistoryDTOS ;
+    //private Set<ManagementFirmHistoryDTO> projectFeeHistoryDTOS ;
 
     private Set<CapitalPartnerUnitDTO> childCapitalPartnerUnitDTO ;
 

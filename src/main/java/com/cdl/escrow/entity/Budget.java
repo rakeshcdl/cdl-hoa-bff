@@ -60,7 +60,7 @@ public class Budget implements Serializable {
 
     @ManyToOne
     @JsonIgnore
-    private RealEstateAssest realEstateAssest;
+    private ManagementFirm managementFirm;
 
     @OneToMany(mappedBy = "budget")
     @JsonIgnore

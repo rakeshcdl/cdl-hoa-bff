@@ -12,7 +12,7 @@ public class WorkflowFinalizationService {
 
     private final AssetRegisterService assetRegisterService;
 
-    private final RealEstateAssestService realEstateAssestService;
+    private final ManagementFirmService managementFirmService;
 
     private final CapitalPartnerService capitalPartnerService;
 
@@ -29,7 +29,7 @@ public class WorkflowFinalizationService {
 
         switch (moduleType) {
            // case "BUILD_PARTNER" -> assetRegisterService.finalizeBuildPartner(moduleId, status);
-            case "BUILD_PARTNER_ASSEST" -> realEstateAssestService.finalizeRealEstateAssest(moduleId, status);
+            case "BUILD_PARTNER_ASSEST" -> managementFirmService.finalizeRealEstateAssest(moduleId, status);
             case "PAYMENTS" -> fundEgressService.finalizeFundEgress(moduleId, status);
             case "CAPITAL_PARTNER" -> capitalPartnerService.finalizeCapitalPartner(moduleId, status);
             case "TRANSACTIONS" -> pendingFundIngressService.finalizeDeposit(moduleId, status);

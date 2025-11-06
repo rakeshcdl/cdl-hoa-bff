@@ -10,7 +10,6 @@
 
 package com.cdl.escrow.entity;
 
-import com.cdl.escrow.enumeration.WorkflowStatus;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
@@ -118,7 +117,7 @@ public class PendingFundIngress {
 
     @ManyToOne
     @JsonIgnore
-    private RealEstateAssest realEstateAssest;
+    private ManagementFirm managementFirm;
 
     @ManyToOne
     @JsonIgnore

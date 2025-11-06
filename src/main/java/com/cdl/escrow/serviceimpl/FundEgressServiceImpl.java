@@ -2,9 +2,7 @@ package com.cdl.escrow.serviceimpl;
 
 import com.cdl.escrow.dto.FundEgressDTO;
 import com.cdl.escrow.entity.FundEgress;
-import com.cdl.escrow.entity.RealEstateAssest;
 import com.cdl.escrow.entity.TaskStatus;
-import com.cdl.escrow.enumeration.WorkflowRequestStatus;
 import com.cdl.escrow.exception.ApplicationConfigurationNotFoundException;
 import com.cdl.escrow.mapper.FundEgressMapper;
 import com.cdl.escrow.repository.FundEgressRepository;

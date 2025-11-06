@@ -6,13 +6,10 @@ import com.cdl.escrow.dto.PendingFundIngressDTO;
 import com.cdl.escrow.dto.PendingFundIngressExtDTO;
 import com.cdl.escrow.dto.ProcessedFundIngressDTO;
 import com.cdl.escrow.dto.SplitDataDTO;
-import com.cdl.escrow.entity.CapitalPartner;
 import com.cdl.escrow.entity.PendingFundIngress;
-import com.cdl.escrow.entity.ProcessedFundIngress;
 import com.cdl.escrow.entity.TaskStatus;
 import com.cdl.escrow.exception.ApplicationConfigurationNotFoundException;
 import com.cdl.escrow.filter.LongFilter;
-import com.cdl.escrow.filter.StringFilter;
 import com.cdl.escrow.mapper.PendingFundIngressMapper;
 import com.cdl.escrow.repository.PendingFundIngressRepository;
 import com.cdl.escrow.service.PendingFundIngressService;
@@ -182,7 +179,7 @@ public class PendingFundIngressServiceImpl implements PendingFundIngressService 
        // reconTransactionDTO.setBankAccount(nonReconTransactionDTOExt.getBankAccount());
         reconTransactionDTO.setPfiDescription(nonReconTransactionDTOExt.getPtfiDescription());
         reconTransactionDTO.setPfiNarration(nonReconTransactionDTOExt.getPtfiNarration());
-        reconTransactionDTO.setRealEstateAssestDTO(nonReconTransactionDTOExt.getRealEstateAssestDTO());
+        reconTransactionDTO.setManagementFirmDTO(nonReconTransactionDTOExt.getManagementFirmDTO());
         reconTransactionDTO.setPfiSpecialField1(splitDataDTOExt.getTasRefNumber());
         reconTransactionDTO.setPfiTransactionDate(nonReconTransactionDTOExt.getPtfiTransactionDate());
         reconTransactionDTO.setCapitalPartnerUnitDTO(

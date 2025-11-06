@@ -6,7 +6,6 @@ import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 import java.time.ZonedDateTime;
-import java.util.Set;
 
 @Data
 @NoArgsConstructor
@@ -40,7 +39,7 @@ public class SuretyBondDTO implements Serializable {
 
     private ApplicationSettingDTO suretyBondTypeDTO;
 
-    private RealEstateAssestDTO realEstateAssestDTO;
+    private ManagementFirmDTO managementFirmDTO;
 
     private FinancialInstitutionDTO issuerBankDTO;
 

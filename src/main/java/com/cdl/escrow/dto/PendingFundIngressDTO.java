@@ -96,7 +96,7 @@ public class PendingFundIngressDTO implements Serializable {
 
     private String ptfiPaymentRefNo;
 
-    private RealEstateAssestDTO realEstateAssestDTO;
+    private ManagementFirmDTO managementFirmDTO;
 
     private CapitalPartnerUnitDTO capitalPartnerUnitDTO;
 

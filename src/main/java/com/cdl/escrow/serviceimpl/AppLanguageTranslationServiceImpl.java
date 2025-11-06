@@ -117,21 +117,21 @@ public class AppLanguageTranslationServiceImpl implements AppLanguageTranslation
     @Override
     @Transactional
     public List<AppLanguageTranslationDTO> getBuildPartnerAppLanguageTranslationData() {
-        List<AppLanguageTranslation> appLanguageTranslationList = repository.findAllByModuleName("BUILD_PARTNER");
+        List<AppLanguageTranslation> appLanguageTranslationList = repository.findAllByModuleName("ASSETS-REGISTRY");
         return mapper.toDtoList(appLanguageTranslationList);
     }
 
     @Override
     @Transactional
     public List<AppLanguageTranslationDTO> getBuildPartnerAssestAppLanguageTranslationData() {
-        List<AppLanguageTranslation> appLanguageTranslationList = repository.findAllByModuleName("BUILD_PARTNER_ASSEST");
+        List<AppLanguageTranslation> appLanguageTranslationList = repository.findAllByModuleName("MANAGEMENT-FIRMS");
         return mapper.toDtoList(appLanguageTranslationList);
     }
 
     @Override
     @Transactional
     public List<AppLanguageTranslationDTO> getCapitalPartnerAppLanguageTranslationData() {
-        List<AppLanguageTranslation> appLanguageTranslationList = repository.findAllByModuleName("CAPITAL_PARTNER");
+        List<AppLanguageTranslation> appLanguageTranslationList = repository.findAllByModuleName("OWNER-REGISTRY");
         return mapper.toDtoList(appLanguageTranslationList);
     }
 
@@ -202,6 +202,12 @@ public class AppLanguageTranslationServiceImpl implements AppLanguageTranslation
     @Override
     public List<AppLanguageTranslationDTO> getDashboardTranslationData() {
         List<AppLanguageTranslation> appLanguageTranslationList = repository.findAllByModuleName("DASHBOARD");
+        return mapper.toDtoList(appLanguageTranslationList);
+    }
+
+    @Override
+    public List<AppLanguageTranslationDTO> getBudgetsAppLanguageTranslationData() {
+        List<AppLanguageTranslation> appLanguageTranslationList = repository.findAllByModuleName("BUDGET");
         return mapper.toDtoList(appLanguageTranslationList);
     }
 }

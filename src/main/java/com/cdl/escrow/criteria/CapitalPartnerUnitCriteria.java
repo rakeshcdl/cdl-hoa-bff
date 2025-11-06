@@ -59,7 +59,7 @@ public class CapitalPartnerUnitCriteria implements Serializable {
 
     private LongFilter capitalPartnerId;
 
-    //private Set<RealEstateAssestFeeHistoryDTO> projectFeeHistoryDTOS ;
+    //private Set<ManagementFirmHistoryDTO> projectFeeHistoryDTOS ;
 
    // private Set<CapitalPartnerUnitDTO> childCapitalPartnerUnitDTO ;
 

@@ -68,7 +68,7 @@ public class AssetRegisterCriteria implements Serializable {
 
     //private Set<BuildPartnerContactDTO> buildPartnerContactDTOS;
 
-    //private Set<RealEstateAssestFinancialSummaryDTO> realEstateAssestFinancialSummaryDTOS ;
+    //private Set<ManagementFirmFinancialSummaryDTO> realEstateAssestFinancialSummaryDTOS ;
 
     //private Set<FundEgressDTO> fundEgressDTOS;
 }
