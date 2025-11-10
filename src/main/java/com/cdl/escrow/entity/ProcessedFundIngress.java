@@ -10,6 +10,7 @@ import org.hibernate.annotations.Type;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.time.ZonedDateTime;
 
 /**
@@ -80,6 +81,20 @@ public class ProcessedFundIngress implements Serializable {
     private String pfiTasPaymentStatus;
 
     private String pfiBatchTransId;
+
+    private Integer pfiPropertyNumber;
+
+    private String pfiPropertyName;
+
+    private BigDecimal pfiSplitAmount;
+
+    private String pfiReceivableBucket;
+
+    private String pfiDepositMode;
+
+    private Double pfiReservePercentage;
+
+    private BigDecimal pfiReserveAmount;
 
     /*@Lob
     @Column(name = "recon_response" , columnDefinition = "TEXT")*/

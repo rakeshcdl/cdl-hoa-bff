@@ -15,6 +15,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.time.ZonedDateTime;
 
 @Data
@@ -101,4 +102,20 @@ public class ProcessedFundIngressDTO implements Serializable {
     private TaskStatusDTO taskStatusDTO;
 
     private PendingFundIngressDTO pendingFundIngressDTO;
+
+    // New field added
+
+    private Integer pfiPropertyNumber;
+
+    private String pfiPropertyName;
+
+    private BigDecimal pfiSplitAmount;
+
+    private String pfiReceivableBucket;
+
+    private String pfiDepositMode;
+
+    private Double pfiReservePercentage;
+
+    private BigDecimal pfiReserveAmount;
 }

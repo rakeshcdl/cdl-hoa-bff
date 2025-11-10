@@ -57,9 +57,38 @@ public class OwnerRegistry implements Serializable {
 
     private Boolean isCurrent;
 
-    private ZonedDateTime idExpiaryDate;
+    private ZonedDateTime idExpiryDate;
 
     private String ownerRegistryLocaleName;
+
+
+    //New field added
+
+    private String ownerName;
+
+    private String ownerLocalName;
+
+    private String ownerType;
+
+    private String ownerIdType;
+
+    private String ownerIdNumber;
+
+    private String ownerNationality;
+
+    private String ownerMobileNumber;
+
+    private String ownerEmailAddress;
+
+    private String ownerOwnershipShare;
+
+    private String reservedShare;
+
+    private String ownerMollakIdNumber;
+
+    private String ownerFloor;
+
+    private String ownerNoOfBedrooms;
 
     @ManyToOne
     @JsonIgnore

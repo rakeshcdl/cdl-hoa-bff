@@ -55,4 +55,31 @@ public class OwnerRegistryDTO implements Serializable {
     private boolean enabled ;
 
     private TaskStatusDTO taskStatusDTO;
+
+    // New Field added
+    private String ownerName;
+
+    private String ownerLocalName;
+
+    private String ownerType;
+
+    private String ownerIdType;
+
+    private String ownerIdNumber;
+
+    private String ownerNationality;
+
+    private String ownerMobileNumber;
+
+    private String ownerEmailAddress;
+
+    private String ownerOwnershipShare;
+
+    private String reservedShare;
+
+    private String ownerMollakIdNumber;
+
+    private String ownerFloor;
+
+    private String ownerNoOfBedrooms;
 }
