@@ -10,15 +10,15 @@ import org.mapstruct.Mapping;
 public interface ManagementFirmFeeMapper extends EntityMapper<ManagementFirmFeeDTO, ManagementFirmFee> {
 
     @Mapping(source = "managementFirm", target = "managementFirmDTO")
-    @Mapping(source = "reafCategory", target = "reafCategoryDTO")
-    @Mapping(source = "reafCurrency", target = "reafCurrencyDTO")
-    @Mapping(source = "reafFrequency", target = "reafFrequencyDTO")
-    @Mapping(source = "reafAccountType", target = "reafAccountTypeDTO")
+    @Mapping(source = "mffCategory", target = "mffCategoryDTO")
+    @Mapping(source = "mffCurrency", target = "mffCurrencyDTO")
+    @Mapping(source = "mffFrequency", target = "mffFrequencyDTO")
+    @Mapping(source = "mffAccountType", target = "mffAccountTypeDTO")
     ManagementFirmFeeDTO toDto(ManagementFirmFee managementFirmFee);
 
     @Mapping(source = "managementFirmDTO", target = "managementFirm")
-    @Mapping(source = "reafCategoryDTO", target = "reafCategory")
-    @Mapping(source = "reafCurrencyDTO", target = "reafCurrency")
-    @Mapping(source = "reafAccountTypeDTO", target = "reafAccountType")
+    @Mapping(source = "mffCategoryDTO", target = "mffCategory")
+    @Mapping(source = "mffCurrencyDTO", target = "mffCurrency")
+    @Mapping(source = "mffAccountTypeDTO", target = "mffAccountType")
     ManagementFirmFee toEntity(ManagementFirmFeeDTO managementFirmFeeDTO);
 }

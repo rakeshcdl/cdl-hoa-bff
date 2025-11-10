@@ -38,8 +38,8 @@ public class ManagementFirmPaymentPlanCriteriaService extends BaseSpecificationB
 
 
                 // Relation Join
-                if (criteria.getRealEstateAssestId() != null) {
-                    addLongFilterForJoin(cb, root, predicates, "realEstateAssest", "id", criteria.getRealEstateAssestId());
+                if (criteria.getManagementFirmId() != null) {
+                    addLongFilterForJoin(cb, root, predicates, "managementFirmId", "id", criteria.getManagementFirmId());
                 }
 
 

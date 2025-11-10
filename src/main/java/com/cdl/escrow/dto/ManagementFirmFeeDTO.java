@@ -13,36 +13,36 @@ import java.time.ZonedDateTime;
 public class ManagementFirmFeeDTO implements Serializable {
     private Long id;
 
-    private Double reafAmount;
+    private Double mffAmount;
 
-    private Double reafDebitAmount;
+    private Double mffDebitAmount;
 
-    private Double reafTotalAmount;
+    private Double mffTotalAmount;
 
-    private ZonedDateTime reafCalender;
+    private ZonedDateTime mffCalender;
 
-    private ZonedDateTime reafCollectionDate;
+    private ZonedDateTime mffCollectionDate;
 
-    private ZonedDateTime reafNextRecoveryDate;
+    private ZonedDateTime mffNextRecoveryDate;
 
-    private Double reafVatPercentage;
+    private Double mffVatPercentage;
 
-    private Boolean reafCollected;
+    private Boolean mffCollected;
 
-    private Double reafFeePercentage;
+    private Double mffFeePercentage;
 
     private ManagementFirmDTO managementFirmDTO;
 
-    private ApplicationSettingDTO reafCategoryDTO;
+    private ApplicationSettingDTO mffCategoryDTO;
 
-    private ApplicationSettingDTO reafCurrencyDTO;
+    private ApplicationSettingDTO mffCurrencyDTO;
 
-    private ApplicationSettingDTO reafFrequencyDTO;
+    private ApplicationSettingDTO mffFrequencyDTO;
 
-    private ApplicationSettingDTO reafAccountTypeDTO;
+    private ApplicationSettingDTO mffAccountTypeDTO;
 
     private Boolean deleted ;
 
     private boolean enabled ;
-    // private Set<ManagementFirmHistoryDTO> realEstateAssestFeeHistoryDTOS ;
+    // private Set<ManagementFirmHistoryDTO> mflEstateAssestFeeHistoryDTOS ;
 }

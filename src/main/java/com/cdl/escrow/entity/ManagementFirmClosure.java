@@ -35,11 +35,11 @@ public class ManagementFirmClosure implements Serializable {
     )
     private Long id;
 
-    private Double reacTotalIncomeFund;
+    private Double mfcTotalIncomeFund;
 
-    private Double reacTotalPayment;
+    private Double mfcTotalPayment;
 
-    private Double reacCheckGuranteeDoc;
+    private Double mfcCheckGuaranteeDoc;
 
     @ManyToOne
     @JsonIgnore
@@ -47,7 +47,7 @@ public class ManagementFirmClosure implements Serializable {
 
     @ManyToOne
     @JsonIgnore
-    private ApplicationSetting reacDocument;
+    private ApplicationSetting mfcDocument;
 
     private Boolean enabled ;
 

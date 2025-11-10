@@ -36,298 +36,298 @@ public class ManagementFirmFinancialSummary implements Serializable {
     )
     private Long id ;
 
-    private String reafsEstRevenue ;
+    private String mffsEstRevenue ;
 
-    private Double reafsEstConstructionCost;
+    private Double mffsEstConstructionCost;
 
-    private Double reafsEstProjectMgmtExpense ;
+    private Double mffsEstProjectMgmtExpense ;
 
-    private Double reafsEstLandCost ;
+    private Double mffsEstLandCost ;
 
-    private Double reafsEstMarketingExpense ;
+    private Double mffsEstMarketingExpense ;
 
-    private ZonedDateTime  reafsEstimatedDate;
+    private ZonedDateTime  mffsEstimatedDate;
 
-    private String  reafsEstExceptionalCapVal ;
+    private String  mffsEstExceptionalCapVal ;
 
-    private Double reafsActualSoldValue ;
+    private Double mffsActualSoldValue ;
 
-    private Double reafsActualConstructionCost ;
+    private Double mffsActualConstructionCost ;
 
-    private Double reafsActualInfraCost ;
+    private Double mffsActualInfraCost ;
 
-    private Double reafsActualLandCost ;
+    private Double mffsActualLandCost ;
 
-    private Double reafsActualMarketingExp ;
+    private Double mffsActualMarketingExp ;
 
-    private Double reafsActualProjectMgmtExpense ;
+    private Double mffsActualProjectMgmtExpense ;
 
-    private ZonedDateTime reafsActualDate ;
+    private ZonedDateTime mffsActualDate ;
 
-    private String  reafsActualexceptCapVal ;
+    private String  mffsActualexceptCapVal ;
 
-    private Double reafsCurrentCashReceived ;
+    private Double mffsCurrentCashReceived ;
 
-    private Double reafsCurCashRecvdOutEscrow ;
+    private Double mffsCurCashRecvdOutEscrow ;
 
-    private Double reafsCurCashRecvdWithinEscrow ;
+    private Double mffsCurCashRecvdWithinEscrow ;
 
-    private Double reafsCurCashRecvdTotal ;
+    private Double mffsCurCashRecvdTotal ;
 
-    private String reafsCurCashexceptCapVal ;
+    private String mffsCurCashexceptCapVal ;
 
-    private Double reafsCurrentLandCost ;
+    private Double mffsCurrentLandCost ;
 
-    private Double reafsCurLandCostOut ;
+    private Double mffsCurLandCostOut ;
 
-    private Double reafsCurLandCostWithin ;
+    private Double mffsCurLandCostWithin ;
 
-    private Double reafsCurLandTotal ;
+    private Double mffsCurLandTotal ;
 
-    private String reafsCurLandexceptCapVal ;
+    private String mffsCurLandexceptCapVal ;
 
-    private Double reafsCurrentConstructionCost ;
+    private Double mffsCurrentConstructionCost ;
 
-    private Double reafsCurConsCostWithin ;
+    private Double mffsCurConsCostWithin ;
 
-    private Double reafsCurConsCostOut ;
+    private Double mffsCurConsCostOut ;
 
-    private Double reafsCurConsCostTotal ;
+    private Double mffsCurConsCostTotal ;
 
-    private String reafsCurConsExcepCapVal ;
+    private String mffsCurConsExcepCapVal ;
 
-    private Double reafsCurrentMarketingExp ;
+    private Double mffsCurrentMarketingExp ;
 
-    private Double reafsCurrentMktgExpWithin ;
+    private Double mffsCurrentMktgExpWithin ;
 
-    private Double reafsCurrentMktgExpOut ;
+    private Double mffsCurrentMktgExpOut ;
 
-    private Double reafsCurrentMktgExpTotal ;
+    private Double mffsCurrentMktgExpTotal ;
 
-    private String reafsCurrentmktgExcepCapVal ;
+    private String mffsCurrentmktgExcepCapVal ;
 
-    private Double reafsCurrentProjectMgmtExp ;
+    private Double mffsCurrentProjectMgmtExp ;
 
-    private Double reafsCurProjMgmtExpWithin ;
+    private Double mffsCurProjMgmtExpWithin ;
 
-    private Double reafsCurProjMgmtExpOut ;
+    private Double mffsCurProjMgmtExpOut ;
 
-    private Double reafsCurProjMgmtExpTotal ;
+    private Double mffsCurProjMgmtExpTotal ;
 
-    private String reafsCurProjExcepCapVal ;
+    private String mffsCurProjExcepCapVal ;
 
-    private Double reafsCurrentMortgage ;
+    private Double mffsCurrentMortgage ;
 
-    private Double reafsCurrentMortgageWithin ;
+    private Double mffsCurrentMortgageWithin ;
 
     private Double currentMortgageOut ;
 
-    private Double reafsCurrentMortgageTotal ;
+    private Double mffsCurrentMortgageTotal ;
 
-    private String reafsCurMortgageExceptCapVal ;
+    private String mffsCurMortgageExceptCapVal ;
 
-    private Double reafsCurrentVatPayment ;
+    private Double mffsCurrentVatPayment ;
 
-    private Double reafsCurrentVatPaymentWithin ;
+    private Double mffsCurrentVatPaymentWithin ;
 
-    private Double reafsCurrentVatPaymentOut ;
+    private Double mffsCurrentVatPaymentOut ;
 
-    private Double reafsCurrentVatPaymentTotal ;
+    private Double mffsCurrentVatPaymentTotal ;
 
-    private String reafsCurVatExceptCapVal ;
+    private String mffsCurVatExceptCapVal ;
 
-    private Double reafsCurrentOqood ;
+    private Double mffsCurrentOqood ;
 
-    private Double reafsCurrentOqoodWithin ;
+    private Double mffsCurrentOqoodWithin ;
 
-    private Double reafsCurrentOqoodOut ;
+    private Double mffsCurrentOqoodOut ;
 
-    private Double reafsCurrentOqoodTotal ;
+    private Double mffsCurrentOqoodTotal ;
 
-    private String reafsCurOqoodExceptCapVal ;
+    private String mffsCurOqoodExceptCapVal ;
 
-    private Double reafsCurrentRefund ;
+    private Double mffsCurrentRefund ;
 
-    private Double reafsCurrentRefundWithin ;
+    private Double mffsCurrentRefundWithin ;
 
-    private Double reafsCurrentRefundOut ;
+    private Double mffsCurrentRefundOut ;
 
-    private Double reafsCurrentRefundTotal ;
+    private Double mffsCurrentRefundTotal ;
 
-    private String reafsCurRefundExceptCapVal ;
+    private String mffsCurRefundExceptCapVal ;
 
-    private Double reafsCurrentBalInRetenAcc ;
+    private Double mffsCurrentBalInRetenAcc ;
 
-    private Double reafsCurBalInRetenAccWithin ;
+    private Double mffsCurBalInRetenAccWithin ;
 
-    private Double reafsCurBalInRetenAccOut ;
+    private Double mffsCurBalInRetenAccOut ;
 
-    private Double reafsCurBalInRetenAccTotal ;
+    private Double mffsCurBalInRetenAccTotal ;
 
-    private String reafsCurBalInRetenExceptCapVal ;
+    private String mffsCurBalInRetenExceptCapVal ;
 
-    private Double reafsCurrentBalInTrustAcc ;
+    private Double mffsCurrentBalInTrustAcc ;
 
-    private Double reafsCurBalInTrustAccWithin ;
+    private Double mffsCurBalInTrustAccWithin ;
 
-    private Double reafsCurBalInTrustAccOut ;
+    private Double mffsCurBalInTrustAccOut ;
 
-    private Double reafsCurBalInTrustAccTotal ;
+    private Double mffsCurBalInTrustAccTotal ;
 
-    private String reafsCurBalInExceptCapVal ;
+    private String mffsCurBalInExceptCapVal ;
 
-    private Double reafsCurrentTechnicalFee ;
+    private Double mffsCurrentTechnicalFee ;
 
-    private Double reafsCurTechnFeeWithin ;
+    private Double mffsCurTechnFeeWithin ;
 
-    private Double reafsCurTechnFeeOut ;
+    private Double mffsCurTechnFeeOut ;
 
-    private Double reafsCurTechnFeeTotal ;
+    private Double mffsCurTechnFeeTotal ;
 
-    private String reafsCurTechFeeExceptCapVal ;
+    private String mffsCurTechFeeExceptCapVal ;
 
-    private Double reafsCurrentUnIdentifiedFund ;
+    private Double mffsCurrentUnIdentifiedFund ;
 
-    private Double reafsCurUnIdeFundWithin ;
+    private Double mffsCurUnIdeFundWithin ;
 
-    private Double reafsCurUnIdeFundOut ;
+    private Double mffsCurUnIdeFundOut ;
 
-    private Double reafsCurUnIdeFundTotal ;
+    private Double mffsCurUnIdeFundTotal ;
 
-    private String reafsCurUnIdeExceptCapVal ;
+    private String mffsCurUnIdeExceptCapVal ;
 
-    private Double reafsCurrentLoanInstal ;
+    private Double mffsCurrentLoanInstal ;
 
-    private Double reafsCurLoanInstalWithin ;
+    private Double mffsCurLoanInstalWithin ;
 
-    private Double reafsCurLoanInstalOut ;
+    private Double mffsCurLoanInstalOut ;
 
-    private Double reafsCurLoanInstalTotal ;
+    private Double mffsCurLoanInstalTotal ;
 
-    private String reafsCurLoanExceptCapVal ;
+    private String mffsCurLoanExceptCapVal ;
 
-    private Double reafsCurrentInfraCost ;
+    private Double mffsCurrentInfraCost ;
 
-    private Double reafsCurInfraCostWithin ;
+    private Double mffsCurInfraCostWithin ;
 
-    private Double reafsCurInfraCostOut ;
+    private Double mffsCurInfraCostOut ;
 
-    private Double reafsCurInfraCostTotal ;
+    private Double mffsCurInfraCostTotal ;
 
-    private String reafsCurInfraExceptCapVal ;
+    private String mffsCurInfraExceptCapVal ;
 
-    private Double reafsCurrentOthersCost ;
+    private Double mffsCurrentOthersCost ;
 
-    private Double reafsCurOthersCostWithin ;
+    private Double mffsCurOthersCostWithin ;
 
-    private Double reafsCurOthersCostOut ;
+    private Double mffsCurOthersCostOut ;
 
-    private Double reafsCurOthersCostTotal ;
+    private Double mffsCurOthersCostTotal ;
 
-    private String reafsCurOthersExceptCapVal ;
+    private String mffsCurOthersExceptCapVal ;
 
-    private Double reafsCurrentTransferredCost ;
+    private Double mffsCurrentTransferredCost ;
 
-    private Double reafsCurTransferCostWithin ;
+    private Double mffsCurTransferCostWithin ;
 
-    private Double reafsCurTransferCostOut ;
+    private Double mffsCurTransferCostOut ;
 
-    private Double reafsCurTransferCostTotal ;
+    private Double mffsCurTransferCostTotal ;
 
-    private String reafsCurTransferExceptCapVal ;
+    private String mffsCurTransferExceptCapVal ;
 
-    private Double reafsCurrentForfeitedCost ;
+    private Double mffsCurrentForfeitedCost ;
 
-    private Double reafsCurForfeitCostWithin ;
+    private Double mffsCurForfeitCostWithin ;
 
-    private Double reafsCurForfeitCostOut ;
+    private Double mffsCurForfeitCostOut ;
 
-    private Double reafsCurForfeitCostTotal ;
+    private Double mffsCurForfeitCostTotal ;
 
-    private String reafsCurForfeitExceptCapVal ;
+    private String mffsCurForfeitExceptCapVal ;
 
-    private Double reafsCurrentDeveloperEquitycost ;
+    private Double mffsCurrentDeveloperEquitycost ;
 
-    private Double reafsCurDeveEqtycostWithin ;
+    private Double mffsCurDeveEqtycostWithin ;
 
-    private Double reafsCurDeveEqtycostOut ;
+    private Double mffsCurDeveEqtycostOut ;
 
-    private Double reafsCurDeveEqtycostTotal ;
+    private Double mffsCurDeveEqtycostTotal ;
 
-    private String reafsCurDeveExceptCapVal ;
+    private String mffsCurDeveExceptCapVal ;
 
-    private Double reafsCurrentAmantFund ;
+    private Double mffsCurrentAmantFund ;
 
-    private Double reafsCurAmntFundWithin ;
+    private Double mffsCurAmntFundWithin ;
 
-    private Double reafsCurAmntFundOut ;
+    private Double mffsCurAmntFundOut ;
 
-    private Double reafsCurAmntFundTotal ;
+    private Double mffsCurAmntFundTotal ;
 
-    private String reafsCurAmntExceptCapVal ;
+    private String mffsCurAmntExceptCapVal ;
 
-    private Double reafsCurrentOtherWithdrawls ;
+    private Double mffsCurrentOtherWithdrawls ;
 
-    private Double reafsCurOtherWithdWithin ;
+    private Double mffsCurOtherWithdWithin ;
 
-    private Double reafsCurOtherWithdOut ;
+    private Double mffsCurOtherWithdOut ;
 
-    private Double reafsCurOtherWithdTotal ;
+    private Double mffsCurOtherWithdTotal ;
 
-    private String reafsCurOtherExceptCapVal ;
+    private String mffsCurOtherExceptCapVal ;
 
-    private Double reafsCurrentOqoodOtherFeePay ;
+    private Double mffsCurrentOqoodOtherFeePay ;
 
-    private Double reafsCurOqoodOthFeeWithin ;
+    private Double mffsCurOqoodOthFeeWithin ;
 
-    private Double reafsCurOqoodOthFeeOut ;
+    private Double mffsCurOqoodOthFeeOut ;
 
-    private Double reafsCurOqoodOthFeeTotal ;
+    private Double mffsCurOqoodOthFeeTotal ;
 
-    private Double reafsCurrentVatDeposit ;
+    private Double mffsCurrentVatDeposit ;
 
-    private Double reafsCurVatDepositWithin ;
+    private Double mffsCurVatDepositWithin ;
 
-    private Double reafsCurVatDepositOut ;
+    private Double mffsCurVatDepositOut ;
 
-    private Double reafsCurVatDepositTotal ;
+    private Double mffsCurVatDepositTotal ;
 
-    private String reafsCurVatDepositCapVal ;
+    private String mffsCurVatDepositCapVal ;
 
-    private Double reafsCurBalConstructionTotal ;
+    private Double mffsCurBalConstructionTotal ;
 
-    private Double reafsCurBalConstructionWithin ;
+    private Double mffsCurBalConstructionWithin ;
 
-    private Double reafsCurBalConstructionOut ;
+    private Double mffsCurBalConstructionOut ;
 
-    private String reafsCurBalExcepCapVal ;
+    private String mffsCurBalExcepCapVal ;
 
-    private Double reafsCreditInterest ;
+    private Double mffsCreditInterest ;
 
-    private Double reafsPaymentForRetentionAcc ;
+    private Double mffsPaymentForRetentionAcc ;
 
-    private Double reafsDeveloperReimburse ;
+    private Double mffsDeveloperReimburse ;
 
-    private Double reafsUnitRegFees ;
+    private Double mffsUnitRegFees ;
 
-    private Double reafsCreditInterestProfit ;
+    private Double mffsCreditInterestProfit ;
 
-    private Double reafsVatCappedCost ;
+    private Double mffsVatCappedCost ;
 
-    private String reafsExceptionalCapVal ;
+    private String mffsExceptionalCapVal ;
 
 
-    private Double reafsCurrentBalInSubsConsAcc ;
+    private Double mffsCurrentBalInSubsConsAcc ;
 
-    private Double reafsCurBalInRSubsConsWithin ;
+    private Double mffsCurBalInRSubsConsWithin ;
 
-    private Double reafsCurBalInSubsConsOut ;
+    private Double mffsCurBalInSubsConsOut ;
 
-    private Double reafsCurBalInSubsConsTotal ;
+    private Double mffsCurBalInSubsConsTotal ;
 
-    private String reafsCurBalInSubsConsCapVal ;
+    private String mffsCurBalInSubsConsCapVal ;
 
-    private String reafsOtherFeesAnPaymentExcepVal;
+    private String mffsOtherFeesAnPaymentExcepVal;
 
     @ManyToOne
     @JsonIgnore

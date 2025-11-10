@@ -32,11 +32,11 @@ public class ManagementFirmPaymentPlan implements Serializable {
     )
     private Long id;
 
-    private Integer reappInstallmentNumber;
+    private Integer mfppInstallmentNumber;
 
-    private Double reappInstallmentPercentage;
+    private Double mfppInstallmentPercentage;
 
-    private Double reappProjectCompletionPercentage;
+    private Double mfppProjectCompletionPercentage;
 
     // Many installments belong to one Real Estate Assets
     @ManyToOne(fetch = FetchType.LAZY)

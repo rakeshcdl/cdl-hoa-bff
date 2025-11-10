@@ -19,45 +19,45 @@ public class ManagementFirmBeneficiaryCriteria implements Serializable {
 
     private LongFilter id;
 
-    private StringFilter reabBeneficiaryId;
+    private StringFilter mfbBeneficiaryId;
 
-    private StringFilter reabName;
+    private StringFilter mfbName;
 
-    private DoubleFilter reabContractAmount;
+    private DoubleFilter mfbContractAmount;
 
-    private DoubleFilter reabActualLandPrice;
+    private DoubleFilter mfbActualLandPrice;
 
-    private StringFilter reabContractorName;
+    private StringFilter mfbContractorName;
 
-    private StringFilter reabType;
+    private StringFilter mfbType;
 
-    private StringFilter reabBank;
+    private StringFilter mfbBank;
 
-    private StringFilter reabSwift;
+    private StringFilter mfbSwift;
 
-    private StringFilter reabRoutingCode;
+    private StringFilter mfbRoutingCode;
 
-    private StringFilter reabAddress;
+    private StringFilter mfbAddress;
 
-    private StringFilter reabBankAddress;
+    private StringFilter mfbBankAddress;
 
-    private BooleanFilter reabIsActive;
+    private BooleanFilter mfbIsActive;
 
-    private BooleanFilter reabIsDeleted;
+    private BooleanFilter mfbIsDeleted;
 
-    private LongFilter reabTranferTypeId;
+    private LongFilter mfbTransferTypeId;
 
-    private LongFilter reabExpenseTypeId;
+    private LongFilter mfbExpenseTypeId;
 
-    private LongFilter reabVendorSubTypeId;
+    private LongFilter mfbVendorSubTypeId;
 
-    private LongFilter reabContractorSubTypeId;
+    private LongFilter mfbContractorSubTypeId;
 
-    private LongFilter reabInfrastructureCategoryId;
+    private LongFilter mfbInfrastructureCategoryId;
 
-    private LongFilter reabSalesCategoryId;
+    private LongFilter mfbSalesCategoryId;
 
-   private LongFilter realEstateAssestId ;
+   private LongFilter managementFirmsId ;
 
    // private Set<BankAccount> bankAccountDTOS ;
 

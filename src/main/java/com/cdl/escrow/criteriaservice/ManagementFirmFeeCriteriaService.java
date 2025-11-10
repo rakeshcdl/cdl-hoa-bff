@@ -27,35 +27,35 @@ public class ManagementFirmFeeCriteriaService extends BaseSpecificationBuilder<M
     private final transient ManagementFirmFeeMapper managementFirmFeeMapper;
 
     public Page<ManagementFirmFeeDTO> findByCriteria(ManagementFirmFeeCriteria criteria, Pageable pageable) {
-        Specification<ManagementFirmFee> specification = createSpecification(criteria);
+        Specification<ManagementFirmFee> specification = cmfteSpecification(criteria);
         return managementFirmFeeRepository.findAll(specification, pageable).map(managementFirmFeeMapper::toDto);
     }
 
-    private Specification<ManagementFirmFee> createSpecification(ManagementFirmFeeCriteria criteria) {
+    private Specification<ManagementFirmFee> cmfteSpecification(ManagementFirmFeeCriteria criteria) {
         return (root, query, cb) -> {
             List<Predicate> predicates = new ArrayList<>();
             if(criteria!=null) {
                 addLongFilter(cb, root, predicates, "id", criteria.getId());
-                addDoubleFilter(cb, root, predicates, "reafAmount", criteria.getReafAmount());
-                addDoubleFilter(cb, root, predicates, "reafTotalAmount", criteria.getReafTotalAmount());
-                addZonedDateTimeFilter(cb, root, predicates, "reafCalender", criteria.getReafCalender());
-                addZonedDateTimeFilter(cb, root, predicates, "reafNextRecoveryDate", criteria.getReafNextRecoveryDate());
-                addDoubleFilter(cb, root, predicates, "reafVatPercentage", criteria.getReafVatPercentage());
-                addBooleanFilter(cb, root, predicates, "reafCollected", criteria.getReafCollected());
+                addDoubleFilter(cb, root, predicates, "mffAmount", criteria.getMffAmount());
+                addDoubleFilter(cb, root, predicates, "mffTotalAmount", criteria.getMffTotalAmount());
+                addZonedDateTimeFilter(cb, root, predicates, "mffCalender", criteria.getMffCalender());
+                addZonedDateTimeFilter(cb, root, predicates, "mffNextRecoveryDate", criteria.getMffNextRecoveryDate());
+                addDoubleFilter(cb, root, predicates, "mffVatPercentage", criteria.getMffVatPercentage());
+                addBooleanFilter(cb, root, predicates, "mffCollected", criteria.getMffCollected());
 
 
                 // Relation Join
-                if (criteria.getRealEstateAssestId() != null) {
-                    addLongFilterForJoin(cb, root, predicates, "realEstateAssest", "id", criteria.getRealEstateAssestId());
+                if (criteria.getManagementFirmId() != null) {
+                    addLongFilterForJoin(cb, root, predicates, "managementFirmId", "id", criteria.getManagementFirmId());
                 }
-                if (criteria.getReafCategoryId() != null) {
-                    addLongFilterForJoin(cb, root, predicates, "reafCategory", "id", criteria.getReafCategoryId());
+                if (criteria.getMffCategoryId() != null) {
+                    addLongFilterForJoin(cb, root, predicates, "mffCategory", "id", criteria.getMffCategoryId());
                 }
-                if (criteria.getReafCurrencyId() != null) {
-                    addLongFilterForJoin(cb, root, predicates, "reafCurrency", "id", criteria.getReafCurrencyId());
+                if (criteria.getMffCurrencyId() != null) {
+                    addLongFilterForJoin(cb, root, predicates, "mffCurrency", "id", criteria.getMffCurrencyId());
                 }
-                if (criteria.getReafFrequencyId() != null) {
-                    addLongFilterForJoin(cb, root, predicates, "reafFrequency", "id", criteria.getReafFrequencyId());
+                if (criteria.getMffFrequencyId() != null) {
+                    addLongFilterForJoin(cb, root, predicates, "mffFrequency", "id", criteria.getMffFrequencyId());
                 }
 
 

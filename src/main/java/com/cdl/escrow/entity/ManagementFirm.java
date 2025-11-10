@@ -13,7 +13,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Represents a real estate project registered under the RERA regulation.
+ * Represents a mfl estate project registered under the RERA regulation.
  * Each project is associated with a developer and may have multiple funding and disbursement records.
  */
 @AllArgsConstructor
@@ -40,66 +40,66 @@ public class ManagementFirm implements Serializable {
     )
     private Long id;
 
-    private String reaId;
+    private String mfId;
 
-    private String reaCif;
+    private String mfCif;
 
-    private String reaName;
+    private String mfName;
 
     @Nationalized
-    private String reaNameLocal;
+    private String mfNameLocal;
 
-    private String reaLocation;
+    private String mfLocation;
 
-    private String reaReraNumber;
+    private String mfReraNumber;
 
-    private ZonedDateTime reaStartDate;
+    private ZonedDateTime mfStartDate;
 
-    private ZonedDateTime reaCompletionDate;
+    private ZonedDateTime mfCompletionDate;
 
-    private String reaPercentComplete;
+    private String mfPercentComplete;
 
-    private Double reaConstructionCost;
+    private Double mfConstructionCost;
 
-    private ZonedDateTime reaAccStatusDate;
+    private ZonedDateTime mfAccStatusDate;
 
-    private ZonedDateTime reaRegistrationDate;
+    private ZonedDateTime mfRegistrationDate;
 
-    private Integer reaNoOfUnits;
+    private Integer mfNoOfUnits;
 
-    private String reaRemarks;
+    private String mfRemarks;
 
-    private String reaSpecialApproval;
+    private String mfSpecialApproval;
 
-    private String reaManagedBy;
+    private String mfManagedBy;
 
-    private String reaBackupUser;
+    private String mfBackupUser;
 
-    private String reaRetentionPercent;
+    private String mfRetentionPercent;
 
-    private String reaAdditionalRetentionPercent;
+    private String mfAdditionalRetentionPercent;
 
-    private String reaTotalRetentionPercent;
+    private String mfTotalRetentionPercent;
 
-    private ZonedDateTime reaRetentionEffectiveDate;
+    private ZonedDateTime mfRetentionEffectiveDate;
 
-    private String reaManagementExpenses;
+    private String mfManagementExpenses;
 
-    private String reaMarketingExpenses;
+    private String mfMarketingExpenses;
 
-    private ZonedDateTime reaAccoutStatusDate;
+    private ZonedDateTime mfAccoutStatusDate;
 
-    private String reaTeamLeadName;
+    private String mfTeamLeadName;
 
-    private String reaRelationshipManagerName;
+    private String mfRelationshipManagerName;
 
-    private String reaAssestRelshipManagerName;
+    private String mfAssestRelshipManagerName;
 
-    private Double reaRealEstateBrokerExp;
+    private Double mfRealEstateBrokerExp;
 
-    private Double reaAdvertisementExp;
+    private Double mfAdvertisementExp;
 
-    private String reaLandOwnerName;
+    private String mfLandOwnerName;
 
     @ManyToOne
     @JsonIgnore
@@ -107,23 +107,23 @@ public class ManagementFirm implements Serializable {
 
     @ManyToOne
     @JsonIgnore
-    private ApplicationSetting reaStatus;
+    private ApplicationSetting mfStatus;
 
     @ManyToOne
     @JsonIgnore
-    private ApplicationSetting reaType;
+    private ApplicationSetting mfType;
 
     @ManyToOne
     @JsonIgnore
-    private ApplicationSetting reaAccountStatus;
+    private ApplicationSetting mfAccountStatus;
 
     @ManyToOne
     @JsonIgnore
-    private ApplicationSetting reaConstructionCostCurrency;
+    private ApplicationSetting mfConstructionCostCurrency;
 
     @ManyToOne
     @JsonIgnore
-    private ApplicationSetting reaBlockPaymentTypes;
+    private ApplicationSetting mfBlockPaymentTypes;
 
     @OneToMany(mappedBy = "managementFirm")
     @JsonIgnore
@@ -148,11 +148,11 @@ public class ManagementFirm implements Serializable {
 
     @OneToMany(mappedBy = "managementFirm")
     @JsonIgnore
-    private Set<ManagementFirmHistory> realEstateAssestFeeHistories ;
+    private Set<ManagementFirmHistory> mflFeeHistories ;
 
     @OneToMany(mappedBy = "managementFirm")
     @JsonIgnore
-    private Set<ManagementFirmFinancialSummary> realEstateAssestFinancialSummaries ;
+    private Set<ManagementFirmFinancialSummary> mflFinancialSummaries ;
 
     @OneToMany(mappedBy = "managementFirm")
     @JsonIgnore

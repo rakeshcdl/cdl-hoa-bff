@@ -27,78 +27,75 @@ public class ManagementFirmCriteriaService extends BaseSpecificationBuilder<Mana
     private final transient ManagementFirmMapper managementFirmMapper;
 
     public Page<ManagementFirmDTO> findByCriteria(ManagementFirmCriteria criteria, Pageable pageable) {
-        Specification<ManagementFirm> specification = createSpecification(criteria);
+        Specification<ManagementFirm> specification = cmfteSpecification(criteria);
         return managementFirmRepository.findAll(specification, pageable).map(managementFirmMapper::toDto);
     }
 
-    private Specification<ManagementFirm> createSpecification(ManagementFirmCriteria criteria) {
+    private Specification<ManagementFirm> cmfteSpecification(ManagementFirmCriteria criteria) {
         return (root, query, cb) -> {
             List<Predicate> predicates = new ArrayList<>();
             if(criteria!=null) {
                 addLongFilter(cb, root, predicates, "id", criteria.getId());
-                addStringFilter(cb, root, predicates, "reaId", criteria.getReaId(), true);
-                addStringFilter(cb, root, predicates, "reaCif", criteria.getReaCif(), true);
-                addStringFilter(cb, root, predicates, "reaName", criteria.getReaName(), true);
-                addStringFilter(cb, root, predicates, "reaNameLocal", criteria.getReaNameLocal(), true);
-                addStringFilter(cb, root, predicates, "reaLocation", criteria.getReaLocation(), true);
-                addStringFilter(cb, root, predicates, "reaReraNumber", criteria.getReaReraNumber(), true);
-                addZonedDateTimeFilter(cb, root, predicates, "reaStartDate", criteria.getReaStartDate());
-                addZonedDateTimeFilter(cb, root, predicates, "reaCompletionDate", criteria.getReaCompletionDate());
-                addStringFilter(cb, root, predicates, "reaPercentComplete", criteria.getReaPercentComplete(), true);
-                addDoubleFilter(cb, root, predicates, "reaConstructionCost", criteria.getReaConstructionCost());
-                addZonedDateTimeFilter(cb, root, predicates, "reaAccStatusDate", criteria.getReaAccStatusDate());
-                addZonedDateTimeFilter(cb, root, predicates, "reaRegistrationDate", criteria.getReaRegistrationDate());
-                addIntegerFilter(cb, root, predicates, "reaNoOfUnits", criteria.getReaNoOfUnits());
-                addStringFilter(cb, root, predicates, "reaRemarks", criteria.getReaRemarks(), true);
-                addStringFilter(cb, root, predicates, "reaSpecialApproval", criteria.getReaSpecialApproval(), true);
-                addStringFilter(cb, root, predicates, "reaManagedBy", criteria.getReaManagedBy(), true);
-                addStringFilter(cb, root, predicates, "reaBackupUser", criteria.getReaBackupUser(), true);
-                addStringFilter(cb, root, predicates, "reaRetentionPercent", criteria.getReaRetentionPercent(), true);
-                addStringFilter(cb, root, predicates, "reaAdditionalRetentionPercent", criteria.getReaAdditionalRetentionPercent(), true);
-                addStringFilter(cb, root, predicates, "reaTotalRetentionPercent", criteria.getReaTotalRetentionPercent(), true);
-                addZonedDateTimeFilter(cb, root, predicates, "reaRetentionEffectiveDate", criteria.getReaRetentionEffectiveDate());
-                addStringFilter(cb, root, predicates, "reaManagementExpenses", criteria.getReaManagementExpenses(), true);
-                addStringFilter(cb, root, predicates, "reaMarketingExpenses", criteria.getReaMarketingExpenses(), true);
-                addZonedDateTimeFilter(cb, root, predicates, "reaAccoutStatusDate", criteria.getReaAccoutStatusDate());
-                addStringFilter(cb, root, predicates, "reaTeamLeadName", criteria.getReaTeamLeadName(), true);
-                addStringFilter(cb, root, predicates, "reaRelationshipManagerName", criteria.getReaRelationshipManagerName(), true);
-                addStringFilter(cb, root, predicates, "reaAssestRelshipManagerName", criteria.getReaAssestRelshipManagerName(), true);
-                addDoubleFilter(cb, root, predicates, "reaRealEstateBrokerExp", criteria.getReaRealEstateBrokerExp());
-                addDoubleFilter(cb, root, predicates, "reaAdvertisementExp", criteria.getReaAdvertisementExp());
-                addStringFilter(cb, root, predicates, "reaLandOwnerName", criteria.getReaLandOwnerName(), true);
+                addStringFilter(cb, root, predicates, "mfId", criteria.getMfId(), true);
+                addStringFilter(cb, root, predicates, "mfCif", criteria.getMfCif(), true);
+                addStringFilter(cb, root, predicates, "mfName", criteria.getMfName(), true);
+                addStringFilter(cb, root, predicates, "mfNameLocal", criteria.getMfNameLocal(), true);
+                addStringFilter(cb, root, predicates, "mfLocation", criteria.getMfLocation(), true);
+                addStringFilter(cb, root, predicates, "mfReraNumber", criteria.getMfReraNumber(), true);
+                addZonedDateTimeFilter(cb, root, predicates, "mfStartDate", criteria.getMfStartDate());
+                addZonedDateTimeFilter(cb, root, predicates, "mfCompletionDate", criteria.getMfCompletionDate());
+                addStringFilter(cb, root, predicates, "mfPercentComplete", criteria.getMfPercentComplete(), true);
+                addDoubleFilter(cb, root, predicates, "mfConstructionCost", criteria.getMfConstructionCost());
+                addZonedDateTimeFilter(cb, root, predicates, "mfAccStatusDate", criteria.getMfAccStatusDate());
+                addZonedDateTimeFilter(cb, root, predicates, "mfRegistrationDate", criteria.getMfRegistrationDate());
+                addIntegerFilter(cb, root, predicates, "mfNoOfUnits", criteria.getMfNoOfUnits());
+                addStringFilter(cb, root, predicates, "mfRemarks", criteria.getMfRemarks(), true);
+                addStringFilter(cb, root, predicates, "mfSpecialApproval", criteria.getMfSpecialApproval(), true);
+                addStringFilter(cb, root, predicates, "mfManagedBy", criteria.getMfManagedBy(), true);
+                addStringFilter(cb, root, predicates, "mfBackupUser", criteria.getMfBackupUser(), true);
+                addStringFilter(cb, root, predicates, "mfRetentionPercent", criteria.getMfRetentionPercent(), true);
+                addStringFilter(cb, root, predicates, "mfAdditionalRetentionPercent", criteria.getMfAdditionalRetentionPercent(), true);
+                addStringFilter(cb, root, predicates, "mfTotalRetentionPercent", criteria.getMfTotalRetentionPercent(), true);
+                addZonedDateTimeFilter(cb, root, predicates, "mfRetentionEffectiveDate", criteria.getMfRetentionEffectiveDate());
+                addStringFilter(cb, root, predicates, "mfManagementExpenses", criteria.getMfManagementExpenses(), true);
+                addStringFilter(cb, root, predicates, "mfMarketingExpenses", criteria.getMfMarketingExpenses(), true);
+                addZonedDateTimeFilter(cb, root, predicates, "mfAccoutStatusDate", criteria.getMfAccoutStatusDate());
+                addStringFilter(cb, root, predicates, "mfTeamLeadName", criteria.getMfTeamLeadName(), true);
+                addStringFilter(cb, root, predicates, "mfRelationshipManagerName", criteria.getMfRelationshipManagerName(), true);
+                addStringFilter(cb, root, predicates, "mfAssestRelshipManagerName", criteria.getMfAssestRelshipManagerName(), true);
+              //  addDoubleFilter(cb, root, predicates, "mfMflEstateBrokerExp", criteria.get());
+                addDoubleFilter(cb, root, predicates, "mfAdvertisementExp", criteria.getMfAdvertisementExp());
+                addStringFilter(cb, root, predicates, "mfLandOwnerName", criteria.getMfLandOwnerName(), true);
               //  addLongFilter(cb, root, predicates, "buildPartnerId", criteria.getBuildPartnerId());
-              //  addLongFilter(cb, root, predicates, "reaStatusId", criteria.getReaStatusId());
-             //   addLongFilter(cb, root, predicates, "reaTypeId", criteria.getReaTypeId());
-             //   addLongFilter(cb, root, predicates, "reaAccountStatusId", criteria.getReaAccountStatusId());
-              //  addLongFilter(cb, root, predicates, "reaConstructionCostCurrencyId", criteria.getReaConstructionCostCurrencyId());
+              //  addLongFilter(cb, root, predicates, "mfStatusId", criteria.getMfStatusId());
+             //   addLongFilter(cb, root, predicates, "mfTypeId", criteria.getMfTypeId());
+             //   addLongFilter(cb, root, predicates, "mfAccountStatusId", criteria.getMfAccountStatusId());
+              //  addLongFilter(cb, root, predicates, "mfConstructionCostCurrencyId", criteria.getMfConstructionCostCurrencyId());
 
 
                 // relationships
-                //realEstateAssest
+                //mflEstateAssest
 
 
-
-
-
-                if (criteria.getBuildPartnerId() != null) {
+              /*  if (criteria.getBuildPartnerId() != null) {
                     addLongFilterForJoin(cb, root, predicates, "buildPartner", "id", criteria.getBuildPartnerId());
                 }
 
-                if (criteria.getReaStatusId() != null) {
-                    addLongFilterForJoin(cb, root, predicates, "reaStatus", "id", criteria.getReaStatusId());
+                if (criteria.getMfStatusId() != null) {
+                    addLongFilterForJoin(cb, root, predicates, "mfStatus", "id", criteria.getMfStatusId());
                 }
 
-                if (criteria.getReaTypeId() != null) {
-                    addLongFilterForJoin(cb, root, predicates, "reaType", "id", criteria.getReaTypeId());
+                if (criteria.getMfTypeId() != null) {
+                    addLongFilterForJoin(cb, root, predicates, "mfType", "id", criteria.getMfTypeId());
                 }
 
-                if (criteria.getReaAccountStatusId() != null) {
-                    addLongFilterForJoin(cb, root, predicates, "reaAccountStatus", "id", criteria.getReaAccountStatusId());
+                if (criteria.getMfAccountStatusId() != null) {
+                    addLongFilterForJoin(cb, root, predicates, "mfAccountStatus", "id", criteria.getMfAccountStatusId());
                 }
 
-                if (criteria.getReaConstructionCostCurrencyId() != null) {
-                    addLongFilterForJoin(cb, root, predicates, "reaConstructionCostCurrency", "id", criteria.getReaConstructionCostCurrencyId());
-                }
+                if (criteria.getMfConstructionCostCurrencyId() != null) {
+                    addLongFilterForJoin(cb, root, predicates, "mfConstructionCostCurrency", "id", criteria.getMfConstructionCostCurrencyId());
+                }*/
 
             }
 

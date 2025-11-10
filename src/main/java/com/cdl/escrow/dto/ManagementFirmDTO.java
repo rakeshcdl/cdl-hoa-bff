@@ -15,93 +15,93 @@ import java.time.ZonedDateTime;
 public class ManagementFirmDTO implements Serializable {
     private Long id;
 
-    private String reaId;
+    private String mfId;
 
-    private String reaCif;
+    private String mfCif;
 
-    private String reaName;
+    private String mfName;
 
-    private String reaNameLocal;
+    private String mfNameLocal;
 
-    private String reaLocation;
+    private String mfLocation;
 
-    private String reaReraNumber;
+    private String mfReraNumber;
 
-    private ZonedDateTime reaStartDate;
+    private ZonedDateTime mfStartDate;
 
-    private ZonedDateTime reaCompletionDate;
+    private ZonedDateTime mfCompletionDate;
 
-    private String reaPercentComplete;
+    private String mfPercentComplete;
 
-    private Double reaConstructionCost;
+    private Double mfConstructionCost;
 
-    private ZonedDateTime reaAccStatusDate;
+    private ZonedDateTime mfAccStatusDate;
 
-    private ZonedDateTime reaRegistrationDate;
+    private ZonedDateTime mfRegistrationDate;
 
-    private Integer reaNoOfUnits;
+    private Integer mfNoOfUnits;
 
-    private String reaRemarks;
+    private String mfRemarks;
 
-    private String reaSpecialApproval;
+    private String mfSpecialApproval;
 
-    private String reaManagedBy;
+    private String mfManagedBy;
 
-    private String reaBackupUser;
+    private String mfBackupUser;
 
-    private String reaRetentionPercent;
+    private String mfRetentionPercent;
 
-    private String reaAdditionalRetentionPercent;
+    private String mfAdditionalRetentionPercent;
 
-    private String reaTotalRetentionPercent;
+    private String mfTotalRetentionPercent;
 
-    private ZonedDateTime reaRetentionEffectiveDate;
+    private ZonedDateTime mfRetentionEffectiveDate;
 
-    private String reaManagementExpenses;
+    private String mfManagementExpenses;
 
-    private String reaMarketingExpenses;
+    private String mfMarketingExpenses;
 
-    private ZonedDateTime reaAccoutStatusDate;
+    private ZonedDateTime mfAccoutStatusDate;
 
-    private String reaTeamLeadName;
+    private String mfTeamLeadName;
 
-    private String reaRelationshipManagerName;
+    private String mfRelationshipManagerName;
 
-    private String reaAssestRelshipManagerName;
+    private String mfAssestRelshipManagerName;
 
-    private Double reaRealEstateBrokerExp;
+    private Double mfRealEstateBrokerExp;
 
-    private Double reaAdvertisementExp;
+    private Double mfAdvertisementExp;
 
-    private String reaLandOwnerName;
+    private String mfLandOwnerName;
 
     private AssetRegisterDTO assetRegisterDTO;
 
-    private ApplicationSettingDTO reaStatusDTO;
+    private ApplicationSettingDTO mfStatusDTO;
 
-    private ApplicationSettingDTO reaTypeDTO;
+    private ApplicationSettingDTO mfTypeDTO;
 
-    private ApplicationSettingDTO reaAccountStatusDTO;
+    private ApplicationSettingDTO mfAccountStatusDTO;
 
-    private ApplicationSettingDTO reaConstructionCostCurrencyDTO;
+    private ApplicationSettingDTO mfConstructionCostCurrencyDTO;
 
     private WorkflowStatus status;
 
-    private ApplicationSettingDTO reaBlockPaymentTypeDTO;
+    private ApplicationSettingDTO mfBlockPaymentTypeDTO;
     private Boolean deleted ;
 
     private boolean enabled ;
     // private transient Set<BankAccountDTO> bankAccountDTOS ;
 
-    //private Set<ManagementFirmBeneficiaryDTO> realEstateAssestBeneficiaryDTOS ;
+    //private Set<ManagementFirmBeneficiaryDTO> mflEstateAssestBeneficiaryDTOS ;
 
-    //private Set<ManagementFirmClosureDTO> realEstateAssestClosureDTOS ;
+    //private Set<ManagementFirmClosureDTO> mflEstateAssestClosureDTOS ;
 
-    //private Set<ManagementFirmFeeDTO> realEstateAssestFeeDTOS ;
+    //private Set<ManagementFirmFeeDTO> mflEstateAssestFeeDTOS ;
 
-   // private Set<ManagementFirmHistoryDTO> realEstateAssestFeeHistoryDTOS ;
+   // private Set<ManagementFirmHistoryDTO> mflEstateAssestFeeHistoryDTOS ;
 
-   // private Set<ManagementFirmFinancialSummaryDTO> realEstateAssestFinancialSummaryDTOS;
+   // private Set<ManagementFirmFinancialSummaryDTO> mflEstateAssestFinancialSummaryDTOS;
 
    // private Set<OwnerRegistryUnitDTO> capitalPartnerUnitDTOS ;
 

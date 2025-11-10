@@ -16,41 +16,39 @@ public class ManagementFirmFeeHistoryCriteria implements Serializable {
 
     private LongFilter id;
 
-    private DoubleFilter reafhAmount;
+    private DoubleFilter mffhAmount;
 
-    private DoubleFilter reafhTotalAmount;
+    private DoubleFilter mffhTotalAmount;
 
-    private DoubleFilter reafhVatPercentage;
+    private DoubleFilter mffhVatPercentage;
 
-    private ZonedDateTimeFilter reafhTransactionDate;
+    private ZonedDateTimeFilter mffhTransactionDate;
 
-    private BooleanFilter reafhSuccess;
+    private BooleanFilter mffhSuccess;
 
-    private BooleanFilter reafhStatus;
+    private BooleanFilter mffhStatus;
 
-    private StringFilter reahfRemark;
+    private StringFilter mfhfRemark;
 
-    private StringFilter reafhFeeResponse;
+    private StringFilter mffhFeeResponse;
 
-    private StringFilter reafhResponseStatus;
+    private StringFilter mffhResponseStatus;
 
-    private StringFilter reafhSpecialField1;
+    private StringFilter mffhSpecialField1;
 
-    private StringFilter reafhSpecialField2;
+    private StringFilter mffhSpecialField2;
 
-    private StringFilter reafhSpecialField3;
+    private StringFilter mffhSpecialField3;
 
-    private StringFilter reafhSpecialField4;
+    private StringFilter mffhSpecialField4;
 
-    private StringFilter reafhSpecialField5;
+    private StringFilter mffhSpecialField5;
 
-    private StringFilter reafhFeeRequestBody;
+    private StringFilter mffhFeeRequestBody;
 
-    private LongFilter realEstateAssestFeeId;
+    private LongFilter managementFirmFeeId;
 
-    private LongFilter realEstateAssestId;
+    private LongFilter managementFirmId;
 
-    private LongFilter capitalPartnerUnitId;
-
-    private LongFilter fundEgressId;
+    private LongFilter ownerRegistryUnitId;
 }

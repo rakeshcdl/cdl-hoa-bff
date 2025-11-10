@@ -13,35 +13,35 @@ import java.time.ZonedDateTime;
 public class ManagementFirmHistoryDTO implements Serializable {
     private Long id;
 
-    private Double reafhAmount;
+    private Double mffhAmount;
 
-    private Double reafhTotalAmount;
+    private Double mffhTotalAmount;
 
-    private Double reafhVatPercentage;
+    private Double mffhVatPercentage;
 
-    private ZonedDateTime reafhTransactionDate;
+    private ZonedDateTime mffhTransactionDate;
 
-    private Boolean reafhSuccess;
+    private Boolean mffhSuccess;
 
-    private Boolean reafhStatus;
+    private Boolean mffhStatus;
 
-    private String reahfRemark;
+    private String mfhfRemark;
 
-    private String reafhFeeResponse;
+    private String mffhFeeResponse;
 
-    private String reafhResponseStatus;
+    private String mffhResponseStatus;
 
-    private String reafhSpecialField1;
+    private String mffhSpecialField1;
 
-    private String reafhSpecialField2;
+    private String mffhSpecialField2;
 
-    private String reafhSpecialField3;
+    private String mffhSpecialField3;
 
-    private String reafhSpecialField4;
+    private String mffhSpecialField4;
 
-    private String reafhSpecialField5;
+    private String mffhSpecialField5;
 
-    private String reafhFeeRequestBody;
+    private String mffhFeeRequestBody;
 
     private ManagementFirmFeeDTO managementFirmFeeDTO;
 

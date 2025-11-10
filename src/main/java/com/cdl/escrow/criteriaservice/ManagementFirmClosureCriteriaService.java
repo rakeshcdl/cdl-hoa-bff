@@ -30,29 +30,29 @@ public class ManagementFirmClosureCriteriaService extends BaseSpecificationBuild
     private final transient ManagementFirmClosureMapper managementFirmClosureMapper;
 
     public Page<ManagementFirmClosureDTO> findByCriteria(ManagementFirmClosureCriteria criteria, Pageable pageable) {
-        Specification<ManagementFirmClosure> specification = createSpecification(criteria);
+        Specification<ManagementFirmClosure> specification = cmfteSpecification(criteria);
         return managementFirmClosureRepository.findAll(specification, pageable).map(managementFirmClosureMapper::toDto);
     }
 
-    private Specification<ManagementFirmClosure> createSpecification(ManagementFirmClosureCriteria criteria) {
+    private Specification<ManagementFirmClosure> cmfteSpecification(ManagementFirmClosureCriteria criteria) {
         return (root, query, cb) -> {
             List<Predicate> predicates = new ArrayList<>();
             if(criteria!=null) {
                 addLongFilter(cb, root, predicates, "id", criteria.getId());
-                addDoubleFilter(cb, root, predicates, "reacTotalIncomeFund", criteria.getReacTotalIncomeFund());
-                addDoubleFilter(cb, root, predicates, "reacTotalPayment", criteria.getReacTotalPayment());
-                addDoubleFilter(cb, root, predicates, "reacCheckGuranteeDoc", criteria.getReacCheckGuranteeDoc());
-                //addLongFilter(cb, root, predicates, "realEstateAssestId", criteria.getRealEstateAssestId());
-               // addLongFilter(cb, root, predicates, "reacDocumentId", criteria.getReacDocumentId());
+                addDoubleFilter(cb, root, predicates, "mfcTotalIncomeFund", criteria.getMfcTotalIncomeFund());
+                addDoubleFilter(cb, root, predicates, "mfcTotalPayment", criteria.getMfcTotalPayment());
+                addDoubleFilter(cb, root, predicates, "mfcCheckGuaranteeDoc", criteria.getMfcCheckGuaranteeDoc());
+                //addLongFilter(cb, root, predicates, "mflEstateAssestId", criteria.getMflEstateAssestId());
+               // addLongFilter(cb, root, predicates, "mfcDocumentId", criteria.getMfcDocumentId());
 
 
-                if (criteria.getRealEstateAssestId() != null) {
-                    Join<ManagementFirmClosure, ManagementFirm> join = root.join("realEstateAssest", JoinType.LEFT);
-                    addLongFilterOnJoin(cb, join, predicates, "id", criteria.getRealEstateAssestId());
+                if (criteria.getManagementFirmId() != null) {
+                    Join<ManagementFirmClosure, ManagementFirm> join = root.join("managementFirmId", JoinType.LEFT);
+                    addLongFilterOnJoin(cb, join, predicates, "id", criteria.getManagementFirmId());
                 }
 
-               /* if (criteria.getRealEstateAssestId() != null) {
-                    addLongFilterForJoin(cb, root, predicates, "realEstateAssest", "id", criteria.getRealEstateAssestId());
+               /* if (criteria.getMflEstateAssestId() != null) {
+                    addLongFilterForJoin(cb, root, predicates, "mflEstateAssest", "id", criteria.getMflEstateAssestId());
                 }*/
             }
             return cb.and(predicates.toArray(new Predicate[0]));

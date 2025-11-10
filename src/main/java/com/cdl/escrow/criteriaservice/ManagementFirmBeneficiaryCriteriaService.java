@@ -30,40 +30,40 @@ public class ManagementFirmBeneficiaryCriteriaService extends BaseSpecificationB
     private final transient ManagementFirmBeneficiaryMapper managementFirmBeneficiaryMapper;
 
     public Page<ManagementFirmBeneficiaryDTO> findByCriteria(ManagementFirmBeneficiaryCriteria criteria, Pageable pageable) {
-        Specification<ManagementFirmBeneficiary> specification = createSpecification(criteria);
+        Specification<ManagementFirmBeneficiary> specification = cmfteSpecification(criteria);
         return managementFirmBeneficiaryRepository.findAll(specification, pageable).map(managementFirmBeneficiaryMapper::toDto);
     }
 
-    private Specification<ManagementFirmBeneficiary> createSpecification(ManagementFirmBeneficiaryCriteria criteria) {
+    private Specification<ManagementFirmBeneficiary> cmfteSpecification(ManagementFirmBeneficiaryCriteria criteria) {
         return (root, query, cb) -> {
             List<Predicate> predicates = new ArrayList<>();
             if(criteria!=null) {
                 addLongFilter(cb, root, predicates, "id", criteria.getId());
-                addStringFilter(cb, root, predicates, "reabBeneficiaryId", criteria.getReabBeneficiaryId(), true);
-                addStringFilter(cb, root, predicates, "reabName", criteria.getReabName(), true);
-                addDoubleFilter(cb, root, predicates, "reabContractAmount", criteria.getReabContractAmount());
-                addDoubleFilter(cb, root, predicates, "reabActualLandPrice", criteria.getReabActualLandPrice());
-                addStringFilter(cb, root, predicates, "reabContractorName", criteria.getReabContractorName(), true);
-                addStringFilter(cb, root, predicates, "reabType", criteria.getReabType(), true);
-                addStringFilter(cb, root, predicates, "reabBank", criteria.getReabBank(), true);
-                addStringFilter(cb, root, predicates, "reabSwift", criteria.getReabSwift(), true);
-                addStringFilter(cb, root, predicates, "reabRoutingCode", criteria.getReabRoutingCode(), true);
-                addStringFilter(cb, root, predicates, "reabAddress", criteria.getReabAddress(), true);
-                addStringFilter(cb, root, predicates, "reabBankAddress", criteria.getReabBankAddress(), true);
-                addBooleanFilter(cb, root, predicates, "reabIsActive", criteria.getReabIsActive());
-                addBooleanFilter(cb, root, predicates, "reabIsDeleted", criteria.getReabIsDeleted());
-                addLongFilter(cb, root, predicates, "reabTranferTypeId", criteria.getReabTranferTypeId());
-                addLongFilter(cb, root, predicates, "reabExpenseTypeId", criteria.getReabExpenseTypeId());
-                addLongFilter(cb, root, predicates, "reabVendorSubTypeId", criteria.getReabVendorSubTypeId());
-                addLongFilter(cb, root, predicates, "reabContractorSubTypeId", criteria.getReabContractorSubTypeId());
-                addLongFilter(cb, root, predicates, "reabInfrastructureCategoryId", criteria.getReabInfrastructureCategoryId());
-                addLongFilter(cb, root, predicates, "reabSalesCategoryId", criteria.getReabSalesCategoryId());
+                addStringFilter(cb, root, predicates, "mfbBeneficiaryId", criteria.getMfbBeneficiaryId(), true);
+                addStringFilter(cb, root, predicates, "mfbName", criteria.getMfbName(), true);
+                addDoubleFilter(cb, root, predicates, "mfbContractAmount", criteria.getMfbContractAmount());
+                addDoubleFilter(cb, root, predicates, "mfbActualLandPrice", criteria.getMfbActualLandPrice());
+                addStringFilter(cb, root, predicates, "mfbContractorName", criteria.getMfbContractorName(), true);
+                addStringFilter(cb, root, predicates, "mfbType", criteria.getMfbType(), true);
+                addStringFilter(cb, root, predicates, "mfbBank", criteria.getMfbBank(), true);
+                addStringFilter(cb, root, predicates, "mfbSwift", criteria.getMfbSwift(), true);
+                addStringFilter(cb, root, predicates, "mfbRoutingCode", criteria.getMfbRoutingCode(), true);
+                addStringFilter(cb, root, predicates, "mfbAddress", criteria.getMfbAddress(), true);
+                addStringFilter(cb, root, predicates, "mfbBankAddress", criteria.getMfbBankAddress(), true);
+                addBooleanFilter(cb, root, predicates, "mfbIsActive", criteria.getMfbIsActive());
+                addBooleanFilter(cb, root, predicates, "mfbIsDeleted", criteria.getMfbIsDeleted());
+                addLongFilter(cb, root, predicates, "mfbTransferTypeId", criteria.getMfbTransferTypeId());
+                addLongFilter(cb, root, predicates, "mfbExpenseTypeId", criteria.getMfbExpenseTypeId());
+                addLongFilter(cb, root, predicates, "mfbVendorSubTypeId", criteria.getMfbVendorSubTypeId());
+                addLongFilter(cb, root, predicates, "mfbContractorSubTypeId", criteria.getMfbContractorSubTypeId());
+                addLongFilter(cb, root, predicates, "mfbInfrastructureCategoryId", criteria.getMfbInfrastructureCategoryId());
+                addLongFilter(cb, root, predicates, "mfbSalesCategoryId", criteria.getMfbSalesCategoryId());
 
 
                 // Filter by OwnerRegistry id -> join the ownerRegistries collection
-                if (criteria.getRealEstateAssestId() != null) {
-                    Join<ManagementFirmBeneficiary, ManagementFirm> join = root.join("realEstateAssests", JoinType.LEFT);
-                    addLongFilterOnJoin(cb, join, predicates, "id", criteria.getRealEstateAssestId());
+                if (criteria.getManagementFirmsId() != null) {
+                    Join<ManagementFirmBeneficiary, ManagementFirm> join = root.join("managementFirmsId", JoinType.LEFT);
+                    addLongFilterOnJoin(cb, join, predicates, "id", criteria.getManagementFirmsId());
                 }
             }
 

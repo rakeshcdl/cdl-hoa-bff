@@ -37,23 +37,23 @@ public class ManagementFirmFee implements Serializable {
     )
     private Long id;
 
-    private Double reafAmount;
+    private Double mffAmount;
 
-    private Double reafDebitAmount;
+    private Double mffDebitAmount;
 
-    private Double reafTotalAmount;
+    private Double mffTotalAmount;
 
-    private ZonedDateTime reafCalender;
+    private ZonedDateTime mffCalender;
 
-    private ZonedDateTime reafCollectionDate;
+    private ZonedDateTime mffCollectionDate;
 
-    private ZonedDateTime reafNextRecoveryDate;
+    private ZonedDateTime mffNextRecoveryDate;
 
-    private Double reafVatPercentage;
+    private Double mffVatPercentage;
 
-    private Boolean reafCollected;
+    private Boolean mffCollected;
 
-    private Double reafFeePercentage;
+    private Double mffFeePercentage;
 
 
 
@@ -63,23 +63,23 @@ public class ManagementFirmFee implements Serializable {
 
     @ManyToOne
     @JsonIgnore
-    private ApplicationSetting reafCategory;
+    private ApplicationSetting mffCategory;
 
     @ManyToOne
     @JsonIgnore
-    private ApplicationSetting reafCurrency;
+    private ApplicationSetting mffCurrency;
 
     @ManyToOne
     @JsonIgnore
-    private ApplicationSetting reafFrequency;
+    private ApplicationSetting mffFrequency;
 
     @ManyToOne
-    private ApplicationSetting reafAccountType;
+    private ApplicationSetting mffAccountType;
 
 
     @OneToMany(mappedBy = "managementFirmFee")
     @JsonIgnore
-    private Set<ManagementFirmHistory> realEstateAssestFeeHistories ;
+    private Set<ManagementFirmHistory> mfFeeHistories ;
 
     private Boolean enabled ;
 

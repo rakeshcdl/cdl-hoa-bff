@@ -14,89 +14,89 @@ public class ManagementFirmCriteria implements Serializable {
 
     private LongFilter id;
 
-    private StringFilter reaId;
+    private StringFilter mfId;
 
-    private StringFilter reaCif;
+    private StringFilter mfCif;
 
-    private StringFilter reaName;
+    private StringFilter mfName;
 
-    private StringFilter reaNameLocal;
+    private StringFilter mfNameLocal;
 
-    private StringFilter reaLocation;
+    private StringFilter mfLocation;
 
-    private StringFilter reaReraNumber;
+    private StringFilter mfReraNumber;
 
-    private ZonedDateTimeFilter reaStartDate;
+    private ZonedDateTimeFilter mfStartDate;
 
-    private ZonedDateTimeFilter reaCompletionDate;
+    private ZonedDateTimeFilter mfCompletionDate;
 
-    private StringFilter reaPercentComplete;
+    private StringFilter mfPercentComplete;
 
-    private DoubleFilter reaConstructionCost;
+    private DoubleFilter mfConstructionCost;
 
-    private ZonedDateTimeFilter reaAccStatusDate;
+    private ZonedDateTimeFilter mfAccStatusDate;
 
-    private ZonedDateTimeFilter reaRegistrationDate;
+    private ZonedDateTimeFilter mfRegistrationDate;
 
-    private IntegerFilter reaNoOfUnits;
+    private IntegerFilter mfNoOfUnits;
 
-    private StringFilter reaRemarks;
+    private StringFilter mfRemarks;
 
-    private StringFilter reaSpecialApproval;
+    private StringFilter mfSpecialApproval;
 
-    private StringFilter reaManagedBy;
+    private StringFilter mfManagedBy;
 
-    private StringFilter reaBackupUser;
+    private StringFilter mfBackupUser;
 
-    private StringFilter reaRetentionPercent;
+    private StringFilter mfRetentionPercent;
 
-    private StringFilter reaAdditionalRetentionPercent;
+    private StringFilter mfAdditionalRetentionPercent;
 
-    private StringFilter reaTotalRetentionPercent;
+    private StringFilter mfTotalRetentionPercent;
 
-    private ZonedDateTimeFilter reaRetentionEffectiveDate;
+    private ZonedDateTimeFilter mfRetentionEffectiveDate;
 
-    private StringFilter reaManagementExpenses;
+    private StringFilter mfManagementExpenses;
 
-    private StringFilter reaMarketingExpenses;
+    private StringFilter mfMarketingExpenses;
 
-    private ZonedDateTimeFilter reaAccoutStatusDate;
+    private ZonedDateTimeFilter mfAccoutStatusDate;
 
-    private StringFilter reaTeamLeadName;
+    private StringFilter mfTeamLeadName;
 
-    private StringFilter reaRelationshipManagerName;
+    private StringFilter mfRelationshipManagerName;
 
-    private StringFilter reaAssestRelshipManagerName;
+    private StringFilter mfAssestRelshipManagerName;
 
-    private DoubleFilter reaRealEstateBrokerExp;
+    private DoubleFilter mfRealEstateBrokerExp;
 
-    private DoubleFilter reaAdvertisementExp;
+    private DoubleFilter mfAdvertisementExp;
 
-    private StringFilter reaLandOwnerName;
+    private StringFilter mfLandOwnerName;
 
     private LongFilter buildPartnerId;
 
-    private LongFilter reaStatusId;
+    private LongFilter mfStatusId;
 
-    private LongFilter reaTypeId;
+    private LongFilter mfTypeId;
 
-    private LongFilter reaAccountStatusId;
+    private LongFilter mfAccountStatusId;
 
-    private LongFilter reaConstructionCostCurrencyId;
+    private LongFilter mfConstructionCostCurrencyId;
 
-    private LongFilter realEstateAssestId;
+    //private LongFilter mflEstateAssestId;
 
     //private Set<BankAccountDTO> bankAccountDTOS ;
 
-    //private Set<ManagementFirmBeneficiaryDTO> realEstateAssestBeneficiaryDTOS ;
+    //private Set<ManagementFirmBeneficiaryDTO> mflEstateAssestBeneficiaryDTOS ;
 
-   // private Set<ManagementFirmClosureDTO> realEstateAssestClosureDTOS ;
+   // private Set<ManagementFirmClosureDTO> mflEstateAssestClosureDTOS ;
 
-   // private Set<ManagementFirmFeeDTO> realEstateAssestFeeDTOS ;
+   // private Set<ManagementFirmFeeDTO> mflEstateAssestFeeDTOS ;
 
-    // private Set<ManagementFirmHistoryDTO> realEstateAssestFeeHistoryDTOS ;
+    // private Set<ManagementFirmHistoryDTO> mflEstateAssestFeeHistoryDTOS ;
 
-   // private Set<ManagementFirmFinancialSummaryDTO> realEstateAssestFinancialSummaryDTOS;
+   // private Set<ManagementFirmFinancialSummaryDTO> mflEstateAssestFinancialSummaryDTOS;
 
   //  private Set<OwnerRegistryUnitDTO> capitalPartnerUnitDTOS ;
 

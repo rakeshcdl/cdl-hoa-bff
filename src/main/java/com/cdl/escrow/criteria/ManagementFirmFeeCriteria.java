@@ -18,25 +18,25 @@ public class ManagementFirmFeeCriteria implements Serializable {
 
     private LongFilter id;
 
-    private DoubleFilter reafAmount;
+    private DoubleFilter mffAmount;
 
-    private DoubleFilter reafTotalAmount;
+    private DoubleFilter mffTotalAmount;
 
-    private ZonedDateTimeFilter reafCalender;
+    private ZonedDateTimeFilter mffCalender;
 
-    private ZonedDateTimeFilter reafNextRecoveryDate;
+    private ZonedDateTimeFilter mffNextRecoveryDate;
 
-    private DoubleFilter reafVatPercentage;
+    private DoubleFilter mffVatPercentage;
 
-    private BooleanFilter reafCollected;
+    private BooleanFilter mffCollected;
 
-    private LongFilter realEstateAssestId;
+    private LongFilter managementFirmId;
 
-    private LongFilter reafCategoryId;
+    private LongFilter mffCategoryId;
 
-    private LongFilter reafCurrencyId;
+    private LongFilter mffCurrencyId;
 
-    private LongFilter reafFrequencyId;
+    private LongFilter mffFrequencyId;
 
-    //private Set<ManagementFirmHistoryDTO> realEstateAssestFeeHistoryDTOS ;
+    //private Set<ManagementFirmHistoryDTO> mflEstateAssestFeeHistoryDTOS ;
 }

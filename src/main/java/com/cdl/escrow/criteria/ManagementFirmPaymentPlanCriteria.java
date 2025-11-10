@@ -13,5 +13,5 @@ public class ManagementFirmPaymentPlanCriteria {
 
     private LongFilter id;
 
-    private LongFilter realEstateAssestId;
+    private LongFilter managementFirmId;
 }

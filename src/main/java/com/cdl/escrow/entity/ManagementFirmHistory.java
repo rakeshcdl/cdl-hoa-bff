@@ -36,39 +36,39 @@ public class ManagementFirmHistory implements Serializable {
     )
     private Long id;
 
-    private Double reafhAmount;
+    private Double mffhAmount;
 
-    private Double reafhTotalAmount;
+    private Double mffhTotalAmount;
 
-    private Double reafhVatPercentage;
+    private Double mffhVatPercentage;
 
-    private ZonedDateTime reafhTransactionDate;
+    private ZonedDateTime mffhTransactionDate;
 
-    private Boolean reafhSuccess;
+    private Boolean mffhSuccess;
 
-    private Boolean reafhStatus;
+    private Boolean mffhStatus;
 
-    private String reahfRemark;
-
-
-    @Column(name = "reafh_fee_response", columnDefinition = "TEXT")
-    private String reafhFeeResponse;
-
-    private String reafhResponseStatus;
-
-    private String reafhSpecialField1;
-
-    private String reafhSpecialField2;
-
-    private String reafhSpecialField3;
-
-    private String reafhSpecialField4;
-
-    private String reafhSpecialField5;
+    private String mfhfRemark;
 
 
-    @Column(name = "reafh_fee_request_body", columnDefinition = "TEXT")
-    private String reafhFeeRequestBody;
+    @Column(name = "mffh_fee_response", columnDefinition = "TEXT")
+    private String mffhFeeResponse;
+
+    private String mffhResponseStatus;
+
+    private String mffhSpecialField1;
+
+    private String mffhSpecialField2;
+
+    private String mffhSpecialField3;
+
+    private String mffhSpecialField4;
+
+    private String mffhSpecialField5;
+
+
+    @Column(name = "mffh_fee_request_body", columnDefinition = "TEXT")
+    private String mffhFeeRequestBody;
 
     @ManyToOne
     @JsonIgnore

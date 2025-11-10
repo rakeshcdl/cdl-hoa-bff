@@ -27,90 +27,90 @@ public class ManagementFirmFinancialSummaryCriteriaService extends BaseSpecifica
     private final transient ManagementFirmFinancialSummaryMapper managementFirmFinancialSummaryMapper;
 
     public Page<ManagementFirmFinancialSummaryDTO> findByCriteria(ManagementFirmFinancialSummaryCriteria criteria, Pageable pageable) {
-        Specification<ManagementFirmFinancialSummary> specification = createSpecification(criteria);
+        Specification<ManagementFirmFinancialSummary> specification = cmfteSpecification(criteria);
         return managementFirmFinancialSummaryRepository.findAll(specification, pageable).map(managementFirmFinancialSummaryMapper::toDto);
     }
 
-    private Specification<ManagementFirmFinancialSummary> createSpecification(ManagementFirmFinancialSummaryCriteria criteria) {
+    private Specification<ManagementFirmFinancialSummary> cmfteSpecification(ManagementFirmFinancialSummaryCriteria criteria) {
         return (root, query, cb) -> {
             List<Predicate> predicates = new ArrayList<>();
             if(criteria!=null) {
                 addLongFilter(cb, root, predicates, "id", criteria.getId());
-                addStringFilter(cb, root, predicates, "reafsEstRevenue", criteria.getReafsEstRevenue(), true);
-                addDoubleFilter(cb, root, predicates, "reafsEstConstructionCost", criteria.getReafsActualConstructionCost());
-                addDoubleFilter(cb, root, predicates, "reafsEstProjectMgmtExpense", criteria.getReafsActualProjectMgmtExpense());
-                addDoubleFilter(cb, root, predicates, "reafsEstLandCost", criteria.getReafsEstLandCost());
-                addDoubleFilter(cb, root, predicates, "reafsEstMarketingExpense", criteria.getReafsEstMarketingExpense());
-                addZonedDateTimeFilter(cb, root, predicates, "reafsEstimatedDate", criteria.getReafsEstimatedDate());
-                addStringFilter(cb, root, predicates, "reafsEstExceptionalCapVal", criteria.getReafsEstExceptionalCapVal(), true);
-                addDoubleFilter(cb, root, predicates, "reafsActualSoldValue", criteria.getReafsActualSoldValue());
-                addDoubleFilter(cb, root, predicates, "reafsActualConstructionCost", criteria.getReafsActualConstructionCost());
-                addDoubleFilter(cb, root, predicates, "reafsActualInfraCost", criteria.getReafsActualInfraCost());
-                addDoubleFilter(cb, root, predicates, "reafsActualLandCost", criteria.getReafsActualLandCost());
-                addDoubleFilter(cb, root, predicates, "reafsActualMarketingExp", criteria.getReafsActualMarketingExp());
-                addDoubleFilter(cb, root, predicates, "reafsActualProjectMgmtExpense", criteria.getReafsActualProjectMgmtExpense());
-                addZonedDateTimeFilter(cb, root, predicates, "reafsActualDate", criteria.getReafsActualDate());
-                addStringFilter(cb, root, predicates, "reafsActualexceptCapVal", criteria.getReafsActualexceptCapVal(), true);
+                addStringFilter(cb, root, predicates, "mffsEstRevenue", criteria.getMffsEstRevenue(), true);
+                addDoubleFilter(cb, root, predicates, "mffsEstConstructionCost", criteria.getMffsActualConstructionCost());
+                addDoubleFilter(cb, root, predicates, "mffsEstProjectMgmtExpense", criteria.getMffsActualProjectMgmtExpense());
+                addDoubleFilter(cb, root, predicates, "mffsEstLandCost", criteria.getMffsEstLandCost());
+                addDoubleFilter(cb, root, predicates, "mffsEstMarketingExpense", criteria.getMffsEstMarketingExpense());
+                addZonedDateTimeFilter(cb, root, predicates, "mffsEstimatedDate", criteria.getMffsEstimatedDate());
+                addStringFilter(cb, root, predicates, "mffsEstExceptionalCapVal", criteria.getMffsEstExceptionalCapVal(), true);
+                addDoubleFilter(cb, root, predicates, "mffsActualSoldValue", criteria.getMffsActualSoldValue());
+                addDoubleFilter(cb, root, predicates, "mffsActualConstructionCost", criteria.getMffsActualConstructionCost());
+                addDoubleFilter(cb, root, predicates, "mffsActualInfraCost", criteria.getMffsActualInfraCost());
+                addDoubleFilter(cb, root, predicates, "mffsActualLandCost", criteria.getMffsActualLandCost());
+                addDoubleFilter(cb, root, predicates, "mffsActualMarketingExp", criteria.getMffsActualMarketingExp());
+                addDoubleFilter(cb, root, predicates, "mffsActualProjectMgmtExpense", criteria.getMffsActualProjectMgmtExpense());
+                addZonedDateTimeFilter(cb, root, predicates, "mffsActualDate", criteria.getMffsActualDate());
+                addStringFilter(cb, root, predicates, "mffsActualexceptCapVal", criteria.getMffsActualexceptCapVal(), true);
 
-                if (criteria.getRealEstateAssestId() != null) {
-                    addLongFilterForJoin(cb, root, predicates, "realEstateAssest", "id", criteria.getRealEstateAssestId());
+                if (criteria.getManagementFirmId() != null) {
+                    addLongFilterForJoin(cb, root, predicates, "managementFirmId", "id", criteria.getManagementFirmId());
                 }
 
-           /* addDoubleFilter(cb, root, predicates, "reafsActualSoldValue", this.reafsActualSoldValue);
-            addDoubleFilter(cb, root, predicates, "reafsActualConstructionCost", this.reafsActualConstructionCost);
-            addDoubleFilter(cb, root, predicates, "reafsActualInfraCost", this.reafsActualInfraCost);
-            addDoubleFilter(cb, root, predicates, "reafsActualLandCost", this.reafsActualLandCost);
-            addDoubleFilter(cb, root, predicates, "reafsActualMarketingExp", this.reafsActualMarketingExp);
-            addDoubleFilter(cb, root, predicates, "reafsActualProjectMgmtExpense", this.reafsActualProjectMgmtExpense);
+           /* addDoubleFilter(cb, root, predicates, "mffsActualSoldValue", this.mffsActualSoldValue);
+            addDoubleFilter(cb, root, predicates, "mffsActualConstructionCost", this.mffsActualConstructionCost);
+            addDoubleFilter(cb, root, predicates, "mffsActualInfraCost", this.mffsActualInfraCost);
+            addDoubleFilter(cb, root, predicates, "mffsActualLandCost", this.mffsActualLandCost);
+            addDoubleFilter(cb, root, predicates, "mffsActualMarketingExp", this.mffsActualMarketingExp);
+            addDoubleFilter(cb, root, predicates, "mffsActualProjectMgmtExpense", this.mffsActualProjectMgmtExpense);
 
-            addDoubleFilter(cb, root, predicates, "reafsActualSoldValue", this.reafsActualSoldValue);
-            addDoubleFilter(cb, root, predicates, "reafsActualConstructionCost", this.reafsActualConstructionCost);
-            addDoubleFilter(cb, root, predicates, "reafsActualInfraCost", this.reafsActualInfraCost);
-            addDoubleFilter(cb, root, predicates, "reafsActualLandCost", this.reafsActualLandCost);
-            addDoubleFilter(cb, root, predicates, "reafsActualMarketingExp", this.reafsActualMarketingExp);
-            addDoubleFilter(cb, root, predicates, "reafsActualProjectMgmtExpense", this.reafsActualProjectMgmtExpense);
+            addDoubleFilter(cb, root, predicates, "mffsActualSoldValue", this.mffsActualSoldValue);
+            addDoubleFilter(cb, root, predicates, "mffsActualConstructionCost", this.mffsActualConstructionCost);
+            addDoubleFilter(cb, root, predicates, "mffsActualInfraCost", this.mffsActualInfraCost);
+            addDoubleFilter(cb, root, predicates, "mffsActualLandCost", this.mffsActualLandCost);
+            addDoubleFilter(cb, root, predicates, "mffsActualMarketingExp", this.mffsActualMarketingExp);
+            addDoubleFilter(cb, root, predicates, "mffsActualProjectMgmtExpense", this.mffsActualProjectMgmtExpense);
 
-            addDoubleFilter(cb, root, predicates, "reafsActualSoldValue", this.reafsActualSoldValue);
-            addDoubleFilter(cb, root, predicates, "reafsActualConstructionCost", this.reafsActualConstructionCost);
-            addDoubleFilter(cb, root, predicates, "reafsActualInfraCost", this.reafsActualInfraCost);
-            addDoubleFilter(cb, root, predicates, "reafsActualLandCost", this.reafsActualLandCost);
-            addDoubleFilter(cb, root, predicates, "reafsActualMarketingExp", this.reafsActualMarketingExp);
-            addDoubleFilter(cb, root, predicates, "reafsActualProjectMgmtExpense", this.reafsActualProjectMgmtExpense);
+            addDoubleFilter(cb, root, predicates, "mffsActualSoldValue", this.mffsActualSoldValue);
+            addDoubleFilter(cb, root, predicates, "mffsActualConstructionCost", this.mffsActualConstructionCost);
+            addDoubleFilter(cb, root, predicates, "mffsActualInfraCost", this.mffsActualInfraCost);
+            addDoubleFilter(cb, root, predicates, "mffsActualLandCost", this.mffsActualLandCost);
+            addDoubleFilter(cb, root, predicates, "mffsActualMarketingExp", this.mffsActualMarketingExp);
+            addDoubleFilter(cb, root, predicates, "mffsActualProjectMgmtExpense", this.mffsActualProjectMgmtExpense);
 
-            addDoubleFilter(cb, root, predicates, "reafsActualSoldValue", this.reafsActualSoldValue);
-            addDoubleFilter(cb, root, predicates, "reafsActualConstructionCost", this.reafsActualConstructionCost);
-            addDoubleFilter(cb, root, predicates, "reafsActualInfraCost", this.reafsActualInfraCost);
-            addDoubleFilter(cb, root, predicates, "reafsActualLandCost", this.reafsActualLandCost);
-            addDoubleFilter(cb, root, predicates, "reafsActualMarketingExp", this.reafsActualMarketingExp);
-            addDoubleFilter(cb, root, predicates, "reafsActualProjectMgmtExpense", this.reafsActualProjectMgmtExpense);
+            addDoubleFilter(cb, root, predicates, "mffsActualSoldValue", this.mffsActualSoldValue);
+            addDoubleFilter(cb, root, predicates, "mffsActualConstructionCost", this.mffsActualConstructionCost);
+            addDoubleFilter(cb, root, predicates, "mffsActualInfraCost", this.mffsActualInfraCost);
+            addDoubleFilter(cb, root, predicates, "mffsActualLandCost", this.mffsActualLandCost);
+            addDoubleFilter(cb, root, predicates, "mffsActualMarketingExp", this.mffsActualMarketingExp);
+            addDoubleFilter(cb, root, predicates, "mffsActualProjectMgmtExpense", this.mffsActualProjectMgmtExpense);
 
-            addDoubleFilter(cb, root, predicates, "reafsActualSoldValue", this.reafsActualSoldValue);
-            addDoubleFilter(cb, root, predicates, "reafsActualConstructionCost", this.reafsActualConstructionCost);
-            addDoubleFilter(cb, root, predicates, "reafsActualInfraCost", this.reafsActualInfraCost);
-            addDoubleFilter(cb, root, predicates, "reafsActualLandCost", this.reafsActualLandCost);
-            addDoubleFilter(cb, root, predicates, "reafsActualMarketingExp", this.reafsActualMarketingExp);
-            addDoubleFilter(cb, root, predicates, "reafsActualProjectMgmtExpense", this.reafsActualProjectMgmtExpense);
+            addDoubleFilter(cb, root, predicates, "mffsActualSoldValue", this.mffsActualSoldValue);
+            addDoubleFilter(cb, root, predicates, "mffsActualConstructionCost", this.mffsActualConstructionCost);
+            addDoubleFilter(cb, root, predicates, "mffsActualInfraCost", this.mffsActualInfraCost);
+            addDoubleFilter(cb, root, predicates, "mffsActualLandCost", this.mffsActualLandCost);
+            addDoubleFilter(cb, root, predicates, "mffsActualMarketingExp", this.mffsActualMarketingExp);
+            addDoubleFilter(cb, root, predicates, "mffsActualProjectMgmtExpense", this.mffsActualProjectMgmtExpense);
 
-            addDoubleFilter(cb, root, predicates, "reafsActualSoldValue", this.reafsActualSoldValue);
-            addDoubleFilter(cb, root, predicates, "reafsActualConstructionCost", this.reafsActualConstructionCost);
-            addDoubleFilter(cb, root, predicates, "reafsActualInfraCost", this.reafsActualInfraCost);
-            addDoubleFilter(cb, root, predicates, "reafsActualLandCost", this.reafsActualLandCost);
-            addDoubleFilter(cb, root, predicates, "reafsActualMarketingExp", this.reafsActualMarketingExp);
-            addDoubleFilter(cb, root, predicates, "reafsActualProjectMgmtExpense", this.reafsActualProjectMgmtExpense);
+            addDoubleFilter(cb, root, predicates, "mffsActualSoldValue", this.mffsActualSoldValue);
+            addDoubleFilter(cb, root, predicates, "mffsActualConstructionCost", this.mffsActualConstructionCost);
+            addDoubleFilter(cb, root, predicates, "mffsActualInfraCost", this.mffsActualInfraCost);
+            addDoubleFilter(cb, root, predicates, "mffsActualLandCost", this.mffsActualLandCost);
+            addDoubleFilter(cb, root, predicates, "mffsActualMarketingExp", this.mffsActualMarketingExp);
+            addDoubleFilter(cb, root, predicates, "mffsActualProjectMgmtExpense", this.mffsActualProjectMgmtExpense);
 
-            addDoubleFilter(cb, root, predicates, "reafsActualSoldValue", this.reafsActualSoldValue);
-            addDoubleFilter(cb, root, predicates, "reafsActualConstructionCost", this.reafsActualConstructionCost);
-            addDoubleFilter(cb, root, predicates, "reafsActualInfraCost", this.reafsActualInfraCost);
-            addDoubleFilter(cb, root, predicates, "reafsActualLandCost", this.reafsActualLandCost);
-            addDoubleFilter(cb, root, predicates, "reafsActualMarketingExp", this.reafsActualMarketingExp);
-            addDoubleFilter(cb, root, predicates, "reafsActualProjectMgmtExpense", this.reafsActualProjectMgmtExpense);
+            addDoubleFilter(cb, root, predicates, "mffsActualSoldValue", this.mffsActualSoldValue);
+            addDoubleFilter(cb, root, predicates, "mffsActualConstructionCost", this.mffsActualConstructionCost);
+            addDoubleFilter(cb, root, predicates, "mffsActualInfraCost", this.mffsActualInfraCost);
+            addDoubleFilter(cb, root, predicates, "mffsActualLandCost", this.mffsActualLandCost);
+            addDoubleFilter(cb, root, predicates, "mffsActualMarketingExp", this.mffsActualMarketingExp);
+            addDoubleFilter(cb, root, predicates, "mffsActualProjectMgmtExpense", this.mffsActualProjectMgmtExpense);
 
-            addDoubleFilter(cb, root, predicates, "reafsActualSoldValue", this.reafsActualSoldValue);
-            addDoubleFilter(cb, root, predicates, "reafsActualConstructionCost", this.reafsActualConstructionCost);
-            addDoubleFilter(cb, root, predicates, "reafsActualInfraCost", this.reafsActualInfraCost);
-            addDoubleFilter(cb, root, predicates, "reafsActualLandCost", this.reafsActualLandCost);
-            addDoubleFilter(cb, root, predicates, "reafsActualMarketingExp", this.reafsActualMarketingExp);
-            addDoubleFilter(cb, root, predicates, "reafsActualProjectMgmtExpense", this.reafsActualProjectMgmtExpense);*/
+            addDoubleFilter(cb, root, predicates, "mffsActualSoldValue", this.mffsActualSoldValue);
+            addDoubleFilter(cb, root, predicates, "mffsActualConstructionCost", this.mffsActualConstructionCost);
+            addDoubleFilter(cb, root, predicates, "mffsActualInfraCost", this.mffsActualInfraCost);
+            addDoubleFilter(cb, root, predicates, "mffsActualLandCost", this.mffsActualLandCost);
+            addDoubleFilter(cb, root, predicates, "mffsActualMarketingExp", this.mffsActualMarketingExp);
+            addDoubleFilter(cb, root, predicates, "mffsActualProjectMgmtExpense", this.mffsActualProjectMgmtExpense);*/
             }
             return cb.and(predicates.toArray(new Predicate[0]));
         };

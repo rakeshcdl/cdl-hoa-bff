@@ -13,11 +13,11 @@ public class ManagementFirmPaymentPlanDTO implements Serializable {
 
     private Long id;
 
-    private Integer reappInstallmentNumber;
+    private Integer mfppInstallmentNumber;
 
-    private Double reappInstallmentPercentage;
+    private Double mfppInstallmentPercentage;
 
-    private Double reappProjectCompletionPercentage;
+    private Double mfppProjectCompletionPercentage;
 
     private ManagementFirmDTO managementFirmDTO;
 

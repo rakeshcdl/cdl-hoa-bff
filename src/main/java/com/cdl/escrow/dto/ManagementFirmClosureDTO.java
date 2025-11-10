@@ -12,16 +12,16 @@ import java.io.Serializable;
 public class ManagementFirmClosureDTO implements Serializable {
     private Long id;
 
-    private Double reacTotalIncomeFund;
+    private Double mfcTotalIncomeFund;
 
-    private Double reacTotalPayment;
+    private Double mfcTotalPayment;
 
-    private Double reacCheckGuranteeDoc;
+    private Double mfcCheckGuaranteeDoc;
 
     private Boolean deleted ;
 
     private boolean enabled ;
     private ManagementFirmDTO managementFirmDTO;
 
-    private ApplicationSettingDTO reacDocumentDTO;
+    private ApplicationSettingDTO mfcDocumentDTO;
 }

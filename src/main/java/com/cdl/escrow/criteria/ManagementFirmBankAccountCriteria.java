@@ -30,5 +30,5 @@ public class ManagementFirmBankAccountCriteria implements Serializable {
     private ZonedDateTimeFilter updatedAt;
     private WorkflowStatus status;
     private BooleanFilter enabled;
-   private LongFilter realEstateAssestId;
+   private LongFilter managementFirmId;
 }

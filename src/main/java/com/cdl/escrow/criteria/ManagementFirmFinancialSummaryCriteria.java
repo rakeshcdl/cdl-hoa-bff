@@ -18,287 +18,287 @@ public class ManagementFirmFinancialSummaryCriteria implements Serializable {
 
     private LongFilter id ;
 
-    private StringFilter reafsEstRevenue ;
+    private StringFilter mffsEstRevenue ;
 
-    private DoubleFilter reafsEstConstructionCost;
+    private DoubleFilter mffsEstConstructionCost;
 
-    private DoubleFilter reafsEstProjectMgmtExpense ;
+    private DoubleFilter mffsEstProjectMgmtExpense ;
 
-    private DoubleFilter reafsEstLandCost ;
+    private DoubleFilter mffsEstLandCost ;
 
-    private DoubleFilter reafsEstMarketingExpense ;
+    private DoubleFilter mffsEstMarketingExpense ;
 
-    private ZonedDateTimeFilter reafsEstimatedDate;
+    private ZonedDateTimeFilter mffsEstimatedDate;
 
-    private StringFilter  reafsEstExceptionalCapVal ;
+    private StringFilter  mffsEstExceptionalCapVal ;
 
-    private DoubleFilter reafsActualSoldValue ;
+    private DoubleFilter mffsActualSoldValue ;
 
-    private DoubleFilter reafsActualConstructionCost ;
+    private DoubleFilter mffsActualConstructionCost ;
 
-    private DoubleFilter reafsActualInfraCost ;
+    private DoubleFilter mffsActualInfraCost ;
 
-    private DoubleFilter reafsActualLandCost ;
+    private DoubleFilter mffsActualLandCost ;
 
-    private DoubleFilter reafsActualMarketingExp ;
+    private DoubleFilter mffsActualMarketingExp ;
 
-    private DoubleFilter reafsActualProjectMgmtExpense ;
+    private DoubleFilter mffsActualProjectMgmtExpense ;
 
-    private ZonedDateTimeFilter reafsActualDate ;
+    private ZonedDateTimeFilter mffsActualDate ;
 
-    private StringFilter  reafsActualexceptCapVal ;
+    private StringFilter  mffsActualexceptCapVal ;
 
-    private DoubleFilter reafsCurrentCashReceived ;
+    private DoubleFilter mffsCurrentCashReceived ;
 
-    private DoubleFilter reafsCurCashRecvdOutEscrow ;
+    private DoubleFilter mffsCurCashRecvdOutEscrow ;
 
-    private DoubleFilter reafsCurCashRecvdWithinEscrow ;
+    private DoubleFilter mffsCurCashRecvdWithinEscrow ;
 
-    private DoubleFilter reafsCurCashRecvdTotal ;
+    private DoubleFilter mffsCurCashRecvdTotal ;
 
-    private StringFilter reafsCurCashexceptCapVal ;
+    private StringFilter mffsCurCashexceptCapVal ;
 
-    private DoubleFilter reafsCurrentLandCost ;
+    private DoubleFilter mffsCurrentLandCost ;
 
-    private DoubleFilter reafsCurLandCostOut ;
+    private DoubleFilter mffsCurLandCostOut ;
 
-    private DoubleFilter reafsCurLandCostWithin ;
+    private DoubleFilter mffsCurLandCostWithin ;
 
-    private DoubleFilter reafsCurLandTotal ;
+    private DoubleFilter mffsCurLandTotal ;
 
-    private StringFilter reafsCurLandexceptCapVal ;
+    private StringFilter mffsCurLandexceptCapVal ;
 
-    private DoubleFilter reafsCurrentConstructionCost ;
+    private DoubleFilter mffsCurrentConstructionCost ;
 
-    private DoubleFilter reafsCurConsCostWithin ;
+    private DoubleFilter mffsCurConsCostWithin ;
 
-    private DoubleFilter reafsCurConsCostOut ;
+    private DoubleFilter mffsCurConsCostOut ;
 
-    private DoubleFilter reafsCurConsCostTotal ;
+    private DoubleFilter mffsCurConsCostTotal ;
 
-    private StringFilter reafsCurConsExcepCapVal ;
+    private StringFilter mffsCurConsExcepCapVal ;
 
-    private DoubleFilter reafsCurrentMarketingExp ;
+    private DoubleFilter mffsCurrentMarketingExp ;
 
-    private DoubleFilter reafsCurrentMktgExpWithin ;
+    private DoubleFilter mffsCurrentMktgExpWithin ;
 
-    private DoubleFilter reafsCurrentMktgExpOut ;
+    private DoubleFilter mffsCurrentMktgExpOut ;
 
-    private DoubleFilter reafsCurrentMktgExpTotal ;
+    private DoubleFilter mffsCurrentMktgExpTotal ;
 
-    private StringFilter reafsCurrentmktgExcepCapVal ;
+    private StringFilter mffsCurrentmktgExcepCapVal ;
 
-    private DoubleFilter reafsCurrentProjectMgmtExp ;
+    private DoubleFilter mffsCurrentProjectMgmtExp ;
 
-    private DoubleFilter reafsCurProjMgmtExpWithin ;
+    private DoubleFilter mffsCurProjMgmtExpWithin ;
 
-    private DoubleFilter reafsCurProjMgmtExpOut ;
+    private DoubleFilter mffsCurProjMgmtExpOut ;
 
-    private DoubleFilter reafsCurProjMgmtExpTotal ;
+    private DoubleFilter mffsCurProjMgmtExpTotal ;
 
-    private StringFilter reafsCurProjExcepCapVal ;
+    private StringFilter mffsCurProjExcepCapVal ;
 
-    private DoubleFilter reafsCurrentMortgage ;
+    private DoubleFilter mffsCurrentMortgage ;
 
-    private DoubleFilter reafsCurrentMortgageWithin ;
+    private DoubleFilter mffsCurrentMortgageWithin ;
 
     private DoubleFilter currentMortgageOut ;
 
-    private DoubleFilter reafsCurrentMortgageTotal ;
+    private DoubleFilter mffsCurrentMortgageTotal ;
 
-    private StringFilter reafsCurMortgageExceptCapVal ;
+    private StringFilter mffsCurMortgageExceptCapVal ;
 
-    private DoubleFilter reafsCurrentVatPayment ;
+    private DoubleFilter mffsCurrentVatPayment ;
 
-    private DoubleFilter reafsCurrentVatPaymentWithin ;
+    private DoubleFilter mffsCurrentVatPaymentWithin ;
 
-    private DoubleFilter reafsCurrentVatPaymentOut ;
+    private DoubleFilter mffsCurrentVatPaymentOut ;
 
-    private DoubleFilter reafsCurrentVatPaymentTotal ;
+    private DoubleFilter mffsCurrentVatPaymentTotal ;
 
-    private StringFilter reafsCurVatExceptCapVal ;
+    private StringFilter mffsCurVatExceptCapVal ;
 
-    private DoubleFilter reafsCurrentOqood ;
+    private DoubleFilter mffsCurrentOqood ;
 
-    private DoubleFilter reafsCurrentOqoodWithin ;
+    private DoubleFilter mffsCurrentOqoodWithin ;
 
-    private DoubleFilter reafsCurrentOqoodOut ;
+    private DoubleFilter mffsCurrentOqoodOut ;
 
-    private DoubleFilter reafsCurrentOqoodTotal ;
+    private DoubleFilter mffsCurrentOqoodTotal ;
 
-    private StringFilter reafsCurOqoodExceptCapVal ;
+    private StringFilter mffsCurOqoodExceptCapVal ;
 
-    private DoubleFilter reafsCurrentRefund ;
+    private DoubleFilter mffsCurrentRefund ;
 
-    private DoubleFilter reafsCurrentRefundWithin ;
+    private DoubleFilter mffsCurrentRefundWithin ;
 
-    private DoubleFilter reafsCurrentRefundOut ;
+    private DoubleFilter mffsCurrentRefundOut ;
 
-    private DoubleFilter reafsCurrentRefundTotal ;
+    private DoubleFilter mffsCurrentRefundTotal ;
 
-    private StringFilter reafsCurRefundExceptCapVal ;
+    private StringFilter mffsCurRefundExceptCapVal ;
 
-    private DoubleFilter reafsCurrentBalInRetenAcc ;
+    private DoubleFilter mffsCurrentBalInRetenAcc ;
 
-    private DoubleFilter reafsCurBalInRetenAccWithin ;
+    private DoubleFilter mffsCurBalInRetenAccWithin ;
 
-    private DoubleFilter reafsCurBalInRetenAccOut ;
+    private DoubleFilter mffsCurBalInRetenAccOut ;
 
-    private DoubleFilter reafsCurBalInRetenAccTotal ;
+    private DoubleFilter mffsCurBalInRetenAccTotal ;
 
-    private StringFilter reafsCurBalInRetenExceptCapVal ;
+    private StringFilter mffsCurBalInRetenExceptCapVal ;
 
-    private DoubleFilter reafsCurrentBalInTrustAcc ;
+    private DoubleFilter mffsCurrentBalInTrustAcc ;
 
-    private DoubleFilter reafsCurBalInTrustAccWithin ;
+    private DoubleFilter mffsCurBalInTrustAccWithin ;
 
-    private DoubleFilter reafsCurBalInTrustAccOut ;
+    private DoubleFilter mffsCurBalInTrustAccOut ;
 
-    private DoubleFilter reafsCurBalInTrustAccTotal ;
+    private DoubleFilter mffsCurBalInTrustAccTotal ;
 
-    private StringFilter reafsCurBalInExceptCapVal ;
+    private StringFilter mffsCurBalInExceptCapVal ;
 
-    private DoubleFilter reafsCurrentTechnicalFee ;
+    private DoubleFilter mffsCurrentTechnicalFee ;
 
-    private DoubleFilter reafsCurTechnFeeWithin ;
+    private DoubleFilter mffsCurTechnFeeWithin ;
 
-    private DoubleFilter reafsCurTechnFeeOut ;
+    private DoubleFilter mffsCurTechnFeeOut ;
 
-    private DoubleFilter reafsCurTechnFeeTotal ;
+    private DoubleFilter mffsCurTechnFeeTotal ;
 
-    private StringFilter reafsCurTechFeeExceptCapVal ;
+    private StringFilter mffsCurTechFeeExceptCapVal ;
 
-    private DoubleFilter reafsCurrentUnIdentifiedFund ;
+    private DoubleFilter mffsCurrentUnIdentifiedFund ;
 
-    private DoubleFilter reafsCurUnIdeFundWithin ;
+    private DoubleFilter mffsCurUnIdeFundWithin ;
 
-    private DoubleFilter reafsCurUnIdeFundOut ;
+    private DoubleFilter mffsCurUnIdeFundOut ;
 
-    private DoubleFilter reafsCurUnIdeFundTotal ;
+    private DoubleFilter mffsCurUnIdeFundTotal ;
 
-    private StringFilter reafsCurUnIdeExceptCapVal ;
+    private StringFilter mffsCurUnIdeExceptCapVal ;
 
-    private DoubleFilter reafsCurrentLoanInstal ;
+    private DoubleFilter mffsCurrentLoanInstal ;
 
-    private DoubleFilter reafsCurLoanInstalWithin ;
+    private DoubleFilter mffsCurLoanInstalWithin ;
 
-    private DoubleFilter reafsCurLoanInstalOut ;
+    private DoubleFilter mffsCurLoanInstalOut ;
 
-    private DoubleFilter reafsCurLoanInstalTotal ;
+    private DoubleFilter mffsCurLoanInstalTotal ;
 
-    private StringFilter reafsCurLoanExceptCapVal ;
+    private StringFilter mffsCurLoanExceptCapVal ;
 
-    private DoubleFilter reafsCurrentInfraCost ;
+    private DoubleFilter mffsCurrentInfraCost ;
 
-    private DoubleFilter reafsCurInfraCostWithin ;
+    private DoubleFilter mffsCurInfraCostWithin ;
 
-    private DoubleFilter reafsCurInfraCostOut ;
+    private DoubleFilter mffsCurInfraCostOut ;
 
-    private DoubleFilter reafsCurInfraCostTotal ;
+    private DoubleFilter mffsCurInfraCostTotal ;
 
-    private StringFilter reafsCurInfraExceptCapVal ;
+    private StringFilter mffsCurInfraExceptCapVal ;
 
-    private DoubleFilter reafsCurrentOthersCost ;
+    private DoubleFilter mffsCurrentOthersCost ;
 
-    private DoubleFilter reafsCurOthersCostWithin ;
+    private DoubleFilter mffsCurOthersCostWithin ;
 
-    private DoubleFilter reafsCurOthersCostOut ;
+    private DoubleFilter mffsCurOthersCostOut ;
 
-    private DoubleFilter reafsCurOthersCostTotal ;
+    private DoubleFilter mffsCurOthersCostTotal ;
 
-    private StringFilter reafsCurOthersExceptCapVal ;
+    private StringFilter mffsCurOthersExceptCapVal ;
 
-    private DoubleFilter reafsCurrentTransferredCost ;
+    private DoubleFilter mffsCurrentTransferredCost ;
 
-    private DoubleFilter reafsCurTransferCostWithin ;
+    private DoubleFilter mffsCurTransferCostWithin ;
 
-    private DoubleFilter reafsCurTransferCostOut ;
+    private DoubleFilter mffsCurTransferCostOut ;
 
-    private DoubleFilter reafsCurTransferCostTotal ;
+    private DoubleFilter mffsCurTransferCostTotal ;
 
-    private StringFilter reafsCurTransferExceptCapVal ;
+    private StringFilter mffsCurTransferExceptCapVal ;
 
-    private DoubleFilter reafsCurrentForfeitedCost ;
+    private DoubleFilter mffsCurrentForfeitedCost ;
 
-    private DoubleFilter reafsCurForfeitCostWithin ;
+    private DoubleFilter mffsCurForfeitCostWithin ;
 
-    private DoubleFilter reafsCurForfeitCostOut ;
+    private DoubleFilter mffsCurForfeitCostOut ;
 
-    private DoubleFilter reafsCurForfeitCostTotal ;
+    private DoubleFilter mffsCurForfeitCostTotal ;
 
-    private StringFilter reafsCurForfeitExceptCapVal ;
+    private StringFilter mffsCurForfeitExceptCapVal ;
 
-    private DoubleFilter reafsCurrentDeveloperEquitycost ;
+    private DoubleFilter mffsCurrentDeveloperEquitycost ;
 
-    private DoubleFilter reafsCurDeveEqtycostWithin ;
+    private DoubleFilter mffsCurDeveEqtycostWithin ;
 
-    private DoubleFilter reafsCurDeveEqtycostOut ;
+    private DoubleFilter mffsCurDeveEqtycostOut ;
 
-    private DoubleFilter reafsCurDeveEqtycostTotal ;
+    private DoubleFilter mffsCurDeveEqtycostTotal ;
 
-    private StringFilter reafsCurDeveExceptCapVal ;
+    private StringFilter mffsCurDeveExceptCapVal ;
 
-    private DoubleFilter reafsCurrentAmantFund ;
+    private DoubleFilter mffsCurrentAmantFund ;
 
-    private DoubleFilter reafsCurAmntFundWithin ;
+    private DoubleFilter mffsCurAmntFundWithin ;
 
-    private DoubleFilter reafsCurAmntFundOut ;
+    private DoubleFilter mffsCurAmntFundOut ;
 
-    private DoubleFilter reafsCurAmntFundTotal ;
+    private DoubleFilter mffsCurAmntFundTotal ;
 
-    private StringFilter reafsCurAmntExceptCapVal ;
+    private StringFilter mffsCurAmntExceptCapVal ;
 
-    private DoubleFilter reafsCurrentOtherWithdrawls ;
+    private DoubleFilter mffsCurrentOtherWithdrawls ;
 
-    private DoubleFilter reafsCurOtherWithdWithin ;
+    private DoubleFilter mffsCurOtherWithdWithin ;
 
-    private DoubleFilter reafsCurOtherWithdOut ;
+    private DoubleFilter mffsCurOtherWithdOut ;
 
-    private DoubleFilter reafsCurOtherWithdTotal ;
+    private DoubleFilter mffsCurOtherWithdTotal ;
 
-    private StringFilter reafsCurOtherExceptCapVal ;
+    private StringFilter mffsCurOtherExceptCapVal ;
 
-    private DoubleFilter reafsCurrentOqoodOtherFeePay ;
+    private DoubleFilter mffsCurrentOqoodOtherFeePay ;
 
-    private DoubleFilter reafsCurOqoodOthFeeWithin ;
+    private DoubleFilter mffsCurOqoodOthFeeWithin ;
 
-    private DoubleFilter reafsCurOqoodOthFeeOut ;
+    private DoubleFilter mffsCurOqoodOthFeeOut ;
 
-    private DoubleFilter reafsCurOqoodOthFeeTotal ;
+    private DoubleFilter mffsCurOqoodOthFeeTotal ;
 
-    private DoubleFilter reafsCurrentVatDeposit ;
+    private DoubleFilter mffsCurrentVatDeposit ;
 
-    private DoubleFilter reafsCurVatDepositWithin ;
+    private DoubleFilter mffsCurVatDepositWithin ;
 
-    private DoubleFilter reafsCurVatDepositOut ;
+    private DoubleFilter mffsCurVatDepositOut ;
 
-    private DoubleFilter reafsCurVatDepositTotal ;
+    private DoubleFilter mffsCurVatDepositTotal ;
 
-    private StringFilter reafsCurVatDepositCapVal ;
+    private StringFilter mffsCurVatDepositCapVal ;
 
-    private DoubleFilter reafsCurBalConstructionTotal ;
+    private DoubleFilter mffsCurBalConstructionTotal ;
 
-    private DoubleFilter reafsCurBalConstructionWithin ;
+    private DoubleFilter mffsCurBalConstructionWithin ;
 
-    private DoubleFilter reafsCurBalConstructionOut ;
+    private DoubleFilter mffsCurBalConstructionOut ;
 
-    private StringFilter reafsCurBalExcepCapVal ;
+    private StringFilter mffsCurBalExcepCapVal ;
 
-    private DoubleFilter reafsCreditInterest ;
+    private DoubleFilter mffsCreditInterest ;
 
-    private DoubleFilter reafsPaymentForRetentionAcc ;
+    private DoubleFilter mffsPaymentForRetentionAcc ;
 
-    private DoubleFilter reafsDeveloperReimburse ;
+    private DoubleFilter mffsDeveloperReimburse ;
 
-    private DoubleFilter reafsUnitRegFees ;
+    private DoubleFilter mffsUnitRegFees ;
 
-    private DoubleFilter reafsCreditInterestProfit ;
+    private DoubleFilter mffsCreditInterestProfit ;
 
-    private DoubleFilter reafsVatCappedCost ;
+    private DoubleFilter mffsVatCappedCost ;
 
-    private StringFilter reafsExceptionalCapVal ;
+    private StringFilter mffsExceptionalCapVal ;
 
-    private LongFilter buildPartnerId;
+    private LongFilter assetRegisterId;
 
-    private LongFilter realEstateAssestId;
+    private LongFilter managementFirmId;
 }

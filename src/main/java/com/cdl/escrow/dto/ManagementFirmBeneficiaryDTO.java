@@ -14,51 +14,51 @@ import java.util.Set;
 public class ManagementFirmBeneficiaryDTO implements Serializable {
     private Long id;
 
-    private String reabBeneficiaryId;
+    private String mfbBeneficiaryId;
 
-    private String reabName;
+    private String mfbName;
 
-    private Double reabContractAmount;
+    private Double mfbContractAmount;
 
-    private Double reabActualLandPrice;
+    private Double mfbActualLandPrice;
 
-    private String reabContractorName;
+    private String mfbContractorName;
 
-    private String reabType;
+    private String mfbType;
 
-    private String reabBank;
+    private String mfbBank;
 
-    private String reabSwift;
+    private String mfbSwift;
 
-    private String reabRoutingCode;
+    private String mfbRoutingCode;
 
-    private String reabAddress;
+    private String mfbAddress;
 
-    private String reabBankAddress;
+    private String mfbBankAddress;
 
-    private Boolean reabIsActive;
+    private Boolean mfbIsActive;
 
-    private Boolean reabIsDeleted;
+    private Boolean mfbIsDeleted;
 
-    private String reabBeneAccount;
+    private String mfbBeneAccount;
 
-    private String reabBeneIban;
+    private String mfbBeneIban;
 
-    private ApplicationSettingDTO reabTranferTypeDTO;
+    private ApplicationSettingDTO mfbTransferTypeDTO;
 
-    private ApplicationSettingDTO reabExpenseTypeDTO;
+    private ApplicationSettingDTO mfbExpenseTypeDTO;
 
-    private ApplicationSettingDTO reabVendorSubTypeDTO;
+    private ApplicationSettingDTO mfbVendorSubTypeDTO;
 
-    private ApplicationSettingDTO reabContractorSubTypeDTO;
+    private ApplicationSettingDTO mfbContractorSubTypeDTO;
 
-    private ApplicationSettingDTO reabInfrastructureCategoryDTO;
+    private ApplicationSettingDTO mfbInfrastructureCategoryDTO;
 
-    private ApplicationSettingDTO reabSalesCategoryDTO;
+    private ApplicationSettingDTO mfbSalesCategoryDTO;
 
    private Set<ManagementFirmDTO> managementFirmDTO = new HashSet<>() ;
 
-   // private Set<Long> realEstateAssestIds = new HashSet<>();
+   // private Set<Long> mflEstateAssestIds = new HashSet<>();
 
     private Boolean deleted ;
 

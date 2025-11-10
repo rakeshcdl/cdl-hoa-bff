@@ -16,13 +16,13 @@ public class ManagementFirmClosureCriteria implements Serializable {
 
     private LongFilter id;
 
-    private DoubleFilter reacTotalIncomeFund;
+    private DoubleFilter mfcTotalIncomeFund;
 
-    private DoubleFilter reacTotalPayment;
+    private DoubleFilter mfcTotalPayment;
 
-    private DoubleFilter reacCheckGuranteeDoc;
+    private DoubleFilter mfcCheckGuaranteeDoc;
 
-    private LongFilter realEstateAssestId;
+    private LongFilter managementFirmId;
 
-    private LongFilter reacDocumentId;
+    private LongFilter mfcDocumentId;
 }

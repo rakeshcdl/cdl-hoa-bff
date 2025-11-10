@@ -27,34 +27,34 @@ public class ManagementFirmFeeHistoryCriteriaService extends BaseSpecificationBu
     private final transient ManagementFirmFeeHistoryMapper managementFirmFeeHistoryMapper;
 
     public Page<ManagementFirmHistoryDTO> findByCriteria(ManagementFirmFeeHistoryCriteria criteria, Pageable pageable) {
-        Specification<ManagementFirmHistory> specification = createSpecification(criteria);
+        Specification<ManagementFirmHistory> specification = cmfteSpecification(criteria);
         return managementFirmFeeHistoryRepository.findAll(specification, pageable).map(managementFirmFeeHistoryMapper::toDto);
     }
 
-    private Specification<ManagementFirmHistory> createSpecification(ManagementFirmFeeHistoryCriteria criteria) {
+    private Specification<ManagementFirmHistory> cmfteSpecification(ManagementFirmFeeHistoryCriteria criteria) {
         return (root, query, cb) -> {
             List<Predicate> predicates = new ArrayList<>();
             if(criteria!=null) {
                 addLongFilter(cb, root, predicates, "id", criteria.getId());
-                addDoubleFilter(cb, root, predicates, "reafhAmount", criteria.getReafhAmount());
-                addDoubleFilter(cb, root, predicates, "reafhTotalAmount", criteria.getReafhTotalAmount());
-                addDoubleFilter(cb, root, predicates, "reafhVatPercentage", criteria.getReafhVatPercentage());
-                addZonedDateTimeFilter(cb, root, predicates, "reafhTransactionDate", criteria.getReafhTransactionDate());
-                addBooleanFilter(cb, root, predicates, "reafhSuccess", criteria.getReafhSuccess());
-                addBooleanFilter(cb, root, predicates, "reafhStatus", criteria.getReafhStatus());
-                addStringFilter(cb, root, predicates, "reahfRemark", criteria.getReahfRemark(), true);
-                addStringFilter(cb, root, predicates, "reafhFeeResponse", criteria.getReafhFeeResponse(), true);
-                addStringFilter(cb, root, predicates, "reafhResponseStatus", criteria.getReafhResponseStatus(), true);
-                addStringFilter(cb, root, predicates, "reafhSpecialField1", criteria.getReafhSpecialField1(), true);
-                addStringFilter(cb, root, predicates, "reafhSpecialField2", criteria.getReafhSpecialField2(), true);
-                addStringFilter(cb, root, predicates, "reafhSpecialField3", criteria.getReafhSpecialField3(), true);
-                addStringFilter(cb, root, predicates, "reafhSpecialField4", criteria.getReafhSpecialField4(), true);
-                addStringFilter(cb, root, predicates, "reafhSpecialField5", criteria.getReafhSpecialField5(), true);
-                addStringFilter(cb, root, predicates, "reafhFeeRequestBody", criteria.getReafhFeeRequestBody(), true);
-                addLongFilter(cb, root, predicates, "realEstateAssestFeeId", criteria.getRealEstateAssestFeeId());
-                addLongFilter(cb, root, predicates, "realEstateAssestId", criteria.getRealEstateAssestId());
-                addLongFilter(cb, root, predicates, "capitalPartnerUnitId", criteria.getCapitalPartnerUnitId());
-                addLongFilter(cb, root, predicates, "fundEgressId", criteria.getFundEgressId());
+                addDoubleFilter(cb, root, predicates, "mffhAmount", criteria.getMffhAmount());
+                addDoubleFilter(cb, root, predicates, "mffhTotalAmount", criteria.getMffhTotalAmount());
+                addDoubleFilter(cb, root, predicates, "mffhVatPercentage", criteria.getMffhVatPercentage());
+                addZonedDateTimeFilter(cb, root, predicates, "mffhTransactionDate", criteria.getMffhTransactionDate());
+                addBooleanFilter(cb, root, predicates, "mffhSuccess", criteria.getMffhSuccess());
+                addBooleanFilter(cb, root, predicates, "mffhStatus", criteria.getMffhStatus());
+                addStringFilter(cb, root, predicates, "mfhfRemark", criteria.getMfhfRemark(), true);
+                addStringFilter(cb, root, predicates, "mffhFeeResponse", criteria.getMffhFeeResponse(), true);
+                addStringFilter(cb, root, predicates, "mffhResponseStatus", criteria.getMffhResponseStatus(), true);
+                addStringFilter(cb, root, predicates, "mffhSpecialField1", criteria.getMffhSpecialField1(), true);
+                addStringFilter(cb, root, predicates, "mffhSpecialField2", criteria.getMffhSpecialField2(), true);
+                addStringFilter(cb, root, predicates, "mffhSpecialField3", criteria.getMffhSpecialField3(), true);
+                addStringFilter(cb, root, predicates, "mffhSpecialField4", criteria.getMffhSpecialField4(), true);
+                addStringFilter(cb, root, predicates, "mffhSpecialField5", criteria.getMffhSpecialField5(), true);
+                addStringFilter(cb, root, predicates, "mffhFeeRequestBody", criteria.getMffhFeeRequestBody(), true);
+                addLongFilter(cb, root, predicates, "managementFirmFeeId", criteria.getManagementFirmFeeId());
+                addLongFilter(cb, root, predicates, "managementFirmId", criteria.getManagementFirmId());
+                addLongFilter(cb, root, predicates, "ownerRegistryUnitId", criteria.getOwnerRegistryUnitId());
+
             }
             return cb.and(predicates.toArray(new Predicate[0]));
         };

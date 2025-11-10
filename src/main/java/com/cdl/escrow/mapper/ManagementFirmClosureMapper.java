@@ -10,10 +10,10 @@ import org.mapstruct.Mapping;
 public interface ManagementFirmClosureMapper extends EntityMapper<ManagementFirmClosureDTO, ManagementFirmClosure> {
 
     @Mapping(source = "managementFirm", target = "managementFirmDTO")
-    @Mapping(source = "reacDocument", target = "reacDocumentDTO")
+    @Mapping(source = "mfcDocument", target = "mfcDocumentDTO")
     ManagementFirmClosureDTO toDto(ManagementFirmClosure managementFirmClosure);
 
     @Mapping(source = "managementFirmDTO", target = "managementFirm")
-    @Mapping(source = "reacDocumentDTO", target = "reacDocument")
+    @Mapping(source = "mfcDocumentDTO", target = "mfcDocument")
     ManagementFirmClosure toEntity(ManagementFirmClosureDTO managementFirmClosureDTO);
 }
