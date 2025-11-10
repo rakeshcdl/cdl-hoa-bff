@@ -87,4 +87,8 @@ public class OwnerRegistry implements Serializable {
 
     @ManyToOne(fetch = FetchType.LAZY)
     private TaskStatus taskStatus;
+
+    @OneToMany(mappedBy = "ownerRegistry")
+    @JsonIgnore
+    private Set<OwnerRegistryContactDetail> ownerRegistryContactDetails = new HashSet<>();
 }
