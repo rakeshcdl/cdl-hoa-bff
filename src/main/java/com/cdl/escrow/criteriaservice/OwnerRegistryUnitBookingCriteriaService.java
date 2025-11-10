@@ -43,15 +43,15 @@ public class OwnerRegistryUnitBookingCriteriaService extends BaseSpecificationBu
                 addLongFilter(cb, root, predicates, "id", criteria.getId());
 
                 // Double filters
-                addDoubleFilter(cb, root, predicates, "cpubAmountPaid", criteria.getCpubAmountPaid());
-                addDoubleFilter(cb, root, predicates, "cpubAreaSize", criteria.getCpubAreaSize());
-                addDoubleFilter(cb, root, predicates, "cpubForFeitAmount", criteria.getCpubForFeitAmount());
-                addDoubleFilter(cb, root, predicates, "cpubDldAmount", criteria.getCpubDldAmount());
-                addDoubleFilter(cb, root, predicates, "cpubRefundAmount", criteria.getCpubRefundAmount());
-                addDoubleFilter(cb, root, predicates, "cpubTransferredAmount", criteria.getCpubTransferredAmount());
+                addDoubleFilter(cb, root, predicates, "ownubAmountPaid", criteria.getOwnubAmountPaid());
+                addDoubleFilter(cb, root, predicates, "ownubAreaSize", criteria.getOwnubAreaSize());
+                addDoubleFilter(cb, root, predicates, "ownubForFeitAmount", criteria.getOwnubForFeitAmount());
+                addDoubleFilter(cb, root, predicates, "ownubDldAmount", criteria.getOwnubDldAmount());
+                addDoubleFilter(cb, root, predicates, "ownubRefundAmount", criteria.getOwnubRefundAmount());
+                addDoubleFilter(cb, root, predicates, "ownubTransferredAmount", criteria.getOwnubTransferredAmount());
 
                 // String filters
-                addStringFilter(cb, root, predicates, "cpubRemarks", criteria.getCpubRemarks(), true);
+                addStringFilter(cb, root, predicates, "ownubRemarks", criteria.getOwnubRemarks(), true);
 
                 // Filter by OwnerRegistry id -> join the ownerRegistries collection
                 if (criteria.getCapitalPartnerUnitId() != null) {

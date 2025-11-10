@@ -11,10 +11,6 @@ import java.time.ZonedDateTime;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Represents an investor or capital partner providing funds for real estate projects.
- * Investors contribute to the escrow account and may receive updates on fund utilization.
- */
 @AllArgsConstructor
 @NoArgsConstructor
 @Setter
@@ -25,45 +21,45 @@ import java.util.Set;
 @ToString(onlyExplicitlyIncluded = true)
 @EntityListeners(AuditingEntityListener.class)
 @Entity
-@Table(name = "capital_partner")
+@Table(name = "owner_registry")
 public class OwnerRegistry implements Serializable {
     @Id
     @SequenceGenerator(
-            name = "capital_partner_id_seq_gen",
-            sequenceName = "capital_partner_id_seq",
+            name = "owner_registry_id_seq_gen",
+            sequenceName = "owner_registry_id_seq",
             allocationSize = 50
     )
     @GeneratedValue(
             strategy = GenerationType.SEQUENCE,
-            generator = "capital_partner_id_seq_gen"
+            generator = "owner_registry_id_seq_gen"
     )
     private Long id ;
 
-    private String capitalPartnerId;
+    private String ownerRegistryId;
 
-    private String capitalPartnerName;
+    private String ownerRegistryName;
 
-    private String capitalPartnerMiddleName;
+    private String ownerRegistryMiddleName;
 
-    private String capitalPartnerLastName;
+    private String ownerRegistryLastName;
 
-    private Float capitalPartnerOwnershipPercentage;
+    private Float ownerRegistryOwnershipPercentage;
 
-    private String capitalPartnerIdNo;
+    private String ownerRegistryIdNo;
 
-    private String capitalPartnerTelephoneNo;
+    private String ownerRegistryTelephoneNo;
 
-    private String capitalPartnerMobileNo;
+    private String ownerRegistryMobileNo;
 
-    private String capitalPartnerEmail;
+    private String ownerRegistryEmail;
 
-    private Integer capitalPartnerOwnerNumber;
+    private Integer ownerRegistryOwnerNumber;
 
     private Boolean isCurrent;
 
     private ZonedDateTime idExpiaryDate;
 
-    private String capitalPartnerLocaleName;
+    private String ownerRegistryLocaleName;
 
     @ManyToOne
     @JsonIgnore

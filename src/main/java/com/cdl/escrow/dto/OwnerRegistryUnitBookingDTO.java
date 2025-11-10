@@ -13,19 +13,19 @@ import java.util.Set;
 public class OwnerRegistryUnitBookingDTO implements Serializable {
     private Long id ;
 
-    private Double cpubAmountPaid;
+    private Double ownubAmountPaid;
 
-    private Double cpubAreaSize;
+    private Double ownubAreaSize;
 
-    private Double cpubForFeitAmount;
+    private Double ownubForFeitAmount;
 
-    private Double cpubDldAmount;
+    private Double ownubDldAmount;
 
-    private Double cpubRefundAmount;
+    private Double ownubRefundAmount;
 
-    private String cpubRemarks;
+    private String ownubRemarks;
 
-    private Double cpubTransferredAmount;
+    private Double ownubTransferredAmount;
 
     private Set<OwnerRegistryUnitDTO> ownerRegistryUnitDTOS;
 

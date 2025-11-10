@@ -23,17 +23,17 @@ import java.util.Set;
 @Data
 @EntityListeners(AuditingEntityListener.class)
 @Entity
-@Table(name = "capital_partner_unit")
+@Table(name = "owner_registry_unit")
 public class OwnerRegistryUnit implements Serializable {
     @Id
     @SequenceGenerator(
-            name = "capital_partner_unit_id_seq_gen",
-            sequenceName = "capital_partner_unit_id_seq",
+            name = "owner_registry_unit_id_seq_gen",
+            sequenceName = "owner_registry_unit_id_seq",
             allocationSize = 50
     )
     @GeneratedValue(
             strategy = GenerationType.SEQUENCE,
-            generator = "capital_partner_unit_id_seq_gen"
+            generator = "owner_registry_unit_id_seq_gen"
     )
     private Long id ;
 

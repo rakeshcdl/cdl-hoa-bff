@@ -15,31 +15,31 @@ public class OwnerRegistryCriteria implements Serializable {
 
     private LongFilter id ;
 
-    private StringFilter capitalPartnerId;
+    private StringFilter ownerRegistryId;
 
-    private StringFilter capitalPartnerName;
+    private StringFilter ownerRegistryName;
 
-    private StringFilter capitalPartnerMiddleName;
+    private StringFilter ownerRegistryMiddleName;
 
-    private StringFilter capitalPartnerLastName;
+    private StringFilter ownerRegistryLastName;
 
-    private FloatFilter capitalPartnerOwnershipPercentage;
+    private FloatFilter ownerRegistryOwnershipPercentage;
 
-    private StringFilter capitalPartnerIdNo;
+    private StringFilter ownerRegistryIdNo;
 
-    private StringFilter capitalPartnerTelephoneNo;
+    private StringFilter ownerRegistryTelephoneNo;
 
-    private StringFilter capitalPartnerMobileNo;
+    private StringFilter ownerRegistryMobileNo;
 
-    private StringFilter capitalPartnerEmail;
+    private StringFilter ownerRegistryEmail;
 
-    private IntegerFilter capitalPartnerOwnerNumber;
+    private IntegerFilter ownerRegistryOwnerNumber;
 
     private BooleanFilter isCurrent;
 
     private ZonedDateTimeFilter idExpiaryDate;
 
-    private StringFilter capitalPartnerLocaleName;
+    private StringFilter ownerRegistryLocaleName;
 
     private LongFilter documentTypeId;
 
@@ -47,9 +47,9 @@ public class OwnerRegistryCriteria implements Serializable {
 
     private LongFilter investorTypeId;
 
-    //private Set<OwnerRegistryBankInfoDTO> capitalPartnerBankInfoDTOS ;
+    //private Set<OwnerRegistryBankInfoDTO> ownerRegistryBankInfoDTOS ;
 
-    private LongFilter capitalPartnerUnitId;
+    private LongFilter ownerRegistryUnitId;
 
     private BooleanFilter enabled ;
 

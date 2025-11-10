@@ -15,69 +15,69 @@ public class OwnerRegistryUnitPurchaseCriteria implements Serializable {
 
     private LongFilter id ;
 
-    private ZonedDateTimeFilter cpuPurchaseDate;
+    private ZonedDateTimeFilter ownuPurchaseDate;
 
-    private DoubleFilter cpupSaleRate;
+    private DoubleFilter ownupSaleRate;
 
-    private DoubleFilter cpuPurchasePrice;
+    private DoubleFilter ownuPurchasePrice;
 
-    private DoubleFilter cpupUnitRegistrationFee;
+    private DoubleFilter ownupUnitRegistrationFee;
 
-    private StringFilter cpupAgentName;
+    private StringFilter ownupAgentName;
 
-    private StringFilter cpupAgentId;
+    private StringFilter ownupAgentId;
 
-    private DoubleFilter cpupGrossSaleprice;
+    private DoubleFilter ownupGrossSaleprice;
 
-    private BooleanFilter cpupVatApplicable;
+    private BooleanFilter ownupVatApplicable;
 
-    private StringFilter cpupDeedNo;
+    private StringFilter ownupDeedNo;
 
-    private StringFilter cpupAgreementNo;
+    private StringFilter ownupAgreementNo;
 
-    private ZonedDateTimeFilter cpupAgreementDate;
+    private ZonedDateTimeFilter ownupAgreementDate;
 
-    private BooleanFilter cpupSalePurchaseAgreement;
+    private BooleanFilter ownupSalePurchaseAgreement;
 
-    private BooleanFilter cpupWorldCheck;
+    private BooleanFilter ownupWorldCheck;
 
-    private DoubleFilter cpupAmtPaidToDevInEscorw;
+    private DoubleFilter ownupAmtPaidToDevInEscorw;
 
-    private DoubleFilter cpupAmtPaidToDevOutEscorw;
+    private DoubleFilter ownupAmtPaidToDevOutEscorw;
 
-    private DoubleFilter cpupTotalAmountPaid;
+    private DoubleFilter ownupTotalAmountPaid;
 
-    private StringFilter cpupUnitIban;
+    private StringFilter ownupUnitIban;
 
-    private BooleanFilter cpupOqood;
+    private BooleanFilter ownupOqood;
 
-    private BooleanFilter cpupOqoodPaid;
+    private BooleanFilter ownupOqoodPaid;
 
-    private StringFilter cpupOqoodAmountPaid;
+    private StringFilter ownupOqoodAmountPaid;
 
-    private StringFilter cpupUnitAreaSize;
+    private StringFilter ownupUnitAreaSize;
 
-    private StringFilter cpupForfeitAmount;
+    private StringFilter ownupForfeitAmount;
 
-    private StringFilter cpupDldAmount;
+    private StringFilter ownupDldAmount;
 
-    private StringFilter cpupRefundAmount;
+    private StringFilter ownupRefundAmount;
 
-    private StringFilter cpupRemarks;
+    private StringFilter ownupRemarks;
 
-    private StringFilter cpupTransferredAmount;
+    private StringFilter ownupTransferredAmount;
 
-    private StringFilter cpupUnitNoOtherFormat;
+    private StringFilter ownupUnitNoOtherFormat;
 
-    private DoubleFilter cpupSalePrice;
+    private DoubleFilter ownupSalePrice;
 
-    private BooleanFilter cpupProjectPaymentPlan;
+    private BooleanFilter ownupProjectPaymentPlan;
 
-    private BooleanFilter cpupReservationBookingForm;
+    private BooleanFilter ownupReservationBookingForm;
 
-    private LongFilter cpupCreditCurrencyId;
+    private LongFilter ownupCreditCurrencyId;
 
-    private LongFilter cpuPurchasePriceCurrencyId;
+    private LongFilter ownuPurchasePriceCurrencyId;
 
     private LongFilter capitalPartnerUnitId;
 }

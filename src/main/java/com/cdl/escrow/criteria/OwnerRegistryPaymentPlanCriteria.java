@@ -18,11 +18,11 @@ public class OwnerRegistryPaymentPlanCriteria implements Serializable {
 
     private LongFilter id;
 
-    private IntegerFilter cpppInstallmentNumber;
+    private IntegerFilter ownppInstallmentNumber;
 
-    private ZonedDateTimeFilter cpppInstallmentDate;
+    private ZonedDateTimeFilter ownppInstallmentDate;
 
-    private DoubleFilter cpppBookingAmount;
+    private DoubleFilter ownppBookingAmount;
 
     private LongFilter capitalPartnerId;
 }

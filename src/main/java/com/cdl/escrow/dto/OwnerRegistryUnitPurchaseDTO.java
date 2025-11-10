@@ -13,71 +13,71 @@ import java.time.ZonedDateTime;
 public class OwnerRegistryUnitPurchaseDTO implements Serializable {
     private Long id ;
 
-    private ZonedDateTime cpuPurchaseDate;
+    private ZonedDateTime ownuPurchaseDate;
 
-    private Double cpupSaleRate;
+    private Double ownupSaleRate;
 
-    private Double cpuPurchasePrice;
+    private Double ownuPurchasePrice;
 
-    private Double cpupUnitRegistrationFee;
+    private Double ownupUnitRegistrationFee;
 
-    private String cpupAgentName;
+    private String ownupAgentName;
 
-    private String cpupAgentId;
+    private String ownupAgentId;
 
-    private Double cpupGrossSaleprice;
+    private Double ownupGrossSaleprice;
 
-    private Boolean cpupVatApplicable;
+    private Boolean ownupVatApplicable;
 
-    private String cpupDeedNo;
+    private String ownupDeedNo;
 
-    private String cpupAgreementNo;
+    private String ownupAgreementNo;
 
-    private ZonedDateTime cpupAgreementDate;
+    private ZonedDateTime ownupAgreementDate;
 
-    private Boolean cpupSalePurchaseAgreement;
+    private Boolean ownupSalePurchaseAgreement;
 
-    private Boolean cpupWorldCheck;
+    private Boolean ownupWorldCheck;
 
-    private Double cpupAmtPaidToDevInEscorw;
+    private Double ownupAmtPaidToDevInEscorw;
 
-    private Double cpupAmtPaidToDevOutEscorw;
+    private Double ownupAmtPaidToDevOutEscorw;
 
-    private Double cpupTotalAmountPaid;
+    private Double ownupTotalAmountPaid;
 
-    private String cpupUnitIban;
+    private String ownupUnitIban;
 
-    private Boolean cpupOqood;
+    private Boolean ownupOqood;
 
-    private Boolean cpupOqoodPaid;
+    private Boolean ownupOqoodPaid;
 
-    private String cpupOqoodAmountPaid;
+    private String ownupOqoodAmountPaid;
 
-    private String cpupUnitAreaSize;
+    private String ownupUnitAreaSize;
 
-    private String cpupForfeitAmount;
+    private String ownupForfeitAmount;
 
-    private String cpupDldAmount;
+    private String ownupDldAmount;
 
-    private String cpupRefundAmount;
+    private String ownupRefundAmount;
 
-    private String cpupRemarks;
+    private String ownupRemarks;
 
-    private String cpupTransferredAmount;
+    private String ownupTransferredAmount;
 
-    private String cpupUnitNoOtherFormat;
+    private String ownupUnitNoOtherFormat;
 
-    private Double cpupSalePrice;
+    private Double ownupSalePrice;
 
-    private Boolean cpupProjectPaymentPlan;
+    private Boolean ownupProjectPaymentPlan;
 
-    private Boolean cpupReservationBookingForm;
+    private Boolean ownupReservationBookingForm;
 
-    private Boolean cpupModificationFeeNeeded;
+    private Boolean ownupModificationFeeNeeded;
 
-    private ApplicationSettingDTO cpupCreditCurrencyDTO;
+    private ApplicationSettingDTO ownupCreditCurrencyDTO;
 
-    private ApplicationSettingDTO cpuPurchasePriceCurrencyDTO;
+    private ApplicationSettingDTO ownuPurchasePriceCurrencyDTO;
 
     private OwnerRegistryUnitDTO ownerRegistryUnitDTO;
 

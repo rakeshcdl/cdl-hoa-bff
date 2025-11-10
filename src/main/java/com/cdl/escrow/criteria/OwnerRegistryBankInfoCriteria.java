@@ -16,17 +16,17 @@ public class OwnerRegistryBankInfoCriteria implements Serializable {
 
     private LongFilter id ;
 
-    private StringFilter cpbiPayeeName;
+    private StringFilter ownbiPayeeName;
 
-    private StringFilter cpbiPayeeAddress;
+    private StringFilter ownbiPayeeAddress;
 
-    private StringFilter cpbiBankName;
+    private StringFilter ownbiBankName;
 
-    private StringFilter cpbiBankAddress;
+    private StringFilter ownbiBankAddress;
 
-    private StringFilter cpbiBicCode;
+    private StringFilter ownbiBicCode;
 
-    private StringFilter cpbiBeneRoutingCode;
+    private StringFilter ownbiBeneRoutingCode;
 
     private LongFilter bankAccountId;
 

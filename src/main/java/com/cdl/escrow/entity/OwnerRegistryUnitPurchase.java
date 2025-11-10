@@ -22,89 +22,89 @@ import java.time.ZonedDateTime;
 @Data
 @EntityListeners(AuditingEntityListener.class)
 @Entity
-@Table(name = "capital_partner_unit_purchase")
+@Table(name = "owner_registry_unit_purchase")
 public class OwnerRegistryUnitPurchase implements Serializable {
     @Id
     @SequenceGenerator(
-            name = "capital_partner_unit_purchase_id_seq_gen",
-            sequenceName = "capital_partner_unit_purchase_id_seq",
+            name = "owner_registry_unit_purchase_id_seq_gen",
+            sequenceName = "owner_registry_unit_purchase_id_seq",
             allocationSize = 50
     )
     @GeneratedValue(
             strategy = GenerationType.SEQUENCE,
-            generator = "capital_partner_unit_purchase_id_seq_gen"
+            generator = "owner_registry_unit_purchase_id_seq_gen"
     )
     private Long id ;
 
-    private ZonedDateTime cpuPurchaseDate;
+    private ZonedDateTime ownuPurchaseDate;
 
-    private Double cpupSaleRate;
+    private Double ownupSaleRate;
 
-    private Double cpuPurchasePrice;
+    private Double ownuPurchasePrice;
 
-    private Double cpupUnitRegistrationFee;
+    private Double ownupUnitRegistrationFee;
 
-    private String cpupAgentName;
+    private String ownupAgentName;
 
-    private String cpupAgentId;
+    private String ownupAgentId;
 
-    private Double cpupGrossSaleprice;
+    private Double ownupGrossSaleprice;
 
-    private Boolean cpupVatApplicable;
+    private Boolean ownupVatApplicable;
 
-    private String cpupDeedNo;
+    private String ownupDeedNo;
 
-    private String cpupAgreementNo;
+    private String ownupAgreementNo;
 
-    private ZonedDateTime cpupAgreementDate;
+    private ZonedDateTime ownupAgreementDate;
 
-    private Boolean cpupSalePurchaseAgreement;
+    private Boolean ownupSalePurchaseAgreement;
 
-    private Boolean cpupWorldCheck;
+    private Boolean ownupWorldCheck;
 
-    private Double cpupAmtPaidToDevInEscorw;
+    private Double ownupAmtPaidToDevInEscorw;
 
-    private Double cpupAmtPaidToDevOutEscorw;
+    private Double ownupAmtPaidToDevOutEscorw;
 
-    private Double cpupTotalAmountPaid;
+    private Double ownupTotalAmountPaid;
 
-    private String cpupUnitIban;
+    private String ownupUnitIban;
 
-    private Boolean cpupOqood;
+    private Boolean ownupOqood;
 
-    private Boolean cpupOqoodPaid;
+    private Boolean ownupOqoodPaid;
 
-    private String cpupOqoodAmountPaid;
+    private String ownupOqoodAmountPaid;
 
-    private String cpupUnitAreaSize;
+    private String ownupUnitAreaSize;
 
-    private String cpupForfeitAmount;
+    private String ownupForfeitAmount;
 
-    private String cpupDldAmount;
+    private String ownupDldAmount;
 
-    private String cpupRefundAmount;
+    private String ownupRefundAmount;
 
-    private String cpupRemarks;
+    private String ownupRemarks;
 
-    private String cpupTransferredAmount;
+    private String ownupTransferredAmount;
 
-    private String cpupUnitNoOtherFormat;
+    private String ownupUnitNoOtherFormat;
 
-    private Double cpupSalePrice;
+    private Double ownupSalePrice;
 
-    private Boolean cpupProjectPaymentPlan;
+    private Boolean ownupProjectPaymentPlan;
 
-    private Boolean cpupReservationBookingForm;
+    private Boolean ownupReservationBookingForm;
 
-    private Boolean cpupModificationFeeNeeded;
-
-    @ManyToOne
-    @JsonIgnore
-    private ApplicationSetting cpupCreditCurrency;
+    private Boolean ownupModificationFeeNeeded;
 
     @ManyToOne
     @JsonIgnore
-    private ApplicationSetting cpuPurchasePriceCurrency;
+    private ApplicationSetting ownupCreditCurrency;
+
+    @ManyToOne
+    @JsonIgnore
+    private ApplicationSetting ownuPurchasePriceCurrency;
 
     @ManyToOne
     @JsonIgnore

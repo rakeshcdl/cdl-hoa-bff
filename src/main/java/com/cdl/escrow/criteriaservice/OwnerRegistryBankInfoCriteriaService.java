@@ -36,12 +36,12 @@ public class OwnerRegistryBankInfoCriteriaService extends BaseSpecificationBuild
             List<Predicate> predicates = new ArrayList<>();
             if(criteria!=null) {
                 addLongFilter(cb, root, predicates, "id", criteria.getId());
-                addStringFilter(cb, root, predicates, "cpbiPayeeName", criteria.getCpbiPayeeName(), true);
-                addStringFilter(cb, root, predicates, "cpbiPayeeAddress", criteria.getCpbiPayeeAddress(), true);
-                addStringFilter(cb, root, predicates, "cpbiBankName", criteria.getCpbiBankName(), true);
-                addStringFilter(cb, root, predicates, "cpbiBankAddress", criteria.getCpbiBankAddress(), true);
-                addStringFilter(cb, root, predicates, "cpbiBicCode", criteria.getCpbiBicCode(), true);
-                addStringFilter(cb, root, predicates, "cpbiBeneRoutingCode", criteria.getCpbiBeneRoutingCode(), true);
+                addStringFilter(cb, root, predicates, "ownbiPayeeName", criteria.getOwnbiPayeeName(), true);
+                addStringFilter(cb, root, predicates, "ownbiPayeeAddress", criteria.getOwnbiPayeeAddress(), true);
+                addStringFilter(cb, root, predicates, "ownbiBankName", criteria.getOwnbiBankName(), true);
+                addStringFilter(cb, root, predicates, "ownbiBankAddress", criteria.getOwnbiBankAddress(), true);
+                addStringFilter(cb, root, predicates, "ownbiBicCode", criteria.getOwnbiBicCode(), true);
+                addStringFilter(cb, root, predicates, "ownbiBeneRoutingCode", criteria.getOwnbiBeneRoutingCode(), true);
                // addLongFilter(cb, root, predicates, "bankAccountId", criteria.getBankAccountId());
                 //addLongFilter(cb, root, predicates, "capitalPartnerId", criteria.getCapitalPartnerId());
                 //addLongFilter(cb, root, predicates, "payModeId", criteria.getPayModeId());

@@ -41,14 +41,14 @@ public class OwnerRegistryUnitTypeCriteriaService extends BaseSpecificationBuild
                 addLongFilter(cb, root, predicates, "capitalPartnerParentUnitTypeId", criteria.getCapitalPartnerParentUnitTypeId());
 
                 // String Filters
-                addStringFilter(cb, root, predicates, "cputName", criteria.getCputName(), true);
-                addStringFilter(cb, root, predicates, "cputIconContentType", criteria.getCputIconContentType(), true);
-                addStringFilter(cb, root, predicates, "cpUnitTypePrefix", criteria.getCpUnitTypePrefix(), true);
-                addStringFilter(cb, root, predicates, "cputExcelFormula", criteria.getCputExcelFormula(), true);
-                addStringFilter(cb, root, predicates, "cputJsFormula", criteria.getCputJsFormula(), true);
+                addStringFilter(cb, root, predicates, "ownutName", criteria.getOwnutName(), true);
+                addStringFilter(cb, root, predicates, "ownutIconContentType", criteria.getOwnutIconContentType(), true);
+                addStringFilter(cb, root, predicates, "ownUnitTypePrefix", criteria.getOwnUnitTypePrefix(), true);
+                addStringFilter(cb, root, predicates, "ownutExcelFormula", criteria.getOwnutExcelFormula(), true);
+                addStringFilter(cb, root, predicates, "ownutJsFormula", criteria.getOwnutJsFormula(), true);
 
                 // Boolean Filters
-                addBooleanFilter(cb, root, predicates, "cputIsStandalone", criteria.getCputIsStandalone());
+                addBooleanFilter(cb, root, predicates, "ownutIsStandalone", criteria.getOwnutIsStandalone());
             }
             return cb.and(predicates.toArray(new Predicate[0]));
         };

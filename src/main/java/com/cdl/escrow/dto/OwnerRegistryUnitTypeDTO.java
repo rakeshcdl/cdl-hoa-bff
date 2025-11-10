@@ -13,19 +13,19 @@ import java.util.Set;
 public class OwnerRegistryUnitTypeDTO implements Serializable {
     private Long id ;
 
-    private String cputName;
+    private String ownutName;
 
-    private byte[] cputIcon;
+    private byte[] ownutIcon;
 
-    private String cputIconContentType;
+    private String ownutIconContentType;
 
-    private Boolean cputIsStandalone;
+    private Boolean ownutIsStandalone;
 
-    private String cpUnitTypePrefix;
+    private String ownUnitTypePrefix;
 
-    private String cputExcelFormula;
+    private String ownutExcelFormula;
 
-    private String cputJsFormula;
+    private String ownutJsFormula;
 
     private OwnerRegistryUnitTypeDTO capitalPartnerParentUnitTypeDTO;
 

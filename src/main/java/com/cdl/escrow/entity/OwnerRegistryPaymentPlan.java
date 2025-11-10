@@ -17,26 +17,26 @@ import java.time.ZonedDateTime;
 @Data
 @EntityListeners(AuditingEntityListener.class)
 @Entity
-@Table(name = "capital_partner_payment_plan")
+@Table(name = "owner_registry_payment_plan")
 public class OwnerRegistryPaymentPlan implements Serializable {
 
     @Id
     @SequenceGenerator(
-            name = "capital_partner_payment_plan_id_seq_gen",
-            sequenceName = "capital_partner_payment_plan_id_seq",
+            name = "owner_registry_payment_plan_id_seq_gen",
+            sequenceName = "owner_registry_payment_plan_id_seq",
             allocationSize = 50
     )
     @GeneratedValue(
             strategy = GenerationType.SEQUENCE,
-            generator = "capital_partner_payment_plant_id_seq_gen"
+            generator = "owner_registry_payment_plant_id_seq_gen"
     )
     private Long id;
 
-    private Integer cpppInstallmentNumber;
+    private Integer ownppInstallmentNumber;
 
-    private ZonedDateTime cpppInstallmentDate;
+    private ZonedDateTime ownppInstallmentDate;
 
-    private Double cpppBookingAmount;
+    private Double ownppBookingAmount;
 
     // Many installments belong to one capital Partner
     @ManyToOne(fetch = FetchType.LAZY)

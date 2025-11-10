@@ -16,19 +16,19 @@ import java.io.Serializable;
 public class OwnerRegistryUnitBookingCriteria implements Serializable {
     private LongFilter id ;
 
-    private DoubleFilter cpubAmountPaid;
+    private DoubleFilter ownubAmountPaid;
 
-    private DoubleFilter cpubAreaSize;
+    private DoubleFilter ownubAreaSize;
 
-    private DoubleFilter cpubForFeitAmount;
+    private DoubleFilter ownubForFeitAmount;
 
-    private DoubleFilter cpubDldAmount;
+    private DoubleFilter ownubDldAmount;
 
-    private DoubleFilter cpubRefundAmount;
+    private DoubleFilter ownubRefundAmount;
 
-    private StringFilter cpubRemarks;
+    private StringFilter ownubRemarks;
 
-    private DoubleFilter cpubTransferredAmount;
+    private DoubleFilter ownubTransferredAmount;
 
     private LongFilter capitalPartnerUnitId ;
 

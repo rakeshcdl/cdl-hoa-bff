@@ -15,11 +15,11 @@ public class OwnerRegistryPaymentPlanDTO implements Serializable {
 
     private Long id;
 
-    private Integer cpppInstallmentNumber;
+    private Integer ownppInstallmentNumber;
 
-    private ZonedDateTime cpppInstallmentDate;
+    private ZonedDateTime ownppInstallmentDate;
 
-    private Double cpppBookingAmount;
+    private Double ownppBookingAmount;
 
     private OwnerRegistryDTO ownerRegistryDTO;
 

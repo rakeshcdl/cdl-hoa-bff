@@ -22,35 +22,35 @@ import java.util.Set;
 @Data
 @EntityListeners(AuditingEntityListener.class)
 @Entity
-@Table(name = "capital_partner_unit_booking")
+@Table(name = "owner_registry_unit_booking")
 public class OwnerRegistryUnitBooking implements Serializable {
     @Id
     @SequenceGenerator(
-            name = "capital_partner_unit_booking_id_seq_gen",
-            sequenceName = "capital_partner_unit_booking_id_seq",
+            name = "owner_registry_unit_booking_id_seq_gen",
+            sequenceName = "owner_registry_unit_booking_id_seq",
             allocationSize = 50
     )
     @GeneratedValue(
             strategy = GenerationType.SEQUENCE,
-            generator = "capital_partner_unit_booking_id_seq_gen"
+            generator = "owner_registry_unit_booking_id_seq_gen"
     )
     private Long id ;
 
-    private Double cpubAmountPaid;
+    private Double ownubAmountPaid;
 
-    private Double cpubAreaSize;
+    private Double ownubAreaSize;
 
-    private Double cpubForFeitAmount;
+    private Double ownubForFeitAmount;
 
-    private Double cpubDldAmount;
+    private Double ownubDldAmount;
 
-    private Double cpubRefundAmount;
+    private Double ownubRefundAmount;
 
     @Lob
     @Column(name = "cupb_remarks" , columnDefinition = "TEXT")
-    private String cpubRemarks;
+    private String ownubRemarks;
 
-    private Double cpubTransferredAmount;
+    private Double ownubTransferredAmount;
 
     @OneToMany(mappedBy = "ownerRegistryUnitBooking")
     @JsonIgnore

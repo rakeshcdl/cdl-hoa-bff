@@ -8,10 +8,6 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.io.Serializable;
 
-/**
- * Stores the bank information of a Capital Partner,
- * used for financial transactions like refunds or capital returns.
- */
 @AllArgsConstructor
 @NoArgsConstructor
 @Setter
@@ -21,35 +17,35 @@ import java.io.Serializable;
 @Data
 @EntityListeners(AuditingEntityListener.class)
 @Entity
-@Table(name = "capital_partner_bank_info")
+@Table(name = "owner_registry_bank_info")
 public class OwnerRegistryBankInfo implements Serializable {
     @Id
     @SequenceGenerator(
-            name = "capital_partner_bank_info_id_seq_gen",
-            sequenceName = "capital_partner_bank_info_id_seq",
+            name = "owner_registry_bank_info_id_seq_gen",
+            sequenceName = "owner_registry_bank_info_id_seq",
             allocationSize = 50
     )
     @GeneratedValue(
             strategy = GenerationType.SEQUENCE,
-            generator = "capital_partner_bank_info_id_seq_gen"
+            generator = "owner_registry_bank_info_id_seq_gen"
     )
     private Long id ;
 
-    private String cpbiPayeeName;
+    private String ownbiPayeeName;
 
-    private String cpbiPayeeAddress;
+    private String ownbiPayeeAddress;
 
-    private String cpbiBankName;
+    private String ownbiBankName;
 
-    private String cpbiBankAddress;
+    private String ownbiBankAddress;
 
-    private String cpbiBicCode;
+    private String ownbiBicCode;
 
-    private String cpbiBeneRoutingCode;
+    private String ownbiBeneRoutingCode;
 
-    private String cpbiAccountNumber;
+    private String ownbiAccountNumber;
 
-    private String cpbiIban;
+    private String ownbiIban;
 
    /* @ManyToOne(cascade = CascadeType.ALL)
     @JsonIgnore

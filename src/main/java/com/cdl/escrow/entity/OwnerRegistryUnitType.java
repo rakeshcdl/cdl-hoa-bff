@@ -22,35 +22,35 @@ import java.util.Set;
 @Data
 @EntityListeners(AuditingEntityListener.class)
 @Entity
-@Table(name = "capital_partner_unit_type")
+@Table(name = "owner_registry_unit_type")
 public class OwnerRegistryUnitType implements Serializable {
     @Id
     @SequenceGenerator(
-            name = "capital_partner_unit_type_id_seq_gen",
-            sequenceName = "capital_partner_unit_type_id_seq",
+            name = "owner_registry_unit_type_id_seq_gen",
+            sequenceName = "owner_registry_unit_type_id_seq",
             allocationSize = 50
     )
     @GeneratedValue(
             strategy = GenerationType.SEQUENCE,
-            generator = "capital_partner_unit_type_id_seq_gen"
+            generator = "owner_registry_unit_type_id_seq_gen"
     )
     private Long id ;
 
-    private String cputName;
+    private String ownutName;
 
     @Lob
-    @Column(name = "cput_icon" , columnDefinition = "TEXT")
-    private byte[] cputIcon;
+    @Column(name = "ownut_icon" , columnDefinition = "TEXT")
+    private byte[] ownutIcon;
 
-    private String cputIconContentType;
+    private String ownutIconContentType;
 
-    private Boolean cputIsStandalone;
+    private Boolean ownutIsStandalone;
 
-    private String cpUnitTypePrefix;
+    private String ownUnitTypePrefix;
 
-    private String cputExcelFormula;
+    private String ownutExcelFormula;
 
-    private String cputJsFormula;
+    private String ownutJsFormula;
 
     @ManyToOne
     @JsonIgnore

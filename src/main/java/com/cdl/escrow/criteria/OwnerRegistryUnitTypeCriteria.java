@@ -17,19 +17,19 @@ public class OwnerRegistryUnitTypeCriteria implements Serializable {
 
     private LongFilter id ;
 
-    private StringFilter cputName;
+    private StringFilter ownutName;
 
-   // private byte[] cputIcon;
+   // private byte[] ownutIcon;
 
-    private StringFilter cputIconContentType;
+    private StringFilter ownutIconContentType;
 
-    private BooleanFilter cputIsStandalone;
+    private BooleanFilter ownutIsStandalone;
 
-    private StringFilter cpUnitTypePrefix;
+    private StringFilter ownUnitTypePrefix;
 
-    private StringFilter cputExcelFormula;
+    private StringFilter ownutExcelFormula;
 
-    private StringFilter cputJsFormula;
+    private StringFilter ownutJsFormula;
 
     private LongFilter capitalPartnerParentUnitTypeId;
 

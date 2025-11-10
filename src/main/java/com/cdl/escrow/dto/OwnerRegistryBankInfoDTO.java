@@ -12,21 +12,21 @@ import java.io.Serializable;
 public class OwnerRegistryBankInfoDTO implements Serializable {
     private Long id ;
 
-    private String cpbiPayeeName;
+    private String ownbiPayeeName;
 
-    private String cpbiPayeeAddress;
+    private String ownbiPayeeAddress;
 
-    private String cpbiBankName;
+    private String ownbiBankName;
 
-    private String cpbiBankAddress;
+    private String ownbiBankAddress;
 
-    private String cpbiBicCode;
+    private String ownbiBicCode;
 
-    private String cpbiBeneRoutingCode;
+    private String ownbiBeneRoutingCode;
 
-    private String cpbiAccountNumber;
+    private String ownbiAccountNumber;
 
-    private String cpbiIban;
+    private String ownbiIban;
 
     //private  transient BankAccountDTO bankAccountDTO;
 

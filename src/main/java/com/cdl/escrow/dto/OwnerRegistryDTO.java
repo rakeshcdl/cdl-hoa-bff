@@ -14,31 +14,31 @@ import java.util.Set;
 public class OwnerRegistryDTO implements Serializable {
     private Long id ;
 
-    private String capitalPartnerId;
+    private String ownerRegistryId;
 
-    private String capitalPartnerName;
+    private String ownerRegistryName;
 
-    private String capitalPartnerMiddleName;
+    private String ownerRegistryMiddleName;
 
-    private String capitalPartnerLastName;
+    private String ownerRegistryLastName;
 
-    private Float capitalPartnerOwnershipPercentage;
+    private Float ownerRegistryOwnershipPercentage;
 
-    private String capitalPartnerIdNo;
+    private String ownerRegistryIdNo;
 
-    private String capitalPartnerTelephoneNo;
+    private String ownerRegistryTelephoneNo;
 
-    private String capitalPartnerMobileNo;
+    private String ownerRegistryMobileNo;
 
-    private String capitalPartnerEmail;
+    private String ownerRegistryEmail;
 
-    private Integer capitalPartnerOwnerNumber;
+    private Integer ownerRegistryOwnerNumber;
 
     private Boolean isCurrent;
 
     private ZonedDateTime idExpiaryDate;
 
-    private String capitalPartnerLocaleName;
+    private String ownerRegistryLocaleName;
 
     private ApplicationSettingDTO documentTypeDTO;
 

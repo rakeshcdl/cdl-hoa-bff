@@ -41,24 +41,24 @@ public class OwnerRegistryCriteriaService extends BaseSpecificationBuilder<Owner
                 addLongFilter(cb, root, predicates, "documentTypeId", criteria.getDocumentTypeId());
                 addLongFilter(cb, root, predicates, "countryOptionId", criteria.getCountryOptionId());
                 addLongFilter(cb, root, predicates, "investorTypeId", criteria.getInvestorTypeId());
-                addLongFilter(cb, root, predicates, "capitalPartnerUnitId", criteria.getCapitalPartnerUnitId());
+                addLongFilter(cb, root, predicates, "ownerRegistryUnitId", criteria.getOwnerRegistryUnitId());
 
                 // String Filters
-                addStringFilter(cb, root, predicates, "capitalPartnerId", criteria.getCapitalPartnerId(), true);
-                addStringFilter(cb, root, predicates, "capitalPartnerName", criteria.getCapitalPartnerName(), true);
-                addStringFilter(cb, root, predicates, "capitalPartnerMiddleName", criteria.getCapitalPartnerMiddleName(), true);
-                addStringFilter(cb, root, predicates, "capitalPartnerLastName", criteria.getCapitalPartnerLastName(), true);
-                addStringFilter(cb, root, predicates, "capitalPartnerIdNo", criteria.getCapitalPartnerIdNo(), true);
-                addStringFilter(cb, root, predicates, "capitalPartnerTelephoneNo", criteria.getCapitalPartnerTelephoneNo(), true);
-                addStringFilter(cb, root, predicates, "capitalPartnerMobileNo", criteria.getCapitalPartnerMobileNo(), true);
-                addStringFilter(cb, root, predicates, "capitalPartnerEmail", criteria.getCapitalPartnerEmail(), true);
-                addStringFilter(cb, root, predicates, "capitalPartnerLocaleName", criteria.getCapitalPartnerLocaleName(), true);
+                addStringFilter(cb, root, predicates, "ownerRegistryId", criteria.getOwnerRegistryId(), true);
+                addStringFilter(cb, root, predicates, "ownerRegistryName", criteria.getOwnerRegistryName(), true);
+                addStringFilter(cb, root, predicates, "ownerRegistryMiddleName", criteria.getOwnerRegistryMiddleName(), true);
+                addStringFilter(cb, root, predicates, "ownerRegistryLastName", criteria.getOwnerRegistryLastName(), true);
+                addStringFilter(cb, root, predicates, "ownerRegistryIdNo", criteria.getOwnerRegistryIdNo(), true);
+                addStringFilter(cb, root, predicates, "ownerRegistryTelephoneNo", criteria.getOwnerRegistryTelephoneNo(), true);
+                addStringFilter(cb, root, predicates, "ownerRegistryMobileNo", criteria.getOwnerRegistryMobileNo(), true);
+                addStringFilter(cb, root, predicates, "ownerRegistryEmail", criteria.getOwnerRegistryEmail(), true);
+                addStringFilter(cb, root, predicates, "ownerRegistryLocaleName", criteria.getOwnerRegistryLocaleName(), true);
 
                 // Float Filter
-                addFloatFilter(cb, root, predicates, "capitalPartnerOwnershipPercentage", criteria.getCapitalPartnerOwnershipPercentage());
+                addFloatFilter(cb, root, predicates, "ownerRegistryOwnershipPercentage", criteria.getOwnerRegistryOwnershipPercentage());
 
                 // Integer Filter
-                addIntegerFilter(cb, root, predicates, "capitalPartnerOwnerNumber", criteria.getCapitalPartnerOwnerNumber());
+                addIntegerFilter(cb, root, predicates, "ownerRegistryOwnerNumber", criteria.getOwnerRegistryOwnerNumber());
 
                 // Boolean Filter
                 addBooleanFilter(cb, root, predicates, "isCurrent", criteria.getIsCurrent());
