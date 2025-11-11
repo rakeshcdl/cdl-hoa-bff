@@ -1,6 +1,7 @@
 package com.cdl.escrow.criteria;
 
 import com.cdl.escrow.enumeration.WorkflowStatus;
+import com.cdl.escrow.filter.BooleanFilter;
 import com.cdl.escrow.filter.LongFilter;
 import com.cdl.escrow.filter.StringFilter;
 import lombok.*;
@@ -19,23 +20,27 @@ public class AssetRegisterContactCriteria implements Serializable {
 
     private StringFilter arcContactName;
 
-    private StringFilter arcCcontactTelCode;
+    private StringFilter arcContactTelCode;
 
-    private StringFilter arcCcontactTelNo;
+    private StringFilter arcContactTelNo;
 
-    private StringFilter arcCcountryMobCode;
+    private StringFilter arcCountryMobCode;
 
-    private StringFilter arcCcontactMobNo;
+    private StringFilter arcContactMobNo;
 
-    private StringFilter arcCcontactEmail;
+    private StringFilter arcContactEmail;
 
-    private StringFilter arcCcontactAddress;
+    private StringFilter arcContactAddress;
 
-    private StringFilter arcCcontactPoBox;
+    private StringFilter arcContactPoBox;
 
-    private StringFilter arcCcontactFaxNo;
+    private StringFilter arcContactFaxNo;
 
     private WorkflowStatus workflowStatus;
 
     private LongFilter assetRegisterId;
+
+    private BooleanFilter enabled ;
+
+    private BooleanFilter deleted;
 }

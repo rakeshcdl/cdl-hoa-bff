@@ -13,31 +13,31 @@ import java.io.Serializable;
 public class AssetRegisterContactDTO implements Serializable {
     private Long id;
 
-    private String bpcContactName;
+    private String arcContactName;
 
-    private String bpcFirstName;
+    private String arcFirstName;
 
-    private String bpcLastName;
+    private String arcLastName;
 
-    private String bpcContactTelCode;
+    private String arcContactTelCode;
 
-    private String bpcContactTelNo;
+    private String arcContactTelNo;
 
-    private String bpcCountryMobCode;
+    private String arcCountryMobCode;
 
-    private String bpcContactMobNo;
+    private String arcContactMobNo;
 
-    private String bpcContactEmail;
+    private String arcContactEmail;
 
-    private String bpcContactAddress;
+    private String arcContactAddress;
 
-    private String bpcContactAddressLine1;
+    private String arcContactAddressLine1;
 
-    private String bpcContactAddressLine2;
+    private String arcContactAddressLine2;
 
-    private String bpcContactPoBox;
+    private String arcContactPoBox;
 
-    private String bpcContactFaxNo;
+    private String arcContactFaxNo;
 
     private boolean enabled;
 

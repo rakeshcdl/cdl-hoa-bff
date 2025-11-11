@@ -36,16 +36,17 @@ public class AssetRegisterContactCriteriaService extends BaseSpecificationBuilde
             List<Predicate> predicates = new ArrayList<>();
             if(criteria!=null) {
                 addLongFilter(cb, root, predicates, "id", criteria.getId());
-                addStringFilter(cb, root, predicates, "bpcContactName", criteria.getArcContactName(), true);
-                addStringFilter(cb, root, predicates, "bpcCcontactTelCode", criteria.getArcCcontactTelCode(), false);
-                addStringFilter(cb, root, predicates, "bpcCcontactTelNo", criteria.getArcCcontactTelNo(), false);
-                addStringFilter(cb, root, predicates, "bpcCcountryMobCode", criteria.getArcCcountryMobCode(), false);
-                addStringFilter(cb, root, predicates, "bpcCcontactMobNo", criteria.getArcCcontactMobNo(), false);
-                addStringFilter(cb, root, predicates, "bpcCcontactEmail", criteria.getArcCcontactEmail(), true);
-                addStringFilter(cb, root, predicates, "bpcCcontactAddress", criteria.getArcCcontactAddress(), true);
-                addStringFilter(cb, root, predicates, "bpcCcontactPoBox", criteria.getArcCcontactPoBox(), false);
-                addStringFilter(cb, root, predicates, "bpcCcontactFaxNo", criteria.getArcCcontactFaxNo(), false);
-
+                addStringFilter(cb, root, predicates, "arcContactName", criteria.getArcContactName(), true);
+                addStringFilter(cb, root, predicates, "arcContactTelCode", criteria.getArcContactTelCode(), false);
+                addStringFilter(cb, root, predicates, "arcContactTelNo", criteria.getArcContactTelNo(), false);
+                addStringFilter(cb, root, predicates, "arcCountryMobCode", criteria.getArcCountryMobCode(), false);
+                addStringFilter(cb, root, predicates, "arcContactMobNo", criteria.getArcContactMobNo(), false);
+                addStringFilter(cb, root, predicates, "arcContactEmail", criteria.getArcContactEmail(), true);
+                addStringFilter(cb, root, predicates, "arcContactAddress", criteria.getArcContactAddress(), true);
+                addStringFilter(cb, root, predicates, "arcContactPoBox", criteria.getArcContactPoBox(), false);
+                addStringFilter(cb, root, predicates, "arcContactFaxNo", criteria.getArcContactFaxNo(), false);
+                addBooleanFilter(cb, root, predicates, "enabled", criteria.getEnabled());
+                addBooleanFilter(cb, root, predicates, "deleted", criteria.getDeleted());
                 // Enum or direct equals
                 if (criteria.getWorkflowStatus() != null) {
                     predicates.add(cb.equal(root.get("workflowStatus"), criteria.getWorkflowStatus()));
@@ -53,7 +54,7 @@ public class AssetRegisterContactCriteriaService extends BaseSpecificationBuilde
 
                 // Relation Join
                 if (criteria.getAssetRegisterId() != null) {
-                    addLongFilterForJoin(cb, root, predicates, "buildPartner", "id", criteria.getAssetRegisterId());
+                    addLongFilterForJoin(cb, root, predicates, "assetRegister", "id", criteria.getAssetRegisterId());
                 }
             }
             return cb.and(predicates.toArray(new Predicate[0]));
