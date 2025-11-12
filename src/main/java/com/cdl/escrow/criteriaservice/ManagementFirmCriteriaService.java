@@ -66,6 +66,9 @@ public class ManagementFirmCriteriaService extends BaseSpecificationBuilder<Mana
               //  addDoubleFilter(cb, root, predicates, "mfMflEstateBrokerExp", criteria.get());
                 addDoubleFilter(cb, root, predicates, "mfAdvertisementExp", criteria.getMfAdvertisementExp());
                 addStringFilter(cb, root, predicates, "mfLandOwnerName", criteria.getMfLandOwnerName(), true);
+
+                addBooleanFilter(cb, root, predicates, "deleted", criteria.getDeleted());
+                addBooleanFilter(cb, root, predicates, "enabled", criteria.getEnabled());
               //  addLongFilter(cb, root, predicates, "buildPartnerId", criteria.getBuildPartnerId());
               //  addLongFilter(cb, root, predicates, "mfStatusId", criteria.getMfStatusId());
              //   addLongFilter(cb, root, predicates, "mfTypeId", criteria.getMfTypeId());

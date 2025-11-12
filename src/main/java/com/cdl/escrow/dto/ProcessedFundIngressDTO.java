@@ -99,6 +99,7 @@ public class ProcessedFundIngressDTO implements Serializable {
     private Boolean deleted ;
 
     private boolean enabled ;
+
     private TaskStatusDTO taskStatusDTO;
 
     private PendingFundIngressDTO pendingFundIngressDTO;

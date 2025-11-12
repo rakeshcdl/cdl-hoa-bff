@@ -85,9 +85,11 @@ public class ProcessedFundIngressCriteria implements Serializable {
 
     private StringFilter pfiSpecialField2;
 
-    private LongFilter realEstateAssestId;
+    private LongFilter managementFirmId;
 
-    private LongFilter capitalPartnerUnitId;
+    private LongFilter ownerRegistryUnitId;
+
+    private LongFilter taskStatusID;
 
     private LongFilter bucketTypeId;
 

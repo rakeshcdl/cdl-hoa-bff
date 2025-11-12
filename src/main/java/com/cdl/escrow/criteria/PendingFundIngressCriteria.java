@@ -95,9 +95,9 @@ public class PendingFundIngressCriteria {
 
     private StringFilter ptfiPaymentRefNo;
 
-    private LongFilter realEstateAssestId;
+    private LongFilter managementFirmId;
 
-    private LongFilter capitalPartnerUnitId;
+    private LongFilter ownerRegistryUnitId;
 
     private LongFilter bucketTypeId;
 
@@ -110,4 +110,6 @@ public class PendingFundIngressCriteria {
     private BooleanFilter enabled ;
 
     private BooleanFilter deleted;
+
+    private LongFilter taskStatusId;
 }

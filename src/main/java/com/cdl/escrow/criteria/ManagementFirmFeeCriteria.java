@@ -38,5 +38,9 @@ public class ManagementFirmFeeCriteria implements Serializable {
 
     private LongFilter mffFrequencyId;
 
+    private BooleanFilter deleted ;
+
+    private BooleanFilter enabled ;
+
     //private Set<ManagementFirmHistoryDTO> mflEstateAssestFeeHistoryDTOS ;
 }

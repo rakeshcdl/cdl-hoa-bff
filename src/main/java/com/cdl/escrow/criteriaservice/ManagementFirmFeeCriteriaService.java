@@ -43,10 +43,11 @@ public class ManagementFirmFeeCriteriaService extends BaseSpecificationBuilder<M
                 addDoubleFilter(cb, root, predicates, "mffVatPercentage", criteria.getMffVatPercentage());
                 addBooleanFilter(cb, root, predicates, "mffCollected", criteria.getMffCollected());
 
-
+                addBooleanFilter(cb, root, predicates, "deleted", criteria.getDeleted());
+                addBooleanFilter(cb, root, predicates, "enabled", criteria.getEnabled());
                 // Relation Join
                 if (criteria.getManagementFirmId() != null) {
-                    addLongFilterForJoin(cb, root, predicates, "managementFirmId", "id", criteria.getManagementFirmId());
+                    addLongFilterForJoin(cb, root, predicates, "managementFirm", "id", criteria.getManagementFirmId());
                 }
                 if (criteria.getMffCategoryId() != null) {
                     addLongFilterForJoin(cb, root, predicates, "mffCategory", "id", criteria.getMffCategoryId());

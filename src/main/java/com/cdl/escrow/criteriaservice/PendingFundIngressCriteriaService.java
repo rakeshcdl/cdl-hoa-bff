@@ -2,10 +2,12 @@ package com.cdl.escrow.criteriaservice;
 
 import com.cdl.escrow.criteria.PendingFundIngressCriteria;
 import com.cdl.escrow.dto.PendingFundIngressDTO;
-import com.cdl.escrow.entity.PendingFundIngress;
+import com.cdl.escrow.entity.*;
 import com.cdl.escrow.filter.BaseSpecificationBuilder;
 import com.cdl.escrow.mapper.PendingFundIngressMapper;
 import com.cdl.escrow.repository.PendingFundIngressRepository;
+import jakarta.persistence.criteria.Join;
+import jakarta.persistence.criteria.JoinType;
 import jakarta.persistence.criteria.Predicate;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -83,12 +85,29 @@ public class PendingFundIngressCriteriaService extends BaseSpecificationBuilder<
 
                 addStringFilter(cb,root,predicates,"ptfiPaymentRefNo",criteria.getPtfiPaymentRefNo(),true);
                 addStringFilter(cb,root,predicates,"ptfiCbsResponse",criteria.getPtfiCbsResponse(),true);
-                addLongFilter(cb, root, predicates, "realEstateAssestId", criteria.getRealEstateAssestId());
-                addLongFilter(cb, root, predicates, "capitalPartnerUnitId", criteria.getCapitalPartnerUnitId());
-                addLongFilter(cb, root, predicates, "bucketTypeId", criteria.getBucketTypeId());
-                addLongFilter(cb, root, predicates, "bankAccountId", criteria.getBankAccountId());
-                addLongFilter(cb, root, predicates, "depositModeId", criteria.getDepositModeId());
-                addLongFilter(cb, root, predicates, "subDepositTypeId", criteria.getSubDepositTypeId());
+
+                if (criteria.getManagementFirmId() != null) {
+                    Join<PendingFundIngress, ManagementFirm> join = root.join("managementFirm", JoinType.LEFT);
+                    addLongFilterOnJoin(cb, join, predicates, "id", criteria.getManagementFirmId());
+                }
+
+                if (criteria.getOwnerRegistryUnitId() != null) {
+                    Join<PendingFundIngress, OwnerRegistryUnit> join = root.join("ownerRegistryUnit", JoinType.LEFT);
+                    addLongFilterOnJoin(cb, join, predicates, "id", criteria.getOwnerRegistryUnitId());
+                }
+
+                if (criteria.getBucketTypeId() != null) {
+                    Join<PendingFundIngress, ApplicationSetting> join = root.join("bucketType", JoinType.LEFT);
+                    addLongFilterOnJoin(cb, join, predicates, "id", criteria.getBucketTypeId());
+                }
+                if (criteria.getDepositModeId() != null) {
+                    Join<PendingFundIngress, ApplicationSetting> join = root.join("depositMode", JoinType.LEFT);
+                    addLongFilterOnJoin(cb, join, predicates, "id", criteria.getDepositModeId());
+                }
+                if (criteria.getSubDepositTypeId() != null) {
+                    Join<PendingFundIngress, ApplicationSetting> join = root.join("subDepositType", JoinType.LEFT);
+                    addLongFilterOnJoin(cb, join, predicates, "id", criteria.getSubDepositTypeId());
+                }
             }
 
             return cb.and(predicates.toArray(new Predicate[0]));
