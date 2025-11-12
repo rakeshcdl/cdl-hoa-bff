@@ -1,6 +1,13 @@
 package com.cdl.escrow.criteria;
 
+import com.cdl.escrow.entity.Budget;
+import com.cdl.escrow.entity.BudgetCategory;
+import com.cdl.escrow.entity.BudgetItem;
+import com.cdl.escrow.entity.TaskStatus;
 import com.cdl.escrow.filter.*;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.ManyToOne;
 import lombok.*;
 
 import java.io.Serializable;
@@ -55,7 +62,7 @@ public class FundEgressCriteria implements Serializable {
 
     private DoubleFilter feAmtPaidAgainstInv;
 
-    private StringFilter feCapExcedded;
+    private StringFilter feCapExceeded;
 
     private DoubleFilter feTotalAmountPaid;
 
@@ -69,7 +76,7 @@ public class FundEgressCriteria implements Serializable {
 
     private DoubleFilter feAmountInTransit;
 
-    private StringFilter feVarCapExcedded;
+    private StringFilter feVarCapExceeded;
 
     private DoubleFilter feIndicativeRate;
 
@@ -109,11 +116,11 @@ public class FundEgressCriteria implements Serializable {
 
     private BooleanFilter feIncludeInPayout;
 
-    private DoubleFilter fBbankCharges;
+    private DoubleFilter feBankCharges;
 
     private BooleanFilter feTasPaymentSuccess;
 
-    private BooleanFilter fetasPaymentRerun;
+    private BooleanFilter feTasPaymentReturn;
 
     private BooleanFilter feDiscardPayment;
 
@@ -185,6 +192,7 @@ public class FundEgressCriteria implements Serializable {
 
     private BooleanFilter feIsEngineerFee;
 
+    // Mapping start
     private LongFilter paymentStatusOptionId;
 
     private LongFilter voucherPaymentTypeId;
@@ -209,21 +217,31 @@ public class FundEgressCriteria implements Serializable {
 
     private LongFilter payoutToBeMadeFromCbsId;
 
-    private LongFilter realEstateAssestId;
+    private LongFilter managementFirmId;
 
-    private LongFilter capitalPartnerUnitId;
+    private LongFilter ownerRegistryUnitId;
 
-    private LongFilter transferCapitalPartnerUnitId;
+    private LongFilter transferOwnerRegistryUnitId;
 
-    private LongFilter buildPartnerId;
+    private LongFilter assetRegisterId;
 
-    private LongFilter realEstateAssestBeneficiaryId;
+    private LongFilter managementFirmBeneficiaryId;
 
     //private Set<ManagementFirmHistoryDTO> realEstateAssestFeeHistoryDTOS;
 
-    private LongFilter suretyBondId;
+    //private LongFilter suretyBondId;
 
     private BooleanFilter enabled ;
 
     private BooleanFilter deleted;
+
+    private LongFilter taskStatusId;
+
+    // Budget
+
+    private LongFilter budgetId;
+
+    private LongFilter budgetCategoryId;
+
+    private LongFilter budgetItemId;
 }

@@ -85,7 +85,7 @@ public class FundEgress implements Serializable {
 
     private Double feAmtPaidAgainstInv;
 
-    private String feCapExcedded;
+    private String feCapExceeded;
 
     private Double feTotalAmountPaid;
 
@@ -99,7 +99,7 @@ public class FundEgress implements Serializable {
 
     private Double feAmountInTransit;
 
-    private String feVarCapExcedded;
+    private String feVarCapExceeded;
 
     private Double feIndicativeRate;
 
@@ -139,11 +139,11 @@ public class FundEgress implements Serializable {
 
     private Boolean feIncludeInPayout;
 
-    private Double fBbankCharges;
+    private Double feBankCharges;
 
     private Boolean feTasPaymentSuccess;
 
-    private Boolean fetasPaymentRerun;
+    private Boolean feTasPaymentReturn;
 
     private Boolean feDiscardPayment;
 

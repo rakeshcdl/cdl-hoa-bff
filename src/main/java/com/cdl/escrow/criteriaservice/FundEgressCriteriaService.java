@@ -2,10 +2,12 @@ package com.cdl.escrow.criteriaservice;
 
 import com.cdl.escrow.criteria.FundEgressCriteria;
 import com.cdl.escrow.dto.FundEgressDTO;
-import com.cdl.escrow.entity.FundEgress;
+import com.cdl.escrow.entity.*;
 import com.cdl.escrow.filter.BaseSpecificationBuilder;
 import com.cdl.escrow.mapper.FundEgressMapper;
 import com.cdl.escrow.repository.FundEgressRepository;
+import jakarta.persistence.criteria.Join;
+import jakarta.persistence.criteria.JoinType;
 import jakarta.persistence.criteria.Predicate;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -57,14 +59,14 @@ public class FundEgressCriteriaService extends BaseSpecificationBuilder<FundEgre
                addDoubleFilter(cb, root, predicates, "feEngineerApprovedAmt", criteria.getFeEngineerApprovedAmt());
                addDoubleFilter(cb, root, predicates, "feTotalEligibleAmtInv", criteria.getFeTotalEligibleAmtInv());
                addDoubleFilter(cb, root, predicates, "feAmtPaidAgainstInv", criteria.getFeAmtPaidAgainstInv());
-               addStringFilter(cb, root, predicates, "feCapExcedded", criteria.getFeCapExcedded(), true);
+               addStringFilter(cb, root, predicates, "feCapExceeded", criteria.getFeCapExceeded(), true);
                addDoubleFilter(cb, root, predicates, "feTotalAmountPaid", criteria.getFeTotalAmountPaid());
                addDoubleFilter(cb, root, predicates, "feDebitFromEscrow", criteria.getFeDebitFromEscrow());
                addDoubleFilter(cb, root, predicates, "feCurEligibleAmt", criteria.getFeCurEligibleAmt());
                addDoubleFilter(cb, root, predicates, "feDebitFromRetention", criteria.getFeDebitFromRetention());
                addDoubleFilter(cb, root, predicates, "feTotalPayoutAmt", criteria.getFeTotalPayoutAmt());
                addDoubleFilter(cb, root, predicates, "feAmountInTransit", criteria.getFeAmountInTransit());
-               addStringFilter(cb, root, predicates, "feVarCapExcedded", criteria.getFeVarCapExcedded(), true);
+               addStringFilter(cb, root, predicates, "feVarCapExceeded", criteria.getFeVarCapExceeded(), true);
                addDoubleFilter(cb, root, predicates, "feIndicativeRate", criteria.getFeIndicativeRate());
                addStringFilter(cb, root, predicates, "fePpcNumber", criteria.getFePpcNumber(), true);
                addBooleanFilter(cb, root, predicates, "feCorporatePayment", criteria.getFeCorporatePayment());
@@ -84,9 +86,9 @@ public class FundEgressCriteriaService extends BaseSpecificationBuilder<FundEgre
                addZonedDateTimeFilter(cb, root, predicates, "feBeneDateOfPayment", criteria.getFeBeneDateOfPayment());
                addDoubleFilter(cb, root, predicates, "feBeneVatPaymentAmt", criteria.getFeBeneVatPaymentAmt());
                addBooleanFilter(cb, root, predicates, "feIncludeInPayout", criteria.getFeIncludeInPayout());
-               addDoubleFilter(cb, root, predicates, "fBbankCharges", criteria.getFBbankCharges());
+               addDoubleFilter(cb, root, predicates, "feBankCharges", criteria.getFeBankCharges());
                addBooleanFilter(cb, root, predicates, "feTasPaymentSuccess", criteria.getFeTasPaymentSuccess());
-               addBooleanFilter(cb, root, predicates, "fetasPaymentRerun", criteria.getFetasPaymentRerun());
+               addBooleanFilter(cb, root, predicates, "feTasPaymentReturn", criteria.getFeTasPaymentReturn());
                addBooleanFilter(cb, root, predicates, "feDiscardPayment", criteria.getFeDiscardPayment());
                addBooleanFilter(cb, root, predicates, "feIsTasPayment", criteria.getFeIsTasPayment());
                addBooleanFilter(cb, root, predicates, "feIsManualPayment", criteria.getFeIsManualPayment());
@@ -123,24 +125,112 @@ public class FundEgressCriteriaService extends BaseSpecificationBuilder<FundEgre
                addDoubleFilter(cb, root, predicates, "feCorporatePaymentEngFee", criteria.getFeCorporatePaymentEngFee());
                addBooleanFilter(cb, root, predicates, "feIsEngineerFee", criteria.getFeIsEngineerFee());
 
-               addLongFilter(cb, root, predicates, "paymentStatusOptionId", criteria.getPaymentStatusOptionId());
-               addLongFilter(cb, root, predicates, "voucherPaymentTypeId", criteria.getVoucherPaymentTypeId());
-               addLongFilter(cb, root, predicates, "voucherPaymentSubTypeId", criteria.getVoucherPaymentSubTypeId());
-               addLongFilter(cb, root, predicates, "expenseTypeId", criteria.getExpenseTypeId());
-               addLongFilter(cb, root, predicates, "expenseSubTypeId", criteria.getExpenseSubTypeId());
-               addLongFilter(cb, root, predicates, "invoiceCurrencyId", criteria.getInvoiceCurrencyId());
-               addLongFilter(cb, root, predicates, "paymentCurrencyId", criteria.getPaymentCurrencyId());
-               addLongFilter(cb, root, predicates, "chargedCodeId", criteria.getChargedCodeId());
-               addLongFilter(cb, root, predicates, "paymentModeId", criteria.getPaymentModeId());
-               addLongFilter(cb, root, predicates, "transactionTypeId", criteria.getTransactionTypeId());
-               addLongFilter(cb, root, predicates, "beneficiaryFeePaymentId", criteria.getBeneficiaryFeePaymentId());
-               addLongFilter(cb, root, predicates, "payoutToBeMadeFromCbsId", criteria.getPayoutToBeMadeFromCbsId());
-               addLongFilter(cb, root, predicates, "realEstateAssestId", criteria.getRealEstateAssestId());
-               addLongFilter(cb, root, predicates, "capitalPartnerUnitId", criteria.getCapitalPartnerUnitId());
-               addLongFilter(cb, root, predicates, "transferCapitalPartnerUnitId", criteria.getTransferCapitalPartnerUnitId());
-               addLongFilter(cb, root, predicates, "buildPartnerId", criteria.getBuildPartnerId());
-               addLongFilter(cb, root, predicates, "realEstateAssestBeneficiaryId", criteria.getRealEstateAssestBeneficiaryId());
-               addLongFilter(cb, root, predicates, "suretyBondId", criteria.getSuretyBondId());
+
+               if (criteria.getBeneficiaryFeePaymentId() != null) {
+                   Join<FundEgress, ApplicationSetting> join = root.join("beneficiaryFeePayment", JoinType.LEFT);
+                   addLongFilterOnJoin(cb, join, predicates, "id", criteria.getBeneficiaryFeePaymentId());
+               }
+
+               if (criteria.getPayoutToBeMadeFromCbsId() != null) {
+                   Join<FundEgress, ApplicationSetting> join = root.join("payoutToBeMadeFromCbs", JoinType.LEFT);
+                   addLongFilterOnJoin(cb, join, predicates, "id", criteria.getPayoutToBeMadeFromCbsId());
+               }
+
+               if (criteria.getChargedCodeId() != null) {
+                   Join<FundEgress, ApplicationSetting> join = root.join("chargedCode", JoinType.LEFT);
+                   addLongFilterOnJoin(cb, join, predicates, "id", criteria.getChargedCodeId());
+               }
+
+               if (criteria.getPaymentModeId() != null) {
+                   Join<FundEgress, ApplicationSetting> join = root.join("paymentMode", JoinType.LEFT);
+                   addLongFilterOnJoin(cb, join, predicates, "id", criteria.getPaymentModeId());
+               }
+
+               if (criteria.getTransactionTypeId() != null) {
+                   Join<FundEgress, ApplicationSetting> join = root.join("transactionType", JoinType.LEFT);
+                   addLongFilterOnJoin(cb, join, predicates, "id", criteria.getTransactionTypeId());
+               }
+
+               if (criteria.getPaymentStatusOptionId() != null) {
+                   Join<FundEgress, ApplicationSetting> join = root.join("paymentStatusOption", JoinType.LEFT);
+                   addLongFilterOnJoin(cb, join, predicates, "id", criteria.getPaymentStatusOptionId());
+               }
+
+               if (criteria.getVoucherPaymentTypeId() != null) {
+                   Join<FundEgress, ApplicationSetting> join = root.join("voucherPaymentType", JoinType.LEFT);
+                   addLongFilterOnJoin(cb, join, predicates, "id", criteria.getVoucherPaymentTypeId());
+               }
+
+               if (criteria.getVoucherPaymentSubTypeId() != null) {
+                   Join<FundEgress, ApplicationSetting> join = root.join("voucherPaymentSubType", JoinType.LEFT);
+                   addLongFilterOnJoin(cb, join, predicates, "id", criteria.getVoucherPaymentSubTypeId());
+               }
+
+               if (criteria.getExpenseTypeId() != null) {
+                   Join<FundEgress, ApplicationSetting> join = root.join("expenseType", JoinType.LEFT);
+                   addLongFilterOnJoin(cb, join, predicates, "id", criteria.getExpenseTypeId());
+               }
+
+               if (criteria.getExpenseSubTypeId() != null) {
+                   Join<FundEgress, ApplicationSetting> join = root.join("expenseSubType", JoinType.LEFT);
+                   addLongFilterOnJoin(cb, join, predicates, "id", criteria.getExpenseSubTypeId());
+               }
+
+               if (criteria.getInvoiceCurrencyId() != null) {
+                   Join<FundEgress, ApplicationSetting> join = root.join("invoiceCurrency", JoinType.LEFT);
+                   addLongFilterOnJoin(cb, join, predicates, "id", criteria.getInvoiceCurrencyId());
+               }
+
+               if (criteria.getPaymentCurrencyId() != null) {
+                   Join<FundEgress, ApplicationSetting> join = root.join("paymentCurrency", JoinType.LEFT);
+                   addLongFilterOnJoin(cb, join, predicates, "id", criteria.getPaymentCurrencyId());
+               }
+
+
+               if (criteria.getManagementFirmId() != null) {
+                   Join<FundEgress, ManagementFirm> join = root.join("managementFirm", JoinType.LEFT);
+                   addLongFilterOnJoin(cb, join, predicates, "id", criteria.getManagementFirmId());
+               }
+
+               if (criteria.getOwnerRegistryUnitId() != null) {
+                   Join<FundEgress, OwnerRegistryUnit> join = root.join("ownerRegistryUnit", JoinType.LEFT);
+                   addLongFilterOnJoin(cb, join, predicates, "id", criteria.getOwnerRegistryUnitId());
+               }
+
+               if (criteria.getTransferOwnerRegistryUnitId() != null) {
+                   Join<FundEgress, OwnerRegistryUnit> join = root.join("transferOwnerRegistryUnit", JoinType.LEFT);
+                   addLongFilterOnJoin(cb, join, predicates, "id", criteria.getTransferOwnerRegistryUnitId());
+               }
+
+               if (criteria.getAssetRegisterId() != null) {
+                   Join<FundEgress, AssetRegister> join = root.join("assetRegister", JoinType.LEFT);
+                   addLongFilterOnJoin(cb, join, predicates, "id", criteria.getAssetRegisterId());
+               }
+
+               if (criteria.getManagementFirmBeneficiaryId() != null) {
+                   Join<FundEgress, ManagementFirmBeneficiary> join = root.join("managementFirmBeneficiary", JoinType.LEFT);
+                   addLongFilterOnJoin(cb, join, predicates, "id", criteria.getManagementFirmBeneficiaryId());
+               }
+
+               if (criteria.getTaskStatusId() != null) {
+                   Join<FundEgress, TaskStatus> join = root.join("taskStatus", JoinType.LEFT);
+                   addLongFilterOnJoin(cb, join, predicates, "id", criteria.getTaskStatusId());
+               }
+
+               if (criteria.getBudgetId() != null) {
+                   Join<FundEgress, TaskStatus> join = root.join("budget", JoinType.LEFT);
+                   addLongFilterOnJoin(cb, join, predicates, "id", criteria.getBudgetId());
+               }
+
+               if (criteria.getBudgetCategoryId() != null) {
+                   Join<FundEgress, TaskStatus> join = root.join("budgetCategory", JoinType.LEFT);
+                   addLongFilterOnJoin(cb, join, predicates, "id", criteria.getBudgetCategoryId());
+               }
+
+               if (criteria.getBudgetItemId() != null) {
+                   Join<FundEgress, TaskStatus> join = root.join("budgetItem", JoinType.LEFT);
+                   addLongFilterOnJoin(cb, join, predicates, "id", criteria.getBudgetItemId());
+               }
 
                addBooleanFilter(cb, root, predicates, "deleted", criteria.getDeleted());
                addBooleanFilter(cb, root, predicates, "enabled", criteria.getEnabled());

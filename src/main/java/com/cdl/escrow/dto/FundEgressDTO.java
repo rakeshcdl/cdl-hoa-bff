@@ -1,6 +1,13 @@
 package com.cdl.escrow.dto;
 
+import com.cdl.escrow.entity.Budget;
+import com.cdl.escrow.entity.BudgetCategory;
+import com.cdl.escrow.entity.BudgetItem;
+import com.cdl.escrow.entity.TaskStatus;
 import com.cdl.escrow.enumeration.WorkflowStatus;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -56,7 +63,7 @@ public class FundEgressDTO implements Serializable {
 
     private Double feAmtPaidAgainstInv;
 
-    private String feCapExcedded;
+    private String feCapExceeded;
 
     private Double feTotalAmountPaid;
 
@@ -70,7 +77,7 @@ public class FundEgressDTO implements Serializable {
 
     private Double feAmountInTransit;
 
-    private String feVarCapExcedded;
+    private String feVarCapExceeded;
 
     private Double feIndicativeRate;
 
@@ -110,11 +117,11 @@ public class FundEgressDTO implements Serializable {
 
     private Boolean feIncludeInPayout;
 
-    private Double fBbankCharges;
+    private Double feBankCharges;
 
     private Boolean feTasPaymentSuccess;
 
-    private Boolean fetasPaymentRerun;
+    private Boolean feTasPaymentReturn;
 
     private Boolean feDiscardPayment;
 
@@ -233,4 +240,10 @@ public class FundEgressDTO implements Serializable {
     private Boolean deleted ;
 
     private TaskStatusDTO taskStatusDTO;
+
+    private BudgetDTO budgetDTO;
+
+    private BudgetCategoryDTO budgetCategoryDTO;
+
+    private BudgetItemDTO budgetItemDTO;
 }
