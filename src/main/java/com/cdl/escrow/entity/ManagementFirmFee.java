@@ -84,4 +84,7 @@ public class ManagementFirmFee implements Serializable {
     private Boolean enabled ;
 
     private Boolean deleted;
+
+    // New added
+    private String mffCorporateTax;
 }

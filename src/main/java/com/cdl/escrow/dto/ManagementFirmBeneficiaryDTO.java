@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
+import java.time.ZonedDateTime;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -66,4 +67,10 @@ public class ManagementFirmBeneficiaryDTO implements Serializable {
     //private transient Set<BankAccount> bankAccountDTOS ;
 
    // private Set<FundEgress> fundEgressDTOS;
+
+    private String mfbTradeLicenseNumber;
+
+    private String mfbTradeLicenseIssueLocation;
+
+    private ZonedDateTime mfbTradeLicenseExpiationDate;
 }

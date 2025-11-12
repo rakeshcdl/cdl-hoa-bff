@@ -45,4 +45,6 @@ public class ManagementFirmFeeDTO implements Serializable {
 
     private boolean enabled ;
     // private Set<ManagementFirmHistoryDTO> mflEstateAssestFeeHistoryDTOS ;
+
+    private String mffCorporateTax;
 }

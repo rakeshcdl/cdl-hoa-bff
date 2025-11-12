@@ -119,4 +119,8 @@ public class ProcessedFundIngressDTO implements Serializable {
     private Double pfiReservePercentage;
 
     private BigDecimal pfiReserveAmount;
+
+    private BigDecimal ptfiReserveAmount;
+
+    private Double ptfiReservePercentage;
 }

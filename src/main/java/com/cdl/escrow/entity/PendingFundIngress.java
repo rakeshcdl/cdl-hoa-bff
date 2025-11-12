@@ -16,6 +16,7 @@ import lombok.*;
 import lombok.extern.jackson.Jacksonized;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
+import java.math.BigDecimal;
 import java.time.ZonedDateTime;
 
 @AllArgsConstructor
@@ -141,4 +142,10 @@ public class PendingFundIngress {
 
     @ManyToOne(fetch = FetchType.LAZY)
     private TaskStatus taskStatus;
+
+    // New added
+
+    private BigDecimal ptfiReserveAmount;
+
+    private Double ptfiReservePercentage;
 }

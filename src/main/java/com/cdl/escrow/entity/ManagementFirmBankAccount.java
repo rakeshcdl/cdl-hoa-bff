@@ -54,7 +54,7 @@ public class ManagementFirmBankAccount implements Serializable {
 
     private String currencyCode;
 
-    private Boolean isValidated = Boolean.FALSE;
+    private Boolean isValidated ;
 
 
     private ZonedDateTime createdAt = ZonedDateTime.now();
@@ -69,5 +69,9 @@ public class ManagementFirmBankAccount implements Serializable {
     private Boolean enabled ;
 
     private Boolean deleted;
+
+    // new added
+
+    private Boolean interestBearing;
 
 }

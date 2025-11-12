@@ -1,5 +1,6 @@
 package com.cdl.escrow.dto;
 
+import com.cdl.escrow.entity.ApplicationSetting;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -312,4 +313,8 @@ public class ManagementFirmFinancialSummaryDTO implements Serializable {
     private Boolean deleted ;
 
     private boolean enabled ;
+
+    private ZonedDateTime mffsInitiatedDate;
+
+    private ApplicationSettingDTO currentBalanceCategoryDTO;
 }

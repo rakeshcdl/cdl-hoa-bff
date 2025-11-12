@@ -189,4 +189,18 @@ public class ManagementFirm implements Serializable {
     @OneToMany(mappedBy = "managementFirm")
     @JsonIgnore
     private Set<Budget> budgets = new HashSet<>();
+
+    // new added
+
+    @ManyToOne
+    @JsonIgnore
+    private ApplicationSetting escrowType;
+
+    private String accountOwner;
+
+    private String backupAccountOwner;
+
+    @ManyToOne
+    @JsonIgnore
+    private ApplicationSetting emailNotification;
 }

@@ -155,4 +155,10 @@ public class ProcessedFundIngress implements Serializable {
 
     private Boolean deleted;
 
+    // New Added
+
+    private BigDecimal ptfiReserveAmount;
+
+    private Double ptfiReservePercentage;
+
 }

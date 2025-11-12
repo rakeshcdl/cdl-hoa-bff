@@ -338,4 +338,10 @@ public class FundEgress implements Serializable {
     @ManyToOne
     @JsonIgnore
     private BudgetItem budgetItem;
+
+    // New added
+
+    private Boolean feReraException;
+
+    private String feRoutingSortCode;
 }

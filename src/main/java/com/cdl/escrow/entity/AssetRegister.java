@@ -129,4 +129,10 @@ public class AssetRegister implements Serializable {
     @OneToMany(mappedBy = "assetRegister")
     @JsonIgnore
     private Set<Budget> budgets = new HashSet<>();
+
+
+    @ManyToOne
+    private ApplicationSetting managementType;
+
+    private Boolean notification;
 }

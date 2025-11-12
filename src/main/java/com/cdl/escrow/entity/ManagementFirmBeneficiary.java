@@ -7,6 +7,7 @@ import lombok.extern.jackson.Jacksonized;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.io.Serializable;
+import java.time.ZonedDateTime;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -109,4 +110,14 @@ public class ManagementFirmBeneficiary implements Serializable {
     private Boolean enabled ;
 
     private Boolean deleted;
+
+    // New added field
+
+    private String mfbTradeLicenseNumber;
+
+    private String mfbTradeLicenseIssueLocation;
+
+    private ZonedDateTime mfbTradeLicenseExpiationDate;
+
+
 }

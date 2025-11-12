@@ -1,6 +1,7 @@
 package com.cdl.escrow.dto;
 
 
+import com.cdl.escrow.entity.ApplicationSetting;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -72,6 +73,8 @@ public class AssetRegisterDTO implements Serializable {
 
  private TaskStatusDTO taskStatusDTO;
 
+  private ApplicationSettingDTO managementTypeDTO;
+
   //private Set<BuildPartnerBeneficiaryDTO> buildPartnerBeneficiaryDTOS ;
 
  //private Set<BuildPartnerContactDTO> buildPartnerContactDTOS;
@@ -79,4 +82,5 @@ public class AssetRegisterDTO implements Serializable {
 // private Set<ManagementFirmFinancialSummaryDTO> realEstateAssestFinancialSummaryDTOS ;
 
 // private Set<FundEgressDTO> fundEgressDTOS;
+private Boolean notification;
 }

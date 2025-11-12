@@ -43,4 +43,6 @@ public class ManagementFirmBankAccountDTO implements Serializable {
     private Boolean deleted ;
 
     private ManagementFirmDTO managementFirmDTO;
+
+    private Boolean interestBearing;
 }

@@ -246,4 +246,8 @@ public class FundEgressDTO implements Serializable {
     private BudgetCategoryDTO budgetCategoryDTO;
 
     private BudgetItemDTO budgetItemDTO;
+
+    private Boolean feReraException;
+
+    private String feRoutingSortCode;
 }

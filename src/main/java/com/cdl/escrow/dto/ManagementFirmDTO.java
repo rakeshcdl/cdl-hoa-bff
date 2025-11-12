@@ -1,7 +1,10 @@
 package com.cdl.escrow.dto;
 
 
+import com.cdl.escrow.entity.ApplicationSetting;
 import com.cdl.escrow.enumeration.WorkflowStatus;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -114,4 +117,13 @@ public class ManagementFirmDTO implements Serializable {
    // private Set<SuretyBondDTO> suretyBondDTOS;
 
     private TaskStatusDTO taskStatusDTO;
+
+    // New added
+    private ApplicationSettingDTO escrowTypeDTO;
+
+    private String accountOwner;
+
+    private String backupAccountOwner;
+
+    private ApplicationSettingDTO emailNotificationDTO;
 }

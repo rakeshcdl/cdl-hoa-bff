@@ -340,4 +340,10 @@ public class ManagementFirmFinancialSummary implements Serializable {
 
     private Boolean deleted;
 
+    // New added
+
+    private ZonedDateTime mffsInitiatedDate;
+
+    private ApplicationSetting currentBalanceCategory;
+
 }
