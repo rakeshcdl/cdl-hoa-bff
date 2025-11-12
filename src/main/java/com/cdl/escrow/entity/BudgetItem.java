@@ -24,7 +24,7 @@ public class BudgetItem implements Serializable {
 
     @Id
     @SequenceGenerator(
-            name = "budget_eventy_id_seq_gen",
+            name = "budget_event_id_seq_gen",
             sequenceName = "budget_event_id_seq",
             allocationSize = 50
     )

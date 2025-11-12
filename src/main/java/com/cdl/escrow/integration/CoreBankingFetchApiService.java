@@ -18,6 +18,7 @@ import org.springframework.stereotype.Service;
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 
 @Service
 @RequiredArgsConstructor
@@ -27,7 +28,9 @@ public class CoreBankingFetchApiService {
     private final BankConfigRepository bankConfigRepository;
     private final BankTokenConfigRepository bankTokenConfigRepository;
     private final OkHttpClient client;
-    private final ObjectMapper mapper;
+    private final ObjectMapper mapper= new ObjectMapper();;
+
+    private final Random random = new Random();
 
     /**
      * Main entry point to fetch bank API response.
@@ -244,7 +247,281 @@ public class CoreBankingFetchApiService {
     }
 
 
-    public JsonNode mockApiCustomerCall(String getCifDetails) throws JsonProcessingException {
+
+    // Predefined mock customer JSONs
+    private final List<String> mockCustomers = List.of(
+            """
+            {
+              "customerId": "CUE-N-6xMILIvAtlyxHbZ42",
+              "cif": "57386676",
+              "name": {
+                "firstName": "A C A A CPAX PAWAWP YPRPXYPAPNW",
+                "shortName": "ACAA CPAX",
+                "companyNumber": "100000234787",
+                "property": "Runwal Garden Mumbai",
+                "masterDeveloper": "Runwal Brothers",
+                "masterCommunity": "Real Estate Community"
+              },
+              "type": "CORPORATE",
+              "contact": {
+                "preferredEmail": "REGEML@57386676.ae",
+                "preferredPhone": "+971(99)9995738",
+                "address": {
+                  "line1": "2902, ds d dodf",
+                  "line2": "dvIdf sfddvf lfvjd, deOIf",
+                  "city": "Pune",
+                  "state": "Maharashtra",
+                  "country": "India",
+                  "pinCode": "400105"
+                }
+              }
+            }
+            """,
+            """
+            {
+              "customerId": "CUE-N-K8LPO93Jt9as7Rt91",
+              "cif": "57412345",
+              "name": {
+                "firstName": "Rahul Enterprises",
+                "shortName": "RahulEnt",
+                "companyNumber": "100000567890",
+                "property": "Phoenix Mall Pune",
+                "masterDeveloper": "Phoenix Holdings",
+                "masterCommunity": "Retail Zone"
+              },
+              "type": "CORPORATE",
+              "contact": {
+                "preferredEmail": "info@rahulent.com",
+                "preferredPhone": "+91-9820012345",
+                "address": {
+                  "line1": "Tower 2, MG Road",
+                  "line2": "Camp Area",
+                  "city": "Pune",
+                  "state": "Maharashtra",
+                  "country": "India",
+                  "pinCode": "411001"
+                }
+              }
+            }
+            """,
+            """
+            {
+              "customerId": "CUE-N-P9XQLEMn2rfg123",
+              "cif": "58900231",
+              "name": {
+                "firstName": "BlueSky Developers",
+                "shortName": "BlueSky",
+                "companyNumber": "100001112233",
+                "property": "SkyView Towers",
+                "masterDeveloper": "BlueSky Builders",
+                "masterCommunity": "HighRise Apartments"
+              },
+              "type": "CORPORATE",
+              "contact": {
+                "preferredEmail": "contact@bluesky.com",
+                "preferredPhone": "+971-501234567",
+                "address": {
+                  "line1": "Plot 12A, Business Bay",
+                  "line2": "Next to Metro",
+                  "city": "Dubai",
+                  "state": "Dubai",
+                  "country": "UAE",
+                  "pinCode": "000000"
+                }
+              }
+            }
+            """,
+            """
+            {
+              "customerId": "CUE-N-Z7YHGT67ab12345",
+              "cif": "58099001",
+              "name": {
+                "firstName": "Sunrise Realty",
+                "shortName": "SunReal",
+                "companyNumber": "100009990001",
+                "property": "Sunrise Plaza",
+                "masterDeveloper": "Sun Developers",
+                "masterCommunity": "Downtown Central"
+              },
+              "type": "CORPORATE",
+              "contact": {
+                "preferredEmail": "hello@sunrealty.in",
+                "preferredPhone": "+91-9930099300",
+                "address": {
+                  "line1": "Sector 21",
+                  "line2": "Main Road",
+                  "city": "Navi Mumbai",
+                  "state": "Maharashtra",
+                  "country": "India",
+                  "pinCode": "400706"
+                }
+              }
+            }
+            """,
+            """
+            {
+              "customerId": "CUE-N-A1B2C3D4E5F6",
+              "cif": "57380010",
+              "name": {
+                "firstName": "Green Leaf Farms",
+                "shortName": "GLF",
+                "companyNumber": "100008889900",
+                "property": "Agro Valley",
+                "masterDeveloper": "Green Leaf Group",
+                "masterCommunity": "Farming Estates"
+              },
+              "type": "INDIVIDUAL",
+              "contact": {
+                "preferredEmail": "support@greenleaf.com",
+                "preferredPhone": "+91-9000090000",
+                "address": {
+                  "line1": "Plot 77, Highway Road",
+                  "line2": "Post Office Lane",
+                  "city": "Ahmedabad",
+                  "state": "Gujarat",
+                  "country": "India",
+                  "pinCode": "380015"
+                }
+              }
+            }
+            """,
+            """
+            {
+              "customerId": "CUE-N-KL91ZXC78B9",
+              "cif": "58011234",
+              "name": {
+                "firstName": "TechNova Solutions",
+                "shortName": "TechNova",
+                "companyNumber": "100003332211",
+                "property": "TechNova Campus",
+                "masterDeveloper": "TN Group",
+                "masterCommunity": "IT Zone"
+              },
+              "type": "CORPORATE",
+              "contact": {
+                "preferredEmail": "admin@technova.io",
+                "preferredPhone": "+971-566778899",
+                "address": {
+                  "line1": "Building 8, Internet City",
+                  "line2": "Phase II",
+                  "city": "Dubai",
+                  "state": "Dubai",
+                  "country": "UAE",
+                  "pinCode": "000000"
+                }
+              }
+            }
+            """,
+            """
+            {
+              "customerId": "CUE-N-QP77MMX1234",
+              "cif": "59387777",
+              "name": {
+                "firstName": "Elite Construction Co.",
+                "shortName": "EliteCo",
+                "companyNumber": "100007775533",
+                "property": "Elite Square",
+                "masterDeveloper": "Elite Infrastructure",
+                "masterCommunity": "Metro Estate"
+              },
+              "type": "CORPORATE",
+              "contact": {
+                "preferredEmail": "info@eliteco.com",
+                "preferredPhone": "+971-505554444",
+                "address": {
+                  "line1": "Al Fahidi Street",
+                  "line2": "Near Creek Tower",
+                  "city": "Dubai",
+                  "state": "Dubai",
+                  "country": "UAE",
+                  "pinCode": "000000"
+                }
+              }
+            }
+            """,
+            """
+            {
+              "customerId": "CUE-N-W9RXYH123",
+              "cif": "59881234",
+              "name": {
+                "firstName": "Urban Housing Pvt Ltd",
+                "shortName": "UrbanHouse",
+                "companyNumber": "100005551111",
+                "property": "Urban Residency",
+                "masterDeveloper": "Urban Estates",
+                "masterCommunity": "Metro City"
+              },
+              "type": "CORPORATE",
+              "contact": {
+                "preferredEmail": "contact@urbanhousing.in",
+                "preferredPhone": "+91-9988776655",
+                "address": {
+                  "line1": "Plot 23, City Center",
+                  "line2": "Next to Mall",
+                  "city": "Bangalore",
+                  "state": "Karnataka",
+                  "country": "India",
+                  "pinCode": "560001"
+                }
+              }
+            }
+            """,
+            """
+            {
+              "customerId": "CUE-N-11YYXPP998",
+              "cif": "57777888",
+              "name": {
+                "firstName": "OceanView Hotels",
+                "shortName": "OceanView",
+                "companyNumber": "100002223334",
+                "property": "OceanView Resort",
+                "masterDeveloper": "OV Group",
+                "masterCommunity": "Hospitality Bay"
+              },
+              "type": "CORPORATE",
+              "contact": {
+                "preferredEmail": "bookings@oceanview.com",
+                "preferredPhone": "+971-507777888",
+                "address": {
+                  "line1": "Palm Jumeirah",
+                  "line2": "Beachfront Area",
+                  "city": "Dubai",
+                  "state": "Dubai",
+                  "country": "UAE",
+                  "pinCode": "000000"
+                }
+              }
+            }
+            """,
+            """
+            {
+              "customerId": "CUE-N-TT1122BB3344",
+              "cif": "59990011",
+              "name": {
+                "firstName": "EcoSmart Energy",
+                "shortName": "EcoSmart",
+                "companyNumber": "100008886655",
+                "property": "SolarTech Park",
+                "masterDeveloper": "EcoSmart Group",
+                "masterCommunity": "Green Energy Zone"
+              },
+              "type": "CORPORATE",
+              "contact": {
+                "preferredEmail": "info@ecosmart.in",
+                "preferredPhone": "+91-9876543210",
+                "address": {
+                  "line1": "Sector 5",
+                  "line2": "Industrial Area",
+                  "city": "Hyderabad",
+                  "state": "Telangana",
+                  "country": "India",
+                  "pinCode": "500032"
+                }
+              }
+            }
+            """
+    );
+    /*public JsonNode mockApiCustomerCall(String getCifDetails) throws JsonProcessingException {
 
         String mockJson = """
                 {
@@ -252,7 +529,12 @@ public class CoreBankingFetchApiService {
                   "cif": "57386676",
                   "name": {
                     "firstName": "A C A A CPAX PAWAWP YPRPXYPAPNW",
-                    "shortName": "ACAA CPAX"
+                    "shortName": "ACAA CPAX",
+                    "companyNumber": "100000234787",
+                     "property": "Runwal Garden Mumbai",
+                      "masterDeveloper": "Runwal Brothers",
+                       "masterCommunity": "real-estate community"
+               
                   },
                   "type": "CORPORATE",
                   "contact": {
@@ -261,15 +543,21 @@ public class CoreBankingFetchApiService {
                     "address": {
                       "line1": "2902,ds d dodf",
                       "line2": "dvIdf sfddvf lfvjd,deOIf",
-                      "city": "DUBAI",
-                      "state": "DUBAI",
-                      "country": "UNITED ARAB EMIRATES",
-                      "pinCode": "215497"
+                      "city": "Pune",
+                      "state": "Maharashtra",
+                      "country": "India",
+                      "pinCode": "400105"
                     }
                   }
                 }
                 
                 """;
+        return mapper.readTree(mockJson);
+    }*/
+
+    public JsonNode mockApiCustomerCall(String getCifDetails) throws JsonProcessingException {
+        int index = random.nextInt(mockCustomers.size());
+        String mockJson = mockCustomers.get(index);
         return mapper.readTree(mockJson);
     }
 

@@ -36,6 +36,8 @@ public class Budget implements Serializable {
 
     private String budgetId;
 
+    private String budgetName;
+
     private Boolean isActive;
 
     private String budgetPeriodCode;

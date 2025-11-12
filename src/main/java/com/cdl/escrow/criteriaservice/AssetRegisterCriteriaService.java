@@ -40,37 +40,37 @@ public class AssetRegisterCriteriaService extends BaseSpecificationBuilder<Asset
             List<Predicate> predicates = new ArrayList<>();
             if(criteria!=null) {
                 addLongFilter(cb, root, predicates, "id", criteria.getId());
-                addStringFilter(cb, root, predicates, "bpDeveloperId", criteria.getArDeveloperId(), true);
-                addStringFilter(cb, root, predicates, "bpCifrera", criteria.getArCifrera(), true);
-                addStringFilter(cb, root, predicates, "bpDeveloperRegNo", criteria.getArDeveloperRegNo(), true);
-                addStringFilter(cb, root, predicates, "bpName", criteria.getArName(), true);
-                addStringFilter(cb, root, predicates, "bpMasterName", criteria.getArMasterName(), true);
-                addStringFilter(cb, root, predicates, "bpNameLocal", criteria.getArNameLocal(), true);
-                addZonedDateTimeFilter(cb, root, predicates, "bpOnboardingDate", criteria.getArOnboardingDate());
-                addStringFilter(cb, root, predicates, "bpContactAddress", criteria.getArContactAddress(), true);
-                addStringFilter(cb, root, predicates, "bpContactTel", criteria.getArContactTel(), true);
-                addStringFilter(cb, root, predicates, "bpPoBox", criteria.getArPoBox(), true);
-                addStringFilter(cb, root, predicates, "bpMobile", criteria.getArMobile(), true);
-                addStringFilter(cb, root, predicates, "bpFax", criteria.getArFax(), true);
-                addStringFilter(cb, root, predicates, "bpEmail", criteria.getArEmail(), true);
-                addStringFilter(cb, root, predicates, "bpLicenseNo", criteria.getArLicenseNo(), true);
-                addZonedDateTimeFilter(cb, root, predicates, "bpLicenseExpDate", criteria.getArLicenseExpDate());
-                addStringFilter(cb, root, predicates, "bpWorldCheckFlag", criteria.getArWorldCheckFlag(), true);
-                addStringFilter(cb, root, predicates, "bpWorldCheckRemarks", criteria.getArWorldCheckRemarks(), true);
-                addBooleanFilter(cb, root, predicates, "bpMigratedData", criteria.getArMigratedData());
-                addStringFilter(cb, root, predicates, "bpremark", criteria.getArremark(), true);
+                addStringFilter(cb, root, predicates, "arDeveloperId", criteria.getArDeveloperId(), true);
+                addStringFilter(cb, root, predicates, "arCifrera", criteria.getArCifrera(), true);
+                addStringFilter(cb, root, predicates, "arDeveloperRegNo", criteria.getArDeveloperRegNo(), true);
+                addStringFilter(cb, root, predicates, "arName", criteria.getArName(), true);
+                addStringFilter(cb, root, predicates, "arMasterName", criteria.getArMasterName(), true);
+                addStringFilter(cb, root, predicates, "arNameLocal", criteria.getArNameLocal(), true);
+                addZonedDateTimeFilter(cb, root, predicates, "arOnboardingDate", criteria.getArOnboardingDate());
+                addStringFilter(cb, root, predicates, "arContactAddress", criteria.getArContactAddress(), true);
+                addStringFilter(cb, root, predicates, "arContactTel", criteria.getArContactTel(), true);
+                addStringFilter(cb, root, predicates, "arPoBox", criteria.getArPoBox(), true);
+                addStringFilter(cb, root, predicates, "arMobile", criteria.getArMobile(), true);
+                addStringFilter(cb, root, predicates, "arFax", criteria.getArFax(), true);
+                addStringFilter(cb, root, predicates, "arEmail", criteria.getArEmail(), true);
+                addStringFilter(cb, root, predicates, "arLicenseNo", criteria.getArLicenseNo(), true);
+                addZonedDateTimeFilter(cb, root, predicates, "arLicenseExpDate", criteria.getArLicenseExpDate());
+                addStringFilter(cb, root, predicates, "arWorldCheckFlag", criteria.getArWorldCheckFlag(), true);
+                addStringFilter(cb, root, predicates, "arWorldCheckRemarks", criteria.getArWorldCheckRemarks(), true);
+                addBooleanFilter(cb, root, predicates, "arMigratedData", criteria.getArMigratedData());
+                addStringFilter(cb, root, predicates, "arRemark", criteria.getArRemark(), true);
 
                 addBooleanFilter(cb, root, predicates, "deleted", criteria.getDeleted());
                 addBooleanFilter(cb, root, predicates, "enabled", criteria.getEnabled());
                 // relationships
 
                 if (criteria.getArRegulatorId() != null) {
-                    Join<AssetRegister, ApplicationSetting> join = root.join("bpRegulator", JoinType.LEFT);
+                    Join<AssetRegister, ApplicationSetting> join = root.join("arRegulator", JoinType.LEFT);
                     addLongFilterOnJoin(cb, join, predicates, "id", criteria.getArRegulatorId());
                 }
 
                 if (criteria.getArActiveStatusId() != null) {
-                    Join<AssetRegister, ApplicationSetting> join = root.join("bpActiveStatus", JoinType.LEFT);
+                    Join<AssetRegister, ApplicationSetting> join = root.join("arActiveStatus", JoinType.LEFT);
                     addLongFilterOnJoin(cb, join, predicates, "id", criteria.getArActiveStatusId());
                 }
 

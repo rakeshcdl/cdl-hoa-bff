@@ -50,7 +50,7 @@ public class AssetRegisterDTO implements Serializable {
 
  private Boolean arMigratedData;
 
- private String arremark;
+    private String arRemark;
 
     private String arProjectName;
 

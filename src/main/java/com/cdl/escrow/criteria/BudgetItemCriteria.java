@@ -1,5 +1,6 @@
 package com.cdl.escrow.criteria;
 
+import com.cdl.escrow.filter.BooleanFilter;
 import com.cdl.escrow.filter.DoubleFilter;
 import com.cdl.escrow.filter.LongFilter;
 import com.cdl.escrow.filter.StringFilter;
@@ -36,6 +37,10 @@ public class BudgetItemCriteria implements Serializable {
     private DoubleFilter availableBudget;
 
     private DoubleFilter utilizedBudget;
+
+    private BooleanFilter enabled ;
+
+    private BooleanFilter deleted;
 
     private LongFilter budgetCategoryId;
 

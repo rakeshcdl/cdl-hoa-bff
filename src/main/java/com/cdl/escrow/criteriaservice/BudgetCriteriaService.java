@@ -49,14 +49,14 @@ public class BudgetCriteriaService extends BaseSpecificationBuilder<Budget> impl
 
                 // relationships
 
-                if (criteria.getBuildPartnerId() != null) {
-                    Join<Budget, AssetRegister> join = root.join("buildPartner", JoinType.LEFT);
-                    addLongFilterOnJoin(cb, join, predicates, "id", criteria.getBuildPartnerId());
+                if (criteria.getAssetRegisterId() != null) {
+                    Join<Budget, AssetRegister> join = root.join("assetRegister", JoinType.LEFT);
+                    addLongFilterOnJoin(cb, join, predicates, "id", criteria.getAssetRegisterId());
                 }
 
-                if (criteria.getRealEstateAssestId() != null) {
-                    Join<Budget, ManagementFirm> join = root.join("realEstateAssest", JoinType.LEFT);
-                    addLongFilterOnJoin(cb, join, predicates, "id", criteria.getRealEstateAssestId());
+                if (criteria.getManagementFirmId() != null) {
+                    Join<Budget, ManagementFirm> join = root.join("managementFirm", JoinType.LEFT);
+                    addLongFilterOnJoin(cb, join, predicates, "id", criteria.getManagementFirmId());
                 }
 
             }

@@ -17,6 +17,8 @@ public class BudgetDTO implements Serializable {
 
     private String budgetId;
 
+    private String budgetName;
+
     private Boolean isActive;
 
     private String budgetPeriodCode;
@@ -30,6 +32,10 @@ public class BudgetDTO implements Serializable {
     private String masterCommunityNameLocale;
 
     private String createdBy;
+
+    private Boolean enabled ;
+
+    private Boolean deleted;
 
     private AssetRegisterDTO assetRegisterDTO;
 

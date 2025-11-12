@@ -20,6 +20,8 @@ public class BudgetCriteria implements Serializable {
 
     private StringFilter budgetId;
 
+    private StringFilter budgetName;
+
     private BooleanFilter isActive;
 
     private StringFilter budgetPeriodCode;
@@ -34,9 +36,17 @@ public class BudgetCriteria implements Serializable {
 
     private StringFilter createdBy;
 
-    private LongFilter buildPartnerId;
+    private BooleanFilter enabled ;
 
-    private LongFilter realEstateAssestId;
+    private BooleanFilter deleted;
+
+    private LongFilter assetRegisterId;
+
+    private LongFilter managementFirmId;
+
+    private LongFilter budgetCategoriesId;
+
+    private LongFilter taskStatusId;
 
 
 }

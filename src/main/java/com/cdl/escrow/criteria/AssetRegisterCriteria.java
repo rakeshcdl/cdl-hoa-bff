@@ -54,7 +54,7 @@ public class AssetRegisterCriteria implements Serializable {
 
     private BooleanFilter arMigratedData;
 
-    private StringFilter arremark;
+    private StringFilter arRemark;
 
     private LongFilter arRegulatorId;
 

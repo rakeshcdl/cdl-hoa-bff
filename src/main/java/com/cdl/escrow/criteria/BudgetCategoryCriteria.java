@@ -23,6 +23,16 @@ public class BudgetCategoryCriteria implements Serializable {
 
     private StringFilter usageLocale;
 
+    private StringFilter serviceName;
+
+    private StringFilter serviceCode;
+
+    private StringFilter provisionalBudgetCode;
+
+    private IntegerFilter chargeTypeId;
+
+    private StringFilter chargeType;
+
     private StringFilter usage;
 
     private ZonedDateTimeFilter budgetPeriodFrom;
@@ -37,7 +47,19 @@ public class BudgetCategoryCriteria implements Serializable {
 
     private StringFilter categoryNameLocale;
 
+    private StringFilter categorySubCode;
+
+    private StringFilter categorySubName;
+
+    private StringFilter categorySubToSubCode;
+
+    private StringFilter categorySubToSubName;
+
     private DoubleFilter vatAmount;
+
+    private BooleanFilter enabled ;
+
+    private BooleanFilter deleted;
 
     private LongFilter budgetId;
 

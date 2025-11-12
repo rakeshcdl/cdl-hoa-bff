@@ -33,6 +33,10 @@ public class BudgetItemDTO implements Serializable {
 
     private Double utilizedBudget;
 
+    private Boolean enabled ;
+
+    private Boolean deleted;
+
     private BudgetCategoryDTO budgetCategoryDTO;
 
    // private Set<FundEgress> fundEgresses = new HashSet<>();

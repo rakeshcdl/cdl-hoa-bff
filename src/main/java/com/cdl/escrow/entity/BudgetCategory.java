@@ -44,6 +44,16 @@ public class BudgetCategory implements Serializable {
 
     private String usageLocale;
 
+    private String serviceName;
+
+    private String serviceCode;
+
+    private String provisionalBudgetCode;
+
+    private Integer chargeTypeId;
+
+    private String chargeType;
+
     private String usage;
 
     private ZonedDateTime budgetPeriodFrom;
@@ -57,6 +67,14 @@ public class BudgetCategory implements Serializable {
     private String categoryName;
 
     private String categoryNameLocale;
+
+    private String categorySubCode;
+
+    private String categorySubName;
+
+    private String categorySubToSubCode;
+
+    private String categorySubToSubName;
 
     private Double vatAmount;
 

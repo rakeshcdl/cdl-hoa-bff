@@ -24,6 +24,16 @@ public class BudgetCategoryDTO implements Serializable {
 
     private String usageLocale;
 
+    private String serviceName;
+
+    private String serviceCode;
+
+    private String provisionalBudgetCode;
+
+    private Integer chargeTypeId;
+
+    private String chargeType;
+
     private String usage;
 
     private ZonedDateTime budgetPeriodFrom;
@@ -38,7 +48,19 @@ public class BudgetCategoryDTO implements Serializable {
 
     private String categoryNameLocale;
 
+    private String categorySubCode;
+
+    private String categorySubName;
+
+    private String categorySubToSubCode;
+
+    private String categorySubToSubName;
+
     private Double vatAmount;
+
+    private Boolean enabled ;
+
+    private Boolean deleted;
 
     private BudgetDTO budgetDTO;
 

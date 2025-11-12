@@ -314,10 +314,6 @@ public class FundEgress implements Serializable {
     @JsonIgnore
     private ManagementFirmBeneficiary managementFirmBeneficiary;
 
-   /* @OneToMany(mappedBy = "fundEgress", fetch = FetchType.LAZY)
-    @JsonIgnore
-    private Set<ManagementFirmHistory> realEstateAssestFeeHistories;
-*/
     @ManyToOne(fetch = FetchType.LAZY)
     @JsonIgnore
     private SuretyBond suretyBond;
