@@ -27,7 +27,7 @@ public class OwnerRegistryUnitTypeDTO implements Serializable {
 
     private String ownutJsFormula;
 
-    private OwnerRegistryUnitTypeDTO capitalPartnerParentUnitTypeDTO;
+    private OwnerRegistryUnitTypeDTO ownerRegistryUnitTypeDTO;
 
     private Set<OwnerRegistryUnitTypeDTO> capitalPartnerChildrenUnitTypeDTOS ;
 

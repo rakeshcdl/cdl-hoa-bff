@@ -38,7 +38,7 @@ public class OwnerRegistryUnitTypeCriteriaService extends BaseSpecificationBuild
             if(criteria!=null) {
                 // Long Filters
                 addLongFilter(cb, root, predicates, "id", criteria.getId());
-                addLongFilter(cb, root, predicates, "capitalPartnerParentUnitTypeId", criteria.getCapitalPartnerParentUnitTypeId());
+                addLongFilter(cb, root, predicates, "ownerRegistryUnitTypeId", criteria.getOwnerRegistryUnitTypeId());
 
                 // String Filters
                 addStringFilter(cb, root, predicates, "ownutName", criteria.getOwnutName(), true);

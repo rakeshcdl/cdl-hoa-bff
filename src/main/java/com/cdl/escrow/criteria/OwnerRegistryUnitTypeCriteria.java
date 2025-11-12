@@ -31,7 +31,7 @@ public class OwnerRegistryUnitTypeCriteria implements Serializable {
 
     private StringFilter ownutJsFormula;
 
-    private LongFilter capitalPartnerParentUnitTypeId;
+    private LongFilter ownerRegistryUnitTypeId;
 
     //private Set<OwnerRegistryUnitTypeDTO> capitalPartnerChildrenUnitTypeDTOS ;
 

@@ -86,7 +86,7 @@ public class AssetRegister implements Serializable {
 
 
     @Lob
-    @Column(name = "bp_remark", columnDefinition = "TEXT")
+    @Column(name = "ar_remark", columnDefinition = "TEXT")
     private String arRemark;
 
     @ManyToOne

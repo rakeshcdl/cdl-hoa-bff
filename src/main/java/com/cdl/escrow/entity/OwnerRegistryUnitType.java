@@ -54,11 +54,11 @@ public class OwnerRegistryUnitType implements Serializable {
 
     @ManyToOne
     @JsonIgnore
-    private OwnerRegistryUnitType capitalPartnerParentUnitType;
+    private OwnerRegistryUnitType ownerRegistryUnitType;
 
-    @OneToMany(mappedBy = "capitalPartnerParentUnitType")
+    @OneToMany(mappedBy = "ownerRegistryUnitType")
     @JsonIgnore
-    private Set<OwnerRegistryUnitType> capitalPartnerChildrenUnitType ;
+    private Set<OwnerRegistryUnitType> ownerRegistryUnitTypes ;
 
     @OneToMany(mappedBy = "ownerRegistryUnitType")
     @JsonIgnore
