@@ -44,7 +44,7 @@ public class ApplicationModule implements Serializable {
 
    private Boolean isActive ;
 
-    private boolean deleted ;
+    private Boolean deleted ;
 
 
 }

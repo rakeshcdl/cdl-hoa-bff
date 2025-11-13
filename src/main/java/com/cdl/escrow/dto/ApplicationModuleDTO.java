@@ -19,9 +19,9 @@ public class ApplicationModuleDTO implements Serializable {
 
     private String moduleDescription;
 
-    private boolean isActive;
+    private Boolean isActive;
 
     private Boolean deleted ;
 
-    private boolean enabled ;
+    private Boolean enabled ;
 }
