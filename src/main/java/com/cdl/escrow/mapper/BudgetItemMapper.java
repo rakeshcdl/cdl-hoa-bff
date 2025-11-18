@@ -7,7 +7,7 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
 
-@Mapper(componentModel = "spring" )
+@Mapper(componentModel = "spring" , uses = {ApplicationSettingMapper.class, BudgetCategoryMapper.class})
 public interface BudgetItemMapper extends EntityMapper<BudgetItemDTO, BudgetItem> {
 
     BudgetItemMapper INSTANCE = Mappers.getMapper(BudgetItemMapper.class);

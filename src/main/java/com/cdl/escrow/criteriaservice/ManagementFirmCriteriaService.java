@@ -69,36 +69,6 @@ public class ManagementFirmCriteriaService extends BaseSpecificationBuilder<Mana
 
                 addBooleanFilter(cb, root, predicates, "deleted", criteria.getDeleted());
                 addBooleanFilter(cb, root, predicates, "enabled", criteria.getEnabled());
-              //  addLongFilter(cb, root, predicates, "buildPartnerId", criteria.getBuildPartnerId());
-              //  addLongFilter(cb, root, predicates, "mfStatusId", criteria.getMfStatusId());
-             //   addLongFilter(cb, root, predicates, "mfTypeId", criteria.getMfTypeId());
-             //   addLongFilter(cb, root, predicates, "mfAccountStatusId", criteria.getMfAccountStatusId());
-              //  addLongFilter(cb, root, predicates, "mfConstructionCostCurrencyId", criteria.getMfConstructionCostCurrencyId());
-
-
-                // relationships
-                //mflEstateAssest
-
-
-              /*  if (criteria.getBuildPartnerId() != null) {
-                    addLongFilterForJoin(cb, root, predicates, "buildPartner", "id", criteria.getBuildPartnerId());
-                }
-
-                if (criteria.getMfStatusId() != null) {
-                    addLongFilterForJoin(cb, root, predicates, "mfStatus", "id", criteria.getMfStatusId());
-                }
-
-                if (criteria.getMfTypeId() != null) {
-                    addLongFilterForJoin(cb, root, predicates, "mfType", "id", criteria.getMfTypeId());
-                }
-
-                if (criteria.getMfAccountStatusId() != null) {
-                    addLongFilterForJoin(cb, root, predicates, "mfAccountStatus", "id", criteria.getMfAccountStatusId());
-                }
-
-                if (criteria.getMfConstructionCostCurrencyId() != null) {
-                    addLongFilterForJoin(cb, root, predicates, "mfConstructionCostCurrency", "id", criteria.getMfConstructionCostCurrencyId());
-                }*/
 
             }
 

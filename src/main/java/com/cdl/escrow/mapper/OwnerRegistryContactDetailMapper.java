@@ -6,7 +6,7 @@ import com.cdl.escrow.helper.EntityMapper;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
-@Mapper(componentModel = "spring", uses = { OwnerRegistryMapper.class})
+@Mapper(componentModel = "spring", uses = { OwnerRegistryMapper.class, TaskStatusMapper.class})
 public interface OwnerRegistryContactDetailMapper  extends EntityMapper<OwnerRegistryContactDetailDTO, OwnerRegistryContactDetail> {
 
     @Mapping(source = "ownerRegistry", target = "ownerRegistryDTO")

@@ -5,6 +5,7 @@ import com.cdl.escrow.dto.BudgetDTO;
 import com.cdl.escrow.entity.Budget;
 import com.cdl.escrow.entity.AssetRegister;
 import com.cdl.escrow.entity.ManagementFirm;
+import com.cdl.escrow.entity.TaskStatus;
 import com.cdl.escrow.filter.BaseSpecificationBuilder;
 import com.cdl.escrow.mapper.BudgetMapper;
 import com.cdl.escrow.repository.BudgetRepository;
@@ -57,6 +58,11 @@ public class BudgetCriteriaService extends BaseSpecificationBuilder<Budget> impl
                 if (criteria.getManagementFirmId() != null) {
                     Join<Budget, ManagementFirm> join = root.join("managementFirm", JoinType.LEFT);
                     addLongFilterOnJoin(cb, join, predicates, "id", criteria.getManagementFirmId());
+                }
+
+                if (criteria.getTaskStatusId() != null) {
+                    Join<Budget, TaskStatus> join = root.join("taskStatus", JoinType.LEFT);
+                    addLongFilterOnJoin(cb, join, predicates, "id", criteria.getTaskStatusId());
                 }
 
             }

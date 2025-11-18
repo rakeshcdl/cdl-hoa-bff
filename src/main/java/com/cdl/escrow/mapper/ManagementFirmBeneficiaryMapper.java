@@ -6,7 +6,7 @@ import com.cdl.escrow.helper.EntityMapper;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
-@Mapper(componentModel = "spring" , uses = { ApplicationSettingMapper.class})
+@Mapper(componentModel = "spring" , uses = { ApplicationSettingMapper.class, ManagementFirmMapper.class})
 public interface ManagementFirmBeneficiaryMapper extends EntityMapper<ManagementFirmBeneficiaryDTO, ManagementFirmBeneficiary> {
 
     @Mapping(source = "mfbTransferType", target = "mfbTransferTypeDTO")

@@ -44,4 +44,6 @@ public class BudgetDTO implements Serializable {
     //private Set<FundEgress> fundEgresses = new HashSet<>();
 
     private Set<BudgetCategoryDTO> budgetCategoriesDTOS = new HashSet<>();
+
+    private TaskStatusDTO taskStatusDTO;
 }

@@ -6,7 +6,7 @@ import com.cdl.escrow.helper.EntityMapper;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
-@Mapper(componentModel = "spring" , uses = { ApplicationSettingMapper.class , ManagementFirmMapper.class, RealEstateDocumentMapper.class})
+@Mapper(componentModel = "spring" , uses = { ApplicationSettingMapper.class , ManagementFirmMapper.class})
 public interface ManagementFirmClosureMapper extends EntityMapper<ManagementFirmClosureDTO, ManagementFirmClosure> {
 
     @Mapping(source = "managementFirm", target = "managementFirmDTO")

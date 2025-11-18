@@ -6,7 +6,7 @@ import com.cdl.escrow.helper.EntityMapper;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
-@Mapper(componentModel = "spring", uses = { ApplicationSettingMapper.class, OwnerRegistryUnitMapper.class})
+@Mapper(componentModel = "spring", uses = { ApplicationSettingMapper.class, OwnerRegistryUnitMapper.class, TaskStatusMapper.class})
 public interface OwnerRegistryMapper extends EntityMapper<OwnerRegistryDTO, OwnerRegistry> {
 
     @Mapping(source = "documentType", target = "documentTypeDTO")

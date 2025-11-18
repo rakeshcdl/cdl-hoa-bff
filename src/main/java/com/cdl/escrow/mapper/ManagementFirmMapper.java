@@ -7,7 +7,7 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
 
-@Mapper(componentModel = "spring" , uses = { ApplicationSettingMapper.class})
+@Mapper(componentModel = "spring" , uses = { ApplicationSettingMapper.class, TaskStatusMapper.class, AssetRegisterMapper.class})
 public interface ManagementFirmMapper extends EntityMapper<ManagementFirmDTO, ManagementFirm> {
 
     @Mapping(source = "mfStatus", target = "mfStatusDTO")

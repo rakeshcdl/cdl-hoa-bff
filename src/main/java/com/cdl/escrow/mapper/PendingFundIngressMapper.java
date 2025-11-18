@@ -7,7 +7,8 @@ import com.cdl.escrow.helper.EntityMapper;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
-@Mapper(componentModel = "spring" , uses = { ApplicationSettingMapper.class })
+@Mapper(componentModel = "spring" , uses = { ApplicationSettingMapper.class, ManagementFirmMapper.class, TaskStatusMapper.class,
+OwnerRegistryUnitMapper.class})
 public interface PendingFundIngressMapper  extends EntityMapper<PendingFundIngressDTO, PendingFundIngress> {
 
     @Mapping(source = "managementFirm", target = "managementFirmDTO")
