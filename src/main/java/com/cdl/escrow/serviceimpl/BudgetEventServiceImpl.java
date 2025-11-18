@@ -14,6 +14,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
 
@@ -28,6 +29,7 @@ public class BudgetEventServiceImpl implements BudgetEventService {
     private final TaskStatusRepository taskStatusRepository;
 
     @Override
+    @Transactional(readOnly = true)
     public Page<BudgetEventDTO> getAllBudgetEvent(Pageable pageable) {
         log.debug("Fetching all Budget Event, page: {}", pageable.getPageNumber());
         Page<BudgetEvent> page = repository.findAll(pageable);
@@ -39,6 +41,7 @@ public class BudgetEventServiceImpl implements BudgetEventService {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public Optional<BudgetEventDTO> getBudgetEventById(Long id) {
         log.debug("Fetching budget Event with ID: {}", id);
         return repository.findById(id)
@@ -46,6 +49,7 @@ public class BudgetEventServiceImpl implements BudgetEventService {
     }
 
     @Override
+    @Transactional
     public BudgetEventDTO saveBudgetEvent(BudgetEventDTO budgetEventDTO) {
         log.info("Saving new budget event");
 
@@ -67,6 +71,7 @@ public class BudgetEventServiceImpl implements BudgetEventService {
     }
 
     @Override
+    @Transactional
     public BudgetEventDTO updateBudgetEvent(Long id, BudgetEventDTO budgetEventDTO) {
         log.info("Updating Budget Event with ID: {}", id);
 
@@ -87,6 +92,7 @@ public class BudgetEventServiceImpl implements BudgetEventService {
     }
 
     @Override
+    @Transactional
     public Boolean deleteBudgetEventById(Long id) {
         log.info("Deleting budget Event with ID: {}", id);
 
@@ -99,6 +105,7 @@ public class BudgetEventServiceImpl implements BudgetEventService {
     }
 
     @Override
+    @Transactional
     public void finalizeBudgetEvent(Long moduleId, TaskStatus status) {
 
         BudgetEvent budget =  repository.findById(moduleId)
@@ -109,6 +116,7 @@ public class BudgetEventServiceImpl implements BudgetEventService {
     }
 
     @Override
+    @Transactional
     public boolean softBudgetEventServiceById(Long id) {
         var entity = repository.findById(id)
                 .orElseThrow(() -> new ApplicationConfigurationNotFoundException.ResourceNotFoundException("Entity not found: " + id));

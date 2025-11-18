@@ -14,6 +14,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
 
@@ -29,6 +30,7 @@ public class BudgetServiceImpl implements BudgetService {
     private final TaskStatusRepository taskStatusRepository;
 
     @Override
+    @Transactional(readOnly = true)
     public Page<BudgetDTO> getAllBudget(Pageable pageable) {
         log.debug("Fetching all Budget, page: {}", pageable.getPageNumber());
         Page<Budget> page = repository.findAll(pageable);
@@ -40,6 +42,7 @@ public class BudgetServiceImpl implements BudgetService {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public Optional<BudgetDTO> getBudgetById(Long id) {
         log.debug("Fetching budget with ID: {}", id);
         return repository.findById(id)
@@ -47,6 +50,7 @@ public class BudgetServiceImpl implements BudgetService {
     }
 
     @Override
+    @Transactional
     public BudgetDTO saveBudget(BudgetDTO budgetDTO) {
         log.info("Saving new build partner");
 
@@ -68,6 +72,7 @@ public class BudgetServiceImpl implements BudgetService {
     }
 
     @Override
+    @Transactional
     public BudgetDTO updateBudget(Long id, BudgetDTO budgetDTO) {
         log.info("Updating Budget with ID: {}", id);
 
@@ -88,6 +93,7 @@ public class BudgetServiceImpl implements BudgetService {
     }
 
     @Override
+    @Transactional
     public Boolean deleteBudgetById(Long id) {
         log.info("Deleting budget  with ID: {}", id);
 
@@ -100,6 +106,7 @@ public class BudgetServiceImpl implements BudgetService {
     }
 
     @Override
+    @Transactional
     public void finalizeBudget(Long moduleId, TaskStatus status) {
 
 
@@ -112,6 +119,7 @@ public class BudgetServiceImpl implements BudgetService {
     }
 
     @Override
+    @Transactional
     public boolean softBudgetServiceById(Long id) {
 
         var entity = repository.findById(id)

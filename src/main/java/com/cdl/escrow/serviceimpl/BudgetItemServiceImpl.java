@@ -14,6 +14,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
 
@@ -29,6 +30,7 @@ public class BudgetItemServiceImpl  implements BudgetItemService {
     private final TaskStatusRepository taskStatusRepository;
 
     @Override
+    @Transactional(readOnly = true)
     public Page<BudgetItemDTO> getAllBudgetItem(Pageable pageable) {
         log.debug("Fetching all Budget item, page: {}", pageable.getPageNumber());
         Page<BudgetItem> page = repository.findAll(pageable);
@@ -40,6 +42,7 @@ public class BudgetItemServiceImpl  implements BudgetItemService {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public Optional<BudgetItemDTO> getBudgetItemById(Long id) {
         log.debug("Fetching budget item with ID: {}", id);
         return repository.findById(id)
@@ -47,6 +50,7 @@ public class BudgetItemServiceImpl  implements BudgetItemService {
     }
 
     @Override
+    @Transactional
     public BudgetItemDTO saveBudgetItem(BudgetItemDTO budgetItemDTO) {
         log.info("Saving new budget category ");
 
@@ -68,6 +72,7 @@ public class BudgetItemServiceImpl  implements BudgetItemService {
     }
 
     @Override
+    @Transactional
     public BudgetItemDTO updateBudgetItem(Long id, BudgetItemDTO budgetItemDTO) {
         log.info("Updating item category with ID: {}", id);
 
@@ -88,6 +93,7 @@ public class BudgetItemServiceImpl  implements BudgetItemService {
     }
 
     @Override
+    @Transactional
     public Boolean deleteBudgetItemById(Long id) {
         log.info("Deleting budget item with ID: {}", id);
 
@@ -100,6 +106,7 @@ public class BudgetItemServiceImpl  implements BudgetItemService {
     }
 
     @Override
+    @Transactional
     public void finalizeBudgetItem(Long moduleId, TaskStatus status) {
         BudgetItem budget =  repository.findById(moduleId)
                 .orElseThrow(() -> new IllegalStateException("Budget item not found: " + moduleId));
@@ -109,6 +116,7 @@ public class BudgetItemServiceImpl  implements BudgetItemService {
     }
 
     @Override
+    @Transactional
     public boolean softBudgetItemServiceById(Long id) {
         var entity = repository.findById(id)
                 .orElseThrow(() -> new ApplicationConfigurationNotFoundException.ResourceNotFoundException("Entity not found: " + id));

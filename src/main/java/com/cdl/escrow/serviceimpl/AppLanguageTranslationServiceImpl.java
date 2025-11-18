@@ -101,63 +101,63 @@ public class AppLanguageTranslationServiceImpl implements AppLanguageTranslation
 
 
     @Override
-    @Transactional
+    @Transactional(readOnly = true)
     public List<AppLanguageTranslationDTO> getAllAppLanguageTranslationData() {
         List<AppLanguageTranslation> appLanguageTranslationList = repository.findAll();
         return mapper.toDtoList(appLanguageTranslationList);
     }
 
     @Override
-    @Transactional
+    @Transactional(readOnly = true)
     public List<AppLanguageTranslationDTO> getNavMenuAppLanguageTranslations() {
         List<AppLanguageTranslation> appLanguageTranslationList = repository.findAllByModuleName("NAV_MENU");
         return mapper.toDtoList(appLanguageTranslationList);
     }
 
     @Override
-    @Transactional
+    @Transactional(readOnly = true)
     public List<AppLanguageTranslationDTO> getBuildPartnerAppLanguageTranslationData() {
         List<AppLanguageTranslation> appLanguageTranslationList = repository.findAllByModuleName("ASSETS-REGISTRY");
         return mapper.toDtoList(appLanguageTranslationList);
     }
 
     @Override
-    @Transactional
+    @Transactional(readOnly = true)
     public List<AppLanguageTranslationDTO> getBuildPartnerAssestAppLanguageTranslationData() {
         List<AppLanguageTranslation> appLanguageTranslationList = repository.findAllByModuleName("MANAGEMENT-FIRMS");
         return mapper.toDtoList(appLanguageTranslationList);
     }
 
     @Override
-    @Transactional
+    @Transactional(readOnly = true)
     public List<AppLanguageTranslationDTO> getCapitalPartnerAppLanguageTranslationData() {
         List<AppLanguageTranslation> appLanguageTranslationList = repository.findAllByModuleName("OWNER-REGISTRY");
         return mapper.toDtoList(appLanguageTranslationList);
     }
 
     @Override
-    @Transactional
+    @Transactional(readOnly = true)
     public List<AppLanguageTranslationDTO> getTransactionsAppLanguageTranslationData() {
         List<AppLanguageTranslation> appLanguageTranslationList = repository.findAllByModuleName("TRANSACTIONS");
         return mapper.toDtoList(appLanguageTranslationList);
     }
 
     @Override
-    @Transactional
+    @Transactional(readOnly = true)
     public List<AppLanguageTranslationDTO> getPaymentsAppLanguageTranslationData() {
         List<AppLanguageTranslation> appLanguageTranslationList = repository.findAllByModuleName("PAYMENTS");
         return mapper.toDtoList(appLanguageTranslationList);
     }
 
     @Override
-    @Transactional
+    @Transactional(readOnly = true)
     public List<AppLanguageTranslationDTO> getSuretyBondAppLanguageTranslationData() {
         List<AppLanguageTranslation> appLanguageTranslationList = repository.findAllByModuleName("SURETY_BOND");
         return mapper.toDtoList(appLanguageTranslationList);
     }
 
     @Override
-    @Transactional
+    @Transactional(readOnly = true)
     public boolean softDeleteAppLanguageTranslationById(Long id) {
         return repository.findByIdAndDeletedFalse(id).map(entity -> {
             entity.setDeleted(true);
@@ -167,45 +167,49 @@ public class AppLanguageTranslationServiceImpl implements AppLanguageTranslation
     }
 
     @Override
-    @Transactional
+    @Transactional(readOnly = true)
     public List<AppLanguageTranslationDTO> getUserdAppLanguageTranslationData() {
         List<AppLanguageTranslation> appLanguageTranslationList = repository.findAllByModuleName("STAKEHOLDER");
         return mapper.toDtoList(appLanguageTranslationList);
     }
 
     @Override
-    @Transactional
+    @Transactional(readOnly = true)
     public List<AppLanguageTranslationDTO> getRoleAppLanguageTranslationData() {
         List<AppLanguageTranslation> appLanguageTranslationList = repository.findAllByModuleName("ROLES");
         return mapper.toDtoList(appLanguageTranslationList);
     }
 
     @Override
-    @Transactional
+    @Transactional(readOnly = true)
     public List<AppLanguageTranslationDTO> getSGroupAppLanguageTranslationData() {
         List<AppLanguageTranslation> appLanguageTranslationList = repository.findAllByModuleName("PERMISSIONS");
         return mapper.toDtoList(appLanguageTranslationList);
     }
 
     @Override
+    @Transactional(readOnly = true)
     public List<AppLanguageTranslationDTO> getFeeRepushAppLanguageTranslationData() {
         List<AppLanguageTranslation> appLanguageTranslationList = repository.findAllByModuleName("FEE_REPUSH");
         return mapper.toDtoList(appLanguageTranslationList);
     }
 
     @Override
+    @Transactional(readOnly = true)
     public List<AppLanguageTranslationDTO> getReportTranslationData() {
         List<AppLanguageTranslation> appLanguageTranslationList = repository.findAllByModuleName("REPORTS");
         return mapper.toDtoList(appLanguageTranslationList);
     }
 
     @Override
+    @Transactional(readOnly = true)
     public List<AppLanguageTranslationDTO> getDashboardTranslationData() {
         List<AppLanguageTranslation> appLanguageTranslationList = repository.findAllByModuleName("DASHBOARD");
         return mapper.toDtoList(appLanguageTranslationList);
     }
 
     @Override
+    @Transactional(readOnly = true)
     public List<AppLanguageTranslationDTO> getBudgetsAppLanguageTranslationData() {
         List<AppLanguageTranslation> appLanguageTranslationList = repository.findAllByModuleName("BUDGET");
         return mapper.toDtoList(appLanguageTranslationList);

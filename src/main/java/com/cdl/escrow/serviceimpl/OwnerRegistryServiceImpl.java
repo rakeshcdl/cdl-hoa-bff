@@ -120,6 +120,7 @@ public class OwnerRegistryServiceImpl implements OwnerRegistryService {
     }
 
     @Override
+    @Transactional
     public void finalizeOwnerRegistry(Long moduleId, TaskStatus status) {
 
         OwnerRegistry ownerRegistry =  repository.findById(moduleId)

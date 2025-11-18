@@ -15,6 +15,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
 
@@ -30,6 +31,7 @@ public class OwnerRegistryContactDetailServiceImpl implements OwnerRegistryConta
 
 
     @Override
+    @Transactional(readOnly = true)
     public Page<OwnerRegistryContactDetailDTO> getAllOwnerRegistryContactDetail(Pageable pageable) {
         log.debug("Fetching all Owner Registry, page: {}", pageable.getPageNumber());
         Page<OwnerRegistryContactDetail> page = repository.findAll(pageable);
@@ -41,13 +43,15 @@ public class OwnerRegistryContactDetailServiceImpl implements OwnerRegistryConta
     }
 
     @Override
+    @Transactional(readOnly = true)
     public Optional<OwnerRegistryContactDetailDTO> getOwnerRegistryContactDetailById(Long id) {
-        log.debug("Fetching Owner Registry Contact Detailwith ID: {}", id);
+        log.debug("Fetching Owner Registry Contact Detail with ID: {}", id);
         return repository.findById(id)
                 .map(mapper::toDto);
     }
 
     @Override
+    @Transactional
     public OwnerRegistryContactDetailDTO saveOwnerRegistryContactDetail(OwnerRegistryContactDetailDTO ownerRegistryContactDetailDTO) {
         log.info("Saving new Owner Registry");
         OwnerRegistryContactDetail entity = mapper.toEntity(ownerRegistryContactDetailDTO);
@@ -66,6 +70,7 @@ public class OwnerRegistryContactDetailServiceImpl implements OwnerRegistryConta
     }
 
     @Override
+    @Transactional
     public OwnerRegistryContactDetailDTO updateOwnerRegistryContactDetail(Long id, OwnerRegistryContactDetailDTO ownerRegistryContactDetailDTO) {
         log.info("Updating Owner Registry Contact Detailwith ID: {}", id);
 
@@ -85,6 +90,7 @@ public class OwnerRegistryContactDetailServiceImpl implements OwnerRegistryConta
     }
 
     @Override
+    @Transactional
     public Boolean deleteOwnerRegistryContactDetailById(Long id) {
         log.info("Deleting Owner Registry Contact Detail with ID: {}", id);
 
@@ -97,6 +103,7 @@ public class OwnerRegistryContactDetailServiceImpl implements OwnerRegistryConta
     }
 
     @Override
+    @Transactional
     public boolean softOwnerRegistryContactDetailServiceById(Long id) {
         var entity = repository.findById(id)
                 .orElseThrow(() -> new ApplicationConfigurationNotFoundException.ResourceNotFoundException("Entity not found: " + id));

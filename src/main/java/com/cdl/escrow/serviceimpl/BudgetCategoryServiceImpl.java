@@ -14,6 +14,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
 
@@ -29,6 +30,7 @@ public class BudgetCategoryServiceImpl implements BudgetCategoryService {
     private final TaskStatusRepository taskStatusRepository;
 
     @Override
+    @Transactional(readOnly = true)
     public Page<BudgetCategoryDTO> getAllBudgetCategory(Pageable pageable) {
         log.debug("Fetching all Budget category, page: {}", pageable.getPageNumber());
         Page<BudgetCategory> page = repository.findAll(pageable);
@@ -40,6 +42,7 @@ public class BudgetCategoryServiceImpl implements BudgetCategoryService {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public Optional<BudgetCategoryDTO> getBudgetCategoryById(Long id) {
         log.debug("Fetching budget category with ID: {}", id);
         return repository.findById(id)
@@ -47,6 +50,7 @@ public class BudgetCategoryServiceImpl implements BudgetCategoryService {
     }
 
     @Override
+    @Transactional
     public BudgetCategoryDTO saveBudgetCategory(BudgetCategoryDTO budgetCategoryDTO) {
         log.info("Saving new budget category ");
 
@@ -68,6 +72,7 @@ public class BudgetCategoryServiceImpl implements BudgetCategoryService {
     }
 
     @Override
+    @Transactional
     public BudgetCategoryDTO updateBudgetCategory(Long id, BudgetCategoryDTO budgetCategoryDTO) {
         log.info("Updating Budget category with ID: {}", id);
 
@@ -88,6 +93,7 @@ public class BudgetCategoryServiceImpl implements BudgetCategoryService {
     }
 
     @Override
+    @Transactional
     public Boolean deleteBudgetCategoryById(Long id) {
         log.info("Deleting budget category with ID: {}", id);
 
@@ -100,6 +106,7 @@ public class BudgetCategoryServiceImpl implements BudgetCategoryService {
     }
 
     @Override
+    @Transactional
     public void finalizeBudgetCategory(Long moduleId, TaskStatus status) {
 
         BudgetCategory budget =  repository.findById(moduleId)
@@ -110,6 +117,7 @@ public class BudgetCategoryServiceImpl implements BudgetCategoryService {
     }
 
     @Override
+    @Transactional
     public boolean softBudgetCategoryServiceById(Long id) {
 
         var entity = repository.findById(id)

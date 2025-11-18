@@ -12,6 +12,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
 
@@ -26,6 +27,7 @@ public class TaskStatusServiceImpl implements TaskStatusService {
 
 
     @Override
+    @Transactional(readOnly = true)
     public Page<TaskStatusDTO> getAllTaskStatus(Pageable pageable) {
         log.debug("Fetching all task status, page: {}", pageable.getPageNumber());
         Page<TaskStatus> page = repository.findAll(pageable);
@@ -37,6 +39,7 @@ public class TaskStatusServiceImpl implements TaskStatusService {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public Optional<TaskStatusDTO> getTaskStatusyId(Long id) {
         log.debug("Fetching task status with ID: {}", id);
         return repository.findById(id)
@@ -44,6 +47,7 @@ public class TaskStatusServiceImpl implements TaskStatusService {
     }
 
     @Override
+    @Transactional
     public TaskStatusDTO saveTaskStatus(TaskStatusDTO taskStatusDTO) {
         log.info("Saving new task status");
         TaskStatus entity = mapper.toEntity(taskStatusDTO);
@@ -52,6 +56,7 @@ public class TaskStatusServiceImpl implements TaskStatusService {
     }
 
     @Override
+    @Transactional
     public TaskStatusDTO updateTaskStatus(Long id, TaskStatusDTO taskStatusDTO) {
         log.info("Updating task status with ID: {}", id);
 
@@ -67,6 +72,7 @@ public class TaskStatusServiceImpl implements TaskStatusService {
     }
 
     @Override
+    @Transactional
     public Boolean deleteTaskStatusById(Long id) {
         log.info("Deleting task status with ID: {}", id);
 
@@ -79,6 +85,7 @@ public class TaskStatusServiceImpl implements TaskStatusService {
     }
 
     @Override
+    @Transactional
     public boolean softTaskStatusServiceById(Long id) {
         var entity = repository.findById(id)
                 .orElseThrow(() -> new ApplicationConfigurationNotFoundException.ResourceNotFoundException("Entity not found: " + id));
