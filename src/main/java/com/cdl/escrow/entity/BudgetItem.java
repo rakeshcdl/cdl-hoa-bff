@@ -69,4 +69,8 @@ public class BudgetItem implements Serializable {
     @ManyToOne(fetch = FetchType.LAZY)
     private TaskStatus taskStatus;
 
+    @ManyToOne
+    @JsonIgnore
+    private Budget budget;
+
 }

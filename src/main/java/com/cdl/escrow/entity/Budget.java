@@ -75,4 +75,8 @@ public class Budget implements Serializable {
     @ManyToOne(fetch = FetchType.LAZY)
     private TaskStatus taskStatus;
 
+    @OneToMany(mappedBy = "budget")
+    @JsonIgnore
+    private Set<BudgetItem> budgetItems = new HashSet<>();
+
 }

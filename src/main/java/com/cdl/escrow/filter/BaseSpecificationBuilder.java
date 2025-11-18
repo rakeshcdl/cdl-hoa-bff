@@ -211,14 +211,14 @@ public abstract class BaseSpecificationBuilder<T> {
         }
     }
 
-    // 🔑 ManyToMany filter using EXISTS
+    // ManyToMany filter using EXISTS
     protected static <T> void addLongManyToManyFilterForJoin(
             CriteriaBuilder cb,
             Root<T> root,
             CriteriaQuery<?> query,
             List<Predicate> predicates,
-            String relation,       // e.g. "buildPartners"
-            String targetField,    // e.g. "id"
+            String relation,
+            String targetField,
             LongFilter filter) {
 
         if (filter == null) return;

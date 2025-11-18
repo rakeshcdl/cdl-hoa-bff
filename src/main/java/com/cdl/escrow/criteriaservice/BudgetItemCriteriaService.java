@@ -56,6 +56,11 @@ public class BudgetItemCriteriaService  extends BaseSpecificationBuilder<BudgetI
                     addLongFilterOnJoin(cb, join, predicates, "id", criteria.getBudgetCategoryId());
                 }
 
+                if (criteria.getBudgetId() != null) {
+                    Join<BudgetItem, Budget> join = root.join("budget", JoinType.LEFT);
+                    addLongFilterOnJoin(cb, join, predicates, "id", criteria.getBudgetId());
+                }
+
 
 
             }

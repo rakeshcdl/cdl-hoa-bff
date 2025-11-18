@@ -13,8 +13,10 @@ public interface BudgetItemMapper extends EntityMapper<BudgetItemDTO, BudgetItem
     BudgetItemMapper INSTANCE = Mappers.getMapper(BudgetItemMapper.class);
 
     @Mapping(source = "budgetCategory", target = "budgetCategoryDTO")
+    @Mapping(source = "budget", target = "budgetDTO")
     BudgetItemDTO toDto(BudgetItem budgetItem);
 
     @Mapping(source = "budgetCategoryDTO", target = "budgetCategory")
+    @Mapping(source = "budgetDTO", target = "budget")
     BudgetItem toEntity(BudgetItemDTO budgetItemDTO);
 }
