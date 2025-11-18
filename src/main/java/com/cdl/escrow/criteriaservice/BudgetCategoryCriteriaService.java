@@ -51,6 +51,8 @@ public class BudgetCategoryCriteriaService extends BaseSpecificationBuilder<Budg
                 addStringFilter(cb, root, predicates, "categoryNameLocale", criteria.getCategoryNameLocale(), true);
                 addDoubleFilter(cb, root, predicates, "vatAmount", criteria.getVatAmount());
 
+                addBooleanFilter(cb, root, predicates, "deleted", criteria.getDeleted());
+                addBooleanFilter(cb, root, predicates, "enabled", criteria.getEnabled());
                 // relationships
 
                 if (criteria.getBudgetId() != null) {

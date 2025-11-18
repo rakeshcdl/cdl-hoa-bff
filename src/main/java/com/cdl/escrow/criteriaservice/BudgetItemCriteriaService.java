@@ -46,7 +46,8 @@ public class BudgetItemCriteriaService  extends BaseSpecificationBuilder<BudgetI
                 addDoubleFilter(cb, root, predicates, "totalBudget", criteria.getTotalBudget());
                 addDoubleFilter(cb, root, predicates, "availableBudget", criteria.getAvailableBudget());
                 addDoubleFilter(cb, root, predicates, "utilizedBudget", criteria.getUtilizedBudget());
-
+                addBooleanFilter(cb, root, predicates, "deleted", criteria.getDeleted());
+                addBooleanFilter(cb, root, predicates, "enabled", criteria.getEnabled());
 
                 // relationships
 

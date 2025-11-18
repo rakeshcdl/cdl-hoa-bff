@@ -48,6 +48,8 @@ public class BudgetCriteriaService extends BaseSpecificationBuilder<Budget> impl
                 addStringFilter(cb, root, predicates, "masterCommunityNameLocale", criteria.getMasterCommunityNameLocale(),true);
                 addStringFilter(cb, root, predicates, "createdBy", criteria.getCreatedBy(), true);
 
+                addBooleanFilter(cb, root, predicates, "deleted", criteria.getDeleted());
+                addBooleanFilter(cb, root, predicates, "enabled", criteria.getEnabled());
                 // relationships
 
                 if (criteria.getAssetRegisterId() != null) {
