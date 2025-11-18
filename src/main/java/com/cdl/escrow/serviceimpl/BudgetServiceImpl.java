@@ -83,11 +83,6 @@ public class BudgetServiceImpl implements BudgetService {
         Budget toUpdate = mapper.toEntity(budgetDTO);
         toUpdate.setId(existing.getId()); // Ensure the correct ID is preserved
 
-       /* // set default task status to IN-PROGRESS on create
-        TaskStatus ts = taskStatusRepository.findByName("DRAFT")
-                .orElseThrow(() -> new EntityNotFoundException(
-                        "TaskStatus not found: " + "DRAFT"));
-        toUpdate.setTaskStatus(ts);*/
         Budget updated = repository.save(toUpdate);
         return mapper.toDto(updated);
     }

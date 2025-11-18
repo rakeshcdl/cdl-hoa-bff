@@ -7,18 +7,18 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
 
-@Mapper(componentModel = "spring" , uses = {BudgetCategoryMapper.class,AssetRegisterMapper.class,ManagementFirmMapper.class,
+@Mapper(componentModel = "spring" , uses = {AssetRegisterMapper.class,ManagementFirmMapper.class,
 TaskStatusMapper.class})
 public interface BudgetMapper  extends EntityMapper<BudgetDTO, Budget> {
 
     BudgetMapper INSTANCE = Mappers.getMapper(BudgetMapper.class);
 
-    @Mapping(source = "budgetCategories", target = "budgetCategoriesDTOS")
+   // @Mapping(source = "budgetCategories", target = "budgetCategoriesDTOS")
     @Mapping(source = "assetRegister", target = "assetRegisterDTO")
     @Mapping(source = "managementFirm", target = "managementFirmDTO")
     BudgetDTO toDto(Budget budget);
 
-    @Mapping(source = "budgetCategoriesDTOS", target = "budgetCategories")
+  //  @Mapping(source = "budgetCategoriesDTOS", target = "budgetCategories")
     @Mapping(source = "assetRegisterDTO", target = "assetRegister")
     @Mapping(source = "managementFirmDTO", target = "managementFirm")
     Budget toEntity(BudgetDTO budgetDTO);
