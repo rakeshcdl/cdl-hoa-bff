@@ -29,6 +29,9 @@ public interface FundEgressMapper  extends EntityMapper<FundEgressDTO, FundEgres
     @Mapping(source = "managementFirmBeneficiary", target = "managementFirmBeneficiaryDTO" )
    // @Mapping(source = "suretyBond", target = "suretyBondDTO")
     @Mapping(source = "taskStatus", target = "taskStatusDTO")
+    @Mapping(source = "budget", target = "budgetDTO" )
+    @Mapping(source = "budgetCategory", target = "budgetCategoryDTO" )
+    @Mapping(source = "budgetItem", target = "budgetItemDTO" )
     FundEgressDTO toDto(FundEgress fundEgress);
 
     @Mapping(source = "paymentStatusOptionDTO", target = "paymentStatusOption")
@@ -50,5 +53,8 @@ public interface FundEgressMapper  extends EntityMapper<FundEgressDTO, FundEgres
     @Mapping(source = "managementFirmBeneficiaryDTO", target = "managementFirmBeneficiary")
   //  @Mapping(source = "suretyBondDTO", target = "suretyBond")
     @Mapping(source = "taskStatusDTO", target = "taskStatus")
+    @Mapping(source = "budgetDTO", target = "budget" )
+    @Mapping(source = "budgetCategoryDTO", target = "budgetCategory" )
+    @Mapping(source = "budgetItemDTO", target = "budgetItem" )
     FundEgress toEntity(FundEgressDTO fundEgressDTO);
 }
