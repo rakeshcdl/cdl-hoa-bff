@@ -7,7 +7,7 @@ import com.cdl.escrow.helper.EntityMapper;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
-@Mapper(componentModel = "spring" , uses = { ApplicationSettingMapper.class })
+@Mapper(componentModel = "spring")
 public interface FundEgressMapper  extends EntityMapper<FundEgressDTO, FundEgress> {
 
     @Mapping(source = "paymentStatusOption", target = "paymentStatusOptionDTO")
@@ -22,12 +22,12 @@ public interface FundEgressMapper  extends EntityMapper<FundEgressDTO, FundEgres
     @Mapping(source = "transactionType", target = "transactionTypeDTO")
     @Mapping(source = "beneficiaryFeePayment", target = "beneficiaryFeePaymentDTO")
     @Mapping(source = "payoutToBeMadeFromCbs", target = "payoutToBeMadeFromCbsDTO")
-    @Mapping(source = "managementFirm", target = "managementFirmDTO")
-    @Mapping(source = "ownerRegistryUnit", target = "ownerRegistryUnitDTO")
+    @Mapping(source = "managementFirm", target = "managementFirmDTO" )
+    @Mapping(source = "ownerRegistryUnit", target = "ownerRegistryUnitDTO" )
     @Mapping(source = "transferOwnerRegistryUnit", target = "transferOwnerRegistryUnitDTO")
-    @Mapping(source = "assetRegister", target = "assetRegisterDTO")
-    @Mapping(source = "managementFirmBeneficiary", target = "managementFirmBeneficiaryDTO")
-    @Mapping(source = "suretyBond", target = "suretyBondDTO")
+    @Mapping(source = "assetRegister", target = "assetRegisterDTO" )
+    @Mapping(source = "managementFirmBeneficiary", target = "managementFirmBeneficiaryDTO" )
+   // @Mapping(source = "suretyBond", target = "suretyBondDTO")
     @Mapping(source = "taskStatus", target = "taskStatusDTO")
     FundEgressDTO toDto(FundEgress fundEgress);
 
@@ -45,10 +45,10 @@ public interface FundEgressMapper  extends EntityMapper<FundEgressDTO, FundEgres
     @Mapping(source = "payoutToBeMadeFromCbsDTO", target = "payoutToBeMadeFromCbs")
     @Mapping(source = "managementFirmDTO", target = "managementFirm")
     @Mapping(source = "ownerRegistryUnitDTO", target = "ownerRegistryUnit")
-    @Mapping(source = "transferOwnerRegistryUnitDTO", target = "transferOwnerRegistryUnit")
+    @Mapping(source = "transferOwnerRegistryUnitDTO", target = "transferOwnerRegistryUnit" )
     @Mapping(source = "assetRegisterDTO", target = "assetRegister")
     @Mapping(source = "managementFirmBeneficiaryDTO", target = "managementFirmBeneficiary")
-    @Mapping(source = "suretyBondDTO", target = "suretyBond")
+  //  @Mapping(source = "suretyBondDTO", target = "suretyBond")
     @Mapping(source = "taskStatusDTO", target = "taskStatus")
     FundEgress toEntity(FundEgressDTO fundEgressDTO);
 }

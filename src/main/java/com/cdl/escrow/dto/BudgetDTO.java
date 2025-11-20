@@ -1,5 +1,6 @@
 package com.cdl.escrow.dto;
 
+import com.cdl.escrow.entity.BudgetItem;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -46,4 +47,6 @@ public class BudgetDTO implements Serializable {
     private Set<BudgetCategoryDTO> budgetCategoriesDTOS = new HashSet<>();
 
     private TaskStatusDTO taskStatusDTO;
+
+    private Set<BudgetItemDTO> budgetItemDTOS = new HashSet<>();
 }

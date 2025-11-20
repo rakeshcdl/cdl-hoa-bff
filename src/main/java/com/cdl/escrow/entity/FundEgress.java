@@ -327,21 +327,23 @@ public class FundEgress implements Serializable {
 
     // Budget
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JsonIgnore
     private Budget budget;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JsonIgnore
     private BudgetCategory budgetCategory;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JsonIgnore
     private BudgetItem budgetItem;
 
     // New added
 
     private Boolean feReraException;
+
+    private String  feHoaException;
 
     private String feRoutingSortCode;
 }

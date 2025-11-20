@@ -21,7 +21,7 @@ import java.util.Map;
 @AllArgsConstructor
 public class FundEgressDTO implements Serializable {
 
-    private Long id ;
+    private Long id;
 
     private String feInvoiceNumber;
 
@@ -195,21 +195,21 @@ public class FundEgressDTO implements Serializable {
 
     private WorkflowStatus status;
 
-    private Boolean enabled ;
+    private Boolean enabled;
 
     private Double feCorporateAmount;
 
-   private ApplicationSettingDTO paymentStatusOptionDTO;
+    private ApplicationSettingDTO paymentStatusOptionDTO;
 
-   private ApplicationSettingDTO voucherPaymentTypeDTO;
+    private ApplicationSettingDTO voucherPaymentTypeDTO;
 
-   private ApplicationSettingDTO voucherPaymentSubTypeDTO;
+    private ApplicationSettingDTO voucherPaymentSubTypeDTO;
 
-  private ApplicationSettingDTO expenseTypeDTO;
+    private ApplicationSettingDTO expenseTypeDTO;
 
-   private ApplicationSettingDTO expenseSubTypeDTO;
+    private ApplicationSettingDTO expenseSubTypeDTO;
 
-   private ApplicationSettingDTO invoiceCurrencyDTO;
+    private ApplicationSettingDTO invoiceCurrencyDTO;
 
     private ApplicationSettingDTO paymentCurrencyDTO;
 
@@ -221,23 +221,23 @@ public class FundEgressDTO implements Serializable {
 
     private ApplicationSettingDTO beneficiaryFeePaymentDTO;
 
-   private ApplicationSettingDTO payoutToBeMadeFromCbsDTO;
+    private ApplicationSettingDTO payoutToBeMadeFromCbsDTO;
 
     private ManagementFirmDTO managementFirmDTO;
 
-   private OwnerRegistryUnitDTO ownerRegistryUnitDTO;
+    private OwnerRegistryUnitDTO ownerRegistryUnitDTO;
 
     private OwnerRegistryUnitDTO transferOwnerRegistryUnitDTO;
 
-   private AssetRegisterDTO assetRegisterDTO;
+    private AssetRegisterDTO assetRegisterDTO;
 
-   private ManagementFirmBeneficiaryDTO managementFirmBeneficiaryDTO;
+    private ManagementFirmBeneficiaryDTO managementFirmBeneficiaryDTO;
 
     //private Set<ManagementFirmHistoryDTO> realEstateAssestFeeHistoryDTOS;
 
-    private SuretyBondDTO suretyBondDTO;
+   // private SuretyBondDTO suretyBondDTO;
 
-    private Boolean deleted ;
+    private Boolean deleted;
 
     private TaskStatusDTO taskStatusDTO;
 
@@ -250,4 +250,6 @@ public class FundEgressDTO implements Serializable {
     private Boolean feReraException;
 
     private String feRoutingSortCode;
+
+    private String  feHoaException;
 }
